@@ -1,0 +1,88 @@
+
+<view class="detail_swiper">
+  <!-- <swiper>
+    <swiper-item>
+      <text>轮播图，图片暂缺</text>
+    </swiper-item>
+  </swiper> -->
+  <image src="{{goodObj.good_image}}" class="good_image"></image>
+</view>
+
+<view class="goods_name_row">
+    <!-- box1 -->
+  <view class="info_box1">
+    <view class="goods_price">
+      <view class="goods_price1">¥{{goodObj.good_price}}.00</view>
+      <view class="per">/份</view>
+      <view class="share_icon">
+        <image src="../../icon/share.png"></image>
+        <button open-type="share"></button>
+      </view>
+    </view>
+    <view class="goods_name"> {{goodObj.good_name}}</view>
+    <view class="goods_description">
+      商品详情商品详情
+      <view class="sales">已售<view class="sales_number">20</view>份</view>
+    </view>
+  </view>
+
+  <!-- box2 -->
+  <view class="info_box2">
+    <view class="product_desc">商品详情</view>
+    <view class="info_table">
+      <view class="row row1">
+        <view class="good_supplier">
+          <view class="good_supplier_title">供应商</view>
+          <view class="good_supplier_value">本港</view>
+        </view>
+        <view class="good_production">
+          <view class="good_production_title">产地</view>
+          <view class="good_production_value">广东广州</view>
+        </view>
+      </view>
+      <view class="row row2">
+        <view class="good_publish_date">
+          <view class="good_publish_title">生产日期</view>
+          <view class="good_publish_value">2021年1月5日</view>
+        </view>
+        <view class="good_branch">
+          <view class="good_branch_title">品牌</view>
+          <view class="good_branch_value">本港</view>
+        </view>
+      </view>
+      <view class="row row3">
+        <view class="good_size">
+          <view class="good_size_title">规格</view>
+          <view class="good_size_value">
+            500g<view>/份</view>
+          </view>
+        </view>
+      </view>
+      <view class="row row4">
+        <view class="good_optimal_period">
+          <view class="good_optimal_period_title">品味最佳期</view>  
+          <view class="good_optimal_period_value">7<view>天</view></view>  
+        </view>
+
+      </view>
+    </view>
+  </view>
+  
+</view>
+
+<view class="btm_tool">
+  <navigator open-type="switchTab" url="#" class="tool_item good_home">
+    <!-- <view class="iconfont icon-gouwuche"></view> -->
+    <image src="../../icon/good_home.png" class="good_home_icon"></image>
+    <text>首页</text>
+  </navigator>
+
+  <navigator open-type="switchTab" url="#" class="tool_item good_cart">
+    <image src="../../icon/good_cart.png" class="good_cart_icon"></image>
+    <text>购物车</text>
+  </navigator>
+
+  <view class="btn_cart" bindtap="handleCartAdd">加入购物车</view>
+</view>
+
+

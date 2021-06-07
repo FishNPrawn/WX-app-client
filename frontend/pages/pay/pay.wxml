@@ -1,0 +1,184 @@
+<!--pages/pay/pay.wxml-->
+
+<view class="revice_address_row">
+  <!-- 当收货地址 不存在 按钮显示  对象 空对象 bool类型也是true  -->
+  <view class="address_btn" wx:if="{{!address.userName}}"  >
+    <button bindtap="handleChooseAddress" type="primary"  plain  >获取收货地址</button>
+  </view>
+  
+  <!-- 当收货地址 存在 详细信息就显示 -->
+  <!-- <view class="address_btn" wx:if="{{address.userName}}">
+      <button bindtap="handleChooseAddress" type="primary"  plain  >更改地址</button>
+  </view> -->
+  <view class="user_info_row" wx:if="{{address.userName}}" bindtap="handleChooseAddress">
+    <view class="user_info">
+      <view class="address" >
+        <view>{{address.all}}</view>
+        <image src="../../icon/right_arrow.png"></image>
+      </view>
+      <view class="name_phone">
+        <view>{{address.userName}}</view>
+        <view class="user_phone">{{address.telNumber}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="box2" bindtap="popup" data-position="bottom">
+  <view class="cart_main">
+    <block wx:if="{{cart.length!==0}}">
+        <view class="cart_item"
+        wx:for="{{cart}}"
+        wx:key="good_id"
+        >
+          <image src="{{item.good_image}}"></image>
+        </view>
+    </block>
+    <view class="totol_arrow">
+      <view class="totol_text">共{{totalNum}}件</view>
+      <image class="right_arrow" src="../../icon/right_arrow.png"></image>
+    </view>
+  </view>
+</view>
+
+<view class="box3">
+  <view class="shunfeng">
+    <image src="../../icon/shunfeng.png"></image>
+    <text>顺丰冷链</text>
+  </view>
+  <view class="order_today">
+    <image src="../../icon/check_icon.png"></image>
+    <text>今日下单</text>
+  </view>
+  <view class="arrive_tmr">
+    <image src="../../icon/truck.png"></image>
+    <text>明日新鲜到家</text>
+  </view>
+</view>
+
+<view class="box4">
+  <view class="box3_inside">
+    <!-- 商品金额 -->
+    <view class="totol_price">
+      <view class="fee_text">商品金额</view>
+      <view class="fee_number">
+        <text>￥</text>
+        <view class="totol_price_value_1">{{totalPrice}}</view>
+      </view>  
+    </view>
+    <view class="line1"></view>
+    <!-- 配送费 -->
+    <view class="order_fee">
+      <view class="order_text">配送费</view>
+      <view class="order_number">
+        <text>￥</text>
+        <view class="order_price">0.00</view>
+      </view>  
+    </view>
+    <view class="line1"></view>
+    <!-- 配送费 -->
+    <view class="coupon">
+      <view class="coupon_text">优惠卷</view>
+    </view>
+  </view>
+</view>
+
+<view class="box5">
+  <text>支付方式</text>
+  <view class="line2"></view>
+  <view class="wechat_pay">
+    <image class="wechat_pay_img" src="../../icon/wechat_pay_icon.png"></image>
+    <view class="wechat_pay_text">微信支付</view>
+    <view class="all_chk_wrap">
+      <checkbox class="checkboxCircle"></checkbox>
+    </view>
+  </view>
+</view>
+
+<view class="box6">
+  <text>备注</text>
+  <view class="click_comment">
+    <view class="comment">选填，可以告诉我们您的特殊要求</view>
+    <image src="../../icon/right_arrow.png"></image>
+  </view>
+</view>
+
+
+<view class="footer_tool">
+  <view class="totol_order_box">
+    <view class="totol_order">
+      <!-- 总价格 -->
+      <view class="total_price_wrap">
+        <view class="total_price_text">
+          <text>合计:</text> 
+          <view class="totol_price_value">
+            <text>￥</text>
+            <view class="totol_price_value_1">{{totalPrice}}</view>
+          </view>
+        </view>
+        <!-- <text class="total_price_text">合计: ￥{{totalPrice}}</text> -->
+      </view>
+      <!-- 结算 -->
+      <button class="pay_button" bindtap="handlePay" type="primary"  plain>立即支付</button>
+    </view>
+  </view>
+</view>
+
+
+<page-container 
+  show="{{show}}"
+  round="{{round}}"
+  duration="{{duration}}"
+  position="{{position}}"
+  close-on-slide-down="{{false}}"
+  bindbeforeenter="onBeforeEnter"
+  bindenter="onEnter"
+  bindafterenter="onAfterEnter"
+  bindbeforeleave="onBeforeLeave"
+  bindleave="onLeave"
+  bindafterleave="onAfterLeave"
+  custom-style="{{customStyle}}"
+  class="page_container"
+>
+  <view class="detail-page">
+    <view class="title_close">
+      <view class="totol_good">共{{totalNum}}件商品</view>
+      <image bindtap="exit" class="close" src="../../icon/close_icon.png"></image>
+    </view>
+    <view class="line2"></view>
+    
+    <view class="cart_content">
+      <view class="cart_main">
+        <block wx:if="{{cart.length!==0}}">
+            <view class="cart_item"
+              wx:for="{{cart}}"
+              wx:key="good_id"
+            >
+              <view class="cart_item_block">
+                <!-- 商品图片 -->
+                <image src="{{item.good_image}}"></image>
+                <!-- 商品信息和价格 -->
+                <view class="cart_info_wrap">
+                  <view class="wrap_line1">
+                    <view class="good_name">{{item.good_name}}</view>
+                    <view class="good_price">￥{{item.good_price}} </view>
+                  </view>
+                  <!-- 单价 -->
+                  <view class="wrap_line2">
+                    <view class="good_weight">单价：{{item.good_weight}}g/份</view>
+                  </view>
+                  <!--数量 -->
+                  <view class="wrap_line3">
+                    <view class="good_num">数量：{{item.num}}份</view>
+                  </view>
+                </view>
+              </view>
+              <view class="line3"></view>
+            </view>
+        </block>
+      </view>
+    </view>
+
+
+  </view>
+</page-container>

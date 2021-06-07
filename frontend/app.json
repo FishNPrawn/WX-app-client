@@ -1,0 +1,65 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/pay/pay",
+    "pages/category/category",
+    "pages/cart/cart",
+    "pages/something/something",
+    "pages/personal/personal",
+    "pages/good_list/good_list",
+    "pages/good_detail/good_detail",
+    "pages/collect/collect",
+    "pages/order/order",
+    "pages/searchResult/searchResult",
+    "pages/user/user",
+    "pages/feedback/feedback",
+    "pages/auth/auth",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"dark",
+    "navigationBarBackgroundColor": "#FFA760",
+    "navigationBarTitleText": "FishNprawn",
+    "navigationBarTextStyle":"white"
+  },
+  "tabBar": {
+    "color": "#000000",
+    "selectedColor":"#FFA760",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "icon/home1.png",
+        "selectedIconPath": "icon/home2.png"
+      },
+      {
+        "pagePath": "pages/category/category",
+        "text": "分类",
+        "iconPath": "icon/list1.png",
+        "selectedIconPath": "icon/list2.png"
+      },
+      {
+        "pagePath": "pages/something/something",
+        "text": "直播",
+        "iconPath": "icon/something1.png",
+        "selectedIconPath": "icon/something2.png"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "text": "购物车",
+        "iconPath": "icon/shoppingbag1.png",
+        "selectedIconPath": "icon/shoppingbag2.png"
+      },
+      {
+        "pagePath": "pages/personal/personal",
+        "text": "个人资料",
+        "iconPath": "icon/user1.png",
+        "selectedIconPath": "icon/user2.png"
+      }
+      
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+  
+}

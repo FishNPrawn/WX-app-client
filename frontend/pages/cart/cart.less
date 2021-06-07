@@ -1,0 +1,349 @@
+page{
+  padding-bottom: 90rpx;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f6f6f6;
+}
+.revice_address_row{
+  .address_btn{
+    padding: 25rpx;
+    button{
+      width: 40%;
+    }
+  }
+  .user_info_row{
+    display: flex;
+    padding: 20rpx;
+    .user_info{
+      flex: 5;
+    }
+    .user_phone{
+      flex: 3;
+      text-align: right;
+    }
+  }
+}
+.cart_title {
+  padding: 20rpx;
+  font-size: 40rpx;
+  color: var(--themeColor);
+}
+.cart_content {
+  //background-color: rgb(245, 245, 245);
+  .cart_main {
+    height: 100%;
+    width: 95%;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 8px 3px 3px rgb(231, 231, 231);
+    margin: auto;
+    .cart_item {
+      display: flex;
+      padding: 20rpx;
+      .cart_chk_wrap {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        checkbox-group{
+          checkbox .wx-checkbox-input{
+            border-radius: 50%;
+            width: 42rpx; 
+            height: 42rpx; 
+            border: 1px solid rgb(156, 156, 156);
+          }
+          checkbox .wx-checkbox-input.wx-checkbox-input-checked{
+            border: 1rpx solid #FFA760;
+            background: #FFA760;
+          }
+          checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
+            border-radius: 50%;
+            width: 36rpx;
+            height: 36rpx;
+            line-height: 36rpx;
+            text-align: center;
+            font-size:28rpx;
+            color:#fff; 
+            background: transparent;
+            transform:translate(-50%, -50%) scale(1);
+            -webkit-transform:translate(-50%, -50%) scale(1);
+          }
+        }
+      }
+      .cart_img_wrap {
+        flex: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        image {
+          width: 150rpx;
+          height: 150rpx;
+          border-radius: 3px;
+        }
+      }
+
+      .cart_info_wrap {
+        flex: 4;
+        display: block;
+        // flex-direction: column;
+        justify-content: space-around;
+        .good_name {
+          margin-top: 10rpx;
+          display: -webkit-box;
+          overflow: hidden;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp:2;
+          color: rgb(0, 0, 0);
+        }
+        .good_weight{
+          color: #c7c7c7;
+          font-size: 28rpx;
+        }
+
+        .good_price_wrap {
+          display: flex;
+          justify-content: space-between;
+          .good_price {
+            color: var(--themeColor);
+            font-size: 34rpx;
+            margin-top: 40rpx;
+            color: red;
+            display: flex;
+            .rmb{
+              font-size: 28rpx;
+              margin-top: 6rpx;
+            }
+            .per{
+              color: grey;
+              font-size: 26rpx;
+              margin-top: 5rpx;
+              margin-left: 2px;
+            }
+          }
+
+          .cart_num_tool {
+            display: flex;
+            margin-top: 40rpx;
+            .num_edit {
+              width: 50rpx;
+              height: 50rpx;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              border: 1rpx solid #f0f0f0;
+              font-size: 15px;
+            }
+            .minus{
+              border-radius: 5px 0px 0px 5px;
+            }
+            .plus{
+              border-radius: 0px 5px 5px 0px;
+            }
+
+            .good_num {
+              width: 70rpx;
+              height: 50rpx;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              font-size: 15px;
+              border-top: 1rpx solid #f0f0f0;
+              border-bottom: 1rpx solid #f0f0f0;
+            }
+          }
+        }
+      }
+    }
+    .empty_info{
+      height: 100%;
+      // position: absolute;
+      // top: 40%;
+      // left: 50%;
+      // transform: translate(-50%, -50%);
+      .img_empty_cart{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .empty_cart{
+          height: 190px;
+          width: 250px;
+        }
+      }
+      .empty_message{
+        text-align: center;
+        font-size: 17px;
+        color: rgb(114, 114, 114);
+        font-weight: 350;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      }
+      .good_home{
+        height: 45px;
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .shopping_text{
+          height: 45px;
+          width: 50%;
+          background-color: #52b4f8;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: #fff;
+          font-size: 17px;
+          font-weight: 450;
+          position: absolute;
+          border-radius: 30px;
+          text-align: center;
+          font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+      }
+    }
+  }
+}
+
+.footer_tool {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100rpx;
+  background-color: #fff;
+  display: flex;
+  border-top: 1rpx solid #ccc;
+  .all_chk_wrap {
+    margin-left: 20rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    checkbox-group{
+      checkbox .wx-checkbox-input{
+        border-radius: 50%;
+        width: 42rpx; 
+        height: 42rpx; 
+        border: 1px solid rgb(156, 156, 156);
+      }
+      checkbox .wx-checkbox-input.wx-checkbox-input-checked{
+        border: 1rpx solid #FFA760;
+        background: #FFA760;
+      }
+      checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
+        border-radius: 50%;
+        width: 36rpx;
+        height: 36rpx;
+        line-height: 36rpx;
+        text-align: center;
+        font-size:28rpx;
+        color:#fff; 
+        background: transparent;
+        transform:translate(-50%, -50%) scale(1);
+        -webkit-transform:translate(-50%, -50%) scale(1);
+      }
+    }
+  }
+  .totol_order_box{
+    position: absolute;
+    right: 10px;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    margin-top: 5px;
+    .totol_order{
+      display: flex;
+      justify-items: center;
+      align-items: center;
+      text-align: center;
+      .total_price_wrap{
+        display: flex;
+        justify-items: center;
+        align-items: center;
+        text-align: center;
+        .total_price_text{
+          display: flex;
+          text{
+            color: rgb(51, 51, 51);
+            font-size: 12px;
+            margin-top: 4px;
+          }
+          .totol_price_value{
+            color: red;
+            display: flex;
+            margin-top: 5rpx;
+            text{
+              margin-top: 4px;
+              font-size: 12px;
+              color: red;
+            }
+            .totol_price_value_1{
+              font-size: 16px;
+              margin-left: 2px;
+            }
+          }
+          
+        }
+      }
+      .pay_button{
+        background-color: tomato;
+        color: white;
+        font-size: 17px;
+        font-weight: 400;
+        border: none;
+        height: 80rpx;
+        width: 240rpx;
+        border-radius: 20px;
+        margin-left: 5px;
+		    text-align: center;
+        background-image: linear-gradient(to right, tomato 0%, #F45C43  51%, #e97254  100%);
+      }
+    }
+  }
+}
+
+//  iphone 6/7/8 & X
+@media screen and (max-width:320px){
+  .empty_info{
+    margin-top: 15%;
+    width: 320px;
+  }
+  .good_home{
+    width: 320px;
+  }
+}
+
+// iphone 6/7/8Plus XR XRMAX
+@media screen and (max-width:414px){
+  .empty_info{
+    margin-top: 25%;
+    width: 414px;
+  }
+  .good_home{
+    width: 414px;
+  }
+}
+
+//  iphone 6/7/8 & X
+@media screen and (max-width:375px){
+  .empty_info{
+    margin-top: 15%;
+    width: 375px;
+  }
+  .good_home{
+    width: 375px;
+  }
+}
+
+//  iphone 5
+@media screen and (max-width:320px){
+  .empty_info{
+    margin-top: 10%;
+    width: 320px;
+    .img_empty_cart{
+      .empty_cart{
+        height: 95px;
+        width: 125px;
+      }
+    }
+  }
+  .good_home{
+    width: 320px;
+  }
+}

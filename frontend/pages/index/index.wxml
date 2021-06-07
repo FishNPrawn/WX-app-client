@@ -1,0 +1,152 @@
+<view class="search_wrap">
+    <navigator id="search" open-type="redirect" bindtap="onClick" url="{{urlPath}}">
+        <image class="search_icon" src="../../icon/search.png"></image>
+        <text>海鲜特价</text>
+        <view class="search_btn">搜索</view>
+    </navigator>
+</view>
+<view class = "pyq_index">
+  <!-- 轮播图开始-->
+  <view class = "index_swiper">
+  <swiper autoplay="TRUE" indicator-dots="TRUE" circular="TRUE ">
+    <swiper-item
+      wx:for="{{swiperList}}"
+      wx:key="good_id"
+    >
+    <navigator>
+      <image mode = "widthFix" src="{{item.image_src}}"></image>
+    </navigator>
+    </swiper-item>
+  </swiper>
+  </view>
+  <!-- 轮播图结束-->
+</view>
+
+<view class="box3">
+  <view class="shunfeng">
+    <image src="../../icon/shunfeng.png"></image>
+    <text>顺丰冷链</text>
+  </view>
+  <view class="order_today">
+    <image src="../../icon/check_icon.png"></image>
+    <text>次日达</text>
+  </view>
+  <view class="arrive_tmr">
+    <image src="../../icon/truck.png"></image>
+    <text>产地直销</text>
+  </view>
+</view>
+
+<view class="main_category">
+  <!-- 第一行首页分类导航-->
+  <index class="index_cate">
+    <view class="cat1">
+      <navigator id="0" url="/pages/category/category" bindtap="onClick">
+        <image src="../../icon/index_shrimp.png"></image>
+        <view>虾类</view>
+      </navigator>
+    </view>
+    <view class="cat2">
+      <navigator id="3" url="/pages/category/category" bindtap="onClick">
+        <image src="../../icon/index_fish.png"></image>
+        <view>鱼类</view>
+      </navigator>
+    </view>
+    <view class="cat3">
+      <navigator id="1" url="/pages/category/category" bindtap="onClick">
+        <image src="../../icon/index_shrimp.png"></image>
+        <view>海鲜水产</view>
+      </navigator>
+    </view>
+    <view class="cat4">
+      <navigator id="4" url="/pages/category/category" bindtap="onClick">
+        <image src="../../icon/index_fish.png"></image>
+        <view>螃蟹</view>
+      </navigator>
+    </view>
+  </index>
+
+  <!-- 第二行首页分类导航 -->
+  <index class="index_cate2">
+    <view class="cat5">
+      <navigator id="0" url="/pages/category/category" bindtap="onClick">
+        <image src="../../icon/index_fish.png"></image>
+        <view>海鲜水产</view>
+      </navigator>
+    </view>
+    <view class="cat6">
+      <navigator id="0" url="/pages/category/category" bindtap="onClick">
+        <image src="../../icon/index_shrimp.png"></image>
+        <view>海鲜水产</view>
+      </navigator>
+    </view>
+    <view class="cat7">
+      <navigator id="0" url="/pages/category/category" bindtap="onClick">
+        <image src="../../icon/index_fish.png"></image>
+        <view>海鲜水产</view>
+      </navigator>
+    </view>
+    <view class="cat8">
+      <navigator id="0" url="/pages/category/category" bindtap="onClick">
+        <image src="../../icon/index_shrimp.png"></image>
+        <view>海鲜水产</view>
+      </navigator>
+    </view>
+  </index>
+</view>
+
+<view class="ads">
+  <view class="ads_left">
+    <view class="ads_text1">鲜活鲍鱼19.9元/5只</view>
+    <view class="ads_text2">鲜美味道挡不住</view>
+    <view class="ads_btn">
+      <view>立即抢购</view>
+      <image src="../../icon/right_arrow_orange.png"></image>
+    </view>
+  </view>
+  <view class="ads_right1"></view>
+  <view class="ads_right2"></view>
+  <image class="ads_img" src="../../icon/ads_img.png"></image>
+</view>
+
+<!--Preference goods display-->
+<view class="preference_display">
+  <view class="preference_text">
+    <view class="preference_text1">猜你喜欢</view>
+    <view class="preference_text2">
+      <text>精选好货</text>
+    </view>
+  </view>
+  
+  <van-row gutter="0"
+        wx:for = "{{goods_list}}"
+        wx:for-index="index1"
+        wx:for-item="item1"
+        class="preference_row"
+  >
+    <van-col span="12"
+          wx:for = "{{goods_list[index1]}}"
+          wx:if="{{goods_list[index1]}}"
+          wx:for-index="index2"
+          wx:for-item="item2"
+          class="preference_col"
+    >
+      <view class="navigator_box">
+        <navigator
+          url="/pages/good_detail/good_detail?good_id={{item2.good_id}}"
+          class="good_navigator"
+        >
+          <image src="{{item2.good_image}}" class="goods_image"></image>
+          <view class="goods_msg">
+            <view class="goods_name">{{item2.good_name}}</view>
+            <view class="goods_description">{{item2.good_description}}</view>
+          </view>
+        </navigator>
+        <view class="add_icon">
+          <view class="goods_price">¥{{item2.good_price}}</view>    
+          <image data-variable="{{item2}}" bindtap="handleCartAdd" class="add_to_cart" src="../../icon/shopping-cart.png"></image>
+        </view>
+      </view>  
+    </van-col>
+  </van-row>
+</view>

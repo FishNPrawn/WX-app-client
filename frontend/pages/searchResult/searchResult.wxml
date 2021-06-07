@@ -1,0 +1,7 @@
+<view class="search_row">
+    <input value="{{inputValue}}" bindinput="handleInput" class="inp" placeholder="请输入"></input>
+    <button class="btn" bind:tap="handleCancel">取消</button>
+</view>
+<view class="search_content">
+    <view class="search_item" wx:for="{{searchResult}}">{{item.good_name}}</view>
+</view>

@@ -1,0 +1,446 @@
+/* pages/good_detail/good_detail.wxss */
+page{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #e8ebf4;
+  height: 100%;
+  width: 100%;
+}
+.detail_swiper{
+  height: 80vw;
+  .good_image {
+    height: 80vw;
+    width: 100%;
+  }
+}
+.goods_name_row{
+  display: block;
+  .info_box1{
+    width: 100%;
+    height: 28vw;
+    margin: auto;
+    background-color: white;
+    .goods_price{
+      display: flex;
+      font-weight: 450;
+      margin-left: 15px;
+      .goods_price1{
+        margin-top: 10px;
+        color: red;
+        font-size: 25px;
+      }
+      .per{
+        color: black;
+        font-size: 13px;
+        margin-top: 20px;
+      }
+      .share_icon{
+        button{
+          margin-top: 10px;
+          position: absolute;
+          width: 28px;
+          height: 28px;
+          right: 10px;
+          opacity: 0;
+        }
+        image{
+          margin-top: 10px;
+          width: 28px;
+          height: 28px;
+          position: absolute;
+          right: 10px;
+        }
+      }
+    }
+    .goods_name{
+      color: black;
+      font-size: 18px;
+      font-weight: 400;
+      margin-left: 15px;
+      margin-top: 5px;
+    }
+    .goods_description{
+      color: rgb(139, 139, 139);
+      font-size: 12px;
+      margin-left: 15px;
+      margin-top: 15px;
+      display: flex;
+      .sales{
+        position: absolute;
+        right: 10px;
+        display: flex;
+        font-weight: 450;
+        .sales_number{
+          color:red;
+        }
+      }
+    }
+  }
+  .info_box2{
+    width: 100%;
+    height: 76vw;
+    background-color: white;
+    margin-top: 10px;
+    display: block;
+    .product_desc{
+      padding: 15px;
+      font-weight: 420;
+      font-size: 20px;
+    }
+    .info_table{
+      display: block;
+      width: 93%;
+      height: 50vw;
+      margin: auto;
+      font-size: 14px;
+      .row{
+        width: 100%;
+        height: 12vw;
+        margin-top: 2px;
+        background-color: #f6f7f9;
+        display: flex;
+        // ---------------供应商begin----------------//
+        .good_supplier{
+          display: flex;
+          width: 50%;
+          height: 100%;
+          .good_supplier_title{
+            background-color: #edf1f4;
+            border-radius: 10px 0px 0px 0px;
+            width: 21vw;     
+            height: 100%; 
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 440;
+          }
+          .good_supplier_value{
+            height: 100%;
+            color: rgb(139, 139, 139);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 10px;
+          }
+        }
+        // ---------------供应商end----------------//
+
+        // ---------------产地begin----------------//
+        .good_production{
+          display: flex;
+          align-items: center;
+          width: 50%;
+          .good_production_title{  
+            background-color: #edf1f4;
+            width: 21vw;     
+            height: 100%; 
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 440;
+          }
+          .good_production_value{
+            height: 100%;
+            color: rgb(139, 139, 139);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 10px;
+          }
+        }
+        // ---------------产地end----------------//
+
+        // ---------------生产日期begin----------------//
+        .good_publish_date{
+          display: flex;
+          width: 50%;
+          height: 100%;
+          .good_publish_title{
+            background-color: #edf1f4;
+            width: 21vw;     
+            height: 100%; 
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 440;
+          }
+          .good_publish_value{
+            height: 100%;
+            color: rgb(139, 139, 139);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 10px;
+          }
+        }
+        // ---------------生产日期end----------------//
+
+        // ---------------产地begin----------------//
+        .good_branch{
+          display: flex;
+          align-items: center;
+          width: 50%;
+          .good_branch_title{  
+            background-color: #edf1f4;
+            width: 21vw;     
+            height: 100%; 
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 440;
+          }
+          .good_branch_value{
+            height: 100%;
+            color: rgb(139, 139, 139);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 10px;
+          }
+        }
+        // ---------------产地end----------------//
+        
+        // ---------------规格begin----------------//
+        .good_size{
+          display: flex;
+          width: 50%;
+          height: 100%;
+          .good_size_title{
+            background-color: #edf1f4;
+            width: 21vw;     
+            height: 100%; 
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 440;
+          }
+          .good_size_value{
+            height: 100%;
+            color: rgb(139, 139, 139);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 10px;
+          }
+        }
+        // ---------------规格end----------------//
+
+        // ---------------生产日期begin----------------//
+        .good_optimal_period{
+          display: flex;
+          width: 50%;
+          height: 100%;
+          .good_optimal_period_title{
+            border-radius: 0px 0px 10px 10px;
+            background-color: #edf1f4;
+            width: 21vw;     
+            height: 100%; 
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 440;
+          }
+          .good_optimal_period_value{
+            height: 100%;
+            color: rgb(139, 139, 139);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 10px;
+          }
+        }
+        // ---------------生产日期end----------------//
+      }
+      .row1{
+        border-radius: 10px 10px 0px 0px;
+      }
+      .row4{
+        border-radius: 0px 0px 10px 10px;
+      }
+    }
+  }
+}
+
+.btm_tool{
+  border-top: 0.5rpx solid rgb(230, 230, 230);
+  display: flex;
+  position: fixed;
+  align-items: center;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 66px;
+  background-color: white;
+  .good_home{
+    margin-left: 10px;
+  }
+  .good_cart{
+    margin-left: 5px;
+  }
+  .tool_item{
+    // flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 24rpx;
+    position: relative;
+    width: 56px;
+    height: 56px;
+    button{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+    }
+    .good_cart_icon, .good_home_icon{
+      height: 35px;
+      width: 32px;
+    }
+    text{
+      color: #4d4d4d;
+      font-size: 12px;
+    }
+  }
+  .btn_cart{
+    // flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFA760;
+    color: #fff;
+    font-size: 30rpx;
+    font-weight: 600;
+    width: 62%;
+    height: 76%;
+    position: absolute;
+    right: 10px;
+    border-radius: 30px;
+    text-align: center;
+  }
+
+}
+
+// Cellphone with Iphone5(320x568)
+@media screen and (max-width:320px){
+  .goods_name_row{
+    .info_box1{
+      .goods_price{
+        .goods_price1{
+          font-size: 19px;
+        }
+        .per{
+          font-size: 8px;
+        }
+        .share_icon{
+          button{
+            width: 22px;
+            height: 22px;
+          }
+          image{
+            width: 22px;
+            height: 22px;
+          }
+        }
+      }
+      .goods_name{
+        font-size: 12px;
+      }
+      .goods_description{
+        font-size: 10px;
+      }
+    }
+    .info_box2{
+      width: 100%;
+      height: 76vw;
+      .product_desc{
+        font-size: 14px;
+      }
+      .info_table{
+        display: block;
+        width: 93%;
+        height: 50vw;
+        margin: auto;
+        font-size: 10px;
+        .row{
+          width: 100%;
+          height: 11vw;
+          margin-top: 2px;
+          background-color: #f6f7f9;
+          display: flex;
+        }
+      }
+    }
+  }
+
+  .btm_tool{
+    height:60px;
+    .tool_item{
+      width: 50px;
+      height: 50px;
+      .good_cart_icon, .good_home_icon{
+        height: 30px;
+        width: 27px;
+      }
+      text{
+        color: #4d4d4d;
+        font-size: 10px;
+      }
+    }
+    .btn_cart{
+      width: 56%;
+      height:70%;
+    }
+  }
+}
+
+// Cellphone with Iphone6/7/8(375x667)
+@media screen and (max-width:375px){
+  .goods_name_row{
+    .info_box1{
+      .goods_price{
+        .goods_price1{
+          font-size: 21px;
+        }
+        .per{
+          font-size: 10px;
+        }
+        .share_icon{
+          button{
+            width: 24px;
+            height: 24px;
+          }
+          image{
+            width: 24px;
+            height: 24px;
+          }
+        }
+      }
+      .goods_name{
+        font-size: 14px;
+      }
+      .goods_description{
+        font-size: 12px;
+      }
+    }
+    .info_box2{
+      .product_desc{
+        font-size: 16px;
+      }
+      .info_table{
+        font-size: 12px;
+        .row{
+          height: 11vw;
+        }
+      }
+    }
+  }
+}
