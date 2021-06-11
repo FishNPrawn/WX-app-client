@@ -36,26 +36,7 @@ Page({
     })
 
   },
-
-  // 授权登录
-  handleGetUserInfo(e){
-    // console.log(e);
-    const {userInfo} = e.detail;
-    wx.setStorageSync('userinfo', userInfo);
-    // 如果授权之后会回到前一页
-    wx-wx.navigateBack({
-      delta: (1)
-    });
-  },
-
-  // 获取手机号码(后期如果需要)
-  getPhoneNumber (e) {
-    console.log(e.detail.errMsg)
-    console.log(e.detail.iv)
-    console.log(e.detail.encryptedData)
-  },
   
-
   popup(e) {
     const position = e.currentTarget.dataset.position
     let customStyle = ''

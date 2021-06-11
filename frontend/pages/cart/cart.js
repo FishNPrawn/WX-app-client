@@ -22,6 +22,25 @@ Page({
     this.setCart(cart);
 
   },
+
+  // 授权登录
+  handleGetUserInfo(e){
+    // console.log(e);
+    const {userInfo} = e.detail;
+    wx.setStorageSync('userinfo', userInfo);
+    // 如果授权之后会回到前一页
+    wx-wx.navigateBack({
+      delta: (1)
+    });
+  },
+
+  // 获取手机号码(后期如果需要)
+  getPhoneNumber (e) {
+    console.log(e.detail.errMsg)
+    console.log(e.detail.iv)
+    console.log(e.detail.encryptedData)
+  },
+
   // 设置购物车状态同时 重新计算 底部工具栏的数据 全选 总价格 购买的数量
   setCart(cart) {
     let allChecked = true;
