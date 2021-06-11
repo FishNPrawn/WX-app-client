@@ -1,19 +1,17 @@
 {
   "pages":[
     "pages/index/index",
+    "pages/personal/personal",
     "pages/pay/pay",
-    
-    
     "pages/category/category",
     "pages/cart/cart",
     "pages/something/something",
-    "pages/personal/personal",
+    "pages/user/user",
     "pages/good_list/good_list",
     "pages/good_detail/good_detail",
     "pages/collect/collect",
     "pages/order/order",
     "pages/searchResult/searchResult",
-    "pages/user/user",
     "pages/feedback/feedback",
     "pages/auth/auth",
     "pages/logs/logs"
