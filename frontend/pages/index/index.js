@@ -16,6 +16,22 @@ Page({
     //发送异步请求获取轮播图数据
     this.getSwiperList();
     this.getCates();
+
+    // 获取当前的地理位置、速度。
+    wx.getLocation({
+      type: 'wgs84',
+      success(res) {
+        const latitude = res.latitude //纬度
+        const longitude = res.longitude //经度
+        const speed = res.speed
+        const accuracy = res.accuracy
+        // console.log(latitude)
+        // console.log(longitude)
+        // console.log(speed)
+        // console.log(accuracy)
+      }
+      
+    })
   },
     //获取轮播图数据
     getSwiperList(){

@@ -119,7 +119,8 @@
         <!-- <text class="total_price_text">合计: ￥{{totalPrice}}</text> -->
       </view>
       <!-- 结算 -->
-      <button class="pay_button" bindtap="handlePay" type="primary"  plain>立即支付</button>
+        <button class="pay_button" bindtap="handlePay" data-position="bottom" type="primary" open-type="getUserInfo" bindgetuserinfo="handleGetUserInfo"  plain >立即支付</button>
+        <!-- <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber"></button> -->
     </view>
   </view>
 </view>
