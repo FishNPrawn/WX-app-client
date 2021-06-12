@@ -1,1 +1,67 @@
-/* pages/personal/personal.wxss */
+page {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f8f8f8;
+}
+.box1 {
+  height: 150px;
+  width: 100%;
+  background: #FFA760;
+}
+.box1 .box1_row1 {
+  display: flex;
+  margin-left: 15px;
+}
+.box1 .box1_row1 .profile_img {
+  height: 65px;
+  width: 65px;
+  border-radius: 50%;
+}
+.box1 .box1_row1 .profile_name {
+  margin-left: 8px;
+  margin-top: 10px;
+}
+.box1 .box1_row2 {
+  height: 50px;
+  display: flex;
+  padding: 15px 35px 5px 35px;
+  justify-content: space-between;
+}
+.box1 .box1_row2 .box1_row2_img_name {
+  text-align: center;
+}
+.box1 .box1_row2 .box1_row2_img_name .box1_row2_icon {
+  height: 22px;
+  width: 22px;
+}
+.box1 .box1_row2 .box1_row2_img_name .box1_row2_text {
+  font-weight: 300;
+  font-size: 12px;
+}
+.box1 .box1_row3 {
+  height: 60px;
+  background: white;
+  height: 70px;
+  width: 94%;
+  border-radius: 10px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+.box1 .box1_row3 .box1_row3_warper {
+  display: flex;
+  padding: 15px 15px 15px 15px;
+  justify-content: space-between;
+}
+.box1 .box1_row3 .box1_row3_warper .box1_row3_img_name {
+  text-align: center;
+}
+.box1 .box1_row3 .box1_row3_warper .box1_row3_img_name .box1_row3_icon {
+  height: 22px;
+  width: 22px;
+}
+.box1 .box1_row3 .box1_row3_warper .box1_row3_img_name .box1_row3_text {
+  font-weight: 300;
+  font-size: 12px;
+}

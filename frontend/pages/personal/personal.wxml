@@ -1,0 +1,56 @@
+<!-- 用户信息 -->
+<view class="box1">
+  <!-- row1 -->
+  <view class="box1_row1">
+    <image src="{{userinfo.avatarUrl}}" class="profile_img"></image>
+    <view class="profile_name">{{userinfo.nickName}}</view>
+  </view>
+
+  <!-- row2 -->
+  <view class="box1_row2">
+    <view class="box1_row2_img_name">
+      <image src="../../icon/star.png" class="box1_row2_icon"></image>
+      <view class="box1_row2_text">收藏</view>
+    </view>
+    <view class="box1_row2_img_name">
+      <image src="../../icon/wechat.png" class="box1_row2_icon"></image>
+      <view class="box1_row2_text">公众号</view>
+    </view>
+    <view class="box1_row2_img_name">
+      <image src="../../icon/headphones.png" class="box1_row2_icon"></image>
+      <view class="box1_row2_text">客服</view>
+    </view>
+    <view class="box1_row2_img_name">
+      <image src="../../icon/credit-card.png" class="box1_row2_icon"></image>
+      <view class="box1_row2_text">红包卡卷</view>
+    </view>
+  </view>
+
+  <!-- row3 -->
+  <view class="box1_row3">
+    <view class="box1_row3_warper">
+      <view class="box1_row3_img_name">
+        <image src="../../icon/pre_pay.png" class="box1_row3_icon"></image>
+        <view class="box1_row3_text">待付款</view>
+      </view>
+      <view class="box1_row3_img_name">
+        <image src="../../icon/wait_deliver.png" class="box1_row3_icon"></image>
+        <view class="box1_row3_text">待发货</view>
+      </view>
+      <view class="box1_row3_img_name">
+        <image src="../../icon/pre_get_package.png" class="box1_row3_icon"></image>
+        <view class="box1_row3_text">待收货</view>
+      </view>
+      <view class="box1_row3_img_name">
+        <image src="../../icon/pre_comment.png" class="box1_row3_icon"></image>
+        <view class="box1_row3_text">待评价</view>
+      </view>
+      <view class="box1_row3_img_name">
+        <image src="../../icon/my_order.png" class="box1_row3_icon"></image>
+        <view class="box1_row3_text">所有订单</view>
+      </view>
+    </view>
+    
+  </view>
+
+</view>
