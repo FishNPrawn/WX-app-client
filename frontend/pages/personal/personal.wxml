@@ -1,9 +1,12 @@
 <!-- 用户信息 -->
 <view class="box1">
   <!-- row1 -->
-  <view class="box1_row1">
-    <image src="{{userinfo.avatarUrl}}" class="profile_img"></image>
-    <view class="profile_name">{{userinfo.nickName}}</view>
+  <view wx:if="{{userInfo.avatarUrl}}" class="box1_row1">
+    <image src="{{userInfo.avatarUrl}}" class="profile_img"></image>
+    <view class="profile_name">{{userInfo.nickName}}</view>
+  </view>
+  <view wx:else class="box1_row1">
+    <navigator url="/pages/auth/auth">切换至授权页面</navigator>
   </view>
 
   <!-- row2 -->
