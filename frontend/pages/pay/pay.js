@@ -36,7 +36,7 @@ Page({
     })
 
   },
-
+  
   popup(e) {
     const position = e.currentTarget.dataset.position
     let customStyle = ''
