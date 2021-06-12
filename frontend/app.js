@@ -56,6 +56,7 @@ App({
 
   },
   globalData: {
-    userInfo: null
+    userInfo: {},
+    baseUrl: 'https://fishnprawn.cn'
   }
 })
