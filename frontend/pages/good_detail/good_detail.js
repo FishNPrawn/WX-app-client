@@ -1,5 +1,6 @@
 import{request} from"../../request/index.js";
 // import regeneratorRuntime from '../../lib/runtime/runtime';   //Not used for now, need to fix in the future
+let app = getApp();
 Page({
   /**
    * 页面的初始数据
@@ -23,7 +24,7 @@ Page({
    * 获取商品数据
    */
   async getGoodDetail(good_id) {
-    let res = await request({url:"https://www.fishnprawn.cn/fishnprawn/good/getbyid/"+good_id});
+    let res = await request({url: app.globalData.baseUrl + '/good/getbyid/'+good_id});
     const goodObj = res.data;
     this.goodInfo = goodObj;
     let collect = wx.getStorageSync("collect") || [];

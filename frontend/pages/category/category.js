@@ -1,4 +1,5 @@
 import{request} from"../../request/index.js";
+let app = getApp();
 Page({
   data: {
     //left menu
@@ -28,7 +29,7 @@ Page({
   // 获取分类数据
   getCates(){
     request({
-      url:"https://www.fishnprawn.cn/fishnprawn/good/getAllgood"
+      url: app.globalData.baseUrl + '/good/getAllgood',
     })
     .then(res=>{
       this.Cates=res.data.data

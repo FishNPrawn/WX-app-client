@@ -1,5 +1,6 @@
 import {request} from "../../request/index.js";
 //page object 
+let app = getApp();
 Page({
   data: {
     goods_list:[],
@@ -45,7 +46,7 @@ Page({
 
     getCates(){
       request({
-        url:"https://www.fishnprawn.cn/fishnprawn/good/getAllgood"
+        url: app.globalData.baseUrl + '/good/getAllgood'
       })
       .then(res=>{
         this.Cates=res.data.data
