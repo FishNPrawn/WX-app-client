@@ -3,5 +3,11 @@
     <button class="btn" bind:tap="handleCancel">取消</button>
 </view>
 <view class="search_content">
-    <view class="search_item" wx:for="{{searchResult}}">{{item.good_name}}</view>
+    <navigator 
+        class="search_item" 
+        wx:for="{{searchResult}}" 
+        url="/pages/good_detail/good_detail?good_id={{item.good_id}}"
+    >
+        {{item.good_name}}
+    </navigator>
 </view>

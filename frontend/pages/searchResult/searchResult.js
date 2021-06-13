@@ -43,7 +43,7 @@ Page({
     // data，搜索的关键词，这边接口会自动处理并返回带有关键词的内容，
     // 不是因为wx.request又会发送ajax，还会给你自动筛选
     wx.request({
-      url: app.globalData.baseUrl + 'good/good_filter?filter='+query,
+      url: app.globalData.baseUrl + '/good/good_filter?filter='+query,
       // 请求成功时调用
       success: (result) => {
         // 将获取的值，赋值给定义的searchResult，WXML文件获取渲染
