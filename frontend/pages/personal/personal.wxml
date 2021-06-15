@@ -6,7 +6,9 @@
     <view class="profile_name">{{userInfo.nickName}}</view>
   </view>
   <view wx:else class="box1_row1">
-    <navigator url="/pages/auth/auth">切换至授权页面</navigator>
+    <image src="../../icon/avatar.png" class="profile_img"></image>
+    <button class="profile_login" open-type="getUserInfo" bindgetuserinfo="handleGetUserInfo" plain>请点击登录</button>
+    <!-- <navigator url="/pages/auth/auth">请点击登录</navigator> -->
   </view>
 
   <!-- row2 -->
@@ -57,3 +59,9 @@
   </view>
 
 </view>
+
+
+<!-- <view wx:if="{{userInfo.avatarUrl}}">
+    <button>退出登录</button>
+</view> -->
+

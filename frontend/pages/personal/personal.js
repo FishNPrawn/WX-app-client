@@ -8,7 +8,12 @@ Page({
    this.setData({userInfo: userInfo});
  },
 
- handleGetUserInfo(e){
-   wx.setStorageSync('userInfo', e.detail.userInfo)
-}
+  handleGetUserInfo(e){
+    const {userInfo} = e.detail;
+    wx.setStorageSync('userInfo', userInfo);
+    wx-wx.navigateBack({
+      delta: (0)
+    });
+  },
+
 })

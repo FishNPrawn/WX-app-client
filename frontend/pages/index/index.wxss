@@ -12,7 +12,7 @@ page {
 }
 .search_wrap navigator {
   display: flex;
-  padding: 15rpx;
+  padding: 8rpx;
   width: 90%;
   background-color: #fff;
   color: #6b6b6b;
@@ -21,7 +21,7 @@ page {
 .search_wrap navigator .search_icon {
   width: 15px;
   height: 15px;
-  margin-top: 5rpx;
+  margin-top: 6rpx;
   margin-left: 12rpx;
 }
 .search_wrap navigator text {
@@ -30,21 +30,21 @@ page {
   color: #a1a1a1;
 }
 .search_wrap navigator .search_btn {
-  width: 120rpx;
-  height: 66rpx;
+  width: 110rpx;
+  height: 55rpx;
   background-image: linear-gradient(to right, #FF2929, #FFA760);
   position: absolute;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  right: 13px;
-  top: 18rpx;
+  right: 16px;
+  top: 25rpx;
   border-radius: 20px;
   color: white;
 }
 .index_swiper {
-  margin-top: 15px;
+  margin-top: 10px;
   text-align: center;
 }
 .index_swiper swiper image {
@@ -268,10 +268,11 @@ page {
 }
 .preference_display .preference_row {
   display: block;
-  margin-top: 5px;
+  margin-top: 10px;
+  padding: 0 5px 0 5px;
 }
 .preference_display .preference_row .preference_col .navigator_box {
-  height: 12rem;
+  height: 13rem;
   width: 90%;
   background-color: #ffffff;
   border-radius: 3px;
@@ -283,7 +284,8 @@ page {
 }
 .preference_display .preference_row .preference_col .navigator_box .add_icon {
   display: flex;
-  margin-left: 4.5%;
+  margin-left: 6%;
+  margin-top: 17px;
 }
 .preference_display .preference_row .preference_col .navigator_box .add_icon .goods_price {
   font-size: 24rpx;
@@ -305,12 +307,9 @@ page {
   margin-right: auto;
 }
 .goods_image {
-  display: block;
-  width: 90%;
-  height: 200rpx;
+  width: 100%;
+  height: 80%;
   border-radius: 7rpx;
-  margin-left: auto;
-  margin-right: auto;
 }
 .goods_msg {
   margin-left: 6%;

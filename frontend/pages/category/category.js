@@ -23,6 +23,22 @@ Page({
       })
     }
   },
+  onClick: function (event) {
+    var _this = this;
+    if (event.currentTarget.id != "search") {
+      this.setData ({
+        catIndex: parseInt(event.currentTarget.id)
+      });
+      getApp().globalData.showDialog = this;
+      wx.switchTab({
+        url: '/pages/category/category'
+      });
+    } else {
+      wx.redirectTo({
+        url: '/pages/searchResult/searchResult'
+      });
+    }
+  },
   onLoad: function (options) {
     this.getCates();
   },
