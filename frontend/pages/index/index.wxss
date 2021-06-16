@@ -12,7 +12,7 @@ page {
 }
 .search_wrap navigator {
   display: flex;
-  padding: 8rpx;
+  padding: 15rpx;
   width: 90%;
   background-color: #fff;
   color: #6b6b6b;
@@ -21,7 +21,7 @@ page {
 .search_wrap navigator .search_icon {
   width: 15px;
   height: 15px;
-  margin-top: 6rpx;
+  margin-top: 5rpx;
   margin-left: 12rpx;
 }
 .search_wrap navigator text {
@@ -30,21 +30,21 @@ page {
   color: #a1a1a1;
 }
 .search_wrap navigator .search_btn {
-  width: 110rpx;
-  height: 55rpx;
+  width: 120rpx;
+  height: 66rpx;
   background-image: linear-gradient(to right, #FF2929, #FFA760);
   position: absolute;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  right: 16px;
-  top: 25rpx;
+  right: 13px;
+  top: 18rpx;
   border-radius: 20px;
   color: white;
 }
 .index_swiper {
-  margin-top: 10px;
+  margin-top: 15px;
   text-align: center;
 }
 .index_swiper swiper image {
@@ -269,17 +269,16 @@ page {
 .preference_display .preference_row {
   display: block;
   margin-top: 10px;
-  padding: 0 5px 0 5px;
+  padding: 0 10px 0 10px;
 }
 .preference_display .preference_row .preference_col .navigator_box {
   height: 13rem;
-  width: 90%;
+  width: 93%;
   background-color: #ffffff;
   border-radius: 3px;
   margin: auto;
 }
 .preference_display .preference_row .preference_col .navigator_box navigator image {
-  padding-top: 0.5rem;
   max-width: 100%;
 }
 .preference_display .preference_row .preference_col .navigator_box .add_icon {
