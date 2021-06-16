@@ -1,5 +1,11 @@
 <view class = "cates">
-  <SearchInput></SearchInput>
+  <view class="search_wrap">
+    <navigator id="search" open-type="redirect" bindtap="onClick" url="{{urlPath}}">
+        <image class="search_icon" src="../../icon/search.png"></image>
+        <text>海鲜特价</text>
+        <view class="search_btn">搜索</view>
+    </navigator>
+  </view>
   <view class="cates_container">
     <!-- 左侧菜单 -->
     <scroll-view scroll-y class="left_menu">
@@ -16,6 +22,7 @@
 
     <!-- 右侧商品内容 -->
     <scroll-view scroll-y class="right_content">
+      <image class="ads_img" src="../../icon/ads_img.png"></image>
       <view class="goods_group"
             wx:for = "{{rightContent}}"
             wx:for-index="index1"

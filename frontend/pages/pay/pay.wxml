@@ -1,16 +1,16 @@
 <!--pages/pay/pay.wxml-->
 
-<view class="revice_address_row">
+<view class="address">
   <!-- 当收货地址 不存在 按钮显示  对象 空对象 bool类型也是true  -->
   <view class="address_btn" wx:if="{{!address.userName}}"  >
-    <button bindtap="handleChooseAddress" type="primary"  plain  >获取收货地址</button>
+    <button bindtap="handleChooseAddress"  plain  >获取收货地址</button>
   </view>
   
   <!-- 当收货地址 存在 详细信息就显示 -->
   <!-- <view class="address_btn" wx:if="{{address.userName}}">
       <button bindtap="handleChooseAddress" type="primary"  plain  >更改地址</button>
   </view> -->
-  <view class="user_info_row" wx:if="{{address.userName}}" bindtap="handleChooseAddress">
+  <view class="revice_address_row" wx:if="{{address.userName}}" bindtap="handleChooseAddress">
     <view class="user_info">
       <view class="address" >
         <view>{{address.all}}</view>
@@ -27,12 +27,33 @@
 <view class="box2" bindtap="popup" data-position="bottom">
   <view class="cart_main">
     <block wx:if="{{cart.length!==0}}">
+      <block wx:if="{{totalNum<4}}">
         <view class="cart_item"
         wx:for="{{cart}}"
         wx:key="good_id"
         >
           <image src="{{item.good_image}}"></image>
         </view>
+      </block>
+      <block wx:elif="{{totalNum==4}}">
+        <view class="cart_item"
+        wx:for="{{cart}}"
+        wx:key="good_id"
+        wx:if="{{index<4}}"
+        >
+          <image src="{{item.good_image}}"></image>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="cart_item"
+        wx:for="{{cart}}"
+        wx:key="good_id"
+        wx:if="{{index<4}}"
+        >
+          <image src="{{item.good_image}}"></image>
+        </view>
+        <view class="dot">...</view>
+      </block>
     </block>
     <view class="totol_arrow">
       <view class="totol_text">共{{totalNum}}件</view>
@@ -116,14 +137,15 @@
             <view class="totol_price_value_1">{{totalPrice}}</view>
           </view>
         </view>
-        <!-- <text class="total_price_text">合计: ￥{{totalPrice}}</text> -->
       </view>
       <!-- 结算 -->
+      <view class="pay_button_wrap">
         <button class="pay_button" bindtap="handlePay" type="primary"  plain >立即支付</button>
+      </view>
+        
     </view>
   </view>
 </view>
-
 
 <page-container 
   show="{{show}}"
@@ -145,40 +167,40 @@
       <view class="totol_good">共{{totalNum}}件商品</view>
       <image bindtap="exit" class="close" src="../../icon/close_icon.png"></image>
     </view>
-    <view class="line2"></view>
-    
-    <view class="cart_content">
-      <view class="cart_main">
-        <block wx:if="{{cart.length!==0}}">
-            <view class="cart_item"
-              wx:for="{{cart}}"
-              wx:key="good_id"
-            >
-              <view class="cart_item_block">
-                <!-- 商品图片 -->
-                <image src="{{item.good_image}}"></image>
-                <!-- 商品信息和价格 -->
-                <view class="cart_info_wrap">
-                  <view class="wrap_line1">
-                    <view class="good_name">{{item.good_name}}</view>
-                    <view class="good_price">￥{{item.good_price}} </view>
-                  </view>
-                  <!-- 单价 -->
-                  <view class="wrap_line2">
-                    <view class="good_weight">单价：{{item.good_weight}}g/份</view>
-                  </view>
-                  <!--数量 -->
-                  <view class="wrap_line3">
-                    <view class="good_num">数量：{{item.num}}份</view>
+    <scroll-view scroll-y="true" style="height: 85%" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+      <view class="line2"></view>
+      <view class="cart_content">
+        <view class="cart_main">
+          <block wx:if="{{cart.length!==0}}">
+              <view class="cart_item"
+                wx:for="{{cart}}"
+                wx:key="good_id"
+              >
+                <view class="cart_item_block">
+                  <!-- 商品图片 -->
+                  <image src="{{item.good_image}}"></image>
+                  <!-- 商品信息和价格 -->
+                  <view class="cart_info_wrap">
+                    <view class="wrap_line1">
+                      <view class="good_name">{{item.good_name}}</view>
+                      <view class="good_price">￥{{item.good_price}} </view>
+                    </view>
+                    <!-- 单价 -->
+                    <view class="wrap_line2">
+                      <view class="good_weight">单价：{{item.good_weight}}g/份</view>
+                    </view>
+                    <!--数量 -->
+                    <view class="wrap_line3">
+                      <view class="good_num">数量：{{item.num}}份</view>
+                    </view>
                   </view>
                 </view>
+                <view class="line3"></view>
               </view>
-              <view class="line3"></view>
-            </view>
-        </block>
+          </block>
+        </view>
       </view>
-    </view>
-
-
+    </scroll-view>
+    
   </view>
 </page-container>

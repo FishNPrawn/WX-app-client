@@ -8,6 +8,7 @@
         wx:for="{{searchResult}}" 
         url="/pages/good_detail/good_detail?good_id={{item.good_id}}"
     >
+        <image class="search_icon" src="../../icon/_search.png"></image>
         {{item.good_name}}
     </navigator>
 </view>

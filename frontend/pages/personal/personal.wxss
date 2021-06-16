@@ -20,6 +20,14 @@ page {
   margin-left: 8px;
   margin-top: 10px;
 }
+.box1 .box1_row1 .profile_login {
+  padding: 0;
+  border: none;
+  background: none;
+  position: absolute;
+  margin-left: 7%;
+  margin-top: 10px;
+}
 .box1 .box1_row2 {
   height: 50px;
   display: flex;
