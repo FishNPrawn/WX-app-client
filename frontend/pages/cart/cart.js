@@ -25,13 +25,10 @@ Page({
 
   // 授权登录
   handleGetUserInfo(e){
-    // console.log(e);
-    // const {userInfo} = e.detail;
     wx.setStorageSync('userInfo', e.detail.userInfo);
-    // 如果授权之后会回到前一页
-    // wx-wx.navigateBack({
-    //   delta: (1)
-    // });
+    if (wx.getStorageSync('userInfo')) {
+      this.handlePay();
+    }
   },
 
   // 获取手机号码(后期如果需要)
