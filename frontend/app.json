@@ -1,11 +1,11 @@
 {
   "pages":[
-    "pages/cart/cart",
-    "pages/index/index",
     "pages/personal/personal",
+    "pages/index/index",
+    
     "pages/pay/pay",
     "pages/category/category",
-    
+    "pages/cart/cart",
     "pages/user/user",
     "pages/good_list/good_list",
     "pages/good_detail/good_detail",
