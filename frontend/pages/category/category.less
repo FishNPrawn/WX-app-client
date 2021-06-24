@@ -2,6 +2,7 @@ page{
   height: 100%;
   width: 100%;
   flex-direction: column;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 .cates{
   height: 100%;
@@ -14,40 +15,45 @@ page{
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  .search_wrap navigator {
-    display: flex;
-    padding: 8rpx;
-    width: 90%;
-    background-color: rgb(255, 255, 255);
-    color: #6b6b6b;
-    border-radius: 20px;
-    border: 1px solid #FFA760;
-  }
-  .search_wrap navigator .search_icon {
-    width: 15px;
-    height: 15px;
-    margin-top: 6rpx;
-    margin-left: 12rpx;
-  }
-  .search_wrap navigator text {
-    margin-left: 5px;
-    font-size: 15px;
-    color: #a1a1a1;
-  }
-  .search_wrap navigator .search_btn {
-    width: 110rpx;
-    height: 55rpx;
-    background-image: linear-gradient(to right, #FF2929, #FFA760);
-    position: absolute;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    right: 16px;
-    top: 27rpx;
-    border-radius: 20px;
-    color: white;
+    navigator {
+      display: flex;
+      padding: 10rpx;
+      width: 90%;
+      height: 20px;
+      background-color: rgb(255, 255, 255);
+      color: #6b6b6b;
+      border-radius: 20px;
+      border: 1px solid #FFA760;
+      .search_icon {
+        width: 15px;
+        height: 15px;
+        margin-top: 6rpx;
+        margin-left: 12rpx;
+      }
+      text {
+        margin-left: 5px;
+        font-size: 15px;
+        color: #a1a1a1;
+      }
+      .search_text{
+        width: 14%;
+        padding: 6px 0 6px 0;
+        position: relative;
+        top: -9px;
+        left: 63%;
+        .search_btn {
+          background-image: linear-gradient(to right, #FF2929, #FFA760);
+          padding: 2px 0 2px 0;
+          border-radius: 20px;
+          color: white;
+          text-align: center;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          // font-size: 15px;
+        }
+      }
+    }
   }
 
   .cates_container{
@@ -67,16 +73,16 @@ page{
         font-size: 30rpx;
         padding: 5px;
         color: #3f3f3f;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
       }
       .active{
         color: #FFA760;
         border-left: 9rpx solid currentColor;
         background-color: white;
         border-top-right-radius: -10%;
-        font-weight: 520;
+        font-weight: 400;
         .item_name{
-          color: black;
+          color: #FFA760;
         }
       }
     }
@@ -89,21 +95,63 @@ page{
         height: 15%;
       }
       .goods_group{
-        .goods_title{
-          height: 80rpx;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          font-size:30rpx;
-        }
         .goods_list{
           display: flex;
-          font-size: 30rpx;
-          margin-bottom: 1rem;
-          margin-top: 0.5rem;
+          margin-bottom: 0.4rem;
+          margin-top: 0.4rem;
           navigator{
             width: 100%;
             display: flex;
+            .goods_image{
+              width: 150rpx;
+              height: 150rpx;
+              border-radius: 7rpx;
+              margin-top: 10px;
+              margin-left: 10px;
+              margin-bottom: 10px;
+            }
+            .goods_msg{
+              margin-top: 10px;
+              display: block;
+              margin-left: 20px;
+              width: 50%;
+              .goods_name{
+                font-size: 28rpx;
+              }
+              .goods_sale{
+                display: flex;
+                font-size: 20rpx;
+                color: rgb(77, 77, 77);
+                font-weight: 300;
+                font-family:  'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                .goods_sale_number{
+                  font-family: cursive;
+                  margin-left: 2%;
+                }
+              }
+              .goods_price{
+                color: tomato;
+                display: flex;
+                font-family: cursive;
+                margin-top: 16%;
+                .dollar_symbol{
+                  display: inline-block;
+                  align-self: flex-end;
+                  font-size: 22rpx;
+                  font-weight: 300;
+                }
+                .dollar_price_number{
+                  font-size: 30rpx;
+                }
+              }
+            }
+          }
+          .shopping-cart{
+            height: 21px;
+            width: 21px;
+            position: absolute;
+            right: 10px;
+            margin-top: 23%;
           }
         }
       }
@@ -117,49 +165,11 @@ page{
   margin-right: auto;
   width: 95%;
   height: 1rpx;
-  padding: 1rpx;
-  padding: 0.5rpx;
 } 
 
-.goods_image{
-  width: 150rpx;
-  height: 150rpx;
-  border-radius: 7rpx;
-  margin-top: 10px;
-  margin-left: 10px;
-}
 
-.goods_msg{
-  margin-top: 10px;
-  display: block;
-  margin-left: 20px;
-}
-.goods_name{
-  font-size: 32rpx;
-}
-.goods_description{
-  font-size: 22rpx;
-  color: grey;
-  /* line-height: 100rpx; */
-  margin-top: 0px;
-  font-family: PingFangSC-Semibold;
-}
-.goods_price{
-  font-size: 28rpx;
-  color: tomato;
-  margin-top: 20px;
-  /* line-height: 200rpx; */
-  font-family: PingFangSC-Semibold;
-  display: flex;
-}
-.shopping-cart{
-  color: #313131;
-  height: 24px;
-  width: 24px;
-  position: absolute;
-  right: 10px;
-  margin-top: 70px;
-}
+
+
 @media screen and (max-width:320px){
   .shopping-cart{
     height: 20px;

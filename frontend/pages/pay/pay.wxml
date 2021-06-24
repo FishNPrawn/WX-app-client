@@ -140,7 +140,7 @@
       </view>
       <!-- 结算 -->
       <view class="pay_button_wrap">
-        <button class="pay_button" bindtap="handlePay" type="primary"  plain >立即支付</button>
+        <button class="pay_button" bindtap="submitOrder" type="primary"  plain >立即支付</button>
       </view>
         
     </view>
