@@ -1,12 +1,10 @@
 {
   "pages":[
-    "pages/pay/pay",
     "pages/index/index",
     "pages/personal/personal",
-    
+    "pages/pay/pay",
     "pages/category/category",
     "pages/cart/cart",
-    "pages/something/something",
     "pages/user/user",
     "pages/good_list/good_list",
     "pages/good_detail/good_detail",
@@ -45,12 +43,6 @@
         "text": "分类",
         "iconPath": "icon/list1.png",
         "selectedIconPath": "icon/list2.png"
-      },
-      {
-        "pagePath": "pages/something/something",
-        "text": "直播",
-        "iconPath": "icon/something1.png",
-        "selectedIconPath": "icon/something2.png"
       },
       {
         "pagePath": "pages/cart/cart",
