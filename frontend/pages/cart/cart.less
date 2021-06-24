@@ -1,6 +1,6 @@
 page{
   padding-bottom: 90rpx;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   background-color: #f6f6f6;
 }
 .revice_address_row{
@@ -93,15 +93,13 @@ page{
           -webkit-box-orient: vertical;
           -webkit-line-clamp:2;
           color: rgb(0, 0, 0);
-        }
-        .good_weight{
-          color: #c7c7c7;
           font-size: 28rpx;
         }
 
         .good_price_wrap {
           display: flex;
           justify-content: space-between;
+          margin-top: 30rpx;
           .good_price {
             color: var(--themeColor);
             font-size: 34rpx;
@@ -109,14 +107,13 @@ page{
             color: red;
             display: flex;
             .rmb{
+              display: inline-block;
+              align-self: flex-end;
               font-size: 28rpx;
-              margin-top: 6rpx;
+              font-weight: 300;
             }
-            .per{
-              color: grey;
-              font-size: 26rpx;
-              margin-top: 5rpx;
-              margin-left: 2px;
+            .good_price_value{
+              margin-top: 6px;
             }
           }
 
@@ -176,7 +173,6 @@ page{
         font-size: 17px;
         color: rgb(114, 114, 114);
         font-weight: 350;
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
       }
       .good_home{
         height: 45px;
@@ -197,7 +193,6 @@ page{
           position: absolute;
           border-radius: 30px;
           text-align: center;
-          font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         }
       }
     }
@@ -270,15 +265,14 @@ page{
           .totol_price_value{
             color: red;
             display: flex;
-            margin-top: 5rpx;
             text{
-              margin-top: 4px;
               font-size: 12px;
               color: red;
             }
             .totol_price_value_1{
               font-size: 16px;
               margin-left: 2px;
+              margin-top: 2px;
             }
           }
           
@@ -294,6 +288,9 @@ page{
         width: 240rpx;
         border-radius: 20px;
         margin-left: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 		    text-align: center;
         background-image: linear-gradient(to right, tomato 0%, #F45C43  51%, #e97254  100%);
       }
