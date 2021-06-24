@@ -1,7 +1,7 @@
 page {
   background-image: linear-gradient(#FFA760, #ffe6e4);
   background-repeat: no-repeat;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 .search_wrap {
   width: 100%;
@@ -12,16 +12,18 @@ page {
 }
 .search_wrap navigator {
   display: flex;
-  padding: 15rpx;
+  padding: 10rpx;
   width: 90%;
-  background-color: #fff;
+  height: 20px;
+  background-color: #ffffff;
   color: #6b6b6b;
   border-radius: 20px;
+  border: 1px solid #FFA760;
 }
 .search_wrap navigator .search_icon {
   width: 15px;
   height: 15px;
-  margin-top: 5rpx;
+  margin-top: 6rpx;
   margin-left: 12rpx;
 }
 .search_wrap navigator text {
@@ -29,22 +31,25 @@ page {
   font-size: 15px;
   color: #a1a1a1;
 }
-.search_wrap navigator .search_btn {
-  width: 120rpx;
-  height: 66rpx;
+.search_wrap navigator .search_text {
+  width: 14%;
+  padding: 6px 0 6px 0;
+  position: relative;
+  top: -9px;
+  left: 63%;
+}
+.search_wrap navigator .search_text .search_btn {
   background-image: linear-gradient(to right, #FF2929, #FFA760);
-  position: absolute;
+  padding: 2px 0 2px 0;
+  border-radius: 20px;
+  color: white;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  right: 13px;
-  top: 18rpx;
-  border-radius: 20px;
-  color: white;
 }
 .index_swiper {
-  margin-top: 15px;
+  margin-top: 5px;
   text-align: center;
 }
 .index_swiper swiper image {
@@ -54,7 +59,7 @@ page {
   display: flex;
   width: 95%;
   margin: auto;
-  margin-top: 5px;
+  margin-top: 4px;
 }
 .box3 .shunfeng {
   display: flex;
@@ -272,52 +277,64 @@ page {
   padding: 0 10px 0 10px;
 }
 .preference_display .preference_row .preference_col .navigator_box {
-  height: 13rem;
+  height: 14rem;
   width: 93%;
   background-color: #ffffff;
   border-radius: 3px;
   margin: auto;
 }
-.preference_display .preference_row .preference_col .navigator_box navigator image {
-  max-width: 100%;
-}
-.preference_display .preference_row .preference_col .navigator_box .add_icon {
-  display: flex;
-  margin-left: 6%;
-  margin-top: 17px;
-}
-.preference_display .preference_row .preference_col .navigator_box .add_icon .goods_price {
-  font-size: 24rpx;
-  width: 100px;
-  color: tomato;
-  padding-top: 0.5rem;
-  font-family: PingFangSC-Semibold;
-}
-.preference_display .preference_row .preference_col .navigator_box .add_icon .add_to_cart {
-  position: relative;
-  left: 20%;
-  margin-top: 5px;
-  width: 18px;
-  height: 18px;
-}
-.good_navigator {
+.preference_display .preference_row .preference_col .navigator_box .good_navigator {
   height: 10rem;
   margin-left: auto;
   margin-right: auto;
 }
-.goods_image {
+.preference_display .preference_row .preference_col .navigator_box .good_navigator .goods_image {
   width: 100%;
-  height: 80%;
+  height: 85%;
   border-radius: 7rpx;
 }
-.goods_msg {
+.preference_display .preference_row .preference_col .navigator_box .good_navigator .goods_msg {
   margin-left: 6%;
 }
-.goods_msg .goods_name {
+.preference_display .preference_row .preference_col .navigator_box .good_navigator .goods_msg .goods_name {
   margin-top: 3%;
   font-size: 28rpx;
 }
-.goods_msg .goods_description {
-  font-size: 24rpx;
-  color: #888880;
+.preference_display .preference_row .preference_col .navigator_box .good_navigator .goods_msg .goods_sale {
+  display: flex;
+  font-size: 20rpx;
+  color: #4d4d4d;
+  font-weight: 300;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.preference_display .preference_row .preference_col .navigator_box .good_navigator .goods_msg .goods_sale .goods_sale_number {
+  font-family: cursive;
+  margin-left: 2%;
+}
+.preference_display .preference_row .preference_col .navigator_box .add_icon {
+  display: flex;
+  margin-left: 6%;
+  margin-top: 30px;
+}
+.preference_display .preference_row .preference_col .navigator_box .add_icon .goods_price {
+  width: 84%;
+  color: tomato;
+  padding-top: 0.5rem;
+  display: flex;
+  font-family: cursive;
+}
+.preference_display .preference_row .preference_col .navigator_box .add_icon .goods_price .dollar_symbol {
+  display: inline-block;
+  align-self: flex-end;
+  font-size: 22rpx;
+  font-weight: 300;
+}
+.preference_display .preference_row .preference_col .navigator_box .add_icon .goods_price .dollar_price_number {
+  margin-left: 2px;
+  font-size: 30rpx;
+}
+.preference_display .preference_row .preference_col .navigator_box .add_icon .add_to_cart {
+  height: 20px;
+  width: 20px;
+  margin-top: 7px;
 }

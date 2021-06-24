@@ -140,7 +140,7 @@
       </view>
       <!-- 结算 -->
       <view class="pay_button_wrap">
-        <button class="pay_button" bindtap="handlePay" type="primary"  plain >立即支付</button>
+        <button class="pay_button" bindtap="submitOrder" type="primary" plain >立即支付</button>
       </view>
         
     </view>
@@ -186,9 +186,9 @@
                       <view class="good_price">￥{{item.good_price}} </view>
                     </view>
                     <!-- 单价 -->
-                    <view class="wrap_line2">
+                    <!-- <view class="wrap_line2">
                       <view class="good_weight">单价：{{item.good_weight}}g/份</view>
-                    </view>
+                    </view> -->
                     <!--数量 -->
                     <view class="wrap_line3">
                       <view class="good_num">数量：{{item.num}}份</view>

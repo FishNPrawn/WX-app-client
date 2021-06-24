@@ -21,12 +21,10 @@
           <!-- 商品信息 -->
           <view class="cart_info_wrap">
             <view class="good_name">{{item.good_name}}</view>
-            <view class="good_weight">{{item.good_weight}}g</view>
             <view class="good_price_wrap">
               <view class="good_price">
-                <view class="rmb">￥ </view>
+                <view class="rmb">￥</view>
                 <view class="good_price_value">{{item.good_price}}</view>
-                <view class="per">/份</view>
               </view>
               
               <view class="cart_num_tool">
@@ -44,7 +42,7 @@
       <view class="cart_main1">
         <view class="empty_info">
         <view class="img_empty_cart">
-          <image src="../../icon/empty_cart.png" class="empty_cart"></image>
+          <image src="../../icon/empty_cart.svg" class="empty_cart"></image>
         </view>
       
         <view class="empty_message">您的购物车还空着~快去逛逛吧</view>
@@ -79,7 +77,6 @@
             <view class="totol_price_value_1">{{totalPrice}}</view>
           </view>
         </view>
-        <!-- <text class="total_price_text">合计: ￥{{totalPrice}}</text> -->
       </view>
       <!-- 结算 -->
       <button class="pay_button" type="primary" open-type="getUserInfo" bindgetuserinfo="handleGetUserInfo"  plain>结算({{totalNum}})</button>
