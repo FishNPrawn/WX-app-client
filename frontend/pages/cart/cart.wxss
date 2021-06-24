@@ -149,14 +149,15 @@ page {
   align-items: center;
 }
 .cart_content .cart_main1 .empty_info .img_empty_cart .empty_cart {
-  height: 190px;
-  width: 250px;
+  width: 253px;
+  height: 222px;
 }
 .cart_content .cart_main1 .empty_info .empty_message {
   text-align: center;
   font-size: 17px;
-  color: #727272;
-  font-weight: 350;
+  color: #646464;
+  font-weight: 300;
+  margin-top: 10px;
 }
 .cart_content .cart_main1 .empty_info .good_home {
   height: 45px;

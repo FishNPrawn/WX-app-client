@@ -42,7 +42,7 @@
       <view class="cart_main1">
         <view class="empty_info">
         <view class="img_empty_cart">
-          <image src="../../icon/empty_cart.png" class="empty_cart"></image>
+          <image src="../../icon/empty_cart.svg" class="empty_cart"></image>
         </view>
       
         <view class="empty_message">您的购物车还空着~快去逛逛吧</view>
