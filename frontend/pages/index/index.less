@@ -1,7 +1,7 @@
 page{
   background-image: linear-gradient(#FFA760, rgb(255, 230, 228));
   background-repeat: no-repeat;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .search_wrap {
@@ -12,42 +12,47 @@ page{
   align-items: center;
   navigator {
     display: flex;
-    padding: 15rpx;
+    padding: 10rpx;
     width: 90%;
-    background-color: #fff;
+    height: 20px;
+    background-color: rgb(255, 255, 255);
     color: #6b6b6b;
     border-radius: 20px;
-    .search_icon{
+    border: 1px solid #FFA760;
+    .search_icon {
       width: 15px;
       height: 15px;
-      margin-top: 5rpx;
+      margin-top: 6rpx;
       margin-left: 12rpx;
     }
-    text{
+    text {
       margin-left: 5px;
       font-size: 15px;
-      color: rgb(161, 161, 161);
+      color: #a1a1a1;
     }
-    .search_btn{
-      width: 120rpx;
-      height: 66rpx;
-      background-image: linear-gradient(to right,#FF2929, #FFA760);
-      position: absolute;
-      text-align: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      right: 13px;
-      top: 18rpx;
-      border-radius: 20px;
-      color: white;
+    .search_text{
+      width: 14%;
+      padding: 6px 0 6px 0;
+      position: relative;
+      top: -9px;
+      left: 63%;
+      .search_btn {
+        background-image: linear-gradient(to right, #FF2929, #FFA760);
+        padding: 2px 0 2px 0;
+        border-radius: 20px;
+        color: white;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        // font-size: 15px;
+      }
     }
   }
-  
 }
 
 .index_swiper{
-  margin-top: 15px;
+  margin-top: 5px;
   text-align: center;
   swiper{
     image{
@@ -60,7 +65,7 @@ page{
   display: flex;
   width: 95%;
   margin: auto;
-  margin-top: 5px;
+  margin-top: 4px;
   .shunfeng{
     display: flex;
     font-size: 10px;
@@ -263,59 +268,71 @@ page{
     padding: 0 10px 0 10px;
     .preference_col {
       .navigator_box{
-        height: 13rem;
+        height: 14rem;
         width: 93%;
         background-color: #ffffff;
         border-radius: 3px;
         margin: auto;
-        navigator {
-          image {
-            max-width: 100%;
+        .good_navigator {
+          height: 10rem;
+          margin-left: auto;
+          margin-right: auto;
+          .goods_image {
+            width: 100%;
+            height: 85%;
+            border-radius: 7rpx;
           }
+          .goods_msg{
+            margin-left: 6%;
+            .goods_name {
+              margin-top: 3%;
+              font-size: 28rpx;
+            }
+            .goods_sale{
+              display: flex;
+              font-size: 20rpx;
+              color: rgb(77, 77, 77);
+              font-weight: 300;
+              font-family:  'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+              .goods_sale_number{
+                font-family: cursive;
+                margin-left: 2%;
+              }
+            }
+          } 
         }
         .add_icon{
           display: flex;
           margin-left: 6%;
-          margin-top: 17px;
+          margin-top: 30px;
           .goods_price {
-            font-size: 24rpx;
-            width: 100px;
+            width: 84%;
             color: tomato;
             padding-top: 0.5rem;
-            font-family: PingFangSC-Semibold;
+            display: flex;
+            font-family: cursive;
+            .dollar_symbol{
+              display: inline-block;
+              align-self: flex-end;
+              font-size: 22rpx;
+              font-weight: 300;
+            }
+            .dollar_price_number{
+              margin-left: 2px;
+              font-size: 30rpx;
+            }
           }
           .add_to_cart{
-            position:relative; 
-            left:20%;
-            margin-top: 5px;
-            width: 18px;
-            height: 18px;
+            height: 20px;
+            width: 20px;
+            margin-top: 7px;
           }
         }
       }
     }
   }
 }
-.good_navigator {
-  height: 10rem;
-  margin-left: auto;
-  margin-right: auto;
-}
-.goods_image {
-  width: 100%;
-  height: 80%;
-  border-radius: 7rpx;
-}
-.goods_msg{
-  margin-left: 6%;
-  .goods_name {
-    margin-top: 3%;
-    font-size: 28rpx;
-  }
-  .goods_description{
-    font-size: 24rpx;
-    color: #888880;
-  }
-}
+
+
 
 
