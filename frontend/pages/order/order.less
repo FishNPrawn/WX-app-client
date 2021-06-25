@@ -1,0 +1,156 @@
+/* 顶部菜单切换 */
+page{
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: #f2f2f2;
+}
+
+.navbar {
+  display: flex;
+   /* 默认选中菜单 */
+  .item {
+    position: relative;
+    flex: auto;
+    font-size: 27rpx;
+    width: 100rpx;
+    text-align: center;
+    line-height: 80rpx;
+    color: #333;
+   }
+    /* 选中菜单样式 */
+   .item.active {
+      font-size: 30rpx;
+      font-weight: 500;
+      color: #F45C43;
+      border-bottom: 6rpx solid#F45C43;
+   }
+    /* 字体 */
+   .item.active:after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4rpx;
+   }
+ }
+//  没有商品时候
+ .no_item{
+  display: block;
+  text-align: center;
+  .empty_cart_container{
+    padding: 20px 0 10px 0;
+    .empty_cart{
+      width: 40%;
+    }
+  }
+  .no_item_text1 {
+    color: #6d6d6d;
+    font-size: 32rpx;
+  }
+  .no_item_text2{
+    color: #bebebe;
+    font-size: 30rpx;
+  }
+ }
+
+// 你可能还喜欢商品
+.guess_like{
+  .guess_like_text{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0 5px 0;
+    .love_img_container{
+      margin-top: 5px;
+      .love_img{
+        width: 20px;
+        height: 20px;
+        padding: 0 6px 0 3px;
+      }
+    }
+    text{
+      color: #F45C43;
+    }
+  } 
+  // 你可能喜欢所有商品
+
+  .preference_display {
+    margin-top: 10px;
+    background-color: #f5f5f5;
+    border-radius: 30px 30px 0px 0px;
+    .preference_row {
+      display: block;
+      margin-top: 10px;
+      padding: 0 10px 0 10px;
+      .preference_col {
+        .navigator_box{
+          height: 14rem;
+          width: 93%;
+          background-color: #ffffff;
+          border-radius: 3px;
+          margin: auto;
+          .good_navigator {
+            height: 10rem;
+            margin-left: auto;
+            margin-right: auto;
+            .goods_image {
+              width: 100%;
+              height: 85%;
+              border-radius: 7rpx;
+            }
+            .goods_msg{
+              margin-left: 6%;
+              .goods_name {
+                margin-top: 3%;
+                font-size: 28rpx;
+              }
+              .goods_sale{
+                display: flex;
+                font-size: 20rpx;
+                color: rgb(77, 77, 77);
+                font-weight: 300;
+                font-family:  'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                .goods_sale_number{
+                  font-family: cursive;
+                  margin-left: 2%;
+                }
+              }
+            } 
+          }
+          .add_icon{
+            display: flex;
+            margin-left: 6%;
+            margin-top: 30px;
+            .goods_price {
+              width: 84%;
+              color: tomato;
+              padding-top: 0.5rem;
+              display: flex;
+              font-family: cursive;
+              .dollar_symbol{
+                display: inline-block;
+                align-self: flex-end;
+                font-size: 22rpx;
+                font-weight: 300;
+              }
+              .dollar_price_number{
+                margin-left: 2px;
+                font-size: 30rpx;
+              }
+            }
+            .add_to_cart{
+              height: 20px;
+              width: 20px;
+              margin-top: 7px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+ 

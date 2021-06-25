@@ -36,10 +36,10 @@ Page({
   },
     //获取轮播图数据
     getSwiperList(){
-      request({url:"https://api-hmugo-web.itheima.net/api/public/v1/home/swiperdata"})
+      request({url:"https://fishnprawn.cn/allswiper/getAllSwiper"})
       .then(result=>{
         this.setData({
-          swiperList: result.data.message
+          swiperList: result.data.data
         })
       })
     },

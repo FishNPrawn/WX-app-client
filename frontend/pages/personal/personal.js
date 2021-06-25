@@ -16,4 +16,10 @@ Page({
     });
   },
 
+  goToMyOrder: function() {
+    wx.navigateTo({
+      url: '../order/order',
+    })
+  },
+
 })

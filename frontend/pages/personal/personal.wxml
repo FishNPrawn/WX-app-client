@@ -50,7 +50,7 @@
         <image src="../../icon/pre_comment.png" class="box1_row3_icon"></image>
         <view class="box1_row3_text">待评价</view>
       </view>
-      <view class="box1_row3_img_name">
+      <view class="box1_row3_img_name" bindtap="goToMyOrder">
         <image src="../../icon/my_order.png" class="box1_row3_icon"></image>
         <view class="box1_row3_text">所有订单</view>
       </view>
