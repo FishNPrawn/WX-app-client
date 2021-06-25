@@ -43,33 +43,33 @@ Page({
   },
 
   getMyOrderList() {
-    let that = this;
-    let openid = app._checkOpenid();
-    if (!openid) {
-      return;
-    }
-    //请求自己后台获取用户openid
-    wx.request({
-      url: app.globalData.baseUrl + '/userOrder/listByStatus',
-      data: {
-        openid: openid,
-        orderStatus: orderStatus
-      },
-      success: function(res) {
-        console.log(res);
-        if (res && res.data && res.data.data && res.data.data.length > 0) {
-          let dataList = res.data.data;
-          console.log(dataList)
-          that.setData({
-            list: dataList
-          })
-        } else {
-          that.setData({
-            list: []
-          })
-        }
-      }
-    })
+    // let that = this;
+    // let openid = app._checkOpenid();
+    // if (!openid) {
+    //   return;
+    // }
+    // //请求自己后台获取用户openid
+    // wx.request({
+    //   url: app.globalData.baseUrl + '/userOrder/listByStatus',
+    //   data: {
+    //     openid: openid,
+    //     orderStatus: orderStatus
+    //   },
+    //   success: function(res) {
+    //     console.log(res);
+    //     if (res && res.data && res.data.data && res.data.data.length > 0) {
+    //       let dataList = res.data.data;
+    //       console.log(dataList)
+    //       that.setData({
+    //         list: dataList
+    //       })
+    //     } else {
+    //       that.setData({
+    //         list: []
+    //       })
+    //     }
+    //   }
+    // })
   },
 
   getCates(){
