@@ -15,7 +15,7 @@
       <view class="goods_price1">¥{{goodObj.good_price}}.00</view>
       <view class="per">/份</view>
       <view class="share_icon">
-        <image src="../../icon/share.png"></image>
+        <image src="https://fnpphoto.cn/icon/share.png"></image>
         <button open-type="share"></button>
       </view>
     </view>
@@ -73,12 +73,12 @@
 <view class="btm_tool">
   <navigator open-type="switchTab" url="#" class="tool_item good_home">
     <!-- <view class="iconfont icon-gouwuche"></view> -->
-    <image src="../../icon/good_home.png" class="good_home_icon"></image>
+    <image src="https://fnpphoto.cn/icon/good_home.png" class="good_home_icon"></image>
     <text>首页</text>
   </navigator>
 
   <navigator open-type="switchTab" url="#" class="tool_item good_cart">
-    <image src="../../icon/good_cart.png" class="good_cart_icon"></image>
+    <image src="https://fnpphoto.cn/icon/good_cart.png" class="good_cart_icon"></image>
     <text>购物车</text>
   </navigator>
 

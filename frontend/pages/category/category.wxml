@@ -1,7 +1,7 @@
 <view class = "cates">
   <view class="search_wrap">
     <navigator id="search" open-type="redirect" bindtap="onClick" url="{{urlPath}}">
-        <image class="search_icon" src="../../icon/search.png"></image>
+        <image class="search_icon" src="https://fnpphoto.cn/icon/search.png"></image>
         <text>海鲜特价</text>
         <view class="search_text">
           <view class="search_btn">搜索</view>
@@ -46,7 +46,7 @@
             </view>
           </navigator>
           <view>
-            <image data-variable="{{item1}}" bindtap="handleCartAdd" src="../../icon/shopping-cart.png" class="shopping-cart"></image>
+            <image data-variable="{{item1}}" bindtap="handleCartAdd" src="https://fnpphoto.cn/icon/shopping-cart.png" class="shopping-cart"></image>
           </view>
         </view>
         <view class="divLine"></view>

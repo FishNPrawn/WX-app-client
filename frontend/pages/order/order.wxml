@@ -10,7 +10,7 @@
 <!-- 否则 -->
 <view wx:else class='no_item'>
   <view class="empty_cart_container">
-    <image src="../../icon/empty_cart.svg" class="empty_cart"></image>
+    <image src="https://fnpphoto.cn/icon/svg/empty_cart.svg" class="empty_cart"></image>
   </view>
   <view class='no_item_text1'>你还没有相关的订单</view>
   <view class='no_item_text2'>可以去看看有哪些想购买的</view>
@@ -20,7 +20,7 @@
 <view class="guess_like">
   <view class="guess_like_text">
     <view class="love_img_container">
-      <image src="../../icon/love.png" class="love_img" alt=""></image>
+      <image src="https://fnpphoto.cn/icon/love.png" class="love_img" alt=""></image>
     </view>
     <text>你可能还喜欢</text>
   </view>
@@ -57,7 +57,7 @@
               <view class="dollar_symbol">¥</view>
               <view class="dollar_price_number">{{item2.good_price}}</view>
             </view>    
-            <image data-variable="{{item2}}" bindtap="handleCartAdd" class="add_to_cart" src="../../icon/shopping-cart.png"></image>
+            <image data-variable="{{item2}}" bindtap="handleCartAdd" class="add_to_cart" src="https://fnpphoto.cn/icon/shopping-cart.png"></image>
           </view>
         </view>  
       </van-col>
