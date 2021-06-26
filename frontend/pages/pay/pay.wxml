@@ -14,7 +14,7 @@
     <view class="user_info">
       <view class="address" >
         <view>{{address.all}}</view>
-        <image src="../../icon/right_arrow.png"></image>
+        <image src="https://fnpphoto.cn/icon/right_arrow.png"></image>
       </view>
       <view class="name_phone">
         <view>{{address.userName}}</view>
@@ -57,22 +57,22 @@
     </block>
     <view class="totol_arrow">
       <view class="totol_text">共{{totalNum}}件</view>
-      <image class="right_arrow" src="../../icon/right_arrow.png"></image>
+      <image class="right_arrow" src="https://fnpphoto.cn/icon/right_arrow.png"></image>
     </view>
   </view>
 </view>
 
 <view class="box3">
   <view class="shunfeng">
-    <image src="../../icon/shunfeng.png"></image>
+    <image src="https://fnpphoto.cn/icon/shunfeng.png"></image>
     <text>顺丰冷链</text>
   </view>
   <view class="order_today">
-    <image src="../../icon/check_icon.png"></image>
+    <image src="https://fnpphoto.cn/icon/check_icon.png"></image>
     <text>今日下单</text>
   </view>
   <view class="arrive_tmr">
-    <image src="../../icon/truck.png"></image>
+    <image src="https://fnpphoto.cn/icon/truck.png"></image>
     <text>明日新鲜到家</text>
   </view>
 </view>
@@ -108,7 +108,7 @@
   <text>支付方式</text>
   <view class="line2"></view>
   <view class="wechat_pay">
-    <image class="wechat_pay_img" src="../../icon/wechat_pay_icon.png"></image>
+    <image class="wechat_pay_img" src="https://fnpphoto.cn/icon/wechat_pay_icon.png"></image>
     <view class="wechat_pay_text">微信支付</view>
     <view class="all_chk_wrap">
       <checkbox class="checkboxCircle"></checkbox>
@@ -120,7 +120,7 @@
   <text>备注</text>
   <view class="click_comment">
     <view class="comment">选填，可以告诉我们您的特殊要求</view>
-    <image src="../../icon/right_arrow.png"></image>
+    <image src="https://fnpphoto.cn/icon/right_arrow.png"></image>
   </view>
 </view>
 
@@ -165,7 +165,7 @@
   <view class="detail-page">
     <view class="title_close">
       <view class="totol_good">共{{totalNum}}件商品</view>
-      <image bindtap="exit" class="close" src="../../icon/close_icon.png"></image>
+      <image bindtap="exit" class="close" src="https://fnpphoto.cn/icon/close_icon.png"></image>
     </view>
     <scroll-view scroll-y="true" style="height: 85%" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
       <view class="line2"></view>

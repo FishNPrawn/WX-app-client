@@ -52,7 +52,7 @@
       },
       {
         "pagePath": "pages/personal/personal",
-        "text": "个人资料",
+        "text": "我",
         "iconPath": "icon/user1.png",
         "selectedIconPath": "icon/user2.png"
       }
