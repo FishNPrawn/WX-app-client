@@ -1,20 +1,41 @@
 <!--导航条-->
 <view class="navbar">
-  <lable wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">
+  <label wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">
     <text>{{item}}</text>
-  </lable>
+  </label>
 </view>
-<view wx:if="{{list.length>0}}">
- 
+<view class="cart_content">
+  <block wx:if="{{list.length>0}}">
+    <view class="cart_main">
+      <view class="cart_item"
+        wx:for="{{list}}"
+        wx:key="item"
+        bindtap="enterOrderDetail"
+        data-order="{{item.order_id}}"
+      >
+        <!-- 订单信息 -->
+        <view class="cart_info_wrap">
+          <view class="good_name">订单号：{{item.order_id}}</view>
+          <view class="good_price_wrap">
+            <view class="good_price">
+              <view class="rmb">￥</view>
+              <view class="good_price_value">订单价格：{{item.order_total_price}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <view wx:else class='no_item'>
+    <view class="empty_cart_container">
+      <image src="https://fnpphoto.cn/icon/svg/empty_cart.svg" class="empty_cart"></image>
+    </view>
+    <view class='no_item_text1'>你还没有相关的订单</view>
+    <view class='no_item_text2'>可以去看看有哪些想购买的</view>
+  </view>
 </view>
 <!-- 否则 -->
-<view wx:else class='no_item'>
-  <view class="empty_cart_container">
-    <image src="https://fnpphoto.cn/icon/svg/empty_cart.svg" class="empty_cart"></image>
-  </view>
-  <view class='no_item_text1'>你还没有相关的订单</view>
-  <view class='no_item_text2'>可以去看看有哪些想购买的</view>
-</view>
+
 
 <!-- 你还可以能喜欢 -->
 <view class="guess_like">

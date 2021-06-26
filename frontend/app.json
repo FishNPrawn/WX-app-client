@@ -8,6 +8,7 @@
     "pages/user/user",
     "pages/good_list/good_list",
     "pages/good_detail/good_detail",
+    "pages/order_detail/order_detail",
     "pages/collect/collect",
     "pages/order/order",
     "pages/searchResult/searchResult",

@@ -1,0 +1,318 @@
+
+page {
+  padding-bottom: 90rpx;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: #f6f6f6;
+}
+.revice_address_row .address_btn {
+  padding: 25rpx;
+}
+.revice_address_row .address_btn button {
+  width: 40%;
+}
+.revice_address_row .user_info_row {
+  display: flex;
+  padding: 20rpx;
+}
+.revice_address_row .user_info_row .user_info {
+  flex: 5;
+}
+.revice_address_row .user_info_row .user_phone {
+  flex: 3;
+  text-align: right;
+}
+.order_title {
+  padding: 20rpx;
+  font-size: 40rpx;
+  color: var(--themeColor);
+}
+.order_content .order_main {
+  height: 100%;
+  width: 95%;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 8px 3px 3px #e7e7e7;
+  margin: auto;
+}
+.order_content .order_main .order_item {
+  display: flex;
+  padding: 20rpx;
+}
+.order_content .order_main .order_item .order_chk_wrap {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.order_content .order_main .order_item .order_chk_wrap checkbox-group checkbox .wx-checkbox-input {
+  border-radius: 50%;
+  width: 42rpx;
+  height: 42rpx;
+  border: 1px solid #9c9c9c;
+}
+.order_content .order_main .order_item .order_chk_wrap checkbox-group checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+  border: 1rpx solid #FFA760;
+  background: #FFA760;
+}
+.order_content .order_main .order_item .order_chk_wrap checkbox-group checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  border-radius: 50%;
+  width: 36rpx;
+  height: 36rpx;
+  line-height: 36rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #fff;
+  background: transparent;
+  transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+}
+.order_content .order_main .order_item .order_img_wrap {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.order_content .order_main .order_item .order_img_wrap image {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 3px;
+}
+.order_content .order_main .order_item .order_info_wrap {
+  flex: 4;
+  display: block;
+  justify-content: space-around;
+}
+.order_content .order_main .order_item .order_info_wrap .good_name {
+  margin-top: 10rpx;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  color: #000000;
+  font-size: 28rpx;
+}
+.order_content .order_main .order_item .order_info_wrap .good_price_wrap {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30rpx;
+}
+.order_content .order_main .order_item .order_info_wrap .good_price_wrap .good_price {
+  color: var(--themeColor);
+  font-size: 34rpx;
+  margin-top: 40rpx;
+  color: red;
+  display: flex;
+}
+.order_content .order_main .order_item .order_info_wrap .good_price_wrap .good_price .rmb {
+  display: inline-block;
+  align-self: flex-end;
+  font-size: 28rpx;
+  font-weight: 300;
+}
+.order_content .order_main .order_item .order_info_wrap .good_price_wrap .good_price .good_price_value {
+  margin-top: 6px;
+}
+.order_content .order_main .order_item .order_info_wrap .good_price_wrap .order_num_tool {
+  display: flex;
+  margin-top: 40rpx;
+}
+.order_content .order_main .order_item .order_info_wrap .good_price_wrap .order_num_tool .num_edit {
+  width: 50rpx;
+  height: 50rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1rpx solid #f0f0f0;
+  font-size: 15px;
+}
+.order_content .order_main .order_item .order_info_wrap .good_price_wrap .order_num_tool .minus {
+  border-radius: 5px 0px 0px 5px;
+}
+.order_content .order_main .order_item .order_info_wrap .good_price_wrap .order_num_tool .plus {
+  border-radius: 0px 5px 5px 0px;
+}
+.order_content .order_main .order_item .order_info_wrap .good_price_wrap .order_num_tool .good_num {
+  width: 70rpx;
+  height: 50rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  border-top: 1rpx solid #f0f0f0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+.order_content .order_main1 .empty_info {
+  height: 100%;
+}
+.order_content .order_main1 .empty_info .img_empty_order {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.order_content .order_main1 .empty_info .img_empty_order .empty_order {
+  width: 253px;
+  height: 222px;
+}
+.order_content .order_main1 .empty_info .empty_message {
+  text-align: center;
+  font-size: 17px;
+  color: #646464;
+  font-weight: 300;
+  margin-top: 10px;
+}
+.order_content .order_main1 .empty_info .good_home {
+  height: 45px;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.order_content .order_main1 .empty_info .good_home .shopping_text {
+  height: 40px;
+  width: 50%;
+  background-color: #FFA760;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 450;
+  position: absolute;
+  border-radius: 30px;
+  text-align: center;
+}
+.footer_tool {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100rpx;
+  background-color: #fff;
+  display: flex;
+  border-top: 1rpx solid #ccc;
+}
+.footer_tool .all_chk_wrap {
+  margin-left: 20rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer_tool .all_chk_wrap checkbox-group checkbox .wx-checkbox-input {
+  border-radius: 50%;
+  width: 42rpx;
+  height: 42rpx;
+  border: 1px solid #9c9c9c;
+}
+.footer_tool .all_chk_wrap checkbox-group checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+  border: 1rpx solid #FFA760;
+  background: #FFA760;
+}
+.footer_tool .all_chk_wrap checkbox-group checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  border-radius: 50%;
+  width: 36rpx;
+  height: 36rpx;
+  line-height: 36rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #fff;
+  background: transparent;
+  transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+}
+.footer_tool .totol_order_box {
+  position: absolute;
+  right: 10px;
+  bottom: 0;
+  top: 0;
+  margin: auto;
+  margin-top: 5px;
+}
+.footer_tool .totol_order_box .totol_order {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+}
+.footer_tool .totol_order_box .totol_order .total_price_wrap {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+}
+.footer_tool .totol_order_box .totol_order .total_price_wrap .total_price_text {
+  display: flex;
+}
+.footer_tool .totol_order_box .totol_order .total_price_wrap .total_price_text text {
+  color: #333333;
+  font-size: 12px;
+  margin-top: 4px;
+}
+.footer_tool .totol_order_box .totol_order .total_price_wrap .total_price_text .totol_price_value {
+  color: red;
+  display: flex;
+}
+.footer_tool .totol_order_box .totol_order .total_price_wrap .total_price_text .totol_price_value text {
+  font-size: 12px;
+  color: red;
+}
+.footer_tool .totol_order_box .totol_order .total_price_wrap .total_price_text .totol_price_value .totol_price_value_1 {
+  font-size: 16px;
+  margin-left: 2px;
+  margin-top: 2px;
+}
+.footer_tool .totol_order_box .totol_order .pay_button {
+  background-color: tomato;
+  color: white;
+  font-size: 17px;
+  font-weight: 400;
+  border: none;
+  height: 80rpx;
+  width: 240rpx;
+  border-radius: 20px;
+  margin-left: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-image: linear-gradient(to right, tomato 0%, #F45C43 51%, #e97254 100%);
+}
+@media screen and (max-width: 320px) {
+  .empty_info {
+    margin-top: 15%;
+    width: 320px;
+  }
+  .good_home {
+    width: 320px;
+  }
+}
+@media screen and (max-width: 414px) {
+  .empty_info {
+    margin-top: 25%;
+    width: 414px;
+  }
+  .good_home {
+    width: 414px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .empty_info {
+    margin-top: 15%;
+    width: 375px;
+  }
+  .good_home {
+    width: 375px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .empty_info {
+    margin-top: 10%;
+    width: 320px;
+  }
+  .empty_info .img_empty_order .empty_order {
+    height: 95px;
+    width: 125px;
+  }
+  .good_home {
+    width: 320px;
+  }
+}

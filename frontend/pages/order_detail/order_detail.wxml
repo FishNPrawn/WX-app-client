@@ -1,0 +1,36 @@
+
+<view class="order_title">订单详情</view>
+<!-- 购物车内容 -->
+<view class="order_content">
+  <view class="order_main">
+    <!-- Some Order Info -->
+    <view>
+      <p>
+        订单编号： {{orderId}}
+        订单总价： {{totalPrice}}
+      </p>
+    </view>
+    <view class="order_item"
+    wx:for="{{orderDetail}}"
+    wx:key="item"
+    >
+      <!-- 商品图片 -->
+      <navigator class="order_img_wrap">
+        <image src="{{item.good_image}}"></image>
+      </navigator>
+      <!-- 商品信息 -->
+      <view class="order_info_wrap">
+        <view class="good_name">商品名称：{{item.good_name}}</view>
+        <view class="good_name">商品单价：￥{{item.good_price}}</view>
+        <view class="good_name">订购数量：{{item.good_quantity}}</view>
+        <view class="good_price_wrap">
+          <view class="good_price">
+            <view class="rmb">商品总价：￥</view>
+            <view class="good_price_value">{{item.good_price*item.good_quantity}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- </view> -->
+</view>

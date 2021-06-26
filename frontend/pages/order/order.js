@@ -2,6 +2,7 @@ import {request} from "../../request/index.js";
 //JS
 var app = getApp()
 let orderStatus = 1; //0"新订单，未支付;1"新订单，已支付";2, "已取消"；3"待评价"；4“已完成”
+const OrderStatysEnum = {0:"新订单，未支付", 21:"新订单，已支付", 2:"已取消", 3:"待评价", 4:"已完成"}
 Page({
   data: {
     // 顶部菜单切换
@@ -16,6 +17,9 @@ Page({
   Cates:[],
   // 页面加载会触发
   onLoad:function(options){
+    this.setData({
+      currentTab: parseInt(options.status)
+    })
     this.getCates();
   },
   //顶部tab切换
@@ -43,33 +47,34 @@ Page({
   },
 
   getMyOrderList() {
-    // let that = this;
+    let that = this;
     // let openid = app._checkOpenid();
-    // if (!openid) {
-    //   return;
-    // }
-    // //请求自己后台获取用户openid
-    // wx.request({
-    //   url: app.globalData.baseUrl + '/userOrder/listByStatus',
-    //   data: {
-    //     openid: openid,
-    //     orderStatus: orderStatus
-    //   },
-    //   success: function(res) {
-    //     console.log(res);
-    //     if (res && res.data && res.data.data && res.data.data.length > 0) {
-    //       let dataList = res.data.data;
-    //       console.log(dataList)
-    //       that.setData({
-    //         list: dataList
-    //       })
-    //     } else {
-    //       that.setData({
-    //         list: []
-    //       })
-    //     }
-    //   }
-    // })
+    let openid = 5;
+    if (!openid) {
+      return;
+    }
+    //请求自己后台获取用户openid
+    wx.request({
+      url: app.globalData.baseUrl + '/order/listByStatus?openid='+openid+'&orderStatus='+orderStatus,
+      success: function(res) {
+        try {
+          var dataList = res.data
+          that.setData({
+            list: dataList
+          })
+        } catch {
+          that.setData({
+            list: []
+          })
+        }
+      }
+    })
+  },
+
+  enterOrderDetail(event) {
+    wx.navigateTo({
+      url: '../order_detail/order_detail?order_id='+event.currentTarget.dataset.order,
+    })
   },
 
   getCates(){

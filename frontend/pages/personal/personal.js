@@ -16,9 +16,9 @@ Page({
     });
   },
 
-  goToMyOrder: function() {
+  goToMyOrder: function(event) {
     wx.navigateTo({
-      url: '../order/order',
+      url: '../order/order?status='+event.currentTarget.dataset.status,
     })
   },
 
