@@ -44,25 +44,25 @@
   <index class="index_cate">
     <view class="cat1">
       <navigator id="0" url="/pages/category/category" bindtap="onClick">
-        <image src="../../icon/index_shrimp.png"></image>
+        <image src="https://fnpphoto.cn/icon/index_shrimp.png"></image>
         <view>虾类</view>
       </navigator>
     </view>
     <view class="cat2">
       <navigator id="3" url="/pages/category/category" bindtap="onClick">
-        <image src="../../icon/index_fish.png"></image>
+        <image src="https://fnpphoto.cn/icon/index_fish.png"></image>
         <view>鱼类</view>
       </navigator>
     </view>
     <view class="cat3">
       <navigator id="1" url="/pages/category/category" bindtap="onClick">
-        <image src="../../icon/index_shrimp.png"></image>
+        <image src="https://fnpphoto.cn/icon/index_shrimp.png"></image>
         <view>海鲜水产</view>
       </navigator>
     </view>
     <view class="cat4">
       <navigator id="4" url="/pages/category/category" bindtap="onClick">
-        <image src="../../icon/index_fish.png"></image>
+        <image src="https://fnpphoto.cn/icon/index_fish.png"></image>
         <view>螃蟹</view>
       </navigator>
     </view>
@@ -72,25 +72,25 @@
   <index class="index_cate2">
     <view class="cat5">
       <navigator id="0" url="/pages/category/category" bindtap="onClick">
-        <image src="../../icon/index_fish.png"></image>
+        <image src="https://fnpphoto.cn/icon/index_fish.png"></image>
         <view>海鲜水产</view>
       </navigator>
     </view>
     <view class="cat6">
       <navigator id="0" url="/pages/category/category" bindtap="onClick">
-        <image src="../../icon/index_shrimp.png"></image>
+        <image src="https://fnpphoto.cn/icon/index_shrimp.png"></image>
         <view>海鲜水产</view>
       </navigator>
     </view>
     <view class="cat7">
       <navigator id="0" url="/pages/category/category" bindtap="onClick">
-        <image src="../../icon/index_fish.png"></image>
+        <image src="https://fnpphoto.cn/icon/index_fish.png"></image>
         <view>海鲜水产</view>
       </navigator>
     </view>
     <view class="cat8">
       <navigator id="0" url="/pages/category/category" bindtap="onClick">
-        <image src="../../icon/index_shrimp.png"></image>
+        <image src="https://fnpphoto.cn/icon/index_shrimp.png"></image>
         <view>海鲜水产</view>
       </navigator>
     </view>
