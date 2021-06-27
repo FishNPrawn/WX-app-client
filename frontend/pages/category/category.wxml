@@ -25,7 +25,7 @@
 
     <!-- 右侧商品内容 -->
     <scroll-view scroll-y class="right_content">
-      <image class="ads_img" src="../../icon/ads_img.png"></image>
+      <image class="ads_img" src="https://fnpphoto.cn/icon/ads_img.png"></image>
       <view class="goods_group"
             wx:for = "{{rightContent}}"
             wx:for-index="index1"
