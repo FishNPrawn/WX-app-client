@@ -25,19 +25,20 @@ Page({
   //顶部tab切换
   navbarTap: function(e) {
     let index = e.currentTarget.dataset.idx;
+    console.log(index)
     this.setData({
       currentTab: index
     })
 
     //1"全部订单";2, "待发货"；3"待收货"待评价
     if (index == 1) {
-      orderStatus = 2;
+      orderStatus = 0;
     } else if (index == 2) {
-      orderStatus = 3;
-    } else if (index == 3) {
-      orderStatus = 4;
-    } else {
       orderStatus = 1;
+    } else if (index == 3) {
+      orderStatus = 2;
+    } else {
+      orderStatus = 3;
     }
     this.getMyOrderList();
   },

@@ -11,17 +11,25 @@
         wx:for="{{list}}"
         wx:key="item"
         bindtap="enterOrderDetail"
-        data-order="{{item.order_id}}"
+        data-order="{{item.orderId}}"
       >
         <!-- 订单信息 -->
         <view class="cart_info_wrap">
-          <view class="good_name">订单号：{{item.order_id}}</view>
+          <view class="good_name">订单号：{{item.order_number}}</view>
           <view class="good_price_wrap">
             <view class="good_price">
               <view class="rmb">￥</view>
               <view class="good_price_value">订单价格：{{item.order_total_price}}</view>
             </view>
           </view>
+          <view>
+              <view
+               wx:for="{{item.orderDetailList}}" 
+               wx:for-item="item1"
+               >
+                  <image src="{{item1.good_image}}"></image>
+              </view>
+            </view>
         </view>
       </view>
     </view>
