@@ -1,6 +1,6 @@
 /* pages/good_detail/good_detail.wxss */
 page{
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   background-color: #e8ebf4;
   height: 100%;
   width: 100%;
@@ -15,83 +15,87 @@ page{
 .goods_name_row{
   display: block;
   .info_box1{
-    width: 100%;
-    height: 28vw;
+    background-color: #fff;
+    height: 100%;
+    width: 94%;
+    border-radius: 10px;
     margin: auto;
-    background-color: white;
+    margin-top: 15px;
+    .goods_name{
+      padding: 15px 5px 10px 10px;
+    }
+    .goods_description{
+      padding: 0 5px 10px 10px;
+      font-weight: 300;
+      font-size: 13px;
+    }
     .goods_price{
       display: flex;
       font-weight: 450;
-      margin-left: 15px;
+      padding: 0 5px 10px 10px;
       .goods_price1{
+        display: flex;
         margin-top: 10px;
-        color: red;
+        color: tomato;
         font-size: 25px;
-      }
-      .per{
-        color: black;
-        font-size: 13px;
-        margin-top: 20px;
+        .goods_price_nums{
+          margin-left: 5px;
+        }
+        .goods_price_nums_line_through{
+          display: flex;
+          text-decoration: line-through;
+          font-size: 15px;
+          font-weight: 300;
+          color: #a1a1a1;
+          margin-top: 8px;
+          margin-left: 10px;
+        }
       }
       .share_icon{
         button{
-          margin-top: 10px;
+          margin-top: 13px;    
+          width: 26px;
+          height: 26px;
           position: absolute;
-          width: 28px;
-          height: 28px;
-          right: 10px;
+          right: 7%;
           opacity: 0;
         }
         image{
-          margin-top: 10px;
-          width: 28px;
-          height: 28px;
+          margin-top: 13px;
+          width: 26px;
+          height: 26px;
           position: absolute;
-          right: 10px;
+          right: 7%;
         }
       }
     }
-    .goods_name{
-      color: black;
-      font-size: 18px;
-      font-weight: 400;
-      margin-left: 15px;
-      margin-top: 5px;
-    }
-    .goods_description{
-      color: rgb(139, 139, 139);
-      font-size: 12px;
-      margin-left: 15px;
-      margin-top: 15px;
+    .sales{
       display: flex;
-      .sales{
-        position: absolute;
-        right: 10px;
-        display: flex;
-        font-weight: 450;
-        .sales_number{
-          color:red;
-        }
-      }
+      font-weight: 200;
+      padding: 0 5px 15px 10px;
+      font-size: 12px;
     }
   }
   .info_box2{
-    width: 100%;
-    height: 76vw;
-    background-color: white;
-    margin-top: 10px;
     display: block;
+    background-color: #fff;
+    height: 100%;
+    width: 94%;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 10px;
+    padding: 0 0 10px 0;
     .product_desc{
       padding: 15px;
-      font-weight: 420;
-      font-size: 20px;
+      font-weight: 400;
+      font-size: 18px;
     }
     .info_table{
       display: block;
       width: 93%;
       height: 50vw;
       margin: auto;
-      font-size: 14px;
+      font-size: 13px;
       .row{
         width: 100%;
         height: 12vw;
@@ -264,6 +268,121 @@ page{
       }
     }
   }
+  .info_box3{
+    background-color: #fff;
+    height: 100%;
+    width: 94%;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 10px;
+    text-align: center;
+    padding: 0 0 15px 0;
+    .image_description_title{
+      padding: 15px 0 15px 0;
+      color: #474747;
+    }
+    .image_description_image{
+      width: 100%;
+    }
+  }
+}
+
+// 你可能还喜欢商品
+.guess_like{
+  padding: 0 0 100px 0;
+  .guess_like_text{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0 5px 0;
+    .love_img_container{
+      margin-top: 5px;
+      .love_img{
+        width: 20px;
+        height: 20px;
+        padding: 0 6px 0 3px;
+      }
+    }
+    text{
+      color: #F45C43;
+    }
+  } 
+  // 你可能喜欢所有商品
+
+  .preference_display {
+    margin-top: 10px;
+    border-radius: 30px 30px 0px 0px;
+    .preference_row {
+      display: block;
+      margin-top: 10px;
+      padding: 0 10px 0 10px;
+      .preference_col {
+        .navigator_box{
+          height: 14rem;
+          width: 93%;
+          background-color: #ffffff;
+          border-radius: 3px;
+          margin: auto;
+          .good_navigator {
+            height: 10rem;
+            margin-left: auto;
+            margin-right: auto;
+            .goods_image {
+              width: 100%;
+              height: 85%;
+              border-radius: 7rpx;
+            }
+            .goods_msg{
+              margin-left: 6%;
+              .goods_name {
+                margin-top: 3%;
+                font-size: 28rpx;
+              }
+              .goods_sale{
+                display: flex;
+                font-size: 20rpx;
+                color: rgb(77, 77, 77);
+                font-weight: 300;
+                font-family:  'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                .goods_sale_number{
+                  font-family: cursive;
+                  margin-left: 2%;
+                }
+              }
+            } 
+          }
+          .add_icon{
+            display: flex;
+            margin-left: 6%;
+            margin-top: 30px;
+            .goods_price {
+              width: 84%;
+              color: tomato;
+              padding-top: 0.5rem;
+              display: flex;
+              font-family: cursive;
+              .dollar_symbol{
+                display: inline-block;
+                align-self: flex-end;
+                font-size: 22rpx;
+                font-weight: 300;
+              }
+              .dollar_price_number{
+                margin-left: 2px;
+                font-size: 30rpx;
+              }
+            }
+            .add_to_cart{
+              height: 20px;
+              width: 20px;
+              margin-top: 7px;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 .btm_tool{
@@ -274,7 +393,7 @@ page{
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 66px;
+  height: 86px;
   background-color: white;
   .good_home{
     margin-left: 10px;
@@ -292,6 +411,7 @@ page{
     position: relative;
     width: 56px;
     height: 56px;
+    margin-bottom: 10px;
     button{
       position: absolute;
       top: 0;
@@ -301,8 +421,8 @@ page{
       opacity: 0;
     }
     .good_cart_icon, .good_home_icon{
-      height: 35px;
-      width: 32px;
+      height: 25px;
+      width: 25px;
     }
     text{
       color: #4d4d4d;
@@ -319,12 +439,13 @@ page{
     color: #fff;
     font-size: 30rpx;
     font-weight: 600;
-    width: 62%;
-    height: 76%;
+    width: 60%;
+    height: 45px;
     position: absolute;
     right: 10px;
     border-radius: 30px;
     text-align: center;
+    margin-bottom: 10px;
   }
 
 }

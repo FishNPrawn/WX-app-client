@@ -1,36 +1,134 @@
 
-<view class="order_title">订单详情</view>
+<!-- <view class="order_title">订单详情</view> -->
 <!-- 购物车内容 -->
 <view class="order_content">
   <view class="order_main">
     <!-- Some Order Info -->
-    <view>
+    <!-- <view>
       <p>
-        订单编号： {{orderId}}
+        订单编号： 
         订单总价： {{totalPrice}}
       </p>
-    </view>
+    </view> -->
     <view class="order_item"
     wx:for="{{orderDetail}}"
     wx:key="item"
     >
       <!-- 商品图片 -->
-      <navigator class="order_img_wrap">
-        <image src="{{item.good_image}}"></image>
-      </navigator>
+      <image src="{{item.good_image}}" class="order_good_img"></image>
       <!-- 商品信息 -->
       <view class="order_info_wrap">
-        <view class="good_name">商品名称：{{item.good_name}}</view>
-        <view class="good_name">商品单价：￥{{item.good_price}}</view>
-        <view class="good_name">订购数量：{{item.good_quantity}}</view>
-        <view class="good_price_wrap">
-          <view class="good_price">
-            <view class="rmb">商品总价：￥</view>
-            <view class="good_price_value">{{item.good_price*item.good_quantity}}</view>
-          </view>
+        <view class="order_info_wrap_row1">
+          <view class="good_name">{{item.good_name}}</view>
+          <view class="good_price">￥{{item.good_price}}</view>
+        </view>
+        <view class="order_info_wrap_row2">
+          <view class="good_quantity">x {{item.good_quantity}}</view>
         </view>
       </view>
     </view>
+    <view class="div_line"></view>
+    <view class="good_price_wrap">
+      <view class="good_discount">
+        已优惠
+        <view class="”good_discount_nums">￥12.3</view>
+      </view>
+      <view class="good_price">
+        <view class="rmb">合计</view>
+        <view class="good_price_value">￥{{totalPrice}}</view>
+      </view>
+    </view>
   </view>
-  <!-- </view> -->
+</view>
+<!-- 订单详情 -->
+<view class="deliver_msg">
+  <view class="diliver_title">配送信息</view>
+  <view class="div_line"></view>
+  <view class="deliver_msg_detail">
+    <view class="deliver_msg_line1">
+      <view class="deliver_address_title">配送地址</view>
+      <view class="deliver_address_detail">
+        <view class="deliver_address_msg1">广州某某牌地方地方地方花都花</view>
+          <view class="name_phone">杨先生 154***1050</view>
+      </view>
+    </view>
+    <view class="deliver_msg_line2">
+      <view class="deliver_way_title">配送服务</view>
+      <view class="deliver_way_msg">顺丰冷链</view>
+    </view>
+  </view>
+</view>
+
+<!-- 订单信息 -->
+<view class="order_detail">
+  <view class="order_detail_title">订单信息</view>
+  <view class="div_line"></view>
+  <view class="order_detail_wrapper">
+    <view class="order_detail_line">
+      <view class="order_detail_title_title">订单号码</view>
+      <view class="order_detail_msg">{{orderId}}</view>
+    </view>
+    <view class="order_detail_line">
+      <view class="order_detail_title_title">下单时间</view>
+      <view class="order_detail_msg">2021-04-20 16:20:30</view>
+    </view><view class="order_detail_line">
+      <view class="order_detail_title_title">支付方式</view>
+      <view class="order_detail_msg">微信支付</view>
+    </view><view class="order_detail_line order_detail_line_last">
+      <view class="order_detail_title_title">订单备注</view>
+      <view class="order_detail_msg">请打包好哦不要漏了</view>
+    </view>
+  </view>
+</view>
+
+
+
+<!-- 你还可以能喜欢 -->
+<view class="guess_like">
+  <view class="guess_like_text">
+    <view class="love_img_container">
+      <image src="https://fnpphoto.cn/icon/love.png" class="love_img" alt=""></image>
+    </view>
+    <text>你可能还喜欢</text>
+  </view>
+
+  <!-- 商品 -->
+  <!--Preference goods display-->
+  <view class="preference_display">
+    <van-row gutter="0"
+          wx:for = "{{goods_list}}"
+          wx:for-index="index1"
+          wx:for-item="item1"
+          class="preference_row"
+    >
+      <van-col span="12"
+            wx:for = "{{goods_list[index1]}}"
+            wx:if="{{goods_list[index1]}}"
+            wx:for-index="index2"
+            wx:for-item="item2"
+            class="preference_col"
+      >
+        <view class="navigator_box">
+          <navigator
+            url="/pages/good_detail/good_detail?good_id={{item2.good_id}}"
+            class="good_navigator"
+          >
+            <image src="{{item2.good_image}}" class="goods_image"></image>
+            <view class="goods_msg">
+              <view class="goods_name">{{item2.good_name}}</view>
+              <view class="goods_sale">销量 <view class="goods_sale_number">15354</view></view>
+            </view>
+          </navigator>
+          <view class="add_icon">
+            <view class="goods_price">
+              <view class="dollar_symbol">¥</view>
+              <view class="dollar_price_number">{{item2.good_price}}</view>
+            </view>    
+            <image data-variable="{{item2}}" bindtap="handleCartAdd" class="add_to_cart" src="https://fnpphoto.cn/icon/shopping-cart.png"></image>
+          </view>
+        </view>  
+      </van-col>
+    </van-row>
+  </view>
+
 </view>

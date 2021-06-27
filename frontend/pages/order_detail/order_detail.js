@@ -1,15 +1,15 @@
-// pages/order_detail/order_detail.js
+import {request} from "../../request/index.js";
 var app = getApp()
 Page({
-  /**
-   * 页面的初始数据
-   */
   data: {
       orderId: -1,
       orderDetail: [],
-      totalPrice: 0
+      totalPrice: 0,
+      list: [],
+      goods_list:[],
   },
-
+  goodInfo: {},
+  Cates:[],
   /**
    * 生命周期函数--监听页面加载
    */
@@ -18,6 +18,7 @@ Page({
     this.setData({
       orderId: options.order_id
     })
+    this.getCates()
     wx.request({
       url: app.globalData.baseUrl + '/order/order_detail_filter?filter='+options.order_id,
       success: function(res) {
@@ -39,24 +40,50 @@ Page({
     })
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
+  getCates(){
+    request({
+      url: app.globalData.baseUrl + '/good/getAllgood'
+    })
+    .then(res=>{
+      this.Cates=res.data.data
+      var goods = [];
+      var flag = 0;
+      for (var categoryIndex = 0; categoryIndex < this.Cates.length; ++categoryIndex) {
+        for (var goodIndex = 0; goodIndex < this.Cates[categoryIndex].array.length; ++goodIndex) {
+          if (flag == 0) {
+            goods.push([this.Cates[categoryIndex].array[goodIndex]]);
+            flag = 1;
+          } else {
+            var tempBox = goods.pop();
+            tempBox.push(this.Cates[categoryIndex].array[goodIndex]);
+            flag = 0;
+            goods.push(tempBox);
+          }
+        }
+      }
+      this.setData({
+        goods_list: goods
+      })
+    })
   },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
+  // 主页面add button
+  handleCartAdd(event) {
+    let cart = wx.getStorageSync("cart") || [];
+    let goodInfo=event.currentTarget.dataset.variable;
+    let index = cart.findIndex(v => v.good_id === goodInfo.good_id);
+    if (index === -1) {
+      goodInfo.num = 1;
+      goodInfo.checked = true;
+      cart.push(goodInfo);
+    } 
+    wx.setStorageSync("cart", cart);
+    wx.showToast({
+      title: '加入成功',
+      icon: 'success',
+      mask: true
+    });
   },
+  
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

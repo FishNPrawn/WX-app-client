@@ -1,6 +1,6 @@
 /* pages/good_detail/good_detail.wxss */
 page {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   background-color: #e8ebf4;
   height: 100%;
   width: 100%;
@@ -16,82 +16,86 @@ page {
   display: block;
 }
 .goods_name_row .info_box1 {
-  width: 100%;
-  height: 28vw;
+  background-color: #fff;
+  height: 100%;
+  width: 94%;
+  border-radius: 10px;
   margin: auto;
-  background-color: white;
+  margin-top: 15px;
+}
+.goods_name_row .info_box1 .goods_name {
+  padding: 15px 5px 10px 10px;
+}
+.goods_name_row .info_box1 .goods_description {
+  padding: 0 5px 10px 10px;
+  font-weight: 300;
+  font-size: 13px;
 }
 .goods_name_row .info_box1 .goods_price {
   display: flex;
   font-weight: 450;
-  margin-left: 15px;
+  padding: 0 5px 10px 10px;
 }
 .goods_name_row .info_box1 .goods_price .goods_price1 {
+  display: flex;
   margin-top: 10px;
-  color: red;
+  color: tomato;
   font-size: 25px;
 }
-.goods_name_row .info_box1 .goods_price .per {
-  color: black;
-  font-size: 13px;
-  margin-top: 20px;
+.goods_name_row .info_box1 .goods_price .goods_price1 .goods_price_nums {
+  margin-left: 5px;
+}
+.goods_name_row .info_box1 .goods_price .goods_price1 .goods_price_nums_line_through {
+  display: flex;
+  text-decoration: line-through;
+  font-size: 15px;
+  font-weight: 300;
+  color: #a1a1a1;
+  margin-top: 8px;
+  margin-left: 10px;
 }
 .goods_name_row .info_box1 .goods_price .share_icon button {
-  margin-top: 10px;
+  margin-top: 13px;
+  width: 26px;
+  height: 26px;
   position: absolute;
-  width: 28px;
-  height: 28px;
-  right: 10px;
+  right: 7%;
   opacity: 0;
 }
 .goods_name_row .info_box1 .goods_price .share_icon image {
-  margin-top: 10px;
-  width: 28px;
-  height: 28px;
+  margin-top: 13px;
+  width: 26px;
+  height: 26px;
   position: absolute;
-  right: 10px;
+  right: 7%;
 }
-.goods_name_row .info_box1 .goods_name {
-  color: black;
-  font-size: 18px;
-  font-weight: 400;
-  margin-left: 15px;
-  margin-top: 5px;
-}
-.goods_name_row .info_box1 .goods_description {
-  color: #8b8b8b;
+.goods_name_row .info_box1 .sales {
+  display: flex;
+  font-weight: 200;
+  padding: 0 5px 15px 10px;
   font-size: 12px;
-  margin-left: 15px;
-  margin-top: 15px;
-  display: flex;
-}
-.goods_name_row .info_box1 .goods_description .sales {
-  position: absolute;
-  right: 10px;
-  display: flex;
-  font-weight: 450;
-}
-.goods_name_row .info_box1 .goods_description .sales .sales_number {
-  color: red;
 }
 .goods_name_row .info_box2 {
-  width: 100%;
-  height: 76vw;
-  background-color: white;
-  margin-top: 10px;
   display: block;
+  background-color: #fff;
+  height: 100%;
+  width: 94%;
+  border-radius: 10px;
+  margin: auto;
+  margin-top: 10px;
+  padding: 0 0 10px 0;
 }
 .goods_name_row .info_box2 .product_desc {
   padding: 15px;
-  font-weight: 420;
-  font-size: 20px;
+  font-weight: 400;
+  font-size: 18px;
 }
 .goods_name_row .info_box2 .info_table {
   display: block;
   width: 93%;
   height: 50vw;
   margin: auto;
-  font-size: 14px;
+  font-size: 13px;
 }
 .goods_name_row .info_box2 .info_table .row {
   width: 100%;
@@ -246,6 +250,115 @@ page {
 .goods_name_row .info_box2 .info_table .row4 {
   border-radius: 0px 0px 10px 10px;
 }
+.goods_name_row .info_box3 {
+  background-color: #fff;
+  height: 100%;
+  width: 94%;
+  border-radius: 10px;
+  margin: auto;
+  margin-top: 10px;
+  text-align: center;
+  padding: 0 0 15px 0;
+}
+.goods_name_row .info_box3 .image_description_title {
+  padding: 15px 0 15px 0;
+  color: #474747;
+}
+.goods_name_row .info_box3 .image_description_image {
+  width: 100%;
+}
+.guess_like {
+  padding: 0 0 100px 0;
+}
+.guess_like .guess_like_text {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 0 5px 0;
+}
+.guess_like .guess_like_text .love_img_container {
+  margin-top: 5px;
+}
+.guess_like .guess_like_text .love_img_container .love_img {
+  width: 20px;
+  height: 20px;
+  padding: 0 6px 0 3px;
+}
+.guess_like .guess_like_text text {
+  color: #F45C43;
+}
+.guess_like .preference_display {
+  margin-top: 10px;
+  border-radius: 30px 30px 0px 0px;
+}
+.guess_like .preference_display .preference_row {
+  display: block;
+  margin-top: 10px;
+  padding: 0 10px 0 10px;
+}
+.guess_like .preference_display .preference_row .preference_col .navigator_box {
+  height: 14rem;
+  width: 93%;
+  background-color: #ffffff;
+  border-radius: 3px;
+  margin: auto;
+}
+.guess_like .preference_display .preference_row .preference_col .navigator_box .good_navigator {
+  height: 10rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.guess_like .preference_display .preference_row .preference_col .navigator_box .good_navigator .goods_image {
+  width: 100%;
+  height: 85%;
+  border-radius: 7rpx;
+}
+.guess_like .preference_display .preference_row .preference_col .navigator_box .good_navigator .goods_msg {
+  margin-left: 6%;
+}
+.guess_like .preference_display .preference_row .preference_col .navigator_box .good_navigator .goods_msg .goods_name {
+  margin-top: 3%;
+  font-size: 28rpx;
+}
+.guess_like .preference_display .preference_row .preference_col .navigator_box .good_navigator .goods_msg .goods_sale {
+  display: flex;
+  font-size: 20rpx;
+  color: #4d4d4d;
+  font-weight: 300;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.guess_like .preference_display .preference_row .preference_col .navigator_box .good_navigator .goods_msg .goods_sale .goods_sale_number {
+  font-family: cursive;
+  margin-left: 2%;
+}
+.guess_like .preference_display .preference_row .preference_col .navigator_box .add_icon {
+  display: flex;
+  margin-left: 6%;
+  margin-top: 30px;
+}
+.guess_like .preference_display .preference_row .preference_col .navigator_box .add_icon .goods_price {
+  width: 84%;
+  color: tomato;
+  padding-top: 0.5rem;
+  display: flex;
+  font-family: cursive;
+}
+.guess_like .preference_display .preference_row .preference_col .navigator_box .add_icon .goods_price .dollar_symbol {
+  display: inline-block;
+  align-self: flex-end;
+  font-size: 22rpx;
+  font-weight: 300;
+}
+.guess_like .preference_display .preference_row .preference_col .navigator_box .add_icon .goods_price .dollar_price_number {
+  margin-left: 2px;
+  font-size: 30rpx;
+}
+.guess_like .preference_display .preference_row .preference_col .navigator_box .add_icon .add_to_cart {
+  height: 20px;
+  width: 20px;
+  margin-top: 7px;
+}
 .btm_tool {
   border-top: 0.5rpx solid #e6e6e6;
   display: flex;
@@ -254,7 +367,7 @@ page {
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 66px;
+  height: 86px;
   background-color: white;
 }
 .btm_tool .good_home {
@@ -272,6 +385,7 @@ page {
   position: relative;
   width: 56px;
   height: 56px;
+  margin-bottom: 10px;
 }
 .btm_tool .tool_item button {
   position: absolute;
@@ -283,8 +397,8 @@ page {
 }
 .btm_tool .tool_item .good_cart_icon,
 .btm_tool .tool_item .good_home_icon {
-  height: 35px;
-  width: 32px;
+  height: 25px;
+  width: 25px;
 }
 .btm_tool .tool_item text {
   color: #4d4d4d;
@@ -299,12 +413,13 @@ page {
   color: #fff;
   font-size: 30rpx;
   font-weight: 600;
-  width: 62%;
-  height: 76%;
+  width: 60%;
+  height: 45px;
   position: absolute;
   right: 10px;
   border-radius: 30px;
   text-align: center;
+  margin-bottom: 10px;
 }
 @media screen and (max-width: 320px) {
   .goods_name_row .info_box1 .goods_price .goods_price1 {
