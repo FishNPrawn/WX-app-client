@@ -76,6 +76,72 @@ page{
       font-size: 12px;
     }
   }
+  .coupon_list{
+    background-color: #fff;
+    height: 100%;
+    width: 94%;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 15px;
+    .coupon_list_wrapper{
+      display: flex;
+      padding: 15px 5px 10px 10px;
+      .coupon_list_title{
+        font-size: 13px;
+        font-weight: 300;
+      }
+      .coupon_detail_list{
+        display: block;
+        margin-left: 15px;
+        font-size: 14px;
+        .coupon_detail_list1{
+          display: flex;
+          .coupon_detail_list1_title{
+            font-size: 12px;
+            width: 48px;
+            height: 18px;
+            background-color: rgb(255, 109, 109);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            border-radius: 2px;
+          }
+          .coupon_detail_list1_text{
+            margin-left: 10px;
+          }
+        }
+        .coupon_detail_list2{
+          display: flex;
+          padding: 10px 0 0 0;
+          .coupon_detail_list2_title{
+            font-size: 12px;
+            width: 60px;
+            height: 18px;
+            background-color: rgb(255, 109, 109);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            border-radius: 2px;
+          }
+          .coupon_detail_list2_text{
+            margin-left: 10px;
+          }
+        }
+      }
+      .right_arrow{
+        position: absolute;
+        right: 7%;
+        height: 14px;
+        width: 7.5px;
+      }
+    }
+    
+  }
+
   .info_box2{
     display: block;
     background-color: #fff;
@@ -380,6 +446,84 @@ page{
             }
           }
         }
+      }
+    }
+  }
+}
+
+.page_container{
+  .detail-page{
+    .detail-page_line1{
+      display: flex;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+      padding: 15px 0 15px 0;
+      font-size: 18px;
+      font-weight: 400;
+      .close{
+        position: absolute;
+        right: 5%;
+        height:15px;
+        width: 15px;
+      }
+    }
+    .divLine{
+      background: #E0E3DA;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+      height: 1rpx;
+    } 
+  }
+  .detail-page_line2{
+    padding: 15px 0 15px 15px;
+    .coupon_detail_list1{
+      display: flex;
+      font-size: 14px;
+      .coupon_detail_list1_title{
+        font-size: 12px;
+        width: 48px;
+        height: 18px;
+        background-color: rgb(255, 109, 109);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        border-radius: 2px;
+      }
+      .coupon_detail_list{
+        margin-left: 10px;
+        display: block;
+        .coupon_detail_list1_text{
+          padding-bottom: 5px;
+        }
+      }
+      
+    }
+  }
+
+  .detail-page_line3{
+    padding: 10px 0 15px 15px;
+    .coupon_detail_list2{
+      display: flex;
+      .coupon_detail_list2_title{
+        font-size: 12px;
+        width: 120px;
+        height: 18px;
+        background-color: rgb(255, 109, 109);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        border-radius: 2px;
+      }
+      .coupon_detail_list2_text{
+        padding: 0 15px 0 0;
+        font-size: 14px;
+        margin-left: 15px;
       }
     }
   }

@@ -9,7 +9,7 @@
 </view>
 
 <view class="goods_name_row">
-    <!-- box1 -->
+    <!-- box1 商品信息: 名字 详情 价格 售出 -->
   <view class="info_box1">
     <view class="goods_name"> {{goodObj.good_name}}</view>
     <view class="goods_description">{{goodObj.good_description}}</view>
@@ -30,7 +30,26 @@
     <view class="sales">已售20份</view>
   </view>
 
-  <!-- box2 -->
+  <!-- 促销详情 -->
+  <view class="coupon_list" bindtap="popup" data-position="bottom">
+    <view class="coupon_list_wrapper">
+      <view class="coupon_list_title">促销</view>
+      <view class="coupon_detail_list">
+        <view class="coupon_detail_list1">
+          <view class="coupon_detail_list1_title">满包邮</view>
+          <view class="coupon_detail_list1_text">满100元, 全国邮费减8元</view>
+        </view>
+        <view class="coupon_detail_list2">
+          <view class="coupon_detail_list2_title">满减满折</view>
+          <view class="coupon_detail_list2_text">满99元减10元，满199件20</view>
+        </view>
+      </view>
+      <image class="right_arrow" src="https://fnpphoto.cn/icon/right_arrow.png"></image>
+    </view>
+    
+  </view>
+
+  <!-- box2 商品详情：供应商 产地 日期 品牌 规格 -->
   <view class="info_box2">
     <view class="product_desc">商品详情</view>
     <view class="info_table">
@@ -131,6 +150,51 @@
 </view>
 
 
+<page-container 
+  show="{{show}}"
+  round="{{round}}"
+  duration="{{duration}}"
+  position="{{position}}"
+  close-on-slide-down="{{false}}"
+  bindbeforeenter="onBeforeEnter"
+  bindenter="onEnter"
+  bindafterenter="onAfterEnter"
+  bindbeforeleave="onBeforeLeave"
+  bindleave="onLeave"
+  bindafterleave="onAfterLeave"
+  custom-style="{{customStyle}}"
+  class="page_container"
+>
+  <view class="detail-page">
+    <view class="detail-page_line1">
+      <view class="detail-page_title">优惠详情</view>
+      <image bindtap="exit" class="close" src="https://fnpphoto.cn/icon/close_icon.png"></image>
+    </view>
+    <view class="divLine"></view>
+    <view class="detail-page_line2">
+      <view class="coupon_detail_list1">
+        <view class="coupon_detail_list1_title">满包邮</view>
+        <view class="coupon_detail_list">
+          <view class="coupon_detail_list1_text">满100元, 全国邮费减8元</view>
+          <view class="coupon_detail_list1_text">满200元, 全国邮费减16元</view>
+          <view class="coupon_detail_list1_text">满300元, 全国邮费减24元</view>
+          <view class="coupon_detail_list1_text">满400元, 全国邮费减32元</view>
+          <view class="coupon_detail_list1_text">满500元, 全国邮费减40元</view>
+          <view class="coupon_detail_list1_text">满600元, 全国邮费减48元</view>
+          <view class="coupon_detail_list1_text">满700元, 全国邮费减56元</view>
+          <view class="coupon_detail_list1_text">满800元, 全国邮费减64元</view>
+        </view>
+      </view>
+    </view>
+    <view class="divLine"></view>
+    <view class="detail-page_line3">
+      <view class="coupon_detail_list2">
+          <view class="coupon_detail_list2_title">满减满折</view>
+          <view class="coupon_detail_list2_text">满99元减10元，满199件20元，满299元减30元，满399元减40元，满499元减50元，满599减60元</view>
+        </view>
+    </view>
+  </view>
+</page-container>
 
 <view class="btm_tool">
   <navigator open-type="switchTab" url="/pages/index/index" class="tool_item good_home">
