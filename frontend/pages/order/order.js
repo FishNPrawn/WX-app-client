@@ -12,6 +12,7 @@ Page({
     isShowComment: false, //是否显示评论框
     list: [],
     goods_list:[],
+    totalNum: [],
   },
   goodInfo: {},
   Cates:[],
