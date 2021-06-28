@@ -4,14 +4,8 @@
 <view class="order_content">
   <view class="order_main">
     <!-- Some Order Info -->
-    <!-- <view>
-      <p>
-        订单编号： 
-        订单总价： {{totalPrice}}
-      </p>
-    </view> -->
     <view class="order_item"
-    wx:for="{{orderDetail}}"
+    wx:for="{{orderDetailList}}"
     wx:key="item"
     >
       <!-- 商品图片 -->
@@ -48,8 +42,8 @@
     <view class="deliver_msg_line1">
       <view class="deliver_address_title">配送地址</view>
       <view class="deliver_address_detail">
-        <view class="deliver_address_msg1">广州某某牌地方地方地方花都花</view>
-          <view class="name_phone">杨先生 154***1050</view>
+        <view class="deliver_address_msg1">{{orderInfo.user_address}}</view>
+          <view class="name_phone">{{orderInfo.user_name}} {{orderInfo.user_phone}}</view>
       </view>
     </view>
     <view class="deliver_msg_line2">
@@ -70,13 +64,13 @@
     </view>
     <view class="order_detail_line">
       <view class="order_detail_title_title">下单时间</view>
-      <view class="order_detail_msg">2021-04-20 16:20:30</view>
+      <view class="order_detail_msg">{{orderInfo.order_create_time}}</view>
     </view><view class="order_detail_line">
       <view class="order_detail_title_title">支付方式</view>
       <view class="order_detail_msg">微信支付</view>
     </view><view class="order_detail_line order_detail_line_last">
       <view class="order_detail_title_title">订单备注</view>
-      <view class="order_detail_msg">请打包好哦不要漏了</view>
+      <view class="order_detail_msg">{{orderInfo.order_comment}}</view>
     </view>
   </view>
 </view>

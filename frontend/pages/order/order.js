@@ -20,24 +20,25 @@ Page({
     this.setData({
       currentTab: parseInt(options.status)
     })
+    orderStatus = options.status;
+    if (options.status == '0') {
+      orderStatus = -1;
+    }
+    this.getMyOrderList();
     this.getCates();
   },
   //顶部tab切换
   navbarTap: function(e) {
+    this.clearPage()
     let index = e.currentTarget.dataset.idx;
     this.setData({
       currentTab: index
     })
 
     //1"全部订单";2, "待发货"；3"待收货"待评价
-    if (index == 1) {
-      orderStatus = 2;
-    } else if (index == 2) {
-      orderStatus = 3;
-    } else if (index == 3) {
-      orderStatus = 4;
-    } else {
-      orderStatus = 1;
+    orderStatus = index;
+    if (index == 0) {
+      orderStatus = -1;
     }
     this.getMyOrderList();
   },
@@ -46,16 +47,28 @@ Page({
     this.getMyOrderList();
   },
 
+  onPullDownRefresh() {
+    this.clearPage()
+    this.getMyOrderList()
+  },
+
+
   getMyOrderList() {
     let that = this;
     // let openid = app._checkOpenid();
-    let openid = 5;
+    let openid = 4;
     if (!openid) {
       return;
     }
     //请求自己后台获取用户openid
+    var orderUrl;
+    if (orderStatus == -1) {
+      orderUrl = app.globalData.baseUrl + '/order/listByStatus?openid='+openid;
+    } else {
+      orderUrl = app.globalData.baseUrl + '/order/listByStatus?openid='+openid+'&orderStatus='+orderStatus;
+    }
     wx.request({
-      url: app.globalData.baseUrl + '/order/listByStatus?openid='+openid+'&orderStatus='+orderStatus,
+      url: orderUrl,
       success: function(res) {
         try {
           var dataList = res.data
@@ -121,5 +134,11 @@ Page({
       mask: true
     });
   },
+
+  clearPage() {
+    this.setData({
+      list: []
+    })
+  }
 
 })

@@ -20,15 +20,16 @@ Page({
     })
     this.getCates()
     wx.request({
-      url: app.globalData.baseUrl + '/order/order_detail_filter?filter='+options.order_id,
+      url: app.globalData.baseUrl + '/order/listByOrderId?orderid='+options.order_id,
       success: function(res) {
         try {
           var totalPrice = 0
-          for (const item of res.data.data) {
+          for (const item of res.data[0].orderDetailList) {
             totalPrice += item.good_quantity * item.good_price
           }
           that.setData({
-            orderDetail: res.data.data,
+            orderInfo: res.data[0],
+            orderDetailList: res.data[0].orderDetailList,
             totalPrice: totalPrice
           })
         } catch {
