@@ -80,7 +80,7 @@ Page({
   },
 
    async handlePay(){
-
+    const {totalNum}=this.data;
      if(totalNum===0){
        await showToast({title:"您还没有选购商品"});
        return ;
