@@ -30,7 +30,7 @@
                 <view class="rmb">￥</view>
                 <view class="good_price_value">{{item.order_total_price}}</view>
               </view>
-              <view class="good_list_nums">共几件</view>
+              <view class="good_list_nums">共{{item.total_quantity}}件</view>
             </view>
             
           </view>

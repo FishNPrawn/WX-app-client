@@ -73,6 +73,15 @@ Page({
       success: function(res) {
         try {
           var dataList = res.data
+          for (var i = 0; i < dataList.length; ++i) {
+            dataList[i].total_quantity = 0
+            var itemCount = 0
+            let order = dataList[i].orderDetailList
+            for (var orderItem of order) {
+              itemCount += orderItem.good_quantity
+            }
+            dataList[i].total_quantity += itemCount
+          }
           that.setData({
             list: dataList
           })
