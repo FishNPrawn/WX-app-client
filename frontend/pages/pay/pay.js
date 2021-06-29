@@ -88,40 +88,54 @@ Page({
      //});
    },
 
+   //提交订单
    submitOrder: function(e){
      // 去到user的东西
     const userInfo = wx.getStorageSync("userInfo");
     const userAddress = wx.getStorageSync('address')
     let cart = wx.getStorageSync("cart") || [];
+    let cart_list = wx.getStorageSync("cart") || [];
     cart = cart.filter(v=>v.checked);
+
     //  计算总价格
     let totalPrice = 0;
     cart.forEach(v => {
         totalPrice += v.num * v.good_price;
     })
-    
-    let goods_json = JSON.stringify(
-    [
-        {"order_number":"171717","good_id":2, "good_name": "鸡肉", "good_price":416,"good_quantity":10, "good_image": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fdpic.tiankong.com%2Fsh%2Fj8%2FQJ8129672480.jpg%3Fx-oss-process%3Dstyle%2Fshow&refer=http%3A%2F%2Fdpic.tiankong.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1622620505&t=e3bbaf5dfa465b8bc6f5bac3f836904e"},
-        {"order_number":"171717","good_id":3, "good_name": "羊肉", "good_price":120,"good_quantity":30, "good_image": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fdpic.tiankong.com%2Fsh%2Fj8%2FQJ8129672480.jpg%3Fx-oss-process%3Dstyle%2Fshow&refer=http%3A%2F%2Fdpic.tiankong.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1622620505&t=e3bbaf5dfa465b8bc6f5bac3f836904e"},
-        {"order_number":"171717","good_id":5, "good_name": "猪肉", "good_price":120,"good_quantity":30, "good_image": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fdpic.tiankong.com%2Fsh%2Fj8%2FQJ8129672480.jpg%3Fx-oss-process%3Dstyle%2Fshow&refer=http%3A%2F%2Fdpic.tiankong.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1622620505&t=e3bbaf5dfa465b8bc6f5bac3f836904e"}
-    ]);
+
+    // 储存购物车信息
+    let goods_arr = [];
+    cart_list.forEach(order => {
+      // console.log(order);
+      var goods = new Object();
+      goods.order_number = "191919";
+      goods.good_id = order.good_id;
+      goods.good_name = order.good_name;
+      goods.good_price = order.good_price;
+      goods.good_quantity = order.num;
+      goods.good_image = order.good_image;
+      goods_arr.push(goods)
+    })
+    let goods_json = JSON.stringify(goods_arr);
+    // console.log(goods_json);
+
+    // 创建订单request
      wx.request({
        url: 'https://fishnprawn.cn/order/create',
        method: "POST",
        header:{
         "Content-Type": "application/x-www-form-urlencoded"
        },
-      //  暂时是假数据（测试）
+       
        data:{
-        openId: 17,
-        order_number: "171717",
-        access_token: "156168416516515",
+        openId: 19,
+        order_number: "191919",
+        access_token: "1654168416563354",
         user_name: userAddress.userName,
         user_address: userAddress.all,
         user_phone: userAddress.telNumber,
         order_total_price: totalPrice,
-        order_comment: "请打包好，不要过去16",
+        order_comment: "这是是good json测试",
         orderStatus: 1,
         items: goods_json
        },
