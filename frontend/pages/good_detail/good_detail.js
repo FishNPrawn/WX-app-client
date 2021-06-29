@@ -10,12 +10,39 @@ Page({
     isCollect: false,
     list: [],
     goods_list:[],
+    show: false,
+    // popup window
+    duration: 300,
+    position: 'bottom',
+    round: true,
+    customStyle: '',
+    overlayStyle: '',
   },
   goodInfo: {},
   Cates:[],
 
   onLoad: function(options){
     this.getCates()
+  },
+  
+   // popup window
+  popup(e) {
+    const position = e.currentTarget.dataset.position
+    let customStyle = ''
+    let duration = this.data.duration
+    if(position == 'bottom'){
+      customStyle = 'height: 60%;background-color: #f5f5f5;'
+    }
+    this.setData({
+      position,
+      show: true,
+      customStyle,
+      duration
+    })
+  },
+  exit() {
+    this.setData({show: false})
+    // wx.navigateBack()
   },
 
   /**
