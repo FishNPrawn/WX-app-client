@@ -94,7 +94,6 @@ Page({
     const userInfo = wx.getStorageSync("userInfo");
     const userAddress = wx.getStorageSync('address')
     let cart = wx.getStorageSync("cart") || [];
-    let cart_list = wx.getStorageSync("cart") || [];
     cart = cart.filter(v=>v.checked);
 
     //  计算总价格
@@ -105,10 +104,10 @@ Page({
 
     // 储存购物车信息
     let goods_arr = [];
-    cart_list.forEach(order => {
+    cart.forEach(order => {
       // console.log(order);
       var goods = new Object();
-      goods.order_number = "191919";
+      goods.order_number = "20";
       goods.good_id = order.good_id;
       goods.good_name = order.good_name;
       goods.good_price = order.good_price;
@@ -126,10 +125,10 @@ Page({
        header:{
         "Content-Type": "application/x-www-form-urlencoded"
        },
-       
+
        data:{
-        openId: 19,
-        order_number: "191919",
+        openId: 20,
+        order_number: "202020",
         access_token: "1654168416563354",
         user_name: userAddress.userName,
         user_address: userAddress.all,
