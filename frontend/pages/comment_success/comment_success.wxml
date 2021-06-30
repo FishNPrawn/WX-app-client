@@ -1,0 +1,13 @@
+
+<view class="comment_success_wrapper">
+  <view class="comment_success_title">评价成功</view>
+  <view class="comment_success_para">感谢您的支持和反馈，我们会继续女里给您带来好的购物体验。</view>
+  <view class="back_btn_wrapper"> 
+    <navigator open-type="switchTab" url="/pages/index/index">
+      <view class="back_btn">返回</view>
+    </navigator>
+  </view>
+  
+</view>
+
+

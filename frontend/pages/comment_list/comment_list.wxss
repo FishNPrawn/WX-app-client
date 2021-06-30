@@ -1,0 +1,43 @@
+page {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  height: 100%;
+  width: 100%;
+}
+.comment_list_wrapper {
+  padding: 15px 5px 0 15px;
+}
+.comment_list_wrapper .comment_list {
+  margin-bottom: 20px;
+}
+.comment_list_wrapper .comment_list .comment_list_line1 {
+  display: flex;
+  font-size: 14px;
+  font-weight: 300;
+  text-align: center;
+  align-items: center;
+}
+.comment_list_wrapper .comment_list .comment_list_line1 .user_img {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+}
+.comment_list_wrapper .comment_list .comment_list_line1 .user_name {
+  margin-left: 5px;
+}
+.comment_list_wrapper .comment_list .comment_list_line1 .comment_create_time {
+  position: absolute;
+  right: 7%;
+  font-size: 12px;
+}
+.comment_list_wrapper .comment_list .user_comment {
+  padding: 10px 0 10px 0;
+  font-size: 15px;
+}
+.comment_list_wrapper .comment_list .div_line {
+  height: 2px;
+  width: 100%;
+  background-color: #f6f6f6;
+  align-items: center;
+  margin: auto;
+  margin-top: 5px;
+}

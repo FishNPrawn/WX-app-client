@@ -1,4 +1,23 @@
-<!-- 结算 -->
-<view class="pay_button_wrap">
-  <button class="pay_button" bindtap="submitOrder" type="primary" plain >评论</button>
+<view class="comment_title">商品评价</view>
+<view class="comment_container">
+  <view class="pay_button_wrap" wx:for="{{orderItemList}}">
+    <view class="img_name">
+      <image src="{{item.good_image}}" class="good_img"></image>
+      <view class="good_name">{{item.good_name}}</view>
+    </view>
+    
+
+    <view class="textarea_wrapper">
+      <textarea
+        placeholder="您对商品质量满意吗"
+        bindinput="textareaInput"
+        data-item="{{item}}"
+        class="message"
+      ></textarea>
+    </view>
+</view>
+</view>
+
+<view class="btn_tool">
+  <view class="pay_button" bindtap="submitOrder">提交评价</view>
 </view>

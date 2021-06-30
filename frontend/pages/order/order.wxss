@@ -187,3 +187,19 @@ page {
   font-size: 25rpx;
   color: #a1a1a1;
 }
+.cart_content .cart_main .cart_item .cart_info_wrap .comment_btn_wrapper {
+  padding-bottom: 10px;
+  margin-left: 77%;
+}
+.cart_content .cart_main .cart_item .cart_info_wrap .comment_btn_wrapper .comment_btn {
+  border: 1px solid #FFA760;
+  height: 30px;
+  width: 80px;
+  color: #FFA760;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 14px;
+  border-radius: 20px;
+}

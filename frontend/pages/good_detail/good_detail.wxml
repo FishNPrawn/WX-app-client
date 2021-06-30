@@ -90,6 +90,34 @@
     </view>
   </view>
 
+  <!-- User Comment Section, if you want to control the length of the comment list,
+      please go edit comments in onShow function -->
+  <view class="comment_box" bindtap="enterCommentList">
+    <view class="comment_box_line1">
+    商品评论
+    <view class="checkAllComment">
+    查看更多
+    <image class="right_arrow" src="https://fnpphoto.cn/icon/right_arrow.png"></image>
+    </view>
+    </view>
+    <view class="div_line"></view>
+    <view class="comment_list_wrapper">
+      <view
+        wx:for = "{{comments}}" 
+        wx:if="{{index<2}}" 
+        class="comment_list"
+      >
+        <view class="comment_list_line1">
+          <image src="{{item.image}}" class="user_img"></image>
+          <view class="user_name">{{item.name}}</view>
+          <view class="comment_create_time">{{item.comment_create_time}}</view>
+        </view>
+        <view class="user_comment">{{item.content}}</view>
+      </view>
+    </view>
+    
+  </view>
+
   <!-- box3 -->
   <view class="info_box3">
     <view class="image_description_title">图文详情</view>
