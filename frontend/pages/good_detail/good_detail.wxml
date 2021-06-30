@@ -90,6 +90,17 @@
     </view>
   </view>
 
+  <!-- User Comment Section, if you want to control the length of the comment list,
+      please go edit comments in onShow function -->
+  <view>
+    <view wx:for = "{{comments}}">
+      <view>{{item.comment_create_time}}</view>
+      <view>{{item.content}}</view>
+      <image src="{{item.image}}"></image>
+      <p>==========</p>
+    </view>
+  </view>
+
   <!-- box3 -->
   <view class="info_box3">
     <view class="image_description_title">图文详情</view>
