@@ -31,8 +31,8 @@ Page({
     // 创建评论
     let comments_json = JSON.stringify(
     [
-     {"openId": "19", "goodId": 6, "name": "鱼肉6", "content": "非常好6", "image": "url6", "comment_create_time": time},
-     {"openId": "19", "goodId": 7, "name": "牛肉7", "content": "非常好7", "image": "url7","comment_create_time": time},
+      {"openId": "19", "goodId": 6, "name": "鱼肉6", "content": "非常好6", "image": "url6", "comment_create_time": time},
+      {"openId": "19", "goodId": 7, "name": "牛肉7", "content": "非常好7", "image": "url7","comment_create_time": time},
     ]);
     
     wx.request({
