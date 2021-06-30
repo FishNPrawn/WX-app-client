@@ -57,7 +57,7 @@ Page({
   getMyOrderList() {
     let that = this;
     // let openid = app._checkOpenid();
-    let openid = 4;
+    let openid = 11;
     if (!openid) {
       return;
     }

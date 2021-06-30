@@ -1,4 +1,14 @@
 <!-- 结算 -->
-<view class="pay_button_wrap">
-  <button class="pay_button" bindtap="submitOrder" type="primary" plain >评论</button>
+<view class="pay_button_wrap" wx:for="{{orderItemList}}">
+  <image src="{{item.good_image}}"></image>
+  <view>{{item.good_name}}</view>
+  <view>
+    <textarea
+      placeholder="您对商品质量满意吗"
+      bindinput="textareaInput"
+      data-item="{{item}}"
+    ></textarea>
+  </view>
+  <p>============</p>
 </view>
+<button class="pay_button" bindtap="submitOrder" type="primary" plain >评论</button>
