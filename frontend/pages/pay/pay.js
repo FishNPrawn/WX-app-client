@@ -14,7 +14,8 @@ Page({
     round: true,
     customStyle: '',
     overlayStyle: '',
-    userInfo:{}
+    userInfo:{},
+    commentInput: null
   },
   onShow() {
     const address = wx.getStorageSync("address");
@@ -36,6 +37,10 @@ Page({
       address
     })
   },
+
+  commentInput:function(e){
+      this.data.commentInput = e.detail.value;
+  }, 
   
   popup(e) {
     const position = e.currentTarget.dataset.position
@@ -75,8 +80,7 @@ Page({
   },
 
    async handlePay(){
-     const {totalNum}=this.data;
-
+    const {totalNum}=this.data;
      if(totalNum===0){
        await showToast({title:"您还没有选购商品"});
        return ;
@@ -95,6 +99,12 @@ Page({
     const userAddress = wx.getStorageSync('address')
     let cart = wx.getStorageSync("cart") || [];
     cart = cart.filter(v=>v.checked);
+
+    if(this.data.commentInput == null){
+      this.data.commentInput = '没有备注';
+    }
+
+    const {commentInput}=this.data;
 
     //  计算总价格
     let totalPrice = 0;
@@ -127,14 +137,14 @@ Page({
        },
 
        data:{
-        openId: 20,
-        order_number: "202020",
+        openId: 21,
+        order_number: "212121",
         access_token: "1654168416563354",
         user_name: userAddress.userName,
         user_address: userAddress.all,
         user_phone: userAddress.telNumber,
         order_total_price: totalPrice,
-        order_comment: "这是是good json测试",
+        order_comment: commentInput,
         orderStatus: 1,
         items: goods_json
        },

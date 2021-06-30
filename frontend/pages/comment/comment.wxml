@@ -1,0 +1,4 @@
+<!-- 结算 -->
+<view class="pay_button_wrap">
+  <button class="pay_button" bindtap="submitOrder" type="primary" plain >评论</button>
+</view>

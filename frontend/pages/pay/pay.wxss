@@ -250,12 +250,13 @@ page {
 }
 .box6 .click_comment {
   position: absolute;
-  right: 20px;
+  right: 30px;
   display: flex;
   font-size: 15px;
 }
 .box6 .click_comment .comment {
-  color: #c3c3c3;
+  color: #888888;
+  width: 200px;
 }
 .box6 .click_comment image {
   height: 14px;
@@ -332,6 +333,7 @@ page {
 .detail-page {
   width: 100%;
   height: 100%;
+  z-index: 99;
   /* min-height: 320px; */
 }
 .detail-page .title_close {
