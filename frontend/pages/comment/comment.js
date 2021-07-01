@@ -37,7 +37,7 @@ Page({
   textareaInput: function(e) {
     let item = e.currentTarget.dataset.item
     let commentDetail = {
-      "openId": this.data.orderDetail.openId, 
+      "username": this.data.userInfo.nickName, 
       "goodId": item.good_id, 
       "name": item.good_name, 
       "content": e.detail.value, 
