@@ -142,6 +142,18 @@ Page({
       })
     })
   },
+
+  enterCommentList() {
+    let pages = getCurrentPages();
+    let currentPage = pages[pages.length - 1];
+    let options = currentPage.options;
+    const { good_id } = options;
+    // console.log(good_id)
+    wx.navigateTo({
+      url: '../comment_list/comment_list?good_id='+good_id,
+    })
+  },
+
   getComments(good_id){
     request({
       url: app.globalData.baseUrl + '/comment/comment_filter?filter='+good_id

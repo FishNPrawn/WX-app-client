@@ -31,9 +31,10 @@
                 <view class="good_price_value">{{item.order_total_price}}</view>
               </view>
               <view class="good_list_nums">共{{item.total_quantity}}件</view>
-              <navigator url="/pages/comment/comment?orderId={{item.orderId}}">评论</navigator>
             </view>
-            
+          </view>
+          <view class="comment_btn_wrapper">
+            <navigator url="/pages/comment/comment?orderId={{item.orderId}}" class="comment_btn">评论一下</navigator>
           </view>
           
         </view>

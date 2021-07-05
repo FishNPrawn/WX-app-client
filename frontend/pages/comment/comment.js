@@ -37,7 +37,7 @@ Page({
   textareaInput: function(e) {
     let item = e.currentTarget.dataset.item
     let commentDetail = {
-      "openId": this.data.orderDetail.openId, 
+      "username": this.data.userInfo.nickName, 
       "goodId": item.good_id, 
       "name": item.good_name, 
       "content": e.detail.value, 
@@ -70,12 +70,14 @@ Page({
     var time = formatTime(new Date())
 
     // 创建评论
+
     var comments = []
     for (var id in this.data.commentDict) {
       var comment = this.data.commentDict[id]
       comment.comment_create_time = time
       comments.push(comment)
     }
+
     wx.request({
       url: app.globalData.baseUrl + '/comment/createComment',
       method: "POST",

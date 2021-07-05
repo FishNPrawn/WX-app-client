@@ -314,6 +314,74 @@ page {
 .goods_name_row .info_box2 .info_table .row4 {
   border-radius: 0px 0px 10px 10px;
 }
+.goods_name_row .comment_box {
+  display: block;
+  background-color: #fff;
+  height: 100%;
+  width: 94%;
+  border-radius: 10px;
+  margin: auto;
+  margin-top: 10px;
+}
+.goods_name_row .comment_box .comment_box_line1 {
+  padding: 15px 5px 0 15px;
+  font-size: 15px;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+.goods_name_row .comment_box .comment_box_line1 .checkAllComment {
+  position: absolute;
+  right: 7%;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+.goods_name_row .comment_box .comment_box_line1 .checkAllComment .right_arrow {
+  height: 14px;
+  width: 7.5px;
+  margin-left: 4px;
+}
+.goods_name_row .comment_box .div_line {
+  height: 1px;
+  width: 100%;
+  background-color: #f6f6f6;
+  align-items: center;
+  margin: auto;
+  margin-top: 5px;
+}
+.goods_name_row .comment_box .comment_list_wrapper {
+  padding: 15px 5px 0 15px;
+}
+.goods_name_row .comment_box .comment_list_wrapper .comment_list {
+  margin-bottom: 20px;
+}
+.goods_name_row .comment_box .comment_list_wrapper .comment_list .comment_list_line1 {
+  display: flex;
+  font-size: 14px;
+  font-weight: 300;
+  text-align: center;
+  align-items: center;
+}
+.goods_name_row .comment_box .comment_list_wrapper .comment_list .comment_list_line1 .user_img {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+}
+.goods_name_row .comment_box .comment_list_wrapper .comment_list .comment_list_line1 .user_name {
+  margin-left: 5px;
+}
+.goods_name_row .comment_box .comment_list_wrapper .comment_list .comment_list_line1 .comment_create_time {
+  position: absolute;
+  right: 7%;
+  font-size: 12px;
+}
+.goods_name_row .comment_box .comment_list_wrapper .comment_list .user_comment {
+  padding: 10px 0 10px 0;
+  font-size: 15px;
+}
 .goods_name_row .info_box3 {
   background-color: #fff;
   height: 100%;

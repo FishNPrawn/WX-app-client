@@ -1,0 +1,14 @@
+<view class="comment_list_wrapper">
+  <view
+    wx:for = "{{comments}}" 
+    class="comment_list"
+  >
+    <view class="comment_list_line1">
+      <image src="{{item.image}}" class="user_img"></image>
+      <view class="user_name">{{item.name}}</view>
+      <view class="comment_create_time">{{item.comment_create_time}}</view>
+    </view>
+    <view class="user_comment">{{item.content}}</view>
+    <view class="div_line"></view>
+  </view>
+</view>

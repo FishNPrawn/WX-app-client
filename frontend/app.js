@@ -53,6 +53,25 @@ App({
         }
       })
     }
+    // 测试------------------------------------------------
+    wx.login({
+      success (res) {
+        if (res.code) {
+          //发起网络请求
+          wx.request({
+            url: 'https://fishnprawn.cn/wechat/getOpenId',
+            data: {
+              code: res.code
+            },
+            success:function(res) {
+              console.log("openid: " + res.data)
+            }
+          })
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    })
 
   },
   globalData: {
