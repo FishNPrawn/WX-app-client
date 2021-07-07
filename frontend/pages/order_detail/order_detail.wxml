@@ -5,6 +5,7 @@
   <view wx:if="{{orderInfo.orderStatus==1}}" class="order_status_text">待发货</view>
   <view wx:if="{{orderInfo.orderStatus==2}}" class="order_status_text">待收货</view>
   <view wx:if="{{orderInfo.orderStatus==3}}" class="order_status_text">待评价</view>
+  <view wx:if="{{orderInfo.orderStatus==4}}" class="order_status_text">交易关闭</view>
 </view>
 
 <!-- 购物车内容 -->

@@ -57,7 +57,8 @@ Page({
   getMyOrderList() {
     let that = this;
     // let openid = app._checkOpenid();
-    let openid = 11;
+    const openid = wx.getStorageSync("openid");
+    //let openid = 11;
     if (!openid) {
       return;
     }
@@ -97,6 +98,28 @@ Page({
   enterOrderDetail(event) {
     wx.navigateTo({
       url: '../order_detail/order_detail?order_id='+event.currentTarget.dataset.order,
+    })
+    
+  },
+  enterComment(event){
+    wx.navigateTo({
+      url: '../comment/comment?orderId='+event.currentTarget.dataset.order,
+    })
+  },
+  cancelOrder(event){
+    wx.request({
+      url: app.globalData.baseUrl + '/order/cancel',
+      method: "POST",
+      header:{
+       "Content-Type": "application/x-www-form-urlencoded"
+      },
+      data:{
+        openid: "" + wx.getStorageSync("openid"),
+        orderId: event.currentTarget.dataset.order
+      },
+      success: function(res){
+        console.log("删除成功", res.data);
+      }
     })
   },
 
