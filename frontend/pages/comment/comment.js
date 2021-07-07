@@ -1,5 +1,6 @@
 // pages/comment/comment.js
 let app = getApp();
+const util = require('../../utils/util.js');
 Page({
 
   /**
@@ -52,25 +53,10 @@ Page({
 
   //提交订单
   submitOrder: function(e){
-    // 格式现在时间 - yyyy/mm/dd hour:minute:second
-    const formatTime = date => {
-      const year = date.getFullYear()
-      const month = date.getMonth() + 1
-      const day = date.getDate()
-      const hour = date.getHours()
-      const minute = date.getMinutes()
-      const second = date.getSeconds()
-      return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
-    }
-    const formatNumber = n => {
-      n = n.toString()
-      return n[1] ? n : '0' + n
-    }
     // 当地时间
-    var time = formatTime(new Date())
+    var time = util.formatTime(new Date());
 
     // 创建评论
-
     var comments = []
     for (var id in this.data.commentDict) {
       var comment = this.data.commentDict[id]
