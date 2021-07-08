@@ -107,20 +107,34 @@ Page({
     })
   },
   cancelOrder(event){
-    wx.request({
-      url: app.globalData.baseUrl + '/order/cancel',
-      method: "POST",
-      header:{
-       "Content-Type": "application/x-www-form-urlencoded"
-      },
-      data:{
-        openid: "" + wx.getStorageSync("openid"),
-        orderId: event.currentTarget.dataset.order
-      },
-      success: function(res){
-        console.log("删除成功", res.data);
+
+    wx.showModal({
+      title: '提示',
+      content: '是否要取消订单',
+      success (res) {
+        if (res.confirm) {
+          wx.request({
+            url: app.globalData.baseUrl + '/order/cancel',
+            method: "POST",
+            header:{
+             "Content-Type": "application/x-www-form-urlencoded"
+            },
+            data:{
+              openid: "" + wx.getStorageSync("openid"),
+              orderId: event.currentTarget.dataset.order
+            },
+            success: function(res){
+              console.log("订单删除成功", res.data);
+            }
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
       }
     })
+    
+
+    
   },
 
   getCates(){
