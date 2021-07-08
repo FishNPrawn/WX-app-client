@@ -127,8 +127,11 @@ Page({
               console.log("订单删除成功", res.data);
             }
           })
-        } else if (res.cancel) {
-          console.log('用户点击取消')
+          wx.showToast({
+            title: '订单取消成功',
+            icon: 'success',
+            duration: 1000
+          })
         }
       }
     })
