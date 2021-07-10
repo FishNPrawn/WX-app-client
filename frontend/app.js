@@ -64,8 +64,10 @@ App({
               code: res.code
             },
             success:function(res) {
-              wx.setStorageSync("openid", res.data);//将用户id保存到缓存中
-              console.log("openid: " + res.data)
+              wx.setStorageSync("openid", res.data.openid);//将用户id保存到缓存中
+              wx.setStorageSync("session_key", res.data.session_key);//将用户id保存到缓存中
+              console.log(res.data.openid)
+              console.log(res.data.session_key)
             }
           })
         } else {

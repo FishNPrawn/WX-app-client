@@ -17,6 +17,7 @@ Page({
     // 当地时间
     var time = util.formatTime(new Date());
     const openid = wx.getStorageSync("openid");
+    const session_key = wx.getStorageSync("session_key");
   
     // 添加新用户到后台
     wx.request({
@@ -27,6 +28,7 @@ Page({
       },
       data:{
         openid: openid,
+        session_key: session_key,
         username: userInfo.nickName,
         city: userInfo.city,
         phone: "phonetest",

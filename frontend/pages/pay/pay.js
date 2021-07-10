@@ -97,6 +97,7 @@ Page({
      // 去到user的东西
     const userInfo = wx.getStorageSync("userInfo");
     const userAddress = wx.getStorageSync('address')
+    const openid = wx.getStorageSync("openid");
     let cart = wx.getStorageSync("cart") || [];
     cart = cart.filter(v=>v.checked);
 
@@ -117,7 +118,7 @@ Page({
     cart.forEach(order => {
       // console.log(order);
       var goods = new Object();
-      goods.order_number = "20";
+      goods.order_number = "40";
       goods.good_id = order.good_id;
       goods.good_name = order.good_name;
       goods.good_price = order.good_price;
@@ -137,8 +138,8 @@ Page({
        },
 
        data:{
-        openId: 21,
-        order_number: "212121",
+        openId: openid,
+        order_number: "40",
         access_token: "1654168416563354",
         user_name: userAddress.userName,
         user_address: userAddress.all,

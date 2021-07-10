@@ -77,5 +77,8 @@ Page({
         console.log("评论成功", res.data);
       }
     })
+    wx.navigateTo({
+       url: '/pages/comment_success/comment_success'
+     });
   }
 })

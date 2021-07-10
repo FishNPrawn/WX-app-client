@@ -156,50 +156,54 @@ page{
 .cart_content {
   .cart_main { 
     .cart_item {
-      .cart_info_wrap {
+      .cart_info_comment_wrapper{
         height: 100%;
         width: 94%;
         background-color: white;
         border-radius: 15px;
         margin: auto;
         margin-top: 15px;
-        .good_name {
-          padding: 15px 5px 10px 10px;
-          display: -webkit-box;
-          overflow: hidden;
-          -webkit-box-orient: vertical;
-          -webkit-line-clamp:2;
-          color: rgb(0, 0, 0);
-          font-size: 28rpx;
-        }
-        .good_info{
-          display: flex;
-          .good_img{
-            padding: 5px 0 10px 10px;
-            image{
-              width:60px;
-              height: 60px;
-              border-radius: 5px;
-            }
+        .cart_info_wrap {
+          .good_name {
+            padding: 15px 5px 10px 10px;
+            display: -webkit-box;
+            overflow: hidden;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp:2;
+            color: rgb(0, 0, 0);
+            font-size: 28rpx;
           }
-          .good_price{
-            display: block;
-            position: absolute;
-            right: 6%;
-            justify-content: flex-end;
-            margin-top: 10px;
-            .good_price_info{
-              display: flex;
-              .rmb{
-                font-size: 25rpx;
+          .good_info{
+            display: flex;
+            .good_img{
+              padding: 5px 0 10px 10px;
+              image{
+                width:60px;
+                height: 60px;
+                border-radius: 5px;
               }
             }
-            .good_list_nums{
-              text-align: right;
-              font-size: 25rpx;
-              color: #a1a1a1;
-            }  
+            .good_price{
+              display: block;
+              position: absolute;
+              right: 6%;
+              justify-content: flex-end;
+              margin-top: 10px;
+              .good_price_info{
+                display: flex;
+                .rmb{
+                  font-size: 25rpx;
+                }
+              }
+              .good_list_nums{
+                text-align: right;
+                font-size: 25rpx;
+                color: #a1a1a1;
+              }  
+            }
           }
+          
+          
         }
         .comment_btn_wrapper{
           padding-bottom: 10px;
@@ -217,8 +221,8 @@ page{
             border-radius: 20px;
           }
         }
-        
       }
+      
     }
     
   }
