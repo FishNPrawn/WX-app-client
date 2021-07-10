@@ -34,10 +34,6 @@
   <!-- row3 -->
   <view class="box1_row3">
     <view class="box1_row3_warper">
-      <view class="box1_row3_img_name">
-        <image src="https://fnpphoto.cn/icon/pre_pay.png" class="box1_row3_icon"></image>
-        <view class="box1_row3_text">待付款</view>
-      </view>
       <view class="box1_row3_img_name" bindtap="goToMyOrder" data-status="1">
         <image src="https://fnpphoto.cn/icon/wait_deliver.png" class="box1_row3_icon"></image>
         <view class="box1_row3_text">待发货</view>
@@ -60,8 +56,84 @@
 
 </view>
 
+<view class="box2">
+  <view class="box2_row_warper">
+    <view class="box2_row_img_name" bindtap="handleChooseAddress">
+      <image src="https://fnpphoto.cn/icon/address.png" class="box2_row_icon"></image>
+      <view class="box2_row_text">地址管理</view>
+    </view>
+    <view class="box2_row_img_name">
+      <image src="https://fnpphoto.cn/icon/waiting.png" class="box2_row_icon"></image>
+      <view class="box2_row_text">待定</view>
+    </view>
+    <view class="box2_row_img_name">
+      <image src="https://fnpphoto.cn/icon/rule.png" class="box2_row_icon"></image>
+      <view class="box2_row_text">平台规则</view>
+    </view>
+    <view class="box2_row_img_name">
+      <image src="https://fnpphoto.cn/icon/aboutus.png" class="box2_row_icon"></image>
+      <view class="box2_row_text">关于我们</view>
+    </view>
+  </view>
+  <view class="box2_row_warper">
+    <view class="box2_row_img_name">
+      <image src="https://fnpphoto.cn/icon/joinus.png" class="box2_row_icon"></image>
+      <view class="box2_row_text">加入我们</view>
+    </view>
+  </view>
+</view>
+
 
 <!-- <view wx:if="{{userInfo.avatarUrl}}">
     <button>退出登录</button>
 </view> -->
 
+<!-- 你还可以能喜欢 -->
+<view class="guess_like">
+  <view class="guess_like_text">
+    <view class="love_img_container">
+      <image src="https://fnpphoto.cn/icon/love.png" class="love_img" alt=""></image>
+    </view>
+    <text>你可能还喜欢</text>
+  </view>
+
+  <!-- 商品 -->
+  <!--Preference goods display-->
+  <view class="preference_display">
+    <van-row gutter="0"
+          wx:for = "{{goods_list}}"
+          wx:for-index="index1"
+          wx:for-item="item1"
+          class="preference_row"
+    >
+      <van-col span="12"
+            wx:for = "{{goods_list[index1]}}"
+            wx:if="{{goods_list[index1]}}"
+            wx:for-index="index2"
+            wx:for-item="item2"
+            class="preference_col"
+      >
+        <view class="navigator_box">
+          <navigator
+            url="/pages/good_detail/good_detail?good_id={{item2.good_id}}"
+            class="good_navigator"
+          >
+            <image src="{{item2.good_image}}" class="goods_image"></image>
+            <view class="goods_msg">
+              <view class="goods_name">{{item2.good_name}}</view>
+              <view class="goods_sale">销量 <view class="goods_sale_number">15354</view></view>
+            </view>
+          </navigator>
+          <view class="add_icon">
+            <view class="goods_price">
+              <view class="dollar_symbol">¥</view>
+              <view class="dollar_price_number">{{item2.good_price}}</view>
+            </view>    
+            <image data-variable="{{item2}}" bindtap="handleCartAdd" class="add_to_cart" src="https://fnpphoto.cn/icon/shopping-cart.png"></image>
+          </view>
+        </view>  
+      </van-col>
+    </van-row>
+  </view>
+
+</view>
