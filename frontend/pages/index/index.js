@@ -104,4 +104,26 @@ Page({
         mask: true
       });
     },
+
+    // 回到顶部
+  // 获取滚动条当前位置
+  onPageScroll: function (e) {
+    if (e.scrollTop > 1500) {
+      this.setData({
+        floorstatus: true
+      });
+    } else {
+      this.setData({
+        floorstatus: false
+      });
+    }
+  },
+  //回到顶部
+  goTop: function (e) {  // 一键回到顶部
+    if (wx.pageScrollTo) {
+      wx.pageScrollTo({
+        scrollTop: 0
+      })
+    }
+  },
 });

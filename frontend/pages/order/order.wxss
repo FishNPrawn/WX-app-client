@@ -141,6 +141,16 @@ page {
   width: 20px;
   margin-top: 7px;
 }
+.guess_like .ending {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0 40px 0;
+  font-size: 23rpx;
+  font-weight: 300;
+  color: #999999;
+}
 .cart_content .cart_main .cart_item .cart_info_comment_wrapper {
   height: 100%;
   width: 94%;
@@ -202,4 +212,12 @@ page {
   text-align: center;
   font-size: 14px;
   border-radius: 20px;
+}
+.goTop {
+  height: 60rpx;
+  width: 60rpx;
+  position: fixed;
+  bottom: 60rpx;
+  right: 5%;
+  border-radius: 50%;
 }

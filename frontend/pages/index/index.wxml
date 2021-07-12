@@ -154,4 +154,7 @@
       </view>  
     </van-col>
   </van-row>
+  <view class="ending">没有更多了</view>
 </view>
+
+<image src='https://fnpphoto.cn/icon/up-arrow.png' class='goTop' hidden='{{!floorstatus}}' bindtap="goTop"></image>

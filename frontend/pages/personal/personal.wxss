@@ -197,3 +197,21 @@ page {
   width: 20px;
   margin-top: 7px;
 }
+.guess_like .ending {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0 20px 0;
+  font-size: 23rpx;
+  font-weight: 300;
+  color: #999999;
+}
+.goTop {
+  height: 60rpx;
+  width: 60rpx;
+  position: fixed;
+  bottom: 30rpx;
+  right: 5%;
+  border-radius: 50%;
+}
