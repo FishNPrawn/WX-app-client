@@ -1,5 +1,6 @@
 import {request} from "../../request/index.js";
 import { getSetting, chooseAddress, openSetting, showModal ,showToast} from "../../utils/asyncWx.js";
+
 let app = getApp();
 const util = require('../../utils/util.js');
 Page({
@@ -7,6 +8,7 @@ Page({
   userInfo:{},
   goods_list:[],
   address: {},
+  url: '#'
  },
   goodInfo: {},
   Cates:[],
@@ -118,12 +120,22 @@ Page({
     }
   },
 
-
+  // 跳转到我的订单
   goToMyOrder: function(event) {
     wx.navigateTo({
       url: '../order/order?status='+event.currentTarget.dataset.status,
     })
   },
+  
+
+  // 跳转到’关于我们‘公众号
+  enterAboutUs: function(){
+    wx.navigateTo({
+      title: "关于我们",
+      url: "/pages/aboutus/aboutus"
+    })
+},
+
 
   // 回到顶部
   // 获取滚动条当前位置

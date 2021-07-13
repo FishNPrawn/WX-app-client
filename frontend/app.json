@@ -17,7 +17,8 @@
     "pages/searchResult/searchResult",
     "pages/feedback/feedback",
     "pages/auth/auth",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/aboutus/aboutus"
   ],
   "window":{
     "backgroundTextStyle":"dark",

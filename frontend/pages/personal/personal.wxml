@@ -70,7 +70,7 @@
       <image src="https://fnpphoto.cn/icon/rule.png" class="box2_row_icon"></image>
       <view class="box2_row_text">平台规则</view>
     </view>
-    <view class="box2_row_img_name">
+    <view class="box2_row_img_name" bindtap="enterAboutUs">
       <image src="https://fnpphoto.cn/icon/aboutus.png" class="box2_row_icon"></image>
       <view class="box2_row_text">关于我们</view>
     </view>
