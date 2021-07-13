@@ -12,7 +12,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@vant/weapp": "^1.6.8",
-    "weixin-js-sdk": "^1.6.0"
+    "@vant/weapp": "^1.6.8"
   }
 }
