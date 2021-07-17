@@ -10,7 +10,7 @@ page {
   justify-content: center;
   align-items: center;
 }
-.search_wrap navigator {
+.search_wrap .navigator {
   display: flex;
   padding: 10rpx;
   width: 90%;
@@ -20,25 +20,25 @@ page {
   border-radius: 20px;
   border: 1px solid #FFA760;
 }
-.search_wrap navigator .search_icon {
+.search_wrap .navigator .search_icon {
   width: 15px;
   height: 15px;
   margin-top: 6rpx;
   margin-left: 12rpx;
 }
-.search_wrap navigator text {
+.search_wrap .navigator text {
   margin-left: 5px;
   font-size: 15px;
   color: #a1a1a1;
 }
-.search_wrap navigator .search_text {
+.search_wrap .navigator .search_text {
   width: 14%;
   padding: 6px 0 6px 0;
   position: absolute;
   top: 14rpx;
   right: 4.3%;
 }
-.search_wrap navigator .search_text .search_btn {
+.search_wrap .navigator .search_text .search_btn {
   background-image: linear-gradient(to right, #FF2929, #FFA760);
   padding: 2px 0 2px 0;
   border-radius: 20px;
@@ -365,7 +365,7 @@ page {
   .search_wrap {
     height: 110rpx;
   }
-  .search_wrap navigator .search_text .search_btn {
+  .search_wrap .navigator .search_text .search_btn {
     font-size: 35rpx;
   }
 }
