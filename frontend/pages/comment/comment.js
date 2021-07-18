@@ -15,6 +15,7 @@ Page({
 
   onLoad: function (options) {
     this.getOrder(options.orderId)
+    this.submitOrder(options.orderId)
     const userInfo = wx.getStorageSync("userInfo");
     this.setData({userInfo: userInfo});
   },
@@ -52,7 +53,8 @@ Page({
   },
 
   //提交订单
-  submitOrder: function(e){
+  submitOrder: function(orderId){
+
     // 当地时间
     var time = util.formatTime(new Date());
 
@@ -71,6 +73,7 @@ Page({
        "Content-Type": "application/x-www-form-urlencoded"
       },
       data:{
+        orderId: orderId,
         items: JSON.stringify(comments)
       },
       success: function(res){

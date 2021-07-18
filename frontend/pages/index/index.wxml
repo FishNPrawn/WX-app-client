@@ -1,11 +1,11 @@
 <view class="search_wrap">
-    <navigator id="search" open-type="redirect" bindtap="onClick" url="{{urlPath}}">
+    <view id="search" open-type="redirect" bindtap="onClick" url="{{urlPath}}" class="navigator">
         <image class="search_icon" src="https://fnpphoto.cn/icon/search.png"></image>
         <text>海鲜特价</text>
         <view class="search_text">
           <view class="search_btn">搜索</view>
         </view>
-    </navigator>
+    </view>
 </view>
 <view class = "pyq_index">
   <!-- 轮播图开始-->
@@ -154,4 +154,7 @@
       </view>  
     </van-col>
   </van-row>
+  <view class="ending">没有更多了</view>
 </view>
+
+<image src='https://fnpphoto.cn/icon/up-arrow.png' class='goTop' hidden='{{!floorstatus}}' bindtap="goTop"></image>

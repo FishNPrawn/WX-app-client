@@ -19,7 +19,7 @@
         <view class="goods_price_nums">{{goodObj.good_price}}</view>
         <view class="goods_price_nums_line_through">
           ¥
-          <view class="goods_price_nums_line_through_nums"></view>{{goodObj.good_price}}
+          <view class="goods_price_nums_line_through_nums"></view>{{goodObj.good_weight}}
         </view>
       </view>
       <view class="share_icon">

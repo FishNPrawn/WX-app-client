@@ -10,7 +10,7 @@ page{
   display: flex;
   justify-content: center;
   align-items: center;
-  navigator {
+  .navigator {
     display: flex;
     padding: 10rpx;
     width: 90%;
@@ -330,6 +330,25 @@ page{
       }
     }
   }
+  .ending{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0 20px 0;
+    font-size: 23rpx;
+    font-weight: 300;
+    color: rgb(153, 153, 153);
+  }
+}
+
+.goTop{
+  height: 60rpx;
+  width: 60rpx;
+  position: fixed;
+  bottom: 30rpx;
+  right: 5%;
+  border-radius: 50%;
 }
 
 @media screen and (max-width:375px){
@@ -341,7 +360,7 @@ page{
 @media screen and (max-width:320px){
   .search_wrap{
     height: 110rpx;
-    navigator{
+    .navigator{
       .search_text{
         .search_btn{
           font-size: 35rpx;

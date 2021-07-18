@@ -125,13 +125,18 @@ Page({
             },
             success: function(res){
               console.log("订单删除成功", res.data);
+              // 显示取消成功
+              wx.showToast({
+                title: '订单取消成功',
+                icon: 'success',
+                duration: 1000
+              })
+              // 回到全部订单页面
+              wx.navigateTo({
+                url: '../order/order?status=0',
+              })
             }
-          })
-          wx.showToast({
-            title: '订单取消成功',
-            icon: 'success',
-            duration: 1000
-          })
+          })  
         }
       }
     })
@@ -189,6 +194,28 @@ Page({
     this.setData({
       list: []
     })
-  }
+  },
+
+  // 回到顶部
+  // 获取滚动条当前位置
+  onPageScroll: function (e) {
+    if (e.scrollTop > 1500) {
+      this.setData({
+        floorstatus: true
+      });
+    } else {
+      this.setData({
+        floorstatus: false
+      });
+    }
+  },
+  //回到顶部
+  goTop: function (e) {  // 一键回到顶部
+    if (wx.pageScrollTo) {
+      wx.pageScrollTo({
+        scrollTop: 0
+      })
+    }
+  },
 
 })
