@@ -4,19 +4,22 @@ let app = getApp();
 Page({
   data: {
     goods_list:[],
+    featured_cards_1:[],
+    featured_cards_2:[],
     //轮播图数组
     swiperList:[],
     //首页分类导航数组
     catesList:[],
-    catIndex: 0
   },
   goodInfo: {},
   Cates:[],
+  catName: '',
   // 页面加载会触发
   onLoad:function(options){
     //发送异步请求获取轮播图数据
     this.getSwiperList();
     this.getCates();
+    this.getFeaturedCard();
 
     // 获取当前的地理位置、速度。
     wx.getLocation({
@@ -74,9 +77,7 @@ Page({
     onClick: function (event) {
       var _this = this;
       if (event.currentTarget.id != "search") {
-        this.setData ({
-          catIndex: parseInt(event.currentTarget.id)
-        });
+        this.catName = event.currentTarget.id
         getApp().globalData.showDialog = this;
         wx.switchTab({
           url: '/pages/category/category'
@@ -117,6 +118,19 @@ Page({
         floorstatus: false
       });
     }
+  },
+
+  getFeaturedCard: function() {
+    request({
+      url: app.globalData.baseUrl + '/category/json/getAllcategory',
+    })
+    .then(res=>{
+      let features =res.data.data
+      this.setData({
+        featured_cards_1: features.slice(0,4),
+        featured_cards_2: features.slice(4)
+      })
+    })
   },
   //回到顶部
   goTop: function (e) {  // 一键回到顶部

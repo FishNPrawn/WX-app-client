@@ -1,11 +1,8 @@
 import{request} from"../../request/index.js";
 let app = getApp();
+let timeout = 400;
 Page({
   data: {
-    //left menu
-    leftMenuList:[],
-    // right goods data
-    rightContent:[],
     //被点击的左侧菜单
     currentIndex:0,
     goodObj:{},
@@ -14,14 +11,16 @@ Page({
   goodInfo: {},
   //接口返回数据
   Cates:[],
+  //left menu
+  leftMenuList:[],
+  // right goods data
+  rightContent:[],
 
-  onshow: function () {
-    var showDialog = getApp().globalData.showDialog;
-    if (showDialog != null) {
-      this.setData({
-        currentIndex: showDialog.__data__.catIndex
-      })
-    }
+  onLoad: function (options) {
+    this.getCates()
+  },
+  onShow: function (options) {
+    this.getCates()
   },
   onClick: function (event) {
     var _this = this;
@@ -39,38 +38,41 @@ Page({
       });
     }
   },
-  onLoad: function (options) {
-    this.getCates();
-  },
   // 获取分类数据
   getCates(){
+    let that = this
     request({
-      url: app.globalData.baseUrl + '/good/getAllgood',
+      url: app.globalData.baseUrl + '/good/getGoodByCatetory',
     })
     .then(res=>{
-      this.Cates=res.data.data
+      that.Cates=res.data.data
       //构造左侧菜单数据
-      let leftMenuList = this.Cates.map(v=>v.cat_name)
+      let leftMenuList = Object.keys(that.Cates)
       //构造右侧数据
       var currentIndex = 0;
-      if (this.__data__ != null) {
-        currentIndex = this.__data__.currentIndex;
+      var showDialog = getApp().globalData.showDialog;
+      if (that.__data__ != null) {
+        currentIndex = that.__data__.currentIndex;
       }
-      let rightContent=this.Cates[currentIndex].array;
-      this.setData({
-        leftMenuList, 
-        rightContent
+      if (showDialog && showDialog.catName) {
+        currentIndex = leftMenuList.indexOf(showDialog.catName)
+      }
+      let rightContent=that.Cates[leftMenuList[currentIndex]];
+      that.setData({
+        currentIndex,
+        rightContent,
+        leftMenuList
       })
     })
   },
   //左侧菜单的点击事件
-  handleItemTap(e){
+  handleItemTap: function(e){
       /*
       1.获取被点击的标题身上的索引
       2. 给data中的currentIndex赋值
       */
      const {index}=e.currentTarget.dataset;
-     let rightContent=this.Cates[index].array;
+     let rightContent=this.Cates[this.data.leftMenuList[index]];
      this.setData({
       currentIndex:index,
       rightContent
