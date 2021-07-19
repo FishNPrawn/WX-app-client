@@ -4,6 +4,10 @@ let timeout = 400;
 Page({
   data: {
     //被点击的左侧菜单
+    //left menu
+    leftMenuList:[],
+    // right goods data
+    rightContent:[],
     currentIndex:0,
     goodObj:{},
     isCollect: false
@@ -11,10 +15,6 @@ Page({
   goodInfo: {},
   //接口返回数据
   Cates:[],
-  //left menu
-  leftMenuList:[],
-  // right goods data
-  rightContent:[],
 
   onLoad: function (options) {
     this.getCates()
