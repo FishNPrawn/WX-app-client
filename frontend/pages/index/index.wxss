@@ -117,6 +117,7 @@ page {
   border-radius: 10px;
   text-align: center;
   font-size: small;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 .index_cate,
 .index_cate2 {
@@ -126,24 +127,16 @@ page {
   display: flex;
   align-items: flex-end;
 }
-.cat1,
-.cat2,
-.cat3,
-.cat4 {
+.cat1 {
   margin-top: 15px;
 }
-.cat1 navigator,
-.cat2 navigator,
-.cat3 navigator,
-.cat4 navigator {
+.cat1 navigator {
   flex: 1;
 }
-.cat1 navigator image,
-.cat2 navigator image,
-.cat3 navigator image,
-.cat4 navigator image {
+.cat1 navigator image {
   width: 60px;
   height: 60px;
+  border-radius: 50%;
 }
 .cat5,
 .cat6,
