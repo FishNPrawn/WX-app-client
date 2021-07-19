@@ -46,10 +46,10 @@
       class="cat1"
       wx:for="{{featured_cards_1}}"
     >
-      <navigator id="{{item.cat_name}}" url="/pages/category/category" bindtap="onClick">
+      <view id="{{item.cat_name}}" bindtap="onClick" class="cat_navigator">
         <image src="{{item.cat_image}}"></image>
         <view>{{item.cat_name}}</view>
-      </navigator>
+      </view>
     </view>
   </index>
 
@@ -59,10 +59,10 @@
       class="cat1"
       wx:for="{{featured_cards_2}}"
     >
-      <navigator id="{{item.cat_name}}" url="/pages/category/category" bindtap="onClick">
+      <view id="{{item.cat_name}}" bindtap="onClick" class="cat_navigator">
         <image src="{{item.cat_image}}"></image>
         <view>{{item.cat_name}}</view>
-      </navigator>
+      </view>
     </view>
   </index>
 </view>

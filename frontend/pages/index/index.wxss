@@ -130,10 +130,10 @@ page {
 .cat1 {
   margin-top: 15px;
 }
-.cat1 navigator {
+.cat1 .cat_navigator {
   flex: 1;
 }
-.cat1 navigator image {
+.cat1 .cat_navigator image {
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -275,6 +275,7 @@ page {
   background-color: #ffffff;
   border-radius: 3px;
   margin: auto;
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
 }
 .preference_display .preference_row .preference_col .navigator_box .good_navigator {
   height: 10rem;
