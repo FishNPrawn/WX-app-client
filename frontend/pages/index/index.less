@@ -123,6 +123,7 @@ page{
   border-radius: 10px;
   text-align: center;
   font-size: small;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
 .index_cate, .index_cate2{
@@ -131,14 +132,16 @@ page{
   flex-wrap: nowrap;
   display: flex;
   align-items: flex-end;
+
 }
-.cat1, .cat2, .cat3, .cat4{
+.cat1{
   margin-top: 15px;
-  navigator{
+  .cat_navigator{
     flex: 1;
     image{
        width: 60px;
        height: 60px;
+       border-radius: 50%;
     }
   }
 }
@@ -272,6 +275,7 @@ page{
         background-color: #ffffff;
         border-radius: 3px;
         margin: auto;
+        box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
         .good_navigator {
           height: 10rem;
           margin-left: auto;
