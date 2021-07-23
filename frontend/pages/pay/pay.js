@@ -1,6 +1,7 @@
 import { getSetting, chooseAddress, openSetting, showModal ,showToast} from "../../utils/asyncWx.js";
 
 const app = getApp();
+const util = require('../../utils/util.js');
 
 Page({
   data: {
@@ -37,6 +38,7 @@ Page({
       address
     })
   },
+  
 
   commentInput:function(e){
       this.data.commentInput = e.detail.value;
@@ -113,12 +115,15 @@ Page({
         totalPrice += v.num * v.good_price;
     })
 
+    // 订单编号
+    const orderNumber = util.order_number();
+
     // 储存购物车信息
     let goods_arr = [];
     cart.forEach(order => {
       // console.log(order);
       var goods = new Object();
-      goods.order_number = "40";
+      goods.order_number = orderNumber;
       goods.good_id = order.good_id;
       goods.good_name = order.good_name;
       goods.good_price = order.good_price;
@@ -129,29 +134,52 @@ Page({
     let goods_json = JSON.stringify(goods_arr);
     // console.log(goods_json);
 
-    // 创建订单request
-     wx.request({
-       url: 'https://fishnprawn.cn/order/create',
-       method: "POST",
-       header:{
-        "Content-Type": "application/x-www-form-urlencoded"
-       },
+    
+    wx.cloud.callFunction({
+      name: 'cloudpay',
+      data:{
+        orderNumber: orderNumber,
+        totalPrice: totalPrice
+      },
+      success: res => {
+        const payment = res.result.payment
+        
+        wx.requestPayment({
+          ...payment,
+          success (res) {
+            // 支付成功 & 创建订单request
+            wx.request({
+              url: 'https://fishnprawn.cn/order/create',
+              method: "POST",
+              header:{
+              "Content-Type": "application/x-www-form-urlencoded"
+              },
+              data:{
+              openId: openid,
+              order_number: orderNumber,
+              access_token: "1654168416563354",
+              user_name: userAddress.userName,
+              user_address: userAddress.all,
+              user_phone: userAddress.telNumber,
+              order_total_price: totalPrice,
+              order_comment: commentInput,
+              orderStatus: 1,
+              items: goods_json
+              },
+              success: function(res){
+                console.log("创建订单成功", res.data);
+              }
+            })
+            console.log('pay success', res)
+          },
+          fail (err) {
+            console.error('pay fail', err)
+          }
+        })
+      },
+      fail: console.error,
+    })
 
-       data:{
-        openId: openid,
-        order_number: "40",
-        access_token: "1654168416563354",
-        user_name: userAddress.userName,
-        user_address: userAddress.all,
-        user_phone: userAddress.telNumber,
-        order_total_price: totalPrice,
-        order_comment: commentInput,
-        orderStatus: 1,
-        items: goods_json
-       },
-       success: function(res){
-         console.log("支付成功", res.data);
-       }
-     })
+    
    }
 })

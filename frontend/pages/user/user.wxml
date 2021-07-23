@@ -1,2 +1,1 @@
-<!--pages/user/user.wxml-->
-<text>pages/user/user.wxml</text>
+<button bindtap="goPay">支付</button>

@@ -14,6 +14,24 @@ const formatNumber = n => {
   return n[1] ? n : `0${n}`
 }
 
+const order_number = () => {
+  var today = new Date();
+  var year = today.getFullYear();
+  var month = today.getMonth() + 1;
+  var day = today.getDate();
+  var hour = today.getHours();
+  var minute = today.getMinutes();
+  var second = today.getSeconds();
+  if (month < 10) {
+      month = '0' + month;
+  }
+  var date = year + '' + month + '' + day;
+  var time = hour + '' + minute + ''+ second;
+  var randomNumber = Math.floor(1000 + Math.random() * 9000);
+  var orderNumber = date + '' + time + '' + randomNumber;
+  return orderNumber;
+}
+
 const loginDataKey = 'loginData'
 
 const toLogin = () => {
@@ -50,5 +68,5 @@ const toLogin = () => {
 }
 
 module.exports = {
-  formatTime, toLogin
+  formatTime, toLogin, order_number
 }
