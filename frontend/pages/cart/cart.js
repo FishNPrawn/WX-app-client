@@ -137,6 +137,12 @@ Page({
        }
      }
    })
+ },
+
+ goCategory(){
+   wx.switchTab({
+     url: '/pages/category/category',
+   })
  }
 
 })

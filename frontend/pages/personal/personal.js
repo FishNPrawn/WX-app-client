@@ -153,7 +153,15 @@ Page({
       title: "关于我们",
       url: "/pages/aboutus/aboutus"
     })
-},
+  },
+
+  // navigato to good_Detail
+  goGoodDetail(event){
+    var good_id = event.currentTarget.id
+    wx.navigateTo({
+      url: '/pages/good_detail/good_detail?good_id=' + good_id
+    });
+  },
 
 
   // 回到顶部

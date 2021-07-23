@@ -95,11 +95,11 @@ page {
   margin-bottom: 0.4rem;
   margin-top: 0.4rem;
 }
-.cates .cates_container .right_content .goods_group .goods_list navigator {
+.cates .cates_container .right_content .goods_group .goods_list .good_list_navigator {
   width: 100%;
   display: flex;
 }
-.cates .cates_container .right_content .goods_group .goods_list navigator .goods_image {
+.cates .cates_container .right_content .goods_group .goods_list .good_list_navigator .goods_image {
   width: 150rpx;
   height: 150rpx;
   border-radius: 7rpx;
@@ -107,39 +107,39 @@ page {
   margin-left: 10px;
   margin-bottom: 10px;
 }
-.cates .cates_container .right_content .goods_group .goods_list navigator .goods_msg {
+.cates .cates_container .right_content .goods_group .goods_list .good_list_navigator .goods_msg {
   margin-top: 10px;
   display: block;
   margin-left: 20px;
   width: 50%;
 }
-.cates .cates_container .right_content .goods_group .goods_list navigator .goods_msg .goods_name {
+.cates .cates_container .right_content .goods_group .goods_list .good_list_navigator .goods_msg .goods_name {
   font-size: 28rpx;
 }
-.cates .cates_container .right_content .goods_group .goods_list navigator .goods_msg .goods_sale {
+.cates .cates_container .right_content .goods_group .goods_list .good_list_navigator .goods_msg .goods_sale {
   display: flex;
   font-size: 20rpx;
   color: #4d4d4d;
   font-weight: 300;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-.cates .cates_container .right_content .goods_group .goods_list navigator .goods_msg .goods_sale .goods_sale_number {
+.cates .cates_container .right_content .goods_group .goods_list .good_list_navigator .goods_msg .goods_sale .goods_sale_number {
   font-family: cursive;
   margin-left: 2%;
 }
-.cates .cates_container .right_content .goods_group .goods_list navigator .goods_msg .goods_price {
+.cates .cates_container .right_content .goods_group .goods_list .good_list_navigator .goods_msg .goods_price {
   color: tomato;
   display: flex;
   font-family: cursive;
   margin-top: 16%;
 }
-.cates .cates_container .right_content .goods_group .goods_list navigator .goods_msg .goods_price .dollar_symbol {
+.cates .cates_container .right_content .goods_group .goods_list .good_list_navigator .goods_msg .goods_price .dollar_symbol {
   display: inline-block;
   align-self: flex-end;
   font-size: 22rpx;
   font-weight: 300;
 }
-.cates .cates_container .right_content .goods_group .goods_list navigator .goods_msg .goods_price .dollar_price_number {
+.cates .cates_container .right_content .goods_group .goods_list .good_list_navigator .goods_msg .goods_price .dollar_price_number {
   font-size: 30rpx;
 }
 .cates .cates_container .right_content .goods_group .goods_list .shopping-cart {

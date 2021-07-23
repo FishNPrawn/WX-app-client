@@ -85,6 +85,7 @@ Page({
     wx.showToast({
       title: '加入成功',
       icon: 'success',
+      duration: 600,
       mask: true
     });
   },
@@ -163,6 +164,14 @@ Page({
         comments: res.data.data
       })
     })
+  },
+
+  // navigato to 商品详情
+  goGoodDetail(event){
+    var good_id = event.currentTarget.id
+    wx.redirectTo({
+      url: '/pages/good_detail/good_detail?good_id=' + good_id
+    });
   },
 
   // 主页面add button

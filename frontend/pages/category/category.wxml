@@ -32,8 +32,8 @@
             wx:for-item="item1"
       >
         <view class="goods_list">
-          <navigator
-          url="/pages/good_detail/good_detail?good_id={{item1.good_id}}"
+          <view class="good_list_navigator"
+          id="{{item1.good_id}}" bindtap="goGoodDetail"
           >
             <image src="{{item1.good_image}}" class="goods_image"></image>
             <view class="goods_msg">
@@ -44,7 +44,7 @@
                 <view class="dollar_price_number">{{item1.good_price}}</view>
               </view> 
             </view>
-          </navigator>
+          </view>
           <view>
             <image data-variable="{{item1}}" bindtap="handleCartAdd" src="https://fnpphoto.cn/icon/shopping-cart.png" class="shopping-cart"></image>
           </view>

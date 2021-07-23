@@ -46,9 +46,9 @@
         </view>
       
         <view class="empty_message">您的购物车还空着~快去逛逛吧</view>
-        <navigator open-type="switchTab" url="/pages/category/category" class="good_home">
+        <view open-type="switchTab" class="good_home" bindtap="goCategory">
           <view class="shopping_text">去逛逛</view>
-        </navigator>
+        </view>
       </view> 
     </view>
       
