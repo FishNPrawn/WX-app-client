@@ -6,6 +6,7 @@
     "pages/comment/comment",
     "pages/personal/personal",
     "pages/pay/pay",
+    "pages/paysuccess/paysuccess",
     "pages/cart/cart",
     "pages/user/user",
     "pages/good_list/good_list",

@@ -17,17 +17,19 @@ page{
     align-items: center;
     .navigator {
       display: flex;
-      padding: 10rpx;
+      padding: 0 10rpx 0 10rpx;
       width: 90%;
-      height: 20px;
+      height: 30px;
       background-color: rgb(255, 255, 255);
       color: #6b6b6b;
       border-radius: 20px;
       border: 1px solid #FFA760;
+      display: flex;
+      align-items: center;
+      
       .search_icon {
         width: 15px;
         height: 15px;
-        margin-top: 6rpx;
         margin-left: 12rpx;
       }
       text {
@@ -37,19 +39,20 @@ page{
       }
       .search_text{
         width: 14%;
-        padding: 6px 0 6px 0;
+        height: 26px;
+        background-image: linear-gradient(to right, #FF2929, #FFA760);   
+        border-radius: 20px;
         position: absolute;
-        top: 16rpx;
+        // top: 14rpx;
         right: 4.3%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        
         .search_btn {
-          background-image: linear-gradient(to right, #FF2929, #FFA760);
-          padding: 2px 0 2px 0;
-          border-radius: 20px;
           color: white;
-          text-align: center;
-          display: flex;
-          justify-content: center;
-          align-items: center;
+          font-size: 15px;
         }
       }
     }
@@ -141,6 +144,7 @@ page{
                 }
                 .dollar_price_number{
                   font-size: 30rpx;
+                  margin-left: 1px;
                 }
               }
             }

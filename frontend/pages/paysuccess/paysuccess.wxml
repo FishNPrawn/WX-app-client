@@ -1,0 +1,40 @@
+<image class="check_circle" src="https://fnpphoto.cn/gif/check-circle.gif"></image>
+<view class="paytext_wrapper">
+  <view class="paytext1">支付成功</view>
+</view>
+<view class="image_wrapper">
+  <image src="{{userInfo.avatarUrl}}" class="profile_img"></image>
+</view>
+
+
+<view class="box1_info">
+  <view class="profile_name">{{userInfo.nickName}}</view>
+  <view class="box1_info_value">
+    <view class="box1_info_value_line box1_info_value_line1">
+      <view class="box1_info_value_line_title">总金额</view>
+      <view class="box1_info_value_line_value">￥{{order_basic_info[0].totalPrice}}</view>
+    </view>
+    <view class="box1_info_value_line box1_info_value_line2">
+      <view class="box1_info_value_line_title">优惠</view>
+      <view class="box1_info_value_line_value">￥{{order_basic_info[0].discount}}</view>
+    </view>
+    <view class="box1_info_value_line box1_info_value_line3">
+      <view class="box1_info_value_line_title">运费</view>
+      <view class="box1_info_value_line_value">￥{{order_basic_info[0].shipmentFee}}</view>
+    </view>
+    <view class="box1_info_value_line box1_info_value_line4">
+      <view class="box1_info_value_line_title">支付方式</view>
+      <view class="box1_info_value_line_value">微信支付</view>
+    </view>
+  </view>
+</view>
+
+<view class="box2_btn">
+  <view class="btn">
+    <view open-type="switchTab" class="back_to_home" bindtap="backtohome">主页</view>
+  </view>
+  <view class="btn">
+    <view open-type="switchTab" class="back_to_order" bindtap="backtoorder">个人中心</view>
+  </view>
+</view>
+

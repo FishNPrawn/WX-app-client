@@ -25,6 +25,9 @@ page {
   font-size: 40rpx;
   color: var(--themeColor);
 }
+.cart_content {
+  padding-bottom: 15px;
+}
 .cart_content .cart_main {
   height: 100%;
   width: 95%;

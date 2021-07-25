@@ -1,3 +1,12 @@
+<!-- <view class="search_wrap">
+    <view id="search" open-type="redirect" bindtap="onClick" url="{{urlPath}}" class="navigator">
+        <image class="search_icon" src="https://fnpphoto.cn/icon/search.png"></image>
+        <text>海鲜特价</text>
+        <view class="search_text">
+          <view class="search_btn">搜索</view>
+        </view>
+    </view>
+</view> -->
 <view class="search_wrap">
     <view id="search" open-type="redirect" bindtap="onClick" url="{{urlPath}}" class="navigator">
         <image class="search_icon" src="https://fnpphoto.cn/icon/search.png"></image>
