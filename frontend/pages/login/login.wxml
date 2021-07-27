@@ -1,0 +1,6 @@
+<image class="favicon" src="https://fnpphoto.cn/favicon.jpeg"></image>
+
+<view class="loginWrapper">
+  <!-- <view class="loginBtn">微信用户一键登录</view> -->
+  <button class="loginBtn" open-type="getUserInfo" bindgetuserinfo="handleGetUserInfo" plain>微信用户一键登录</button>
+</view>

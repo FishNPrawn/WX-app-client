@@ -6,8 +6,8 @@
     <view class="profile_name">{{userInfo.nickName}}</view>
   </view>
   <view wx:else class="box1_row1">
-    <image src="https://fnpphoto.cn/icon/avatar.png" class="profile_img"></image>
-    <button class="profile_login" open-type="getUserInfo" bindgetuserinfo="handleGetUserInfo" plain>请点击登录</button>
+    <image src="https://fnpphoto.cn/icon/avatar1.png" class="profile_img"></image>
+    <button class="profile_login" bindtap="goToLogin">请点击登录</button>
     <!-- <navigator url="/pages/auth/auth">请点击登录</navigator> -->
   </view>
 

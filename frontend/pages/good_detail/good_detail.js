@@ -72,7 +72,7 @@ Page({
       isCollect
     })
   },
-  handleCartAdd() {
+  handleCartAddDetail() {
     let cart = wx.getStorageSync("cart") || [];
     let index = cart.findIndex(v => v.good_id === this.goodInfo.good_id);
     if (index === -1) {
@@ -186,6 +186,7 @@ Page({
     } 
     wx.setStorageSync("cart", cart);
     wx.showToast({
+
       title: '加入成功',
       icon: 'success',
       mask: true

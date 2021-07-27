@@ -236,7 +236,7 @@
     <text>购物车</text>
   </navigator>
 
-  <view class="btn_cart" bindtap="handleCartAdd">加入购物车</view>
+  <view class="btn_cart" bindtap="handleCartAddDetail">加入购物车</view>
 </view>
 
 
