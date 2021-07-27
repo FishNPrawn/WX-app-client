@@ -1,1 +1,5 @@
+<view class="goToIndex" bindtap="goToIndexPage">
+  <view class="goToIndexTitle">跳过</view>
+</view>
+
 <image class="favicon" src="https://fnpphoto.cn/logo/favicon.png"></image>

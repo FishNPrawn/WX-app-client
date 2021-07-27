@@ -6,6 +6,10 @@ Page({
     userInfo:{},
   },
 
+  backToPrev(){
+    wx.navigateBack()
+  },
+
   handleGetUserInfo(e){
     var session_key;
     wx.login({

@@ -1,3 +1,6 @@
+<image class="backToPrev" src="https://fnpphoto.cn/icon/left-arrow.png" bindtap="backToPrev"></image>
+
+
 <image class="favicon" src="https://fnpphoto.cn/logo/favicon.png"></image>
 
 <view class="loginWrapper">

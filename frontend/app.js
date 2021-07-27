@@ -11,7 +11,7 @@ App({
   
     const loginData = wx.getStorageSync(loginDataKey)
     let toLogin = () => {
-      wx.showLoading({title: '登录中', icon: 'loading', mask: true})
+      // wx.showLoading({title: '登录中', icon: 'loading', mask: true})
       wx.login({
         success(res){
           let success = () => {
