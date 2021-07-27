@@ -6,6 +6,24 @@ page {
   background-size: cover;
   background-attachment: fixed;
 }
+.goToIndex {
+  height: 30px;
+  width: 60px;
+  border: 1px solid #818faa;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: absolute;
+  left: 4%;
+  top: 7%;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+.goToIndex .goToIndexTitle {
+  color: #818faa;
+  font-weight: 500;
+}
 .favicon {
   width: 150px;
   height: 150px;
