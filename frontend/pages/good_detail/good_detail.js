@@ -72,7 +72,7 @@ Page({
       isCollect
     })
   },
-  handleCartAdd() {
+  handleCartAddDetail() {
     let cart = wx.getStorageSync("cart") || [];
     let index = cart.findIndex(v => v.good_id === this.goodInfo.good_id);
     if (index === -1) {
@@ -85,6 +85,7 @@ Page({
     wx.showToast({
       title: '加入成功',
       icon: 'success',
+      duration: 600,
       mask: true
     });
   },
@@ -165,6 +166,14 @@ Page({
     })
   },
 
+  // navigato to 商品详情
+  goGoodDetail(event){
+    var good_id = event.currentTarget.id
+    wx.redirectTo({
+      url: '/pages/good_detail/good_detail?good_id=' + good_id
+    });
+  },
+
   // 主页面add button
   handleCartAdd(event) {
     let cart = wx.getStorageSync("cart") || [];
@@ -177,6 +186,7 @@ Page({
     } 
     wx.setStorageSync("cart", cart);
     wx.showToast({
+
       title: '加入成功',
       icon: 'success',
       mask: true

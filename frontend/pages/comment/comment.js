@@ -15,7 +15,6 @@ Page({
 
   onLoad: function (options) {
     this.getOrder(options.orderId)
-    this.submitOrder(options.orderId)
     const userInfo = wx.getStorageSync("userInfo");
     this.setData({userInfo: userInfo});
   },
@@ -53,11 +52,9 @@ Page({
   },
 
   //提交订单
-  submitOrder: function(orderId){
-
+  submitComment: function(orderId){
     // 当地时间
     var time = util.formatTime(new Date());
-
     // 创建评论
     var comments = []
     for (var id in this.data.commentDict) {
@@ -65,23 +62,21 @@ Page({
       comment.comment_create_time = time
       comments.push(comment)
     }
-
     wx.request({
-      url: app.globalData.baseUrl + '/comment/createComment',
+      url: app.globalData.baseUrl + '/comment/createComment?orderId='+this.data.orderDetail.orderId,
       method: "POST",
       header:{
        "Content-Type": "application/x-www-form-urlencoded"
       },
       data:{
-        orderId: orderId,
         items: JSON.stringify(comments)
       },
       success: function(res){
         console.log("评论成功", res.data);
+        wx.navigateTo({
+          url: '/pages/comment_success/comment_success'
+        });
       }
     })
-    wx.navigateTo({
-       url: '/pages/comment_success/comment_success'
-     });
   }
 })

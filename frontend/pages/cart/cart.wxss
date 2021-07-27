@@ -25,12 +25,15 @@ page {
   font-size: 40rpx;
   color: var(--themeColor);
 }
+.cart_content {
+  padding-bottom: 15px;
+}
 .cart_content .cart_main {
   height: 100%;
   width: 95%;
   background-color: white;
   border-radius: 15px;
-  box-shadow: 8px 3px 3px #e7e7e7;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   margin: auto;
 }
 .cart_content .cart_main .cart_item {

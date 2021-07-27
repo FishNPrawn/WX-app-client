@@ -19,5 +19,5 @@
 </view>
 
 <view class="btn_tool">
-  <view class="pay_button" bindtap="submitOrder">提交评价</view>
+  <view class="pay_button" bindtap="submitComment">提交评价</view>
 </view>

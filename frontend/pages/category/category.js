@@ -92,7 +92,17 @@ Page({
     wx.showToast({
       title: '加入成功',
       icon: 'success',
+      duration: 500,
       mask: true
     });
   },
+
+  // navigato to good_Detail
+  goGoodDetail(event){
+    var good_id = event.currentTarget.id
+    wx.navigateTo({
+      url: '/pages/good_detail/good_detail?good_id=' + good_id
+    });
+  },
+
 })

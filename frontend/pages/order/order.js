@@ -84,7 +84,7 @@ Page({
             dataList[i].total_quantity += itemCount
           }
           that.setData({
-            list: dataList
+            list: dataList.reverse()
           })
         } catch {
           that.setData({
@@ -106,6 +106,15 @@ Page({
       url: '../comment/comment?orderId='+event.currentTarget.dataset.order,
     })
   },
+
+  // navigato to good_Detail
+  goGoodDetail(event){
+    var good_id = event.currentTarget.id
+    wx.navigateTo({
+      url: '/pages/good_detail/good_detail?good_id=' + good_id
+    });
+  },
+
   cancelOrder(event){
 
     wx.showModal({

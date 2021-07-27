@@ -88,6 +88,14 @@ Page({
         });
       }
     },
+    // navigato to good_Detail
+    goGoodDetail(event){
+      var good_id = event.currentTarget.id
+      wx.navigateTo({
+        url: '/pages/good_detail/good_detail?good_id=' + good_id
+      });
+    },
+
     // 主页面add button
     handleCartAdd(event) {
       let cart = wx.getStorageSync("cart") || [];
@@ -102,6 +110,7 @@ Page({
       wx.showToast({
         title: '加入成功',
         icon: 'success',
+        duration: 600,
         mask: true
       });
     },

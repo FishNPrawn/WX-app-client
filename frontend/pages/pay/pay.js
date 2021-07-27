@@ -96,89 +96,105 @@ Page({
 
    //提交订单
    submitOrder: function(e){
-     // 去到user的东西
-    const userInfo = wx.getStorageSync("userInfo");
-    const userAddress = wx.getStorageSync('address')
-    const openid = wx.getStorageSync("openid");
-    let cart = wx.getStorageSync("cart") || [];
-    cart = cart.filter(v=>v.checked);
+     var addressStorage = wx.getStorageSync('address')
+     if(!addressStorage){
+      showToast({title:"请选择收货地址"});
+     }else{
+      // 去到user的东西
+      const userInfo = wx.getStorageSync("userInfo");
+      const userAddress = wx.getStorageSync('address')
+      const openid = wx.getStorageSync("openid");
+      let cart = wx.getStorageSync("cart") || [];
+      cart = cart.filter(v=>v.checked);
 
-    if(this.data.commentInput == null){
-      this.data.commentInput = '没有备注';
+      if(this.data.commentInput == null){
+        this.data.commentInput = '没有备注';
+      }
+
+      const {commentInput}=this.data;
+
+      //  计算总价格
+      let totalPrice = 0;
+      cart.forEach(v => {
+          totalPrice += v.num * v.good_price;
+      })
+
+      // 订单编号
+      const orderNumber = util.order_number();
+
+      // 储存购物车信息
+      let goods_arr = [];
+      cart.forEach(order => {
+        // console.log(order);
+        var goods = new Object();
+        goods.order_number = orderNumber;
+        goods.good_id = order.good_id;
+        goods.good_name = order.good_name;
+        goods.good_price = order.good_price;
+        goods.good_quantity = order.num;
+        goods.good_image = order.good_image;
+        goods_arr.push(goods)
+      })
+      let goods_json = JSON.stringify(goods_arr);
+      // console.log(goods_json);
+
+      var order_basic_info_value = new Object();
+      order_basic_info_value.totalPrice = totalPrice;
+      order_basic_info_value.discount = 0;
+      order_basic_info_value.shipmentFee = 0;
+      let order_basic_info = [];
+      order_basic_info.push(order_basic_info_value);
+      
+      wx.cloud.callFunction({
+        name: 'cloudpay',
+        data:{
+          orderNumber: orderNumber,
+          totalPrice: totalPrice
+        },
+        success: res => {
+          const payment = res.result.payment
+          
+          wx.requestPayment({
+            ...payment,
+            success (res) {
+              // 支付成功 & 创建订单request
+              wx.request({
+                url: 'https://fishnprawn.cn/order/create',
+                method: "POST",
+                header:{
+                "Content-Type": "application/x-www-form-urlencoded"
+                },
+                data:{
+                openId: openid,
+                order_number: orderNumber,
+                access_token: "1654168416563354",
+                user_name: userAddress.userName,
+                user_address: userAddress.all,
+                user_phone: userAddress.telNumber,
+                order_total_price: totalPrice,
+                order_comment: commentInput,
+                orderStatus: 1,
+                items: goods_json
+                },
+                success: function(res){
+                  console.log("创建订单成功", res.data);
+                  wx.setStorageSync('cart', null);
+                  wx.setStorageSync('order_basic_info', order_basic_info);
+                  wx.navigateTo({
+                    url: '/pages/paysuccess/paysuccess',
+                  })
+                }
+              })
+              console.log('pay success', res)
+            },
+            fail (err) {
+              console.error('pay fail', err)
+            }
+          })
+        },
+        fail: console.error,
+      })
     }
-
-    const {commentInput}=this.data;
-
-    //  计算总价格
-    let totalPrice = 0;
-    cart.forEach(v => {
-        totalPrice += v.num * v.good_price;
-    })
-
-    // 订单编号
-    const orderNumber = util.order_number();
-
-    // 储存购物车信息
-    let goods_arr = [];
-    cart.forEach(order => {
-      // console.log(order);
-      var goods = new Object();
-      goods.order_number = orderNumber;
-      goods.good_id = order.good_id;
-      goods.good_name = order.good_name;
-      goods.good_price = order.good_price;
-      goods.good_quantity = order.num;
-      goods.good_image = order.good_image;
-      goods_arr.push(goods)
-    })
-    let goods_json = JSON.stringify(goods_arr);
-    // console.log(goods_json);
-
-    
-    wx.cloud.callFunction({
-      name: 'cloudpay',
-      data:{
-        orderNumber: orderNumber,
-        totalPrice: totalPrice
-      },
-      success: res => {
-        const payment = res.result.payment
-        
-        wx.requestPayment({
-          ...payment,
-          success (res) {
-            // 支付成功 & 创建订单request
-            wx.request({
-              url: 'https://fishnprawn.cn/order/create',
-              method: "POST",
-              header:{
-              "Content-Type": "application/x-www-form-urlencoded"
-              },
-              data:{
-              openId: openid,
-              order_number: orderNumber,
-              access_token: "1654168416563354",
-              user_name: userAddress.userName,
-              user_address: userAddress.all,
-              user_phone: userAddress.telNumber,
-              order_total_price: totalPrice,
-              order_comment: commentInput,
-              orderStatus: 1,
-              items: goods_json
-              },
-              success: function(res){
-                console.log("创建订单成功", res.data);
-              }
-            })
-            console.log('pay success', res)
-          },
-          fail (err) {
-            console.error('pay fail', err)
-          }
-        })
-      },
-      fail: console.error,
-    })
 
     
    }
