@@ -1,6 +1,8 @@
 {
   "pages":[
+    "pages/entry/entry",
     "pages/index/index",
+    "pages/login/login",
     "pages/comment_success/comment_success",
     "pages/category/category",
     "pages/comment/comment",
@@ -19,8 +21,7 @@
     "pages/feedback/feedback",
     "pages/auth/auth",
     "pages/logs/logs",
-    "pages/aboutus/aboutus",
-    "pages/login/login"
+    "pages/aboutus/aboutus"
   ],
   "window":{
     "backgroundTextStyle":"dark",
