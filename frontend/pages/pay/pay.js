@@ -9,6 +9,7 @@ Page({
     cart: [],
     totalPrice: 0,
     totalNum: 0,
+    total_good_weight_value: 0,
     show: false,
     duration: 300,
     position: 'bottom',
@@ -27,14 +28,18 @@ Page({
       //  计算 全选 总价格 购买的数量
     let totalPrice = 0;
     let totalNum = 0;
+    let total_good_weight_value = 0;
     cart.forEach(v => {
         totalPrice += v.num * v.good_price;
         totalNum += v.num;
+        total_good_weight_value += v.good_weight;
     })
 
     this.setData({
       cart,
-      totalPrice,totalNum,
+      totalPrice,
+      totalNum,
+      total_good_weight_value,
       address
     })
   },
@@ -115,8 +120,10 @@ Page({
 
       //  计算总价格
       let totalPrice = 0;
+      let total_good_weight_value = 0
       cart.forEach(v => {
           totalPrice += v.num * v.good_price;
+          total_good_weight_value = total_good_weight_value + v.good_weight;
       })
 
       // 订单编号
@@ -165,16 +172,18 @@ Page({
                 "Content-Type": "application/x-www-form-urlencoded"
                 },
                 data:{
-                openId: openid,
-                order_number: orderNumber,
-                access_token: "1654168416563354",
-                user_name: userAddress.userName,
-                user_address: userAddress.all,
-                user_phone: userAddress.telNumber,
-                order_total_price: totalPrice,
-                order_comment: commentInput,
-                orderStatus: 1,
-                items: goods_json
+                  openId: openid,
+                  order_number: orderNumber,
+                  access_token: "1654168416563354",
+                  user_name: userAddress.userName,
+                  user_address: userAddress.all,
+                  user_phone: userAddress.telNumber,
+                  order_total_price: totalPrice,
+                  order_comment: commentInput,
+                  orderStatus: 1,
+                  "order_total_weight": total_good_weight_value,
+                  "order_express_fee": 18,
+                  items: goods_json
                 },
                 success: function(res){
                   console.log("创建订单成功", res.data);
