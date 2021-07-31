@@ -15,9 +15,9 @@
             </checkbox-group>
           </view>
           <!-- 商品图片 -->
-          <navigator class="cart_img_wrap">
+          <view class="cart_img_wrap" bindtap="goToGoodDetail" id="{{item.good_id}}">
             <image src="{{item.good_image}}"></image>
-          </navigator>
+          </view>
           <!-- 商品信息 -->
           <view class="cart_info_wrap">
             <view class="good_name">{{item.good_name}}</view>

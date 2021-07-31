@@ -142,6 +142,13 @@ Page({
    wx.switchTab({
      url: '/pages/category/category',
    })
+ },
+
+ goToGoodDetail(event){
+  var good_id = event.currentTarget.id
+  wx.navigateTo({
+    url: '/pages/good_detail/good_detail?good_id=' + good_id
+  });
  }
 
 })
