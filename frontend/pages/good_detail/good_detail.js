@@ -32,7 +32,7 @@ Page({
     let customStyle = ''
     let duration = this.data.duration
     if(position == 'bottom'){
-      customStyle = 'height: 60%;background-color: #f5f5f5;'
+      customStyle = 'height: 40%;background-color: #f5f5f5;'
     }
     this.setData({
       position,

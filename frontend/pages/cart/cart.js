@@ -20,7 +20,6 @@ Page({
     let index = cart.findIndex(v => v.good_id === good_id);
     cart[index].checked = !cart[index].checked;
     this.setCart(cart);
-
   },
 
   // 授权登录

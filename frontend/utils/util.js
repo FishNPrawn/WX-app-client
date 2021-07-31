@@ -32,6 +32,70 @@ const order_number = () => {
   return orderNumber;
 }
 
+const calculate_express_fee = (weight, order_total_price) =>{
+  var express_fee = 18;
+    if(weight>0 && weight<=1000){
+        express_fee = 18;
+    }else if(weight > 1000 && weight <= 2000){
+        express_fee = 18;
+    }else if(weight > 2000 && weight <= 3000){
+        express_fee = 21;
+    }else if(weight > 3000 && weight <= 4000){
+        express_fee = 24;
+    }else if(weight > 4000 && weight <= 5000){
+        express_fee = 27;
+    }else if(weight > 5000 && weight <= 6000){
+        express_fee = 30;
+    }else if(weight > 6000 && weight <= 7000){
+        express_fee = 33;
+    }else if(weight > 7000 && weight <= 8000){
+        express_fee = 36;
+    }else if(weight > 8000 && weight <= 9000){
+        express_fee = 39;
+    }else if(weight > 9000 && weight <= 10000){
+        express_fee = 42;
+    }else{
+        express_fee = 45;
+    }
+
+    if(order_total_price>=88 && order_total_price<188){
+        express_fee = express_fee - 5;
+    }else if(order_total_price>=188 && order_total_price<268){
+        express_fee = express_fee - 12;
+    }else if(order_total_price>=268){
+        express_fee = 0;
+    }
+    return express_fee;
+}
+const original_express_fee = (weight) =>{
+  var express_fee = 18;
+    if(weight>0 && weight<=1000){
+        express_fee = 18;
+    }else if(weight > 1000 && weight <= 2000){
+        express_fee = 18;
+    }else if(weight > 2000 && weight <= 3000){
+        express_fee = 21;
+    }else if(weight > 3000 && weight <= 4000){
+        express_fee = 24;
+    }else if(weight > 4000 && weight <= 5000){
+        express_fee = 27;
+    }else if(weight > 5000 && weight <= 6000){
+        express_fee = 30;
+    }else if(weight > 6000 && weight <= 7000){
+        express_fee = 33;
+    }else if(weight > 7000 && weight <= 8000){
+        express_fee = 36;
+    }else if(weight > 8000 && weight <= 9000){
+        express_fee = 39;
+    }else if(weight > 9000 && weight <= 10000){
+        express_fee = 42;
+    }else{
+        express_fee = 45;
+    }
+    return express_fee;
+}
+
+
 const loginDataKey = 'loginData'
 
 const toLogin = () => {
@@ -68,5 +132,5 @@ const toLogin = () => {
 }
 
 module.exports = {
-  formatTime, toLogin, order_number
+  formatTime, toLogin, order_number,calculate_express_fee, original_express_fee
 }
