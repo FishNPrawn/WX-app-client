@@ -5,35 +5,38 @@
   <!-- <view class="cart_main"> -->
     <block wx:if="{{cart.length!==0}}">
       <view class="cart_main">
-        <view class="cart_item"
+        <view class="cart_item {{item.isTouchMove ? 'touch-move-active' : ''}}"
         wx:for="{{cart}}"
         wx:key="good_id"
         >
-          <view class="cart_chk_wrap">
-            <checkbox-group data-id="{{item.good_id}}" bindchange="handeItemChange">
-              <checkbox checked="{{item.checked}}"></checkbox>
-            </checkbox-group>
-          </view>
-          <!-- 商品图片 -->
-          <view class="cart_img_wrap" bindtap="goToGoodDetail" id="{{item.good_id}}">
-            <image src="{{item.good_image}}"></image>
-          </view>
-          <!-- 商品信息 -->
-          <view class="cart_info_wrap">
-            <view class="good_name">{{item.good_name}}</view>
-            <view class="good_price_wrap">
-              <view class="good_price">
-                <view class="rmb">￥</view>
-                <view class="good_price_value">{{item.good_price}}</view>
-              </view>
-              
-              <view class="cart_num_tool">
-                <view bindtap="handleItemNumEdit" data-id="{{item.good_id}}" data-operation="{{-1}}"  class="num_edit minus">-</view>
-                <view class="good_num">{{item.num}}</view>
-                <view bindtap="handleItemNumEdit" data-id="{{item.good_id}}" data-operation="{{1}}"  class="num_edit plus">+</view>
+          <view class="item-left" data-index="{{index}}" bindtouchstart="touchStart" bindtouchmove="touchMove">
+            <view class="cart_chk_wrap">
+              <checkbox-group data-id="{{item.good_id}}" bindchange="handeItemChange">
+                <checkbox checked="{{item.checked}}"></checkbox>
+              </checkbox-group>
+            </view>
+            <!-- 商品图片 -->
+            <view class="cart_img_wrap" bindtap="goToGoodDetail" id="{{item.good_id}}">
+              <image src="{{item.good_image}}"></image>
+            </view>
+            <!-- 商品信息 -->
+            <view class="cart_info_wrap">
+              <view class="good_name">{{item.good_name}}</view>
+              <view class="good_price_wrap">
+                <view class="good_price">
+                  <view class="rmb">￥</view>
+                  <view class="good_price_value">{{item.good_price}}</view>
+                </view>
+                
+                <view class="cart_num_tool">
+                  <view bindtap="handleItemNumEdit" data-id="{{item.good_id}}" data-operation="{{-1}}"  class="num_edit minus">-</view>
+                  <view class="good_num">{{item.num}}</view>
+                  <view bindtap="handleItemNumEdit" data-id="{{item.good_id}}" data-operation="{{1}}"  class="num_edit plus">+</view>
+                </view>
               </view>
             </view>
           </view>
+          <view class="delete" data-id="{{item.good_id}}" bindtap="delItem">删除</view>
         </view>
       </view>
     </block>

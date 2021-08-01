@@ -1,8 +1,8 @@
 {
   "pages":[
-    "pages/index/index",
     "pages/entry/entry",
-    
+    "pages/cart/cart",
+    "pages/index/index",
     "pages/login/login",
     "pages/comment_success/comment_success",
     "pages/category/category",
@@ -10,7 +10,6 @@
     "pages/personal/personal",
     "pages/pay/pay",
     "pages/paysuccess/paysuccess",
-    "pages/cart/cart",
     "pages/user/user",
     "pages/good_list/good_list",
     "pages/good_detail/good_detail",
