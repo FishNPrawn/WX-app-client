@@ -9,8 +9,10 @@ Page({
     totalNum: 0
   },
   onShow() {
-    const cart = wx.getStorageSync("cart") || [];
+    let cart = wx.getStorageSync("cart") || [];
     this.setCart(cart);
+    // 底部导航栏购物车数量
+    util.setTabBarBadgeNumber(cart);
   },
   
   // 商品的选中
@@ -81,6 +83,8 @@ Page({
       cart[index].num += operation;
       this.setCart(cart);
     }
+    // 底部导航栏购物车数量
+    util.setTabBarBadgeNumber(cart);
   },
 
   async handlePay(){

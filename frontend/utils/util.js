@@ -32,6 +32,7 @@ const order_number = () => {
   return orderNumber;
 }
 
+// 满减之后的运费
 const calculate_express_fee = (weight, order_total_price) =>{
   var express_fee = 18;
     if(weight>0 && weight<=1000){
@@ -67,6 +68,7 @@ const calculate_express_fee = (weight, order_total_price) =>{
     }
     return express_fee;
 }
+// 原始运费
 const original_express_fee = (weight) =>{
   var express_fee = 18;
     if(weight>0 && weight<=1000){
@@ -94,6 +96,26 @@ const original_express_fee = (weight) =>{
     }
     return express_fee;
 }
+
+// 底部导航栏购物车数量
+const setTabBarBadgeNumber = (cart) =>{
+  let totalNum = 0;
+  cart.forEach(v => {
+      totalNum += v.num;
+  })
+  if(totalNum == 0){
+    wx.removeTabBarBadge({
+      index: 2
+    })
+  }else{
+    totalNum = totalNum + '';
+    wx.setTabBarBadge({
+      index: 2,
+      text: totalNum
+    })
+  }
+}
+
 
 
 const loginDataKey = 'loginData'
@@ -132,5 +154,5 @@ const toLogin = () => {
 }
 
 module.exports = {
-  formatTime, toLogin, order_number,calculate_express_fee, original_express_fee
+  formatTime, toLogin, order_number,calculate_express_fee, original_express_fee, setTabBarBadgeNumber
 }

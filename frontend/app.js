@@ -6,9 +6,6 @@ App({
     wx.cloud.init({
       env: "cloud1-0gpxp1848b37de8d"
     })
-
-    
-  
     const loginData = wx.getStorageSync(loginDataKey)
     let toLogin = () => {
       // wx.showLoading({title: '登录中', icon: 'loading', mask: true})
@@ -78,7 +75,6 @@ App({
         }
       }
     })
-
   },
   globalData: {
     userInfo: {},

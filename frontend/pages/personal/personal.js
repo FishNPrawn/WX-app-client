@@ -16,13 +16,16 @@ Page({
   onLoad:function(options){
     this.getCates();
   },
- onShow(){
-  const address = wx.getStorageSync("address");
-   const userInfo = wx.getStorageSync("userInfo");
-   this.setData({userInfo: userInfo});
+  onShow(){
+    const address = wx.getStorageSync("address");
+    const userInfo = wx.getStorageSync("userInfo");
+    this.setData({userInfo: userInfo});
 
-   this.setData({ address });
- },
+    this.setData({ address });
+    // 底部导航栏购物车数量
+    let cart = wx.getStorageSync('cart') || [];
+    util.setTabBarBadgeNumber(cart);
+  },
   
   goToLogin(){
     wx.navigateTo({
@@ -72,6 +75,8 @@ Page({
       icon: 'success',
       mask: true
     });
+    // 底部导航栏购物车数量
+   util.setTabBarBadgeNumber(cart);
   },
 
   // 管理地址

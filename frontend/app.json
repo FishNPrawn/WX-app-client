@@ -1,7 +1,8 @@
 {
   "pages":[
-    "pages/entry/entry",
     "pages/index/index",
+    "pages/entry/entry",
+    
     "pages/login/login",
     "pages/comment_success/comment_success",
     "pages/category/category",
