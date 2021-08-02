@@ -1,4 +1,6 @@
 import {request} from "../../request/index.js";
+import { getSetting, openSetting, showModal ,showToast} from "../../utils/asyncWx.js";
+const util = require('../../utils/util.js');
 //page object 
 let app = getApp();
 Page({
@@ -34,86 +36,99 @@ Page({
         // console.log(speed)
         // console.log(accuracy)
       }
-      
+    });
+
+    // 底部导航栏购物车数量
+    let cart = wx.getStorageSync('cart') || [];
+    util.setTabBarBadgeNumber(cart);
+  },
+  onShow(){
+    // 底部导航栏购物车数量
+    let cart = wx.getStorageSync('cart') || [];
+    util.setTabBarBadgeNumber(cart);
+  },
+
+  //获取轮播图数据
+  getSwiperList(){
+    request({url:"https://fishnprawn.cn/allswiper/getAllSwiper"})
+    .then(result=>{
+      this.setData({
+        swiperList: result.data.data
+      })
     })
   },
-    //获取轮播图数据
-    getSwiperList(){
-      request({url:"https://fishnprawn.cn/allswiper/getAllSwiper"})
-      .then(result=>{
-        this.setData({
-          swiperList: result.data.data
-        })
-      })
-    },
 
-    getCates(){
-      request({
-        url: app.globalData.baseUrl + '/good/getAllgood'
-      })
-      .then(res=>{
-        this.Cates=res.data.data
-        var goods = [];
-        var flag = 0;
-        for (var categoryIndex = 0; categoryIndex < this.Cates.length; ++categoryIndex) {
-          for (var goodIndex = 0; goodIndex < this.Cates[categoryIndex].array.length; ++goodIndex) {
-            if (flag == 0) {
-              goods.push([this.Cates[categoryIndex].array[goodIndex]]);
-              flag = 1;
-            } else {
-              var tempBox = goods.pop();
-              tempBox.push(this.Cates[categoryIndex].array[goodIndex]);
-              flag = 0;
-              goods.push(tempBox);
-            }
+  getCates(){
+    request({
+      url: app.globalData.baseUrl + '/good/getAllgood'
+    })
+    .then(res=>{
+      this.Cates=res.data.data
+      var goods = [];
+      var flag = 0;
+      for (var categoryIndex = 0; categoryIndex < this.Cates.length; ++categoryIndex) {
+        for (var goodIndex = 0; goodIndex < this.Cates[categoryIndex].array.length; ++goodIndex) {
+          if (flag == 0) {
+            goods.push([this.Cates[categoryIndex].array[goodIndex]]);
+            flag = 1;
+          } else {
+            var tempBox = goods.pop();
+            tempBox.push(this.Cates[categoryIndex].array[goodIndex]);
+            flag = 0;
+            goods.push(tempBox);
           }
         }
-        this.setData({
-          goods_list: goods
-        })
-      })
-    },
-
-    onClick: function (event) {
-      var _this = this;
-      if (event.currentTarget.id != "search") {
-        this.catName = event.currentTarget.id
-        getApp().globalData.showDialog = this;
-        wx.switchTab({
-          url: '/pages/category/category'
-        });
-      } else {
-        wx.redirectTo({
-          url: '/pages/searchResult/searchResult'
-        });
       }
-    },
-    // navigato to good_Detail
-    goGoodDetail(event){
-      var good_id = event.currentTarget.id
-      wx.navigateTo({
-        url: '/pages/good_detail/good_detail?good_id=' + good_id
-      });
-    },
+      this.setData({
+        goods_list: goods
+      })
+    })
+  },
 
-    // 主页面add button
-    handleCartAdd(event) {
-      let cart = wx.getStorageSync("cart") || [];
-      let goodInfo=event.currentTarget.dataset.variable;
-      let index = cart.findIndex(v => v.good_id === goodInfo.good_id);
-      if (index === -1) {
-        goodInfo.num = 1;
-        goodInfo.checked = true;
-        cart.push(goodInfo);
-      } 
-      wx.setStorageSync("cart", cart);
-      wx.showToast({
-        title: '加入成功',
-        icon: 'success',
-        duration: 600,
-        mask: true
+  onClick: function (event) {
+    var _this = this;
+    if (event.currentTarget.id != "search") {
+      this.catName = event.currentTarget.id
+      getApp().globalData.showDialog = this;
+      wx.switchTab({
+        url: '/pages/category/category'
       });
-    },
+    } else {
+      wx.redirectTo({
+        url: '/pages/searchResult/searchResult'
+      });
+    }
+  },
+  // navigato to good_Detail
+  goGoodDetail(event){
+    var good_id = event.currentTarget.id
+    wx.navigateTo({
+      url: '/pages/good_detail/good_detail?good_id=' + good_id
+    });
+  },
+
+  // 主页面add button
+  handleCartAdd(event) {
+    let cart = wx.getStorageSync("cart") || [];
+    let goodInfo=event.currentTarget.dataset.variable;
+    let index = cart.findIndex(v => v.good_id === goodInfo.good_id);
+    if (index === -1) {
+      goodInfo.num = 1;
+      goodInfo.checked = true;
+      cart.push(goodInfo);
+    }
+
+    wx.setStorageSync("cart", cart);
+    wx.showToast({
+      title: '加入成功',
+      icon: 'success',
+      duration: 600,
+      mask: true
+    });
+
+    // 底部导航栏购物车数量
+    util.setTabBarBadgeNumber(cart);
+  },
 
     // 回到顶部
   // 获取滚动条当前位置

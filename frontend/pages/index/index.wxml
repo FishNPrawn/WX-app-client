@@ -34,7 +34,7 @@
 <view class="box3">
   <view class="shunfeng">
     <image src="https://fnpphoto.cn/icon/shunfeng.png"></image>
-    <text>顺丰冷链</text>
+    <text>京东冷链</text>
   </view>
   <view class="order_today">
     <image src="https://fnpphoto.cn/icon/check_icon.png"></image>
