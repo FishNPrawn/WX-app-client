@@ -17,7 +17,7 @@ Page({
         if (res.code) {
           //发起网络请求
           wx.request({
-            url: 'https://fishnprawn.cn/wechat/getOpenId',
+            url: app.globalData.baseUrl + '/wechat/getOpenId', 
             data: {
               code: res.code
             },

@@ -1,8 +1,9 @@
 {
   "pages":[
+    "pages/index/index",
     "pages/entry/entry",
     "pages/cart/cart",
-    "pages/index/index",
+    
     "pages/login/login",
     "pages/comment_success/comment_success",
     "pages/category/category",

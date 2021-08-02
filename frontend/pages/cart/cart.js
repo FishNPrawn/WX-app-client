@@ -13,7 +13,8 @@ Page({
   },
   onShow() {
     let cart = wx.getStorageSync("cart") || [];
-    this.setCart(cart);
+    this.setCart(cart);// 底部导航栏购物车数量
+    util.setTabBarBadgeNumber(cart);
     // 底部导航栏购物车数量
     util.setTabBarBadgeNumber(cart);
   },
@@ -237,10 +238,26 @@ Page({
       }
       // 底部导航栏购物车数量
       util.setTabBarBadgeNumber(cart);
+      
+      let allChecked = true;
+      // 总价格 总数量
+      let totalPrice = 0;
+      let totalNum = 0;
+      cart.forEach(v => {
+        if (v.checked) {
+          totalPrice += v.num * v.good_price;
+          totalNum += v.num;
+        } else {
+          allChecked = false;
+        }
+      })
+      // 判断数组是否为空
+      allChecked = cart.length != 0 ? allChecked : false;
       wx.setStorageSync('cart', cart)
       this.setData({
-        cart
-      })
+        cart,
+        totalPrice, totalNum, allChecked
+      });
     }
   }
 
