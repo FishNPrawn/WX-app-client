@@ -27,7 +27,7 @@ const handleCartAdd = (event) => {
     mask: true
   });
   // 底部导航栏购物车数量
-  util.setTabBarBadgeNumber(cart);
+  setTabBarBadgeNumber(cart);
 }
 
 // 格式现在时间 - yyyy/mm/dd hour:minute:second
@@ -90,7 +90,6 @@ const calculate_express_fee = (weight, order_total_price) =>{
     }else{
         express_fee = 45;
     }
-
     if(order_total_price>=88 && order_total_price<188){
         express_fee = express_fee - 5;
     }else if(order_total_price>=188 && order_total_price<268){
@@ -147,7 +146,6 @@ const setTabBarBadgeNumber = (cart) =>{
     })
   }
 }
-
 
 
 const loginDataKey = 'loginData'
