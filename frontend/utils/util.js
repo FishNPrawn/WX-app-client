@@ -27,7 +27,7 @@ const handleCartAdd = (event) => {
     mask: true
   });
   // 底部导航栏购物车数量
-  util.setTabBarBadgeNumber(cart);
+  setTabBarBadgeNumber(cart);
 }
 
 // 格式现在时间 - yyyy/mm/dd hour:minute:second
@@ -146,7 +146,6 @@ const setTabBarBadgeNumber = (cart) =>{
     })
   }
 }
-
 
 
 const loginDataKey = 'loginData'

@@ -2,7 +2,6 @@ import{request} from"../../request/index.js";
 let app = getApp();
 const util = require('../../utils/util.js');
 let timeout = 400;
-const util = require('../../utils/util.js');
 Page({
   data: {
     //被点击的左侧菜单
