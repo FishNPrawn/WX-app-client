@@ -8,7 +8,9 @@ Page({
     address: {},
     cart: [],
     totalPrice: 0,
+    totalPriceWithExpressFee: 0,
     totalNum: 0,
+    total_good_weight_value: 0,
     show: false,
     duration: 300,
     position: 'bottom',
@@ -16,7 +18,9 @@ Page({
     customStyle: '',
     overlayStyle: '',
     userInfo:{},
-    commentInput: null
+    commentInput: null,
+    express_fee: 0,
+    discount: 0
   },
   onShow() {
     const address = wx.getStorageSync("address");
@@ -27,15 +31,24 @@ Page({
       //  计算 全选 总价格 购买的数量
     let totalPrice = 0;
     let totalNum = 0;
+    let total_good_weight_value = 0;
     cart.forEach(v => {
         totalPrice += v.num * v.good_price;
         totalNum += v.num;
+        total_good_weight_value += v.good_weight*v.num;
     })
-
+    let express_fee = util.calculate_express_fee(total_good_weight_value, totalPrice);
+    let discount = util.original_express_fee(total_good_weight_value)-express_fee;
+    let totalPriceWithExpressFee = totalPrice + express_fee;
     this.setData({
       cart,
-      totalPrice,totalNum,
-      address
+      totalPrice,
+      totalNum,
+      total_good_weight_value,
+      address,
+      express_fee,
+      discount,
+      totalPriceWithExpressFee
     })
   },
   
@@ -115,9 +128,14 @@ Page({
 
       //  计算总价格
       let totalPrice = 0;
+      let total_good_weight_value = 0
       cart.forEach(v => {
           totalPrice += v.num * v.good_price;
+          total_good_weight_value = total_good_weight_value + v.good_weight;
       })
+      let express_fee = util.calculate_express_fee(total_good_weight_value, totalPrice);
+      let discount = util.original_express_fee(total_good_weight_value)-express_fee;
+      let totalPriceWithExpressFee = totalPrice + express_fee;
 
       // 订单编号
       const orderNumber = util.order_number();
@@ -139,9 +157,9 @@ Page({
       // console.log(goods_json);
 
       var order_basic_info_value = new Object();
-      order_basic_info_value.totalPrice = totalPrice;
-      order_basic_info_value.discount = 0;
-      order_basic_info_value.shipmentFee = 0;
+      order_basic_info_value.totalPrice = totalPriceWithExpressFee;
+      order_basic_info_value.discount = discount;
+      order_basic_info_value.shipmentFee = express_fee;
       let order_basic_info = [];
       order_basic_info.push(order_basic_info_value);
       
@@ -165,16 +183,19 @@ Page({
                 "Content-Type": "application/x-www-form-urlencoded"
                 },
                 data:{
-                openId: openid,
-                order_number: orderNumber,
-                access_token: "1654168416563354",
-                user_name: userAddress.userName,
-                user_address: userAddress.all,
-                user_phone: userAddress.telNumber,
-                order_total_price: totalPrice,
-                order_comment: commentInput,
-                orderStatus: 1,
-                items: goods_json
+                  openId: openid,
+                  order_number: orderNumber,
+                  access_token: "1654168416563354",
+                  user_name: userAddress.userName,
+                  user_address: userAddress.all,
+                  user_phone: userAddress.telNumber,
+                  order_total_price: totalPrice,
+                  order_comment: commentInput,
+                  orderStatus: 1,
+                  "order_total_weight": total_good_weight_value,
+                  "order_express_fee": express_fee,
+                  "order_total_price_with_express_fee": totalPriceWithExpressFee,
+                  items: goods_json
                 },
                 success: function(res){
                   console.log("创建订单成功", res.data);

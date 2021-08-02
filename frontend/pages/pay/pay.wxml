@@ -93,13 +93,17 @@
       <view class="order_text">配送费</view>
       <view class="order_number">
         <text>￥</text>
-        <view class="order_price">0.00</view>
+        <view class="order_price">{{express_fee}}</view>
       </view>  
     </view>
     <view class="line1"></view>
     <!-- 配送费 -->
     <view class="coupon">
-      <view class="coupon_text">优惠卷</view>
+      <view class="coupon_text">优惠</view>
+      <view class="discount_number">
+        <text>￥</text>
+        <view class="discount_value">{{discount}}</view>
+      </view> 
     </view>
   </view>
 </view>
@@ -135,7 +139,7 @@
           <text>合计:</text> 
           <view class="totol_price_value">
             <text>￥</text>
-            <view class="totol_price_value_1">{{totalPrice}}</view>
+            <view class="totol_price_value_1">{{totalPriceWithExpressFee}}</view>
           </view>
         </view>
       </view>

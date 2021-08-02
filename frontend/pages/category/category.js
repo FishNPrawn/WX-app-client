@@ -1,5 +1,6 @@
 import{request} from"../../request/index.js";
 let app = getApp();
+const util = require('../../utils/util.js');
 let timeout = 400;
 const util = require('../../utils/util.js');
 Page({
@@ -21,7 +22,10 @@ Page({
     this.getCates()
   },
   onShow: function (options) {
-    this.getCates()
+    this.getCates();
+    // 底部导航栏购物车数量
+    let cart = wx.getStorageSync('cart') || [];
+    util.setTabBarBadgeNumber(cart);
   },
   onClick: function (event) {
     var _this = this;

@@ -507,13 +507,6 @@ page {
   height: 15px;
   width: 15px;
 }
-.page_container .detail-page .divLine {
-  background: #E0E3DA;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  height: 1rpx;
-}
 .page_container .detail-page_line2 {
   padding: 15px 0 15px 15px;
 }
@@ -539,29 +532,6 @@ page {
 }
 .page_container .detail-page_line2 .coupon_detail_list1 .coupon_detail_list .coupon_detail_list1_text {
   padding-bottom: 5px;
-}
-.page_container .detail-page_line3 {
-  padding: 10px 0 15px 15px;
-}
-.page_container .detail-page_line3 .coupon_detail_list2 {
-  display: flex;
-}
-.page_container .detail-page_line3 .coupon_detail_list2 .coupon_detail_list2_title {
-  font-size: 12px;
-  width: 120px;
-  height: 18px;
-  background-color: #ff6d6d;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
-  border-radius: 2px;
-}
-.page_container .detail-page_line3 .coupon_detail_list2 .coupon_detail_list2_text {
-  padding: 0 15px 0 0;
-  font-size: 14px;
-  margin-left: 15px;
 }
 .btm_tool {
   border-top: 0.5rpx solid #e6e6e6;

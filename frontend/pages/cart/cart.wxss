@@ -27,36 +27,55 @@ page {
 }
 .cart_content {
   padding-bottom: 15px;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 .cart_content .cart_main {
   height: 100%;
   width: 95%;
   background-color: white;
-  border-radius: 15px;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: 10px;
   margin: auto;
+  /* 关键代码 start --> 向左滑动 */
 }
 .cart_content .cart_main .cart_item {
+  padding: 20rpx 15rpx 20rpx 20rpx;
   display: flex;
-  padding: 20rpx;
+  margin-bottom: 15rpx;
+  box-sizing: border-box;
+  height: 220rpx;
+  /* 删除按钮 */
 }
-.cart_content .cart_main .cart_item .cart_chk_wrap {
+.cart_content .cart_main .cart_item .item-left {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  /* 关键代码 start */
+  width: 100%;
+  margin-left: -140rpx;
+  transform: translateX(140rpx);
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  -webkit-transform: translateX(140rpx);
+  /* 关键代码 end */
+}
+.cart_content .cart_main .cart_item .item-left .cart_chk_wrap {
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.cart_content .cart_main .cart_item .cart_chk_wrap checkbox-group checkbox .wx-checkbox-input {
+.cart_content .cart_main .cart_item .item-left .cart_chk_wrap checkbox-group checkbox .wx-checkbox-input {
   border-radius: 50%;
   width: 42rpx;
   height: 42rpx;
   border: 1px solid #9c9c9c;
 }
-.cart_content .cart_main .cart_item .cart_chk_wrap checkbox-group checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+.cart_content .cart_main .cart_item .item-left .cart_chk_wrap checkbox-group checkbox .wx-checkbox-input.wx-checkbox-input-checked {
   border: 1rpx solid #FFA760;
   background: #FFA760;
 }
-.cart_content .cart_main .cart_item .cart_chk_wrap checkbox-group checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+.cart_content .cart_main .cart_item .item-left .cart_chk_wrap checkbox-group checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
   border-radius: 50%;
   width: 36rpx;
   height: 36rpx;
@@ -68,23 +87,23 @@ page {
   transform: translate(-50%, -50%) scale(1);
   -webkit-transform: translate(-50%, -50%) scale(1);
 }
-.cart_content .cart_main .cart_item .cart_img_wrap {
+.cart_content .cart_main .cart_item .item-left .cart_img_wrap {
   flex: 2;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.cart_content .cart_main .cart_item .cart_img_wrap image {
+.cart_content .cart_main .cart_item .item-left .cart_img_wrap image {
   width: 150rpx;
   height: 150rpx;
   border-radius: 3px;
 }
-.cart_content .cart_main .cart_item .cart_info_wrap {
+.cart_content .cart_main .cart_item .item-left .cart_info_wrap {
   flex: 4;
   display: block;
   justify-content: space-around;
 }
-.cart_content .cart_main .cart_item .cart_info_wrap .good_name {
+.cart_content .cart_main .cart_item .item-left .cart_info_wrap .good_name {
   margin-top: 10rpx;
   display: -webkit-box;
   overflow: hidden;
@@ -93,32 +112,32 @@ page {
   color: #000000;
   font-size: 28rpx;
 }
-.cart_content .cart_main .cart_item .cart_info_wrap .good_price_wrap {
+.cart_content .cart_main .cart_item .item-left .cart_info_wrap .good_price_wrap {
   display: flex;
   justify-content: space-between;
   margin-top: 30rpx;
 }
-.cart_content .cart_main .cart_item .cart_info_wrap .good_price_wrap .good_price {
+.cart_content .cart_main .cart_item .item-left .cart_info_wrap .good_price_wrap .good_price {
   color: var(--themeColor);
   font-size: 34rpx;
   margin-top: 40rpx;
   color: red;
   display: flex;
 }
-.cart_content .cart_main .cart_item .cart_info_wrap .good_price_wrap .good_price .rmb {
+.cart_content .cart_main .cart_item .item-left .cart_info_wrap .good_price_wrap .good_price .rmb {
   display: inline-block;
   align-self: flex-end;
   font-size: 28rpx;
   font-weight: 300;
 }
-.cart_content .cart_main .cart_item .cart_info_wrap .good_price_wrap .good_price .good_price_value {
+.cart_content .cart_main .cart_item .item-left .cart_info_wrap .good_price_wrap .good_price .good_price_value {
   margin-top: 6px;
 }
-.cart_content .cart_main .cart_item .cart_info_wrap .good_price_wrap .cart_num_tool {
+.cart_content .cart_main .cart_item .item-left .cart_info_wrap .good_price_wrap .cart_num_tool {
   display: flex;
   margin-top: 40rpx;
 }
-.cart_content .cart_main .cart_item .cart_info_wrap .good_price_wrap .cart_num_tool .num_edit {
+.cart_content .cart_main .cart_item .item-left .cart_info_wrap .good_price_wrap .cart_num_tool .num_edit {
   width: 50rpx;
   height: 50rpx;
   display: flex;
@@ -127,13 +146,13 @@ page {
   border: 1rpx solid #f0f0f0;
   font-size: 15px;
 }
-.cart_content .cart_main .cart_item .cart_info_wrap .good_price_wrap .cart_num_tool .minus {
+.cart_content .cart_main .cart_item .item-left .cart_info_wrap .good_price_wrap .cart_num_tool .minus {
   border-radius: 5px 0px 0px 5px;
 }
-.cart_content .cart_main .cart_item .cart_info_wrap .good_price_wrap .cart_num_tool .plus {
+.cart_content .cart_main .cart_item .item-left .cart_info_wrap .good_price_wrap .cart_num_tool .plus {
   border-radius: 0px 5px 5px 0px;
 }
-.cart_content .cart_main .cart_item .cart_info_wrap .good_price_wrap .cart_num_tool .good_num {
+.cart_content .cart_main .cart_item .item-left .cart_info_wrap .good_price_wrap .cart_num_tool .good_num {
   width: 70rpx;
   height: 50rpx;
   display: flex;
@@ -142,6 +161,32 @@ page {
   font-size: 15px;
   border-top: 1rpx solid #f0f0f0;
   border-bottom: 1rpx solid #f0f0f0;
+}
+.cart_content .cart_main .cart_item .delete {
+  height: 100%;
+  width: 140rpx;
+  background-color: #f15d5d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36rpx;
+  color: #fff;
+  border-radius: 15px;
+  /* 关键代码 start */
+  transform: translateX(180rpx);
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  -webkit-transform: translateX(180rpx);
+  /* 关键代码 end */
+  margin-left: 10px;
+}
+.cart_content .cart_main .touch-move-active .item-left {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+.cart_content .cart_main .touch-move-active .delete {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
 }
 .cart_content .cart_main1 .empty_info {
   height: 100%;

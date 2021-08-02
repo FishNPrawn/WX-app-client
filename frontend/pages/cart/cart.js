@@ -6,11 +6,16 @@ Page({
     cart: [],
     allChecked: false,
     totalPrice: 0,
-    totalNum: 0
+    totalNum: 0,
+    // 设置开始的位置
+    startX: 0,
+    startY: 0,
   },
   onShow() {
-    const cart = wx.getStorageSync("cart") || [];
+    let cart = wx.getStorageSync("cart") || [];
     this.setCart(cart);
+    // 底部导航栏购物车数量
+    util.setTabBarBadgeNumber(cart);
   },
   
   // 商品的选中
@@ -20,7 +25,6 @@ Page({
     let index = cart.findIndex(v => v.good_id === good_id);
     cart[index].checked = !cart[index].checked;
     this.setCart(cart);
-
   },
 
   // 授权登录
@@ -82,6 +86,8 @@ Page({
       cart[index].num += operation;
       this.setCart(cart);
     }
+    // 底部导航栏购物车数量
+    util.setTabBarBadgeNumber(cart);
   },
 
   async handlePay(){
@@ -143,6 +149,100 @@ Page({
    wx.switchTab({
      url: '/pages/category/category',
    })
- }
+ },
 
+ goToGoodDetail(event){
+  var good_id = event.currentTarget.id
+  wx.navigateTo({
+    url: '/pages/good_detail/good_detail?good_id=' + good_id
+  });
+ },
+
+  //---------------------------购物车商品右滑删除 start ---------------------------------------------------
+  // 开始滑动
+  touchStart(e) {
+    let cart = [...this.data.cart]
+    cart.forEach(item => {
+      if (item.isTouchMove) {
+        item.isTouchMove = !item.isTouchMove;
+      }
+    });
+    this.setData({
+      cart: cart,
+      startX: e.touches[0].clientX,
+      startY: e.touches[0].clientY
+    })
+  },
+
+  touchMove(e) {
+    let moveX = e.changedTouches[0].clientX;
+    let moveY = e.changedTouches[0].clientY;
+    let indexs = e.currentTarget.dataset.index;
+    let cart = [...this.data.cart]
+
+    let angle = this.angle({
+      X: this.data.startX,
+      Y: this.data.startY
+    }, {
+      X: moveX,
+      Y: moveY
+    });
+
+    cart.forEach((item, index) => {
+      item.isTouchMove = false;
+      // 如果滑动的角度大于30° 则直接return；
+      if (angle > 30) {
+        return
+      }
+
+      if (indexs === index) {
+        if (moveX > this.data.startX) { // 右滑
+          item.isTouchMove = false;
+        } else { // 左滑
+          item.isTouchMove = true;
+        }
+      }
+    })
+    this.setData({
+      cart
+    })
+  },
+
+  /**
+   * 计算滑动角度
+   * @param {Object} start 起点坐标
+   * @param {Object} end 终点坐标
+   */
+  angle: function (start, end) {
+    var _X = end.X - start.X,
+      _Y = end.Y - start.Y
+    //返回角度 /Math.atan()返回数字的反正切值
+    return 360 * Math.atan(_Y / _X) / (2 * Math.PI);
+  },
+
+  // 删除
+  async delItem(e) {
+    const res = await showModal({ content: "您是否要删除？" });
+    if (res.confirm) {
+      wx.showLoading({title: '加载中', icon: 'loading', duration:500, mask: true});
+      let id = e.currentTarget.dataset.id;
+      let cart = [...this.data.cart];
+      for (let i = 0; i < cart.length; i++) {
+        const item = cart[i];
+        item.isTouchMove = false;
+        if (item.good_id === id) {
+          cart.splice(i, 1);
+          break;
+        }
+      }
+      // 底部导航栏购物车数量
+      util.setTabBarBadgeNumber(cart);
+      wx.setStorageSync('cart', cart)
+      this.setData({
+        cart
+      })
+    }
+  }
+
+  //---------------------------购物车商品右滑删除 end ---------------------------------------------------
 })
