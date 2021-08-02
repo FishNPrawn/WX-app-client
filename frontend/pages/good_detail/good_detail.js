@@ -1,4 +1,5 @@
 import{request} from"../../request/index.js";
+import util from "../../utils/util.js";
 // import regeneratorRuntime from '../../lib/runtime/runtime';   //Not used for now, need to fix in the future
 let app = getApp();
 Page({
@@ -176,21 +177,7 @@ Page({
 
   // 主页面add button
   handleCartAdd(event) {
-    let cart = wx.getStorageSync("cart") || [];
-    let goodInfo=event.currentTarget.dataset.variable;
-    let index = cart.findIndex(v => v.good_id === goodInfo.good_id);
-    if (index === -1) {
-      goodInfo.num = 1;
-      goodInfo.checked = true;
-      cart.push(goodInfo);
-    } 
-    wx.setStorageSync("cart", cart);
-    wx.showToast({
-
-      title: '加入成功',
-      icon: 'success',
-      mask: true
-    });
+    util.handleCartAdd(event)
   },
 
 })

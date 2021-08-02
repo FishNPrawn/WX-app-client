@@ -1,6 +1,8 @@
 import {request} from "../../request/index.js";
+
 import { getSetting, openSetting, showModal ,showToast} from "../../utils/asyncWx.js";
 const util = require('../../utils/util.js');
+
 //page object 
 let app = getApp();
 Page({
@@ -109,26 +111,9 @@ Page({
 
   // 主页面add button
   handleCartAdd(event) {
-    let cart = wx.getStorageSync("cart") || [];
-    let goodInfo=event.currentTarget.dataset.variable;
-    let index = cart.findIndex(v => v.good_id === goodInfo.good_id);
-    if (index === -1) {
-      goodInfo.num = 1;
-      goodInfo.checked = true;
-      cart.push(goodInfo);
-    }
-
-    wx.setStorageSync("cart", cart);
-    wx.showToast({
-      title: '加入成功',
-      icon: 'success',
-      duration: 600,
-      mask: true
-    });
-
-    // 底部导航栏购物车数量
-    util.setTabBarBadgeNumber(cart);
+    util.handleCartAdd(event);
   },
+
 
     // 回到顶部
   // 获取滚动条当前位置

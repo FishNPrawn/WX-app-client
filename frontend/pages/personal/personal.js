@@ -61,22 +61,7 @@ Page({
   },
   // 主页面add button
   handleCartAdd(event) {
-    let cart = wx.getStorageSync("cart") || [];
-    let goodInfo=event.currentTarget.dataset.variable;
-    let index = cart.findIndex(v => v.good_id === goodInfo.good_id);
-    if (index === -1) {
-      goodInfo.num = 1;
-      goodInfo.checked = true;
-      cart.push(goodInfo);
-    } 
-    wx.setStorageSync("cart", cart);
-    wx.showToast({
-      title: '加入成功',
-      icon: 'success',
-      mask: true
-    });
-    // 底部导航栏购物车数量
-   util.setTabBarBadgeNumber(cart);
+    util.handleCartAdd(event);
   },
 
   // 管理地址
@@ -134,6 +119,19 @@ Page({
         floorstatus: false
       });
     }
+  },
+
+  showCustomerServicePhone: function () {
+    wx.showModal({
+      title: '客服',
+      content: '客服电话 13888888888',
+      confirmText: '拨打电话',
+      success (res) {
+        wx.makePhoneCall({
+          phoneNumber: '13888888888'
+        })
+      }
+    })
   },
   //回到顶部
   goTop: function (e) {  // 一键回到顶部
