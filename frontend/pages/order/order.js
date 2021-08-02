@@ -1,5 +1,7 @@
 import {request} from "../../request/index.js";
-const util = require('../../utils/util.js');
+
+import util from "../../utils/util.js";
+
 //JS
 var app = getApp()
 let orderStatus = 1; //0"新订单，未支付;1"新订单，已支付";2, "已取消"；3"待评价"；4“已完成”
@@ -184,20 +186,7 @@ Page({
 
   // 主页面add button
   handleCartAdd(event) {
-    let cart = wx.getStorageSync("cart") || [];
-    let goodInfo=event.currentTarget.dataset.variable;
-    let index = cart.findIndex(v => v.good_id === goodInfo.good_id);
-    if (index === -1) {
-      goodInfo.num = 1;
-      goodInfo.checked = true;
-      cart.push(goodInfo);
-    } 
-    wx.setStorageSync("cart", cart);
-    wx.showToast({
-      title: '加入成功',
-      icon: 'success',
-      mask: true
-    });
+    util.handleCartAdd(event);
   },
 
   clearPage() {

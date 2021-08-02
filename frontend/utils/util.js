@@ -1,3 +1,35 @@
+const handleCartAdd = (event) => {
+  let cart = wx.getStorageSync("cart") || [];
+  let goodInfo=event.currentTarget.dataset.variable;
+  let index = cart.findIndex(v => v.good_id === goodInfo.good_id);
+  if (index === -1) {
+    if (!goodInfo.num) {
+      goodInfo.num = 1;
+    } else {
+      goodInfo.num += 1;
+    }
+    goodInfo.checked = true;
+    cart.push(goodInfo);
+  } else {
+    var savedInfo = cart[index];
+    if (!savedInfo.num) {
+      savedInfo.num = 1;
+    } else {
+      savedInfo.num += 1;
+    }
+    cart[index] = savedInfo;
+  }
+  wx.setStorageSync("cart", cart);
+  wx.showToast({
+    title: '加入成功',
+    icon: 'success',
+    duration: 600,
+    mask: true
+  });
+  // 底部导航栏购物车数量
+  util.setTabBarBadgeNumber(cart);
+}
+
 // 格式现在时间 - yyyy/mm/dd hour:minute:second
 const formatTime = date => {
   const year = date.getFullYear()
@@ -154,5 +186,5 @@ const toLogin = () => {
 }
 
 module.exports = {
-  formatTime, toLogin, order_number,calculate_express_fee, original_express_fee, setTabBarBadgeNumber
+  formatTime, toLogin, order_number, handleCartAdd, calculate_express_fee, original_express_fee, setTabBarBadgeNumber
 }

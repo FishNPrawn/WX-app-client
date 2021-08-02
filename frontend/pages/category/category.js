@@ -2,6 +2,7 @@ import{request} from"../../request/index.js";
 let app = getApp();
 const util = require('../../utils/util.js');
 let timeout = 400;
+const util = require('../../utils/util.js');
 Page({
   data: {
     //被点击的左侧菜单
@@ -84,23 +85,7 @@ Page({
   },
 
   handleCartAdd(event) {
-    let cart = wx.getStorageSync("cart") || [];
-    let goodInfo=event.currentTarget.dataset.variable;
-    let index = cart.findIndex(v => v.good_id === goodInfo.good_id);
-    if (index === -1) {
-      goodInfo.num = 1;
-      goodInfo.checked = true;
-      cart.push(goodInfo);
-    } 
-    wx.setStorageSync("cart", cart);
-    wx.showToast({
-      title: '加入成功',
-      icon: 'success',
-      duration: 500,
-      mask: true
-    })
-    // 底部导航栏购物车数量
-    util.setTabBarBadgeNumber(cart);
+    util.handleCartAdd(event);
   },
 
   // navigato to good_Detail

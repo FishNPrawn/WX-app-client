@@ -22,7 +22,7 @@
       <view class="box1_row2_text">公众号</view>
     </view>
     <view class="box1_row2_img_name">
-      <image src="https://fnpphoto.cn/icon/headphones.png" class="box1_row2_icon"></image>
+      <image bindtap="showCustomerServicePhone" src="https://fnpphoto.cn/icon/headphones.png" class="box1_row2_icon"></image>
       <view class="box1_row2_text">客服</view>
     </view>
     <view class="box1_row2_img_name">
