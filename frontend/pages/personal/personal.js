@@ -117,6 +117,19 @@ Page({
       });
     }
   },
+
+  showCustomerServicePhone: function () {
+    wx.showModal({
+      title: '客服',
+      content: '客服电话 13888888888',
+      confirmText: '拨打电话',
+      success (res) {
+        wx.makePhoneCall({
+          phoneNumber: '13888888888'
+        })
+      }
+    })
+  },
   //回到顶部
   goTop: function (e) {  // 一键回到顶部
     if (wx.pageScrollTo) {
