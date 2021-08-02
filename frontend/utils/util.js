@@ -58,7 +58,6 @@ const calculate_express_fee = (weight, order_total_price) =>{
     }else{
         express_fee = 45;
     }
-
     if(order_total_price>=88 && order_total_price<188){
         express_fee = express_fee - 5;
     }else if(order_total_price>=188 && order_total_price<268){
