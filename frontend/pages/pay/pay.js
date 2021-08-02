@@ -175,7 +175,9 @@ Page({
       order_basic_info_value.shipmentFee = this.data.express_fee;
       let order_basic_info = [];
       order_basic_info.push(order_basic_info_value);
-      
+
+      var express_fee_value = this.data.express_fee;
+      var totalPriceWithExpressFee_value = this.data.totalPriceWithExpressFee;
       wx.cloud.callFunction({
         name: 'cloudpay',
         data:{
@@ -205,9 +207,9 @@ Page({
                   order_total_price: totalPrice,
                   order_comment: commentInput,
                   orderStatus: 1,
-                  "order_total_weight": total_good_weight_value,
-                  "order_express_fee": this.data.express_fee,
-                  "order_total_price_with_express_fee": this.data.totalPriceWithExpressFee,
+                  order_total_weight: total_good_weight_value,
+                  order_express_fee: express_fee_value,
+                  order_total_price_with_express_fee: totalPriceWithExpressFee_value,
                   items: goods_json
                 },
                 success: function(res){
