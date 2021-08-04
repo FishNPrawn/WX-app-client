@@ -78,6 +78,6 @@ App({
   },
   globalData: {
     userInfo: {},
-    baseUrl: 'https://fishnprawn.cn'
+    baseUrl: 'https://fishnprawn.cn:8443'
   }
 })

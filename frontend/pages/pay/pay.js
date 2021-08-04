@@ -1,5 +1,5 @@
 import { getSetting, chooseAddress, openSetting, showModal ,showToast} from "../../utils/asyncWx.js";
-
+import {request} from "../../request/index.js";
 const app = getApp();
 const util = require('../../utils/util.js');
 
@@ -37,18 +37,34 @@ Page({
         totalNum += v.num;
         total_good_weight_value += v.good_weight*v.num;
     })
-    let express_fee = util.calculate_express_fee(total_good_weight_value, totalPrice);
-    let discount = util.original_express_fee(total_good_weight_value)-express_fee;
-    let totalPriceWithExpressFee = totalPrice + express_fee;
+    
+    // 运费根据重量和总价格-满减之后的运费
+    request({
+      url: app.globalData.baseUrl + '/calculate/express_fee_with_weight_and_total_price?weight=' + total_good_weight_value + '&order_total_price=' + totalPrice,
+    })
+    .then(res=>{
+      this.setData({
+        express_fee: res.data
+      })
+    })
+
+    // 运费根据重量
+    request({
+      url: app.globalData.baseUrl + '/calculate/express_fee_with_weight?weight=' + total_good_weight_value,
+    })
+    .then(res=>{
+      this.setData({
+        discount: res.data - this.data.express_fee,
+        totalPriceWithExpressFee: totalPrice + this.data.express_fee
+      })
+    })
+
     this.setData({
       cart,
       totalPrice,
       totalNum,
       total_good_weight_value,
-      address,
-      express_fee,
-      discount,
-      totalPriceWithExpressFee
+      address
     })
   },
   
@@ -133,9 +149,6 @@ Page({
           totalPrice += v.num * v.good_price;
           total_good_weight_value = total_good_weight_value + v.good_weight;
       })
-      let express_fee = util.calculate_express_fee(total_good_weight_value, totalPrice);
-      let discount = util.original_express_fee(total_good_weight_value)-express_fee;
-      let totalPriceWithExpressFee = totalPrice + express_fee;
 
       // 订单编号
       const orderNumber = util.order_number();
@@ -157,12 +170,14 @@ Page({
       // console.log(goods_json);
 
       var order_basic_info_value = new Object();
-      order_basic_info_value.totalPrice = totalPriceWithExpressFee;
-      order_basic_info_value.discount = discount;
-      order_basic_info_value.shipmentFee = express_fee;
+      order_basic_info_value.totalPrice = this.data.totalPriceWithExpressFee;
+      order_basic_info_value.discount = this.data.discount;
+      order_basic_info_value.shipmentFee = this.data.express_fee;
       let order_basic_info = [];
       order_basic_info.push(order_basic_info_value);
-      
+
+      var express_fee_value = this.data.express_fee;
+      var totalPriceWithExpressFee_value = this.data.totalPriceWithExpressFee;
       wx.cloud.callFunction({
         name: 'cloudpay',
         data:{
@@ -177,7 +192,7 @@ Page({
             success (res) {
               // 支付成功 & 创建订单request
               wx.request({
-                url: 'https://fishnprawn.cn/order/create',
+                url: app.globalData.baseUrl + '/order/create',
                 method: "POST",
                 header:{
                 "Content-Type": "application/x-www-form-urlencoded"
@@ -192,9 +207,9 @@ Page({
                   order_total_price: totalPrice,
                   order_comment: commentInput,
                   orderStatus: 1,
-                  "order_total_weight": total_good_weight_value,
-                  "order_express_fee": express_fee,
-                  "order_total_price_with_express_fee": totalPriceWithExpressFee,
+                  order_total_weight: total_good_weight_value,
+                  order_express_fee: express_fee_value,
+                  order_total_price_with_express_fee: totalPriceWithExpressFee_value,
                   items: goods_json
                 },
                 success: function(res){

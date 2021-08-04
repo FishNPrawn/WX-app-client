@@ -52,7 +52,7 @@ Page({
 
   //获取轮播图数据
   getSwiperList(){
-    request({url:"https://fishnprawn.cn/allswiper/getAllSwiper"})
+    request({url: app.globalData.baseUrl + '/allswiper/getAllSwiper'}) 
     .then(result=>{
       this.setData({
         swiperList: result.data.data
