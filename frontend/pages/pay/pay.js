@@ -210,6 +210,7 @@ Page({
                   order_total_weight: total_good_weight_value,
                   order_express_fee: express_fee_value,
                   order_total_price_with_express_fee: totalPriceWithExpressFee_value,
+                  promo_code_header_id: 1,
                   items: goods_json
                 },
                 success: function(res){
