@@ -37,6 +37,7 @@ Page({
         totalNum += v.num;
         total_good_weight_value += v.good_weight*v.num;
     })
+    totalPrice = totalPrice.toFixed(2);
     
     // 运费根据重量和总价格-满减之后的运费
     request({
@@ -149,6 +150,7 @@ Page({
           totalPrice += v.num * v.good_price;
           total_good_weight_value = total_good_weight_value + v.good_weight;
       })
+      totalPrice = totalPrice.toFixed(2);
 
       // 订单编号
       const orderNumber = util.order_number();
