@@ -5,11 +5,10 @@ page {
   height: 100%;
   width: 100%;
 }
-.detail_swiper {
-  height: 80vw;
+.index_swiper {
+  text-align: center;
 }
-.detail_swiper .good_image {
-  height: 80vw;
+.index_swiper swiper image {
   width: 100%;
 }
 .goods_name_row {

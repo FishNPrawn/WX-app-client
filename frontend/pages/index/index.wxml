@@ -19,14 +19,14 @@
 <view class = "pyq_index">
   <!-- 轮播图开始-->
   <view class = "index_swiper">
-  <swiper autoplay="TRUE" indicator-dots="TRUE" circular="TRUE ">
-    <swiper-item
-      wx:for="{{swiperList}}"
-      wx:key="good_id"
-    >
-      <image mode = "widthFix" src="{{item.image_src}}"></image>
-    </swiper-item>
-  </swiper>
+    <swiper autoplay="TRUE" indicator-dots="TRUE" circular="TRUE">
+      <swiper-item
+        wx:for="{{swiperList}}"
+        wx:key="good_id"
+      >
+        <image mode = "widthFix" src="{{item.image_src}}"></image>
+      </swiper-item>
+    </swiper>
   </view>
   <!-- 轮播图结束-->
 </view>
@@ -114,7 +114,7 @@
         <view id="{{item2.good_id}}" bindtap="goGoodDetail"
           class="good_navigator"
         >
-          <image src="{{item2.good_image}}" class="goods_image"></image>
+          <image src="{{item2.good_cat_image}}" class="goods_image"></image>
           <view class="goods_msg">
             <view class="goods_name">{{item2.good_name}}</view>
             <view class="goods_sale">销量 <view class="goods_sale_number">{{item2.good_expiration}}</view></view>
