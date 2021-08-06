@@ -84,11 +84,11 @@ Page({
   showCustomerServicePhone: function () {
     wx.showModal({
       title: '客服',
-      content: '客服电话 13888888888',
+      content: '客服电话 13922261090',
       confirmText: '拨打电话',
       success (res) {
         wx.makePhoneCall({
-          phoneNumber: '13888888888'
+          phoneNumber: '13922261090'
         })
       }
     })

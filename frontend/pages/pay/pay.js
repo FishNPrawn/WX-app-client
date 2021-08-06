@@ -20,7 +20,20 @@ Page({
     userInfo:{},
     commentInput: null,
     express_fee: 0,
-    discount: 0
+    discount: 0,
+    input_border_color: '#edeeee', 
+  },
+  input_border: function (e) {  
+      //点击按钮，样式改变  
+      let that = this;  
+      that.setData({  
+        input_border_color: '#ffd6b5'  
+    });  
+  },
+  input_border_unclick_color:function(){
+    this.setData({
+      input_border_color: '#edeeee'  
+    });
   },
   onShow() {
     const address = wx.getStorageSync("address");
@@ -37,7 +50,7 @@ Page({
         totalNum += v.num;
         total_good_weight_value += v.good_weight*v.num;
     })
-    totalPrice = totalPrice.toFixed(2);
+    totalPrice = parseFloat(totalPrice.toFixed(2));
     
     // 运费根据重量和总价格-满减之后的运费
     request({
@@ -45,7 +58,7 @@ Page({
     })
     .then(res=>{
       this.setData({
-        express_fee: res.data
+        express_fee: parseFloat(res.data)
       })
     })
 
@@ -55,8 +68,8 @@ Page({
     })
     .then(res=>{
       this.setData({
-        discount: res.data - this.data.express_fee,
-        totalPriceWithExpressFee: totalPrice + this.data.express_fee
+        discount: parseFloat(res.data) - parseFloat(this.data.express_fee),
+        totalPriceWithExpressFee: parseFloat(totalPrice) + parseFloat(this.data.express_fee)
       })
     })
 

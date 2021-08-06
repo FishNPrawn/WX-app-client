@@ -1,5 +1,5 @@
 <!--pages/pay/pay.wxml-->
-
+<view bindtap='input_border_unclick_color'>
 <view class="address">
   <!-- 当收货地址 不存在 按钮显示  对象 空对象 bool类型也是true  -->
   <view class="address_btn" wx:if="{{!address.userName}}"  >
@@ -115,7 +115,7 @@
     <image class="wechat_pay_img" src="https://fnpphoto.cn/icon/wechat_pay_icon.png"></image>
     <view class="wechat_pay_text">微信支付</view>
     <view class="all_chk_wrap">
-      <checkbox class="checkboxCircle"></checkbox>
+      <checkbox class="checkboxCircle" checked="true"></checkbox>
     </view>
   </view>
 </view>
@@ -128,6 +128,18 @@
   </view>
 </view>
 
+<view class="box7">
+  <view class="box7_box1">
+    <text>团长码</text>
+  </view>
+  <view class="box7_box2" style="border: 2px solid {{input_border_color}};" catchtap='input_border'>
+    <input class="comment" placeholder="输入团长码" bindinput="commentInput" />
+  </view>
+  <view class="box7_box3">
+    <view>提交</view>
+  </view>
+  
+</view>
 
 
 <view class="footer_tool">
@@ -211,3 +223,5 @@
     
   </view>
 </page-container>
+
+</view>
