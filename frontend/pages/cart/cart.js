@@ -57,6 +57,7 @@ Page({
         allChecked = false;
       }
     })
+    totalPrice = totalPrice.toFixed(2);
     // 判断数组是否为空
     allChecked = cart.length != 0 ? allChecked : false;
     this.setData({

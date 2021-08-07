@@ -6,7 +6,6 @@ const util = require('../../utils/util.js');
 Page({
  data:{
   userInfo:{},
-  goods_list:[],
   address: {},
   url: '#'
  },
@@ -14,7 +13,7 @@ Page({
   Cates:[],
  // 页面加载会触发
   onLoad:function(options){
-    this.getCates();
+    
   },
   onShow(){
     const address = wx.getStorageSync("address");
@@ -33,32 +32,7 @@ Page({
     })
   },
 
-  getCates(){
-    request({
-      url: app.globalData.baseUrl + '/good/getAllgood'
-    })
-    .then(res=>{
-      this.Cates=res.data.data
-      var goods = [];
-      var flag = 0;
-      for (var categoryIndex = 0; categoryIndex < this.Cates.length; ++categoryIndex) {
-        for (var goodIndex = 0; goodIndex < this.Cates[categoryIndex].array.length; ++goodIndex) {
-          if (flag == 0) {
-            goods.push([this.Cates[categoryIndex].array[goodIndex]]);
-            flag = 1;
-          } else {
-            var tempBox = goods.pop();
-            tempBox.push(this.Cates[categoryIndex].array[goodIndex]);
-            flag = 0;
-            goods.push(tempBox);
-          }
-        }
-      }
-      this.setData({
-        goods_list: goods
-      })
-    })
-  },
+
   // 主页面add button
   handleCartAdd(event) {
     util.handleCartAdd(event);
@@ -107,39 +81,17 @@ Page({
   },
 
 
-  // 回到顶部
-  // 获取滚动条当前位置
-  onPageScroll: function (e) {
-    if (e.scrollTop > 1500) {
-      this.setData({
-        floorstatus: true
-      });
-    } else {
-      this.setData({
-        floorstatus: false
-      });
-    }
-  },
-
   showCustomerServicePhone: function () {
     wx.showModal({
       title: '客服',
-      content: '客服电话 13888888888',
+      content: '客服电话 13922261090',
       confirmText: '拨打电话',
       success (res) {
         wx.makePhoneCall({
-          phoneNumber: '13888888888'
+          phoneNumber: '13922261090'
         })
       }
     })
-  },
-  //回到顶部
-  goTop: function (e) {  // 一键回到顶部
-    if (wx.pageScrollTo) {
-      wx.pageScrollTo({
-        scrollTop: 0
-      })
-    }
   },
 
 })

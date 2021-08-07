@@ -119,7 +119,7 @@
             <image src="{{item2.good_image}}" class="goods_image"></image>
             <view class="goods_msg">
               <view class="goods_name">{{item2.good_name}}</view>
-              <view class="goods_sale">销量 <view class="goods_sale_number">15354</view></view>
+              <view class="goods_sale">销量 <view class="goods_sale_number">{{item2.good_expiration}}</view></view>
             </view>
           </view>
           <view class="add_icon">

@@ -19,6 +19,8 @@ Page({
     round: true,
     customStyle: '',
     overlayStyle: '',
+    //轮播图数组
+    swiperList:[]
   },
   goodInfo: {},
   Cates:[],
@@ -67,10 +69,14 @@ Page({
     this.goodInfo = goodObj;
     let collect = wx.getStorageSync("collect") || [];
     let isCollect = collect.some(v => v.good_id === this.goodInfo.good_id);
-    
+    let swiperList = [];
+    swiperList.push(goodObj.good_image);
+    swiperList.push(goodObj.good_image_1);
+    swiperList.push(goodObj.good_image_description);
     this.setData({
       goodObj,
-      isCollect
+      isCollect,
+      swiperList
     })
   },
   handleCartAddDetail() {

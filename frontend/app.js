@@ -78,6 +78,7 @@ App({
   },
   globalData: {
     userInfo: {},
+    // baseUrl: 'https://joynfish.com'
     baseUrl: 'https://fishnprawn.cn:8443'
   }
 })

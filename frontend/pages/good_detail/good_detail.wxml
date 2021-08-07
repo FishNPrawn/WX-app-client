@@ -1,12 +1,28 @@
 
-<view class="detail_swiper">
-  <!-- <swiper>
+<view class = "pyq_index">
+  <!-- 轮播图开始-->
+  <view class = "index_swiper">
+    <swiper autoplay="TRUE" indicator-dots="TRUE" circular="TRUE" style="height:65vw">
+      <swiper-item
+        wx:for="{{swiperList}}"
+        wx:key="good_id"
+        wx:for-index="index"
+      >
+        <image mode = "widthFix" src="{{swiperList[index]}}"></image>
+      </swiper-item>
+    </swiper>
+  </view>
+  <!-- 轮播图结束-->
+</view>
+
+<!-- <view class="detail_swiper">
+  <swiper>
     <swiper-item>
       <text>轮播图，图片暂缺</text>
     </swiper-item>
-  </swiper> -->
+  </swiper>
   <image src="{{goodObj.good_image}}" class="good_image"></image>
-</view>
+</view> -->
 
 <view class="goods_name_row">
     <!-- box1 商品信息: 名字 详情 价格 售出 -->
@@ -19,7 +35,7 @@
         <view class="goods_price_nums">{{goodObj.good_price}}</view>
         <view class="goods_price_nums_line_through">
           ¥
-          <view class="goods_price_nums_line_through_nums"></view>{{goodObj.good_weight}}
+          <view class="goods_price_nums_line_through_nums"></view>{{goodObj.good_origin_price}}
         </view>
       </view>
       <view class="share_icon">
@@ -27,7 +43,7 @@
         <button open-type="share"></button>
       </view>
     </view>
-    <view class="sales">已售20份</view>
+    <view class="sales">已售{{goodObj.good_expiration}}份</view>
   </view>
 
   <!-- 促销详情 -->
@@ -77,14 +93,14 @@
         <view class="good_size">
           <view class="good_size_title">规格</view>
           <view class="good_size_value">
-            {{goodObj.good_size}}g<view>/份</view>
+            {{goodObj.good_size}}<view></view>
           </view>
         </view>
       </view>
       <view class="row row4">
         <view class="good_optimal_period">
           <view class="good_optimal_period_title">品味最佳期</view>  
-          <view class="good_optimal_period_value">{{goodObj.good_optimal_period}}<view>天</view></view>  
+          <view class="good_optimal_period_value">{{goodObj.good_optimal_period}}</view>  
         </view>
       </view>
     </view>
@@ -160,7 +176,7 @@
             <image src="{{item2.good_image}}" class="goods_image"></image>
             <view class="goods_msg">
               <view class="goods_name">{{item2.good_name}}</view>
-              <view class="goods_sale">销量 <view class="goods_sale_number">15354</view></view>
+              <view class="goods_sale">销量 <view class="goods_sale_number">{{item2.good_expiration}}</view></view>
             </view>
           </view>
           <view class="add_icon">

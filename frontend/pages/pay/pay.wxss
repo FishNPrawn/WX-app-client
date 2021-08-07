@@ -225,8 +225,8 @@ page {
   border: 1px solid #9c9c9c;
 }
 .box5 .wechat_pay .all_chk_wrap checkbox .wx-checkbox-input.wx-checkbox-input-checked {
-  border: 1rpx solid #FFA760;
-  background: #FFA760;
+  border: 1rpx solid #62b900;
+  background: #62b900;
 }
 .box5 .wechat_pay .all_chk_wrap checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
   border-radius: 50%;
@@ -269,6 +269,45 @@ page {
   width: 7.5px;
   margin-left: 5px;
   margin-top: 3px;
+}
+.box7 {
+  display: flex;
+  align-items: center;
+  width: 95%;
+  border-radius: 5px;
+  margin: auto;
+  margin-top: 10px;
+  font-size: 15px;
+}
+.box7 .box7_box1 {
+  padding: 10px 40px 10px 10px;
+  background-color: white;
+  border-radius: 10px 0px 0px 10px;
+  width: 15%;
+}
+.box7 .box7_box1 text {
+  color: #424242;
+}
+.box7 .box7_box2 {
+  padding: 8px 0px 10px 10px;
+  background-color: white;
+  margin-left: 5px;
+  border-radius: 10px;
+  width: 46%;
+}
+.box7 .box7_box2 .comment {
+  font-size: 15px;
+  font-weight: 500;
+}
+.box7 .box7_box3 {
+  background-color: white;
+  margin-left: 5px;
+  padding: 10px 5% 10px 5%;
+  width: 10%;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .footer_tool {
   position: fixed;
