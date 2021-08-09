@@ -81,22 +81,22 @@
       </view>
       <view class="row row2">
         <view class="good_publish_date">
-          <view class="good_publish_title">生产日期</view>
-          <view class="good_publish_value">{{goodObj.good_publish_date}}</view>
+          <view class="good_publish_title">规格</view>
+          <view class="good_publish_value">{{goodObj.good_size}}</view>
         </view>
         <view class="good_branch">
           <view class="good_branch_title">品牌</view>
           <view class="good_branch_value">本港</view>
         </view>
       </view>
-      <view class="row row3">
+      <!-- <view class="row row3">
         <view class="good_size">
           <view class="good_size_title">规格</view>
           <view class="good_size_value">
             {{goodObj.good_size}}<view></view>
           </view>
         </view>
-      </view>
+      </view> -->
       <view class="row row4">
         <view class="good_optimal_period">
           <view class="good_optimal_period_title">品味最佳期</view>  
@@ -178,7 +178,7 @@
               <view class="goods_name">{{item2.good_name}}</view>
               <view class="goods_sale">销量 <view class="goods_sale_number">{{item2.good_expiration}}</view></view>
             </view>
-          </view>
+          </view> 
           <view class="add_icon">
             <view class="goods_price">
               <view class="dollar_symbol">¥</view>

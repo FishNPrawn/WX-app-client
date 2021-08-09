@@ -19,16 +19,19 @@ Page({
     overlayStyle: '',
     userInfo:{},
     commentInput: null,
+    promoCodeInput: null,
+    promoCodeInputApplyOrNot: false,
+    promoCodeHeaderId: 0,
     express_fee: 0,
     discount: 0,
-    input_border_color: '#edeeee', 
+    input_border_color: '#edeeee'
   },
   input_border: function (e) {  
       //点击按钮，样式改变  
       let that = this;  
       that.setData({  
         input_border_color: '#ffd6b5'  
-    });  
+      });  
   },
   input_border_unclick_color:function(){
     this.setData({
@@ -86,6 +89,44 @@ Page({
   commentInput:function(e){
       this.data.commentInput = e.detail.value;
   }, 
+
+  promoCodeInput:function(e){
+    this.data.promoCodeInput = e.detail.value;
+  },
+
+  submitPromoCode:function(e){
+     // 获取promo code
+    request({
+      url: 'https://fishnprawn.cn:8443/promo_code/checkPromoCode?promocode=' + this.data.promoCodeInput
+    })
+    .then(res=>{
+      if(res.data.success == true && this.data.promoCodeInputApplyOrNot == false){
+        wx.showToast({
+          title: '获得'+res.data.discount_rate+'折扣',
+          icon: 'success',
+          duration: 2000,
+          mask: true
+        });
+        var promoCodeHeaderIdValue = res.data.promoCodeHeaderId;
+        var discountValue = parseFloat(this.data.totalPrice.toFixed(2)) - parseFloat(this.data.totalPrice.toFixed(2)) * parseFloat(res.data.discount_rate.toFixed(2));
+        var totalPriceValue = parseFloat(this.data.totalPrice.toFixed(2)) * parseFloat(res.data.discount_rate.toFixed(2));
+        var totalPriceWithExpressFeeValue = totalPriceValue + this.data.express_fee;
+        console.log("promoCodeHeaderIdValue: " + promoCodeHeaderIdValue)
+        this.setData({  
+          promoCodeInputApplyOrNot: true,
+          discount: discountValue,
+          totalPrice: totalPriceValue,
+          totalPriceWithExpressFee: totalPriceWithExpressFeeValue,
+          promo_code_header_id: promoCodeHeaderIdValue
+        }); 
+        console.log(this.data.discount)
+      }else if(res.data.success == false){
+        showToast({title:"请输入正确的团长码"});
+      }else if(res.data.success == true && this.data.promoCodeInputApplyOrNot == true){
+        showToast({title:"您已输入提交团长码折扣"});
+      }  
+    })
+  },
   
   popup(e) {
     const position = e.currentTarget.dataset.position
@@ -193,11 +234,12 @@ Page({
 
       var express_fee_value = this.data.express_fee;
       var totalPriceWithExpressFee_value = this.data.totalPriceWithExpressFee;
+      var promoCodeHeaderIdValue = this.data.promoCodeHeaderId;
       wx.cloud.callFunction({
         name: 'cloudpay',
         data:{
           orderNumber: orderNumber,
-          totalPrice: totalPrice
+          totalPrice: totalPriceWithExpressFee_value
         },
         success: res => {
           const payment = res.result.payment
@@ -225,7 +267,7 @@ Page({
                   order_total_weight: total_good_weight_value,
                   order_express_fee: express_fee_value,
                   order_total_price_with_express_fee: totalPriceWithExpressFee_value,
-                  promo_code_header_id: 1,
+                  promo_code_header_id: promoCodeHeaderIdValue,
                   items: goods_json
                 },
                 success: function(res){

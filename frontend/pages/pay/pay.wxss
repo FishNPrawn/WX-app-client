@@ -69,10 +69,6 @@ page {
   height: 14px;
   width: 7.5px;
 }
-.box2 .cart_main .dot {
-  margin-left: 10px;
-  margin-top: 12px;
-}
 .box3 {
   display: flex;
   width: 95%;
@@ -81,46 +77,46 @@ page {
 }
 .box3 .shunfeng {
   display: flex;
-  font-size: 10px;
+  font-size: 11px;
   margin-left: 10px;
 }
 .box3 .shunfeng image {
-  width: 10px;
-  height: 10px;
+  width: 11px;
+  height: 11px;
   margin-top: 2px;
 }
 .box3 .shunfeng text {
-  color: #b3b3b3;
+  color: rgba(59, 59, 59, 0.8);
   margin-left: 3px;
 }
 .box3 .order_today {
   display: flex;
-  font-size: 10px;
+  font-size: 11px;
   position: absolute;
   right: 45%;
 }
 .box3 .order_today image {
-  width: 10px;
-  height: 10px;
+  width: 11px;
+  height: 11px;
   margin-top: 2px;
 }
 .box3 .order_today text {
-  color: #b3b3b3;
+  color: rgba(59, 59, 59, 0.8);
   margin-left: 3px;
 }
 .box3 .arrive_tmr {
   display: flex;
-  font-size: 10px;
+  font-size: 11px;
   position: absolute;
   right: 20px;
 }
 .box3 .arrive_tmr image {
-  width: 10px;
-  height: 10px;
+  width: 11px;
+  height: 11px;
   margin-top: 2px;
 }
 .box3 .arrive_tmr text {
-  color: #b3b3b3;
+  color: rgba(59, 59, 59, 0.8);
   margin-left: 3px;
 }
 .box4 {
@@ -377,7 +373,7 @@ page {
 }
 .detail-page {
   width: 100%;
-  height: 100%;
+  height: 50vh;
   z-index: 99;
   /* min-height: 320px; */
 }

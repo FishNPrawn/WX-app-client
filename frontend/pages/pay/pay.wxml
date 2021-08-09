@@ -52,7 +52,7 @@
         >
           <image src="{{item.good_image}}"></image>
         </view>
-        <view class="dot">...</view>
+        <!-- <view class="dot">...</view> -->
       </block>
     </block>
     <view class="totol_arrow">
@@ -133,9 +133,9 @@
     <text>团长码</text>
   </view>
   <view class="box7_box2" style="border: 2px solid {{input_border_color}};" catchtap='input_border'>
-    <input class="comment" placeholder="输入团长码" bindinput="commentInput" />
+    <input class="comment" placeholder="输入团长码" bindinput="promoCodeInput" />
   </view>
-  <view class="box7_box3">
+  <view class="box7_box3" bindtap="submitPromoCode">
     <view>提交</view>
   </view>
   

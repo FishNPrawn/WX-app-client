@@ -1,14 +1,15 @@
 {
   "pages":[
     "pages/entry/entry",
-    "pages/cart/cart",
+    "pages/pay/pay",
+    "pages/logistics/logistics",
     "pages/index/index",
+    "pages/cart/cart",
     "pages/login/login",
     "pages/comment_success/comment_success",
     "pages/category/category",
     "pages/comment/comment",
     "pages/personal/personal",
-    "pages/pay/pay",
     "pages/paysuccess/paysuccess",
     "pages/user/user",
     "pages/good_list/good_list",
