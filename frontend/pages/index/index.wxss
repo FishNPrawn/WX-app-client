@@ -96,8 +96,8 @@ page {
   right: 20px;
 }
 .box3 .arrive_tmr image {
-  width: 11px;
-  height: 11px;
+  width: 13px;
+  height: 13px;
   margin-top: 2px;
 }
 .box3 .arrive_tmr text {
