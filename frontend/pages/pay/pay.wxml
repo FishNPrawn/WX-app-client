@@ -130,10 +130,10 @@
 
 <view class="box7">
   <view class="box7_box1">
-    <text>团长码</text>
+    <text>优惠码</text>
   </view>
   <view class="box7_box2" style="border: 2px solid {{input_border_color}};" catchtap='input_border'>
-    <input class="comment" placeholder="输入团长码" bindinput="promoCodeInput" />
+    <input class="comment" placeholder="输入优惠码" bindinput="promoCodeInput" />
   </view>
   <view class="box7_box3" bindtap="submitPromoCode">
     <view>提交</view>

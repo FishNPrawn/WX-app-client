@@ -6,6 +6,7 @@ App({
     wx.cloud.init({
       env: "cloud1-0gpxp1848b37de8d"
     })
+    this.getOpenid();
     const loginData = wx.getStorageSync(loginDataKey)
     let toLogin = () => {
       // wx.showLoading({title: '登录中', icon: 'loading', mask: true})
@@ -62,12 +63,12 @@ App({
         if (res.code) {
           //发起网络请求
           wx.request({
-            url: 'https://fishnprawn.cn/wechat/getOpenId',
+            url: 'https://joynfish.com/wechat/getOpenId',
             data: {
               code: res.code
             },
             success:function(res) {
-              wx.setStorageSync("openid", res.data.openid);//将用户id保存到缓存中
+              // wx.setStorageSync("openid", res.data.openid);//将用户id保存到缓存中
             }
           })
         } else {
@@ -76,9 +77,34 @@ App({
       }
     })
   },
+
+  // 获取用户openid
+  getOpenid: function() {
+    var app = this;
+    var openidStor = wx.getStorageSync('openid');
+    if (openidStor) {
+      console.log('本地获取openid:' + openidStor);
+      app.globalData.openid = openidStor;
+    } else {
+      wx.cloud.callFunction({
+        name: 'getOpenid',
+        success(res) {
+          console.log('云函数获取openid成功', res.result.openid)
+          var openid = res.result.openid;
+          wx.setStorageSync('openid', openid)
+          app.globalData.openid = openid;
+        },
+        fail(res) {
+          console.log('云函数获取失败', res)
+        }
+      })
+    }
+  },
+
   globalData: {
     userInfo: {},
-    // baseUrl: 'https://joynfish.com'
-    baseUrl: 'https://fishnprawn.cn:8443'
+    openid: null,
+    baseUrl: 'https://joynfish.com'
+    // baseUrl: 'https://fishnprawn.cn:8443'
   }
 })

@@ -20,6 +20,10 @@ Page({
   onLoad: function (options) {
     this.getCates()
   },
+  // 分享
+  onShareAppMessage: function () {
+    // return custom share data when user share.
+  },
   onShow: function (options) {
     this.getCates();
     // 底部导航栏购物车数量

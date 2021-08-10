@@ -1,4 +1,6 @@
 // pages/logistics/logistics.js
+//page object 
+let app = getApp();
 Page({
 
   /**
@@ -45,6 +47,11 @@ Page({
    */
   onHide: function () {
 
+  },
+
+  // 分享
+  onShareAppMessage: function () {
+    // return custom share data when user share.
   },
 
   /**

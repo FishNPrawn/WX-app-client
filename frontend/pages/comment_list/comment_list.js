@@ -19,6 +19,11 @@ Page({
   onLoad: function(options){
     this.getCates()
   },
+
+  // 分享
+  onShareAppMessage: function () {
+    // return custom share data when user share.
+  },
   
   /**
    * 生命周期函数--监听页面加载

@@ -32,6 +32,11 @@ Page({
     })
   },
 
+  // 分享
+  onShareAppMessage: function () {
+    // return custom share data when user share.
+  },
+
 
   // 主页面add button
   handleCartAdd(event) {

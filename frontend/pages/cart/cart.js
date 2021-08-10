@@ -1,6 +1,7 @@
 import { getSetting, openSetting, showModal ,showToast} from "../../utils/asyncWx.js";
 const util = require('../../utils/util.js');
-
+//page object 
+let app = getApp();
 Page({
   data: {
     cart: [],
@@ -18,7 +19,10 @@ Page({
     // 底部导航栏购物车数量
     util.setTabBarBadgeNumber(cart);
   },
-  
+  // 分享
+  onShareAppMessage: function () {
+    // return custom share data when user share.
+  },
   // 商品的选中
   handeItemChange(e) {
     const good_id = e.currentTarget.dataset.id;

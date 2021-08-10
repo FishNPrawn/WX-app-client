@@ -49,6 +49,9 @@ Page({
     let cart = wx.getStorageSync('cart') || [];
     util.setTabBarBadgeNumber(cart);
   },
+  onShareAppMessage: function () {
+    // return custom share data when user share.
+  },
 
   //获取轮播图数据
   getSwiperList(){

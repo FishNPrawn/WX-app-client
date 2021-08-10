@@ -28,6 +28,11 @@ Page({
   onLoad: function(options){
     this.getCates()
   },
+
+  // 分享
+  onShareAppMessage: function () {
+    // return custom share data when user share.
+  },
   
    // popup window
   popup(e) {

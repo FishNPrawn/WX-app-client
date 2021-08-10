@@ -31,6 +31,11 @@ Page({
     this.getMyOrderList();
     this.getCates();
   },
+
+  // 分享
+  onShareAppMessage: function () {
+    // return custom share data when user share.
+  },
   //顶部tab切换
   navbarTap: function(e) {
     this.clearPage()

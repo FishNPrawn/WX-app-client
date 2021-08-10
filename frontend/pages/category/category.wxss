@@ -122,6 +122,7 @@ page {
   color: #4d4d4d;
   font-weight: 300;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  margin-left: 1%;
 }
 .cates .cates_container .right_content .goods_group .goods_list .good_list_navigator .goods_msg .goods_sale .goods_sale_number {
   font-family: cursive;

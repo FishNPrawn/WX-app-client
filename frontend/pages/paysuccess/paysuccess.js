@@ -20,7 +20,8 @@ Page({
     var address = wx.getStorageSync('address');
     // 当地时间
     var time = util.formatTime(new Date());
-    var openid = wx.getStorageSync("openid");
+    // var openid = wx.getStorageSync("openid");
+    var openid = app.globalData.openid;
     // 添加新用户到后台
     wx.request({
       url: app.globalData.baseUrl + '/userinfo/create',
@@ -40,6 +41,11 @@ Page({
         console.log("新用户添加成功", res.data);
       }
     })
+  },
+
+  // 分享
+  onShareAppMessage: function () {
+    // return custom share data when user share.
   },
 
   /**

@@ -19,6 +19,11 @@ Page({
     this.setData({userInfo: userInfo});
   },
 
+  // 分享
+  onShareAppMessage: function () {
+    // return custom share data when user share.
+  },
+
   getOrder: function(orderId) {
     let that = this
     wx.request({

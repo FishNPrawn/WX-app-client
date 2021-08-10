@@ -97,7 +97,8 @@ Page({
   submitPromoCode:function(e){
      // 获取promo code
     request({
-      url: 'https://fishnprawn.cn:8443/promo_code/checkPromoCode?promocode=' + this.data.promoCodeInput
+      url: app.globalData.baseUrl + '/promo_code/checkPromoCode?promocode=' + this.data.promoCodeInput
+      
     })
     .then(res=>{
       if(res.data.success == true && this.data.promoCodeInputApplyOrNot == false){
@@ -111,6 +112,9 @@ Page({
         var discountValue = parseFloat(this.data.totalPrice.toFixed(2)) - parseFloat(this.data.totalPrice.toFixed(2)) * parseFloat(res.data.discount_rate.toFixed(2));
         var totalPriceValue = parseFloat(this.data.totalPrice.toFixed(2)) * parseFloat(res.data.discount_rate.toFixed(2));
         var totalPriceWithExpressFeeValue = totalPriceValue + this.data.express_fee;
+        totalPriceValue = totalPriceValue.toFixed(2)
+        totalPriceWithExpressFeeValue = totalPriceWithExpressFeeValue.toFixed(2)
+        discountValue = discountValue.toFixed(2)
         console.log("promoCodeHeaderIdValue: " + promoCodeHeaderIdValue)
         this.setData({  
           promoCodeInputApplyOrNot: true,
@@ -126,6 +130,11 @@ Page({
         showToast({title:"您已输入提交团长码折扣"});
       }  
     })
+  },
+
+  // 分享
+  onShareAppMessage: function () {
+    // return custom share data when user share.
   },
   
   popup(e) {
@@ -185,9 +194,10 @@ Page({
       showToast({title:"请选择收货地址"});
      }else{
       // 去到user的东西
-      const userInfo = wx.getStorageSync("userInfo");
-      const userAddress = wx.getStorageSync('address')
-      const openid = wx.getStorageSync("openid");
+      var userInfo = wx.getStorageSync("userInfo");
+      var userAddress = wx.getStorageSync('address')
+      // const openid = wx.getStorageSync("openid");
+      var openid = app.globalData.openid;
       let cart = wx.getStorageSync("cart") || [];
       cart = cart.filter(v=>v.checked);
 
@@ -207,7 +217,7 @@ Page({
       totalPrice = totalPrice.toFixed(2);
 
       // 订单编号
-      const orderNumber = util.order_number();
+      var orderNumber = util.order_number();
 
       // 储存购物车信息
       let goods_arr = [];
