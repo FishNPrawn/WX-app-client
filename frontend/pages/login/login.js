@@ -24,7 +24,7 @@ Page({
             success:function(res) {
               session_key = res.data.session_key;
               wx.setStorageSync("openid", res.data.openid);//将用户id保存到缓存中
-              
+
               const {userInfo} = e.detail;
               wx.setStorageSync('userInfo', userInfo);
               

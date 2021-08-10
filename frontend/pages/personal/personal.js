@@ -72,6 +72,44 @@ Page({
     })
   },
 
+  // 调用客服
+  // goToCustomerService:function(){
+
+  //   var session_key = wx.getStorageInfoSync('session_key')
+  //   request({url: 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx8f882af467265220&secret=fb1f62bdbb62c3972ab830d471966a72'}) 
+  //   .then(result=>{
+  //     console.log(result.data)
+  //     request({
+  //       url: 'https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token='+result.data.access_token,
+  //       method: "POST"
+  //     }) 
+  //     .then(result1=>{
+  //       console.log(result1.data)
+  //     })
+  //   })
+
+    // wx.cloud.callFunction({
+    //   name: 'customer_service',
+    //   data:{
+        
+    //   },
+    //   success: res => {
+    //     const payment = res.result
+    //     console.log(payment)
+    //   },
+    //   fail: console.error,
+    // })
+
+
+    // wx.openCustomerServiceChat({
+    //   extInfo: {url: ''},
+    //   corpId: 'ww64e085d4b17b87b1',
+    //   success(res) {
+    //     console.log("客服调用成功")
+    //   }
+    // })
+  // },
+
   // navigato to good_Detail
   goGoodDetail(event){
     var good_id = event.currentTarget.id
@@ -82,16 +120,26 @@ Page({
 
 
   showCustomerServicePhone: function () {
-    wx.showModal({
-      title: '客服',
-      content: '客服电话 13922261090',
-      confirmText: '拨打电话',
-      success (res) {
-        wx.makePhoneCall({
-          phoneNumber: '13922261090'
-        })
+    wx.makePhoneCall({
+      phoneNumber: '13922261090',
+      success: function () {
+        console.log("成功拨打电话")
+      },
+      fail: function () {        
+        console.log("拨打电话失败！")      
       }
+
     })
+    // wx.showModal({
+    //   title: '客服',
+    //   content: '客服电话 13922261090',
+    //   confirmText: '拨打电话',
+    //   success (res) {
+    //     wx.makePhoneCall({
+    //       phoneNumber: '13922261090'
+    //     })
+    //   }
+    // })
   },
 
 })
