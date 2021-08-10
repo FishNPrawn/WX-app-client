@@ -82,7 +82,8 @@
         </view>
       </view>
       <!-- 结算 -->
-      <button class="pay_button" type="primary" open-type="getUserInfo" bindgetuserinfo="handleGetUserInfo"  plain>结算({{totalNum}})</button>
+      <!-- <button class="pay_button" type="primary" open-type="getUserInfo" bindgetuserinfo="handleGetUserInfo"  plain>结算({{totalNum}})</button> -->
+      <button class="pay_button" type="primary" bindtap="getUserProfile" plain>结算({{totalNum}})</button>
        <!-- <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber"></button> -->
     </view>
   </view>

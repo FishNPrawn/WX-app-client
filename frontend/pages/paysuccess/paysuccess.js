@@ -20,7 +20,7 @@ Page({
     var address = wx.getStorageSync('address');
     // 当地时间
     var time = util.formatTime(new Date());
-    const openid = wx.getStorageSync("openid");
+    var openid = wx.getStorageSync("openid");
     // 添加新用户到后台
     wx.request({
       url: app.globalData.baseUrl + '/userinfo/create',
