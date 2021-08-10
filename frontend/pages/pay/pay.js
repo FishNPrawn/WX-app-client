@@ -98,7 +98,6 @@ Page({
      // 获取promo code
     request({
       url: app.globalData.baseUrl + '/promo_code/checkPromoCode?promocode=' + this.data.promoCodeInput
-      
     })
     .then(res=>{
       if(res.data.success == true && this.data.promoCodeInputApplyOrNot == false){
