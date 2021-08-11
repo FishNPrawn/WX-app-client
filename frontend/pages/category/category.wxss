@@ -85,6 +85,7 @@ page {
 }
 .cates .cates_container .right_content {
   flex: 6;
+  padding-bottom: 12%;
 }
 .cates .cates_container .right_content .ads_img {
   width: 100%;

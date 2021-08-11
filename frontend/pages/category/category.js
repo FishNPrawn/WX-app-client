@@ -18,17 +18,17 @@ Page({
   Cates:[],
 
   onLoad: function (options) {
-    this.getCates()
+    // this.getCates()
   },
   // 分享
   onShareAppMessage: function () {
     // return custom share data when user share.
   },
   onShow: function (options) {
-    this.getCates();
     // 底部导航栏购物车数量
     let cart = wx.getStorageSync('cart') || [];
     util.setTabBarBadgeNumber(cart);
+    this.getCates()
   },
   onClick: function (event) {
     var _this = this;
@@ -46,16 +46,19 @@ Page({
       });
     }
   },
+
+
   // 获取分类数据
   getCates(){
     let that = this
     request({
-      url: app.globalData.baseUrl + '/good/getGoodByCatetory',
+      url: app.globalData.baseUrl + '/good/getGoodByCatetory'
     })
     .then(res=>{
       that.Cates=res.data.data
       //构造左侧菜单数据
       let leftMenuList = Object.keys(that.Cates)
+      // let leftMenuList = wx.getStorageSync('leftMenuList')
       //构造右侧数据
       var currentIndex = 0;
       var showDialog = getApp().globalData.showDialog;

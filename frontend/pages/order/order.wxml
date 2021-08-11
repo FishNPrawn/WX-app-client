@@ -66,8 +66,11 @@
           </view>
           <!-- 订单状态 -->
           <view wx:if="{{item.orderStatus!=0}}" class='comment_btn_wrapper'>
-            <label wx:if="{{item.orderStatus==1}}" class='comment_btn' bindtap="cancelOrder" data-order="{{item.orderId}}">取消订单</label>
-            <label wx:if="{{item.orderStatus==2}}" class='comment_btn'>查看物流</label>
+            <label wx:if="{{item.orderStatus==1}}" class='comment_btn comment_btn_cancel' bindtap="cancelOrder" data-order="{{item.orderId}}">取消订单</label>
+            <view wx:if="{{item.orderStatus==2}}" class='comment_btn_check'>
+              <view class="check_express">查看物流</view>
+              <view class="confirm_order" bindtap="confirmOrder" data-order="{{item.orderId}}">确认收货</view>
+            </view>
             <label wx:if="{{item.orderStatus==3}}" class='comment_btn' bindtap="enterComment" data-order="{{item.orderId}}">评论一下</label>
             <label wx:if="{{item.orderStatus==4}}" class='comment_btn' bindtap="enterOrderDetail" data-order="{{item.orderId}}">交易关闭</label>
           </view>

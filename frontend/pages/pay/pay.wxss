@@ -144,6 +144,16 @@ page {
 .box4 .box3_inside .totol_price .fee_text {
   color: #424242;
 }
+.box4 .box3_inside .totol_price .fee_number_origin {
+  display: flex;
+  text-decoration: line-through;
+  font-weight: 300;
+  color: #a1a1a1;
+  align-self: flex-end;
+}
+.box4 .box3_inside .totol_price .fee_number_after {
+  display: flex;
+}
 .box4 .box3_inside .totol_price .fee_number {
   display: flex;
   position: absolute;
@@ -162,6 +172,20 @@ page {
   position: absolute;
   right: 20px;
   color: #343434;
+}
+.box4 .box3_inside .order_fee .order_number .discount_express {
+  display: flex;
+}
+.box4 .box3_inside .order_fee .order_number .origin_express {
+  display: flex;
+  text-decoration: line-through;
+  font-weight: 300;
+  color: #a1a1a1;
+  align-self: flex-end;
+}
+.box4 .box3_inside .order_fee .order_number .origin_express text,
+.box4 .box3_inside .order_fee .order_number .origin_express .order_price {
+  font-size: 13px;
 }
 .box4 .box3_inside .coupon {
   display: flex;

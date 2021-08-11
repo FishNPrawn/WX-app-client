@@ -24,6 +24,7 @@ Page({
     this.getSwiperList();
     this.getCates();
     this.getFeaturedCard();
+    this.getLeftMenuListData();
 
     // 获取当前的地理位置、速度。
     wx.getLocation({
@@ -49,6 +50,11 @@ Page({
     let cart = wx.getStorageSync('cart') || [];
     util.setTabBarBadgeNumber(cart);
   },
+
+  onPullDownRefresh: function () {
+    this.onLoad(); //重新加载onLoad()
+  },
+
   onShareAppMessage: function () {
     // return custom share data when user share.
   },

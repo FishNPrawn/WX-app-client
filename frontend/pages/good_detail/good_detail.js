@@ -87,11 +87,35 @@ Page({
   handleCartAddDetail() {
     let cart = wx.getStorageSync("cart") || [];
     let index = cart.findIndex(v => v.good_id === this.goodInfo.good_id);
+    // if (index === -1) {
+    //   this.goodInfo.num = 1;
+    //   this.goodInfo.checked = true;
+    //   cart.push(this.goodInfo);
+    // } else {
+    // }
+    // wx.setStorageSync("cart", cart);
+    // wx.showToast({
+    //   title: '加入成功',
+    //   icon: 'success',
+    //   duration: 600,
+    //   mask: true
+    // });
     if (index === -1) {
-      this.goodInfo.num = 1;
+      if (!this.goodInfo.num) {
+        this.goodInfo.num = 1;
+      } else {
+        this.goodInfo.num += 1;
+      }
       this.goodInfo.checked = true;
       cart.push(this.goodInfo);
     } else {
+      var savedInfo = cart[index];
+      if (!savedInfo.num) {
+        savedInfo.num = 1;
+      } else {
+        savedInfo.num += 1;
+      }
+      cart[index] = savedInfo;
     }
     wx.setStorageSync("cart", cart);
     wx.showToast({
@@ -100,6 +124,7 @@ Page({
       duration: 600,
       mask: true
     });
+    
   },
   handleCollect(){
     let isCollect=false;

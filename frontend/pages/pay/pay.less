@@ -156,6 +156,16 @@ page{
       .fee_text{
         color: #424242;
       }
+      .fee_number_origin{
+        display: flex;
+        text-decoration: line-through;
+        font-weight: 300;
+        color: #a1a1a1;
+        align-self: flex-end;
+      }
+      .fee_number_after{
+        display: flex;
+      }
       .fee_number{
         display: flex;
         position: absolute;
@@ -174,6 +184,20 @@ page{
         position: absolute;
         right: 20px;
         color: #343434;
+        // color: tomato;
+        .discount_express{
+          display: flex;
+        }
+        .origin_express{
+          display: flex;
+          text-decoration: line-through;
+          font-weight: 300;
+          color: #a1a1a1;
+          align-self: flex-end;
+          text, .order_price{
+            font-size: 13px;
+          }
+        }
       }
     }
     .coupon{

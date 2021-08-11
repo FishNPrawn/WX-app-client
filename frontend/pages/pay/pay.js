@@ -8,6 +8,7 @@ Page({
     address: {},
     cart: [],
     totalPrice: 0,
+    originTotalPrice: 0,
     totalPriceWithExpressFee: 0,
     totalNum: 0,
     total_good_weight_value: 0,
@@ -23,9 +24,11 @@ Page({
     promoCodeInputApplyOrNot: false,
     promoCodeHeaderId: 0,
     express_fee: 0,
+    origin_express_fee: 0,
     discount: 0,
     input_border_color: '#edeeee'
   },
+  // 点击优惠码框框变色
   input_border: function (e) {  
       //点击按钮，样式改变  
       let that = this;  
@@ -63,26 +66,31 @@ Page({
       this.setData({
         express_fee: parseFloat(res.data)
       })
-    })
+      console.log("express:",res.data)
 
-    // 运费根据重量
-    request({
-      url: app.globalData.baseUrl + '/calculate/express_fee_with_weight?weight=' + total_good_weight_value,
-    })
-    .then(res=>{
+      ////////////////////////////////////////
+      // 运费根据重量
+      request({
+        url: app.globalData.baseUrl + '/calculate/express_fee_with_weight?weight=' + total_good_weight_value,
+      })
+      .then(res=>{
+        this.setData({
+          discount: parseFloat(res.data) - parseFloat(this.data.express_fee),
+          totalPriceWithExpressFee: parseFloat(totalPrice) + parseFloat(this.data.express_fee),
+          origin_express_fee: parseFloat(res.data)
+        })
+      })
+
       this.setData({
-        discount: parseFloat(res.data) - parseFloat(this.data.express_fee),
-        totalPriceWithExpressFee: parseFloat(totalPrice) + parseFloat(this.data.express_fee)
+        cart,
+        totalPrice,
+        totalNum,
+        total_good_weight_value,
+        address,
+        originTotalPrice: totalPrice
       })
     })
 
-    this.setData({
-      cart,
-      totalPrice,
-      totalNum,
-      total_good_weight_value,
-      address
-    })
   },
   
 
@@ -108,7 +116,7 @@ Page({
           mask: true
         });
         var promoCodeHeaderIdValue = res.data.promoCodeHeaderId;
-        var discountValue = parseFloat(this.data.totalPrice.toFixed(2)) - parseFloat(this.data.totalPrice.toFixed(2)) * parseFloat(res.data.discount_rate.toFixed(2));
+        var discountValue = parseFloat(this.data.discount) + parseFloat(this.data.totalPrice.toFixed(2)) - parseFloat(this.data.totalPrice.toFixed(2)) * parseFloat(res.data.discount_rate.toFixed(2));
         var totalPriceValue = parseFloat(this.data.totalPrice.toFixed(2)) * parseFloat(res.data.discount_rate.toFixed(2));
         var totalPriceWithExpressFeeValue = totalPriceValue + this.data.express_fee;
         totalPriceValue = totalPriceValue.toFixed(2)
@@ -244,6 +252,7 @@ Page({
       var express_fee_value = this.data.express_fee;
       var totalPriceWithExpressFee_value = this.data.totalPriceWithExpressFee;
       var promoCodeHeaderIdValue = this.data.promoCodeHeaderId;
+      var orderdiscountValue = this.data.discount;
       wx.cloud.callFunction({
         name: 'cloudpay',
         data:{
@@ -277,6 +286,7 @@ Page({
                   order_express_fee: express_fee_value,
                   order_total_price_with_express_fee: totalPriceWithExpressFee_value,
                   promo_code_header_id: promoCodeHeaderIdValue,
+                  order_total_discount: orderdiscountValue,
                   items: goods_json
                 },
                 success: function(res){

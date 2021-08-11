@@ -24,10 +24,12 @@ page {
 }
 .goods_name_row .info_box1 .goods_name {
   padding: 15px 5px 10px 10px;
+  font-weight: 500;
+  font-size: 20px;
 }
 .goods_name_row .info_box1 .goods_description {
   padding: 0 5px 10px 10px;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 13px;
 }
 .goods_name_row .info_box1 .goods_price {
@@ -612,9 +614,11 @@ page {
   }
   .goods_name_row .info_box1 .goods_name {
     font-size: 12px;
+    font-weight: 500;
   }
   .goods_name_row .info_box1 .goods_description {
     font-size: 10px;
+    font-weight: 400;
   }
   .goods_name_row .info_box2 {
     width: 100%;
@@ -674,10 +678,12 @@ page {
     height: 24px;
   }
   .goods_name_row .info_box1 .goods_name {
-    font-size: 14px;
+    font-size: 20px;
+    font-weight: 500;
   }
   .goods_name_row .info_box1 .goods_description {
     font-size: 12px;
+    font-weight: 400;
   }
   .goods_name_row .info_box2 .product_desc {
     font-size: 16px;

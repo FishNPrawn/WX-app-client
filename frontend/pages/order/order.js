@@ -123,8 +123,44 @@ Page({
     });
   },
 
-  cancelOrder(event){
+  // 确认订单
+  confirmOrder(event){
+    wx.showModal({
+      title: '确认',
+      content: '是否确认收货',
+      success (res) {
+        if (res.confirm) {
+          wx.request({
+            url: app.globalData.baseUrl + '/order/confirm',
+            method: "POST",
+            header:{
+             "Content-Type": "application/x-www-form-urlencoded"
+            },
+            data:{
+              openid: "" + wx.getStorageSync("openid"),
+              orderId: event.currentTarget.dataset.order
+            },
+            success: function(res){
+              console.log("订单完成", res.data);
+              // 显示取消成功
+              wx.showToast({
+                title: '订单完成',
+                icon: 'success',
+                duration: 1000
+              })
+              // 回到全部订单页面
+              wx.navigateTo({
+                url: '../order/order?status=0',
+              })
+            }
+          })  
+        }
+      }
+    })
+  },
 
+  // 取消订单
+  cancelOrder(event){
     wx.showModal({
       title: '提示',
       content: '是否要取消订单',
@@ -157,9 +193,6 @@ Page({
         }
       }
     })
-    
-
-    
   },
 
   getCates(){

@@ -83,13 +83,11 @@ App({
     var app = this;
     var openidStor = wx.getStorageSync('openid');
     if (openidStor) {
-      console.log('本地获取openid:' + openidStor);
       app.globalData.openid = openidStor;
     } else {
       wx.cloud.callFunction({
         name: 'getOpenid',
         success(res) {
-          console.log('云函数获取openid成功', res.result.openid)
           var openid = res.result.openid;
           wx.setStorageSync('openid', openid)
           app.globalData.openid = openid;
@@ -104,7 +102,7 @@ App({
   globalData: {
     userInfo: {},
     openid: null,
-    // baseUrl: 'https://joynfish.com'
-    baseUrl: 'https://fishnprawn.cn:8443'
+    baseUrl: 'https://joynfish.com'
+    // baseUrl: 'https://fishnprawn.cn:8443'
   }
 })
