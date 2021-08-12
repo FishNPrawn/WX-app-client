@@ -53,11 +53,11 @@
       <view class="coupon_detail_list">
         <view class="coupon_detail_list1">
           <view class="coupon_detail_list1_title">满包邮</view>
-          <view class="coupon_detail_list1_text">满268元, 广东省包邮</view>
+          <view class="coupon_detail_list1_text">满298元, 广东省包邮</view>
         </view>
         <view class="coupon_detail_list2">
           <view class="coupon_detail_list2_title">满邮费减</view>
-          <view class="coupon_detail_list2_text">满88元减5元，满188元减12</view>
+          <view class="coupon_detail_list2_text">满99元减5元，满199元减12</view>
         </view>
       </view>
       <image class="right_arrow" src="https://fnpphoto.cn/icon/right_arrow.png"></image>

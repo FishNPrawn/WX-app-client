@@ -102,7 +102,7 @@ App({
   globalData: {
     userInfo: {},
     openid: null,
-    baseUrl: 'https://joynfish.com'
-    // baseUrl: 'https://fishnprawn.cn:8443'
+    // baseUrl: 'https://joynfish.com'
+    baseUrl: 'https://fishnprawn.cn:8443'
   }
 })

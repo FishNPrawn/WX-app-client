@@ -24,7 +24,6 @@ Page({
     this.getSwiperList();
     this.getCates();
     this.getFeaturedCard();
-    this.getLeftMenuListData();
 
     // 获取当前的地理位置、速度。
     wx.getLocation({

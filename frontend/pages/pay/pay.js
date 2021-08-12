@@ -103,40 +103,48 @@ Page({
   },
 
   submitPromoCode:function(e){
-     // 获取promo code
-    request({
-      url: app.globalData.baseUrl + '/promo_code/checkPromoCode?promocode=' + this.data.promoCodeInput
-    })
-    .then(res=>{
-      if(res.data.success == true && this.data.promoCodeInputApplyOrNot == false){
-        wx.showToast({
-          title: '获得'+res.data.discount_rate+'折扣',
-          icon: 'success',
-          duration: 2000,
-          mask: true
-        });
-        var promoCodeHeaderIdValue = res.data.promoCodeHeaderId;
-        var discountValue = parseFloat(this.data.discount) + parseFloat(this.data.totalPrice.toFixed(2)) - parseFloat(this.data.totalPrice.toFixed(2)) * parseFloat(res.data.discount_rate.toFixed(2));
-        var totalPriceValue = parseFloat(this.data.totalPrice.toFixed(2)) * parseFloat(res.data.discount_rate.toFixed(2));
-        var totalPriceWithExpressFeeValue = totalPriceValue + this.data.express_fee;
-        totalPriceValue = totalPriceValue.toFixed(2)
-        totalPriceWithExpressFeeValue = totalPriceWithExpressFeeValue.toFixed(2)
-        discountValue = discountValue.toFixed(2)
-        console.log("promoCodeHeaderIdValue: " + promoCodeHeaderIdValue)
-        this.setData({  
-          promoCodeInputApplyOrNot: true,
-          discount: discountValue,
-          totalPrice: totalPriceValue,
-          totalPriceWithExpressFee: totalPriceWithExpressFeeValue,
-          promo_code_header_id: promoCodeHeaderIdValue
-        }); 
-        console.log(this.data.discount)
-      }else if(res.data.success == false){
-        showToast({title:"请输入正确的团长码"});
-      }else if(res.data.success == true && this.data.promoCodeInputApplyOrNot == true){
-        showToast({title:"您已输入提交团长码折扣"});
-      }  
-    })
+
+    var addressStorage = wx.getStorageSync('address')
+    if(!addressStorage){
+    showToast({title:"请选择收货地址"});
+    }else{
+      // 获取promo code
+      request({
+        url: app.globalData.baseUrl + '/promo_code/checkPromoCode?promocode=' + this.data.promoCodeInput
+      })
+      .then(res=>{
+        if(res.data.success == true && this.data.promoCodeInputApplyOrNot == false){
+          wx.showToast({
+            title: '获得'+res.data.discount_rate+'折扣',
+            icon: 'success',
+            duration: 2000,
+            mask: true
+          });
+          var promoCodeHeaderIdValue = res.data.promoCodeHeaderId;
+          var discountValue = parseFloat(this.data.discount) + parseFloat(this.data.totalPrice.toFixed(2)) - parseFloat(this.data.totalPrice.toFixed(2)) * parseFloat(res.data.discount_rate.toFixed(2));
+          var totalPriceValue = parseFloat(this.data.totalPrice.toFixed(2)) * parseFloat(res.data.discount_rate.toFixed(2));
+          var totalPriceWithExpressFeeValue = totalPriceValue + this.data.express_fee;
+          totalPriceValue = totalPriceValue.toFixed(2)
+          totalPriceWithExpressFeeValue = totalPriceWithExpressFeeValue.toFixed(2)
+          discountValue = discountValue.toFixed(2)
+          console.log("promoCodeHeaderIdValue: " + promoCodeHeaderIdValue)
+          this.setData({  
+            promoCodeInputApplyOrNot: true,
+            discount: discountValue,
+            totalPrice: totalPriceValue,
+            totalPriceWithExpressFee: totalPriceWithExpressFeeValue,
+            promo_code_header_id: promoCodeHeaderIdValue
+          }); 
+          console.log(this.data.discount)
+        }else if(res.data.success == false){
+          showToast({title:"请输入正确的团长码"});
+        }else if(res.data.success == true && this.data.promoCodeInputApplyOrNot == true){
+          showToast({title:"您已输入提交团长码折扣"});
+        }  
+      })
+    }
+
+    
   },
 
   // 分享
