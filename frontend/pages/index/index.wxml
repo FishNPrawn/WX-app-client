@@ -19,7 +19,7 @@
 <view class = "pyq_index">
   <!-- 轮播图开始-->
   <view class = "index_swiper">
-    <swiper autoplay="TRUE" indicator-dots="TRUE" circular="TRUE">
+    <swiper autoplay="TRUE" indicator-dots="TRUE" circular="TRUE" style="height:45vw">
       <swiper-item
         wx:for="{{swiperList}}"
         wx:key="good_id"

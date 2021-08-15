@@ -104,5 +104,6 @@ App({
     openid: null,
     // baseUrl: 'https://joynfish.com'
     baseUrl: 'https://fishnprawn.cn:8443'
+    // baseUrl: 'http://localhost:8080'
   }
 })

@@ -119,7 +119,7 @@
     <view class="line1"></view>
     <!-- 配送费 -->
     <view class="coupon">
-      <view class="coupon_text">优惠</view>
+      <view class="coupon_text">优惠(已在商品金额减除)</view>
       <view class="discount_number">
         <text>￥</text>
         <view class="discount_value">{{discount}}</view>

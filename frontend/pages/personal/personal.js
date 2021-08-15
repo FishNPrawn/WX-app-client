@@ -7,13 +7,26 @@ Page({
  data:{
   userInfo:{},
   address: {},
-  url: '#'
+  url: '#',
+  isPromoter: false
  },
   goodInfo: {},
   Cates:[],
  // 页面加载会触发
   onLoad:function(options){
-    
+    var openId = wx.getStorageSync('openid')
+    request({
+      url: app.globalData.baseUrl + '/promo_code/checkPromoCodeByOpenId?openId=' + openId
+    }) 
+    .then(result=>{
+      console.log(result.data.success)
+      if(result.data.success == true){
+        this.setData({
+          isPromoter:true
+        })
+        wx.setStorageSync('promoCodeHeaderId', result.data.promoCodeHeaderId)
+      }
+    })
   },
   onShow(){
     const address = wx.getStorageSync("address");
@@ -24,6 +37,20 @@ Page({
     // 底部导航栏购物车数量
     let cart = wx.getStorageSync('cart') || [];
     util.setTabBarBadgeNumber(cart);
+
+    var openId = wx.getStorageSync('openid')
+    request({
+      url: app.globalData.baseUrl + '/promo_code/checkPromoCodeByOpenId?openId=' + openId
+    }) 
+    .then(result=>{
+      console.log(result.data.success)
+      if(result.data.success == true){
+        this.setData({
+          isPromoter:true
+        })
+        wx.setStorageSync('promoCodeHeaderId', result.data.promoCodeHeaderId)
+      }
+    })
   },
   
   goToLogin(){
@@ -65,6 +92,13 @@ Page({
   goToMyOrder: function(event) {
     wx.navigateTo({
       url: '../order/order?status='+event.currentTarget.dataset.status,
+    })
+  },
+
+  // 跳转到团长页面
+  goToPromoter: function(){
+    wx.navigateTo({
+      url: '../promoter/promoter'
     })
   },
   

@@ -133,7 +133,7 @@ Page({
             discount: discountValue,
             totalPrice: totalPriceValue,
             totalPriceWithExpressFee: totalPriceWithExpressFeeValue,
-            promo_code_header_id: promoCodeHeaderIdValue
+            promoCodeHeaderId: promoCodeHeaderIdValue
           }); 
           console.log(this.data.discount)
         }else if(res.data.success == false){
@@ -293,7 +293,7 @@ Page({
                   order_total_weight: total_good_weight_value,
                   order_express_fee: express_fee_value,
                   order_total_price_with_express_fee: totalPriceWithExpressFee_value,
-                  promo_code_header_id: promoCodeHeaderIdValue,
+                  promoCodeHeaderId: promoCodeHeaderIdValue,
                   order_total_discount: orderdiscountValue,
                   items: goods_json
                 },

@@ -1,0 +1,169 @@
+page{
+  // background-image: linear-gradient(#FFA760, rgb(255, 230, 228));
+  // background-repeat: no-repeat;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+// 团长信息
+.promoter_info{
+  width: 90%;
+  padding: 20px 20px 20px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto; 
+  .prmoter_info_title{
+    font-size: 170%;
+    letter-spacing: 3px;
+    color: #272727;
+    font-weight: 500;
+    text-shadow: 1rpx 1rpx #3f3f3f;
+  }
+  .prmoter_info_avatar_wrapper{
+    display: flex;
+    align-items: center;
+    .prmoter_info_avatar{
+      width: 50px;
+      height: 50px;
+      border-radius: 20px;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 6px 6px;
+    }
+  }
+}
+
+// 佣金率
+.commission_rate_title_wrapper{
+  width: 90%;
+  padding: 0px 20px 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto; 
+  .commission_rate_title{
+    font-size: 110%;
+    color: rgb(104, 104, 104);
+    letter-spacing: 2px;
+  }
+}
+
+.commission_earn_wrapper{
+  width: 90%;
+  padding: 0px 20px 20px 20px;
+  display: flex;
+  align-items: flex-end;
+  left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto; 
+  .commission_earn_signal{
+    font-size: 170%;
+    color: #272727;
+  }
+  .commission_earn_number{
+    font-size: 170%;
+    margin-left: 10px;
+    color: #272727;
+    text-shadow: 1rpx 1rpx #3f3f3f;
+  }
+  .commission_earn_rmb{
+    font-size: 110%;
+    color: rgb(104, 104, 104);
+    letter-spacing: 2px;
+    margin-left: 10px;
+  }
+}
+
+//提现和团长码
+.exchange_and_promo_code_wrapper{
+  width: 90%;
+  display: grid;
+  grid-template-columns: 1fr 0.1fr 1fr;
+  left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto; 
+  .exchange_and_promo_code{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 10px;
+    border: 2px solid #e3e6f5;
+    border-radius: 10px;
+    .exchange_and_promo_code_image{
+      width: 25px;
+      height: 25px;
+    }
+    .exchange_and_promo_code_title{
+      color: #272727;
+      font-weight: 500;
+    }
+  }
+}
+
+.commission_order_wrapper{
+  width: 90%;
+  padding: 30px 20px 20px 20px;
+  left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto; 
+  background-color: #f5f7fb;
+  border-radius: 40px 40px 0px 0px;
+  margin-top: 30px;
+  .commission_order_title{
+    font-size: 120%;
+    letter-spacing: 3px;
+    color: #272727;
+    text-shadow: 1rpx 1rpx #3f3f3f;
+    font-weight: 500;
+  }
+  .commission_order_detail_wrapper{
+    .commission_order{
+      display: flex;
+      align-items: center;
+      padding: 20px 0 20px 0;
+      .commission_order_image{
+        width: 50px;
+        height: 50px;
+        border-radius: 20px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 4px 4px;
+      }
+      .commission_order_info{
+        margin-left: 5%;
+        .commission_order_info_1{
+          display: flex;
+          font-size: 110%;
+          color: #272727;
+          font-weight: 500;
+          padding: 0 0 5px 0;
+          .commission_order_info_1_commission_earn{
+            position: absolute;
+            right: 7%;
+          }
+        }
+        .commission_order_info_2{
+          display: flex;
+          align-items: center;
+          font-size: 90%;
+          font-weight: 500;
+          color: rgb(104, 104, 104);
+          .commission_order_info_2_line{
+            width: 1px;
+            height: 15px;
+            margin-left: 10px;
+            background-color: rgb(104, 104, 104);;
+          }
+          .commission_order_info_2_commission_rate{
+            margin-left: 10px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -11,6 +11,7 @@
     "pages/comment_success/comment_success",
     "pages/comment/comment",
     "pages/paysuccess/paysuccess",
+    "pages/promoter/promoter",
     "pages/user/user",
     "pages/good_detail/good_detail",
     "pages/order_detail/order_detail",
