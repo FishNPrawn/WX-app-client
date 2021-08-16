@@ -109,6 +109,15 @@ Page({
       });
     }
   },
+
+  goToAds(){
+    this.catName = '优惠推介'
+    getApp().globalData.showDialog = this;
+    wx.switchTab({
+      url: '/pages/category/category'
+    });
+  },
+  
   // navigato to good_Detail
   goGoodDetail(event){
     var good_id = event.currentTarget.id

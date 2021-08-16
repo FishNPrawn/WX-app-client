@@ -230,7 +230,6 @@ page {
   font-size: 20rpx;
   color: #4d4d4d;
   font-weight: 300;
-  margin-left: 1%;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 .guess_like .preference_display .preference_row .preference_col .navigator_box .good_navigator .goods_msg .goods_sale .goods_sale_number {

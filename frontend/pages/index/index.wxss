@@ -176,9 +176,7 @@ page {
 }
 .ads .ads_left .ads_text1 {
   color: white;
-  font-size: 10px;
-  margin-left: 3px;
-  font-weight: 300;
+  font-size: 15px;
 }
 .ads .ads_left .ads_text2 {
   font-size: 15px;
@@ -189,7 +187,7 @@ page {
   height: 20px;
   width: 80px;
   background-color: white;
-  margin-top: 20px;
+  margin-top: 15px;
   border-radius: 15px;
   display: flex;
   justify-items: center;
@@ -299,7 +297,6 @@ page {
   color: #4d4d4d;
   font-weight: 300;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  margin-left: 1%;
 }
 .preference_display .preference_row .preference_col .navigator_box .good_navigator .goods_msg .goods_sale .goods_sale_number {
   font-family: cursive;

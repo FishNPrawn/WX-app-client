@@ -248,7 +248,6 @@ Page({
         goods_arr.push(goods)
       })
       let goods_json = JSON.stringify(goods_arr);
-      // console.log(goods_json);
 
       var order_basic_info_value = new Object();
       order_basic_info_value.totalPrice = this.data.totalPriceWithExpressFee;
