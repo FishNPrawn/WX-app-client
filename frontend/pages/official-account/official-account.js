@@ -1,4 +1,4 @@
-// pages/good_list/good_list.js
+// pages/official-account/official-account.js
 Page({
 
   /**

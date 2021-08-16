@@ -53,11 +53,11 @@
       <view class="coupon_detail_list">
         <view class="coupon_detail_list1">
           <view class="coupon_detail_list1_title">满包邮</view>
-          <view class="coupon_detail_list1_text">满268元, 广东省包邮</view>
+          <view class="coupon_detail_list1_text">满298元, 广东省包邮</view>
         </view>
         <view class="coupon_detail_list2">
           <view class="coupon_detail_list2_title">满邮费减</view>
-          <view class="coupon_detail_list2_text">满88元减5元，满188元减12</view>
+          <view class="coupon_detail_list2_text">满99元减5元，满199元减12</view>
         </view>
       </view>
       <image class="right_arrow" src="https://fnpphoto.cn/icon/right_arrow.png"></image>
@@ -81,22 +81,22 @@
       </view>
       <view class="row row2">
         <view class="good_publish_date">
-          <view class="good_publish_title">生产日期</view>
-          <view class="good_publish_value">{{goodObj.good_publish_date}}</view>
+          <view class="good_publish_title">规格</view>
+          <view class="good_publish_value">{{goodObj.good_size}}</view>
         </view>
         <view class="good_branch">
           <view class="good_branch_title">品牌</view>
           <view class="good_branch_value">本港</view>
         </view>
       </view>
-      <view class="row row3">
+      <!-- <view class="row row3">
         <view class="good_size">
           <view class="good_size_title">规格</view>
           <view class="good_size_value">
             {{goodObj.good_size}}<view></view>
           </view>
         </view>
-      </view>
+      </view> -->
       <view class="row row4">
         <view class="good_optimal_period">
           <view class="good_optimal_period_title">品味最佳期</view>  
@@ -178,7 +178,7 @@
               <view class="goods_name">{{item2.good_name}}</view>
               <view class="goods_sale">销量 <view class="goods_sale_number">{{item2.good_expiration}}</view></view>
             </view>
-          </view>
+          </view> 
           <view class="add_icon">
             <view class="goods_price">
               <view class="dollar_symbol">¥</view>
@@ -219,9 +219,9 @@
       <view class="coupon_detail_list1">
         <view class="coupon_detail_list1_title">满包邮</view>
         <view class="coupon_detail_list">
-          <view class="coupon_detail_list1_text">满268元, 广东省包邮</view>
-          <view class="coupon_detail_list1_text">满188元, 广东省邮费减12元</view>
-          <view class="coupon_detail_list1_text">满88元, 广东省邮费减5元</view>
+          <view class="coupon_detail_list1_text">满298元, 广东省包邮</view>
+          <view class="coupon_detail_list1_text">满199元, 广东省邮费减12元</view>
+          <view class="coupon_detail_list1_text">满99元, 广东省邮费减5元</view>
         </view>
       </view>
     </view>

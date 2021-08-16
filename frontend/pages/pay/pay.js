@@ -8,6 +8,7 @@ Page({
     address: {},
     cart: [],
     totalPrice: 0,
+    originTotalPrice: 0,
     totalPriceWithExpressFee: 0,
     totalNum: 0,
     total_good_weight_value: 0,
@@ -19,16 +20,21 @@ Page({
     overlayStyle: '',
     userInfo:{},
     commentInput: null,
+    promoCodeInput: null,
+    promoCodeInputApplyOrNot: false,
+    promoCodeHeaderId: 0,
     express_fee: 0,
+    origin_express_fee: 0,
     discount: 0,
-    input_border_color: '#edeeee', 
+    input_border_color: '#edeeee'
   },
+  // 点击优惠码框框变色
   input_border: function (e) {  
       //点击按钮，样式改变  
       let that = this;  
       that.setData({  
         input_border_color: '#ffd6b5'  
-    });  
+      });  
   },
   input_border_unclick_color:function(){
     this.setData({
@@ -60,32 +66,91 @@ Page({
       this.setData({
         express_fee: parseFloat(res.data)
       })
-    })
+      console.log("express:",res.data)
 
-    // 运费根据重量
-    request({
-      url: app.globalData.baseUrl + '/calculate/express_fee_with_weight?weight=' + total_good_weight_value,
-    })
-    .then(res=>{
+      ////////////////////////////////////////
+      // 运费根据重量
+      request({
+        url: app.globalData.baseUrl + '/calculate/express_fee_with_weight?weight=' + total_good_weight_value,
+      })
+      .then(res=>{
+        this.setData({
+          discount: parseFloat(res.data) - parseFloat(this.data.express_fee),
+          totalPriceWithExpressFee: parseFloat(totalPrice) + parseFloat(this.data.express_fee),
+          origin_express_fee: parseFloat(res.data)
+        })
+      })
+
       this.setData({
-        discount: parseFloat(res.data) - parseFloat(this.data.express_fee),
-        totalPriceWithExpressFee: parseFloat(totalPrice) + parseFloat(this.data.express_fee)
+        cart,
+        totalPrice,
+        totalNum,
+        total_good_weight_value,
+        address,
+        originTotalPrice: totalPrice
       })
     })
 
-    this.setData({
-      cart,
-      totalPrice,
-      totalNum,
-      total_good_weight_value,
-      address
-    })
   },
   
 
   commentInput:function(e){
       this.data.commentInput = e.detail.value;
   }, 
+
+  promoCodeInput:function(e){
+    this.data.promoCodeInput = e.detail.value;
+  },
+
+  submitPromoCode:function(e){
+
+    var addressStorage = wx.getStorageSync('address')
+    if(!addressStorage){
+    showToast({title:"请选择收货地址"});
+    }else{
+      // 获取promo code
+      request({
+        url: app.globalData.baseUrl + '/promo_code/checkPromoCode?promocode=' + this.data.promoCodeInput
+      })
+      .then(res=>{
+        if(res.data.success == true && this.data.promoCodeInputApplyOrNot == false){
+          wx.showToast({
+            title: '获得'+res.data.discount_rate+'折扣',
+            icon: 'success',
+            duration: 2000,
+            mask: true
+          });
+          var promoCodeHeaderIdValue = res.data.promoCodeHeaderId;
+          var discountValue = parseFloat(this.data.discount) + parseFloat(this.data.totalPrice.toFixed(2)) - parseFloat(this.data.totalPrice.toFixed(2)) * parseFloat(res.data.discount_rate.toFixed(2));
+          var totalPriceValue = parseFloat(this.data.totalPrice.toFixed(2)) * parseFloat(res.data.discount_rate.toFixed(2));
+          var totalPriceWithExpressFeeValue = totalPriceValue + this.data.express_fee;
+          totalPriceValue = totalPriceValue.toFixed(2)
+          totalPriceWithExpressFeeValue = totalPriceWithExpressFeeValue.toFixed(2)
+          discountValue = discountValue.toFixed(2)
+          console.log("promoCodeHeaderIdValue: " + promoCodeHeaderIdValue)
+          this.setData({  
+            promoCodeInputApplyOrNot: true,
+            discount: discountValue,
+            totalPrice: totalPriceValue,
+            totalPriceWithExpressFee: totalPriceWithExpressFeeValue,
+            promoCodeHeaderId: promoCodeHeaderIdValue
+          }); 
+          console.log(this.data.discount)
+        }else if(res.data.success == false){
+          showToast({title:"请输入正确的团长码"});
+        }else if(res.data.success == true && this.data.promoCodeInputApplyOrNot == true){
+          showToast({title:"您已输入提交团长码折扣"});
+        }  
+      })
+    }
+
+    
+  },
+
+  // 分享
+  onShareAppMessage: function () {
+    // return custom share data when user share.
+  },
   
   popup(e) {
     const position = e.currentTarget.dataset.position
@@ -144,9 +209,10 @@ Page({
       showToast({title:"请选择收货地址"});
      }else{
       // 去到user的东西
-      const userInfo = wx.getStorageSync("userInfo");
-      const userAddress = wx.getStorageSync('address')
-      const openid = wx.getStorageSync("openid");
+      var userInfo = wx.getStorageSync("userInfo");
+      var userAddress = wx.getStorageSync('address')
+      // const openid = wx.getStorageSync("openid");
+      var openid = app.globalData.openid;
       let cart = wx.getStorageSync("cart") || [];
       cart = cart.filter(v=>v.checked);
 
@@ -166,7 +232,7 @@ Page({
       totalPrice = totalPrice.toFixed(2);
 
       // 订单编号
-      const orderNumber = util.order_number();
+      var orderNumber = util.order_number();
 
       // 储存购物车信息
       let goods_arr = [];
@@ -193,11 +259,13 @@ Page({
 
       var express_fee_value = this.data.express_fee;
       var totalPriceWithExpressFee_value = this.data.totalPriceWithExpressFee;
+      var promoCodeHeaderIdValue = this.data.promoCodeHeaderId;
+      var orderdiscountValue = this.data.discount;
       wx.cloud.callFunction({
         name: 'cloudpay',
         data:{
           orderNumber: orderNumber,
-          totalPrice: totalPrice
+          totalPrice: totalPriceWithExpressFee_value
         },
         success: res => {
           const payment = res.result.payment
@@ -225,7 +293,8 @@ Page({
                   order_total_weight: total_good_weight_value,
                   order_express_fee: express_fee_value,
                   order_total_price_with_express_fee: totalPriceWithExpressFee_value,
-                  promo_code_header_id: 1,
+                  promoCodeHeaderId: promoCodeHeaderIdValue,
+                  order_total_discount: orderdiscountValue,
                   items: goods_json
                 },
                 success: function(res){

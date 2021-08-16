@@ -8,6 +8,9 @@ Page({
       totalPrice: 0,
       list: [],
       goods_list:[],
+      order_total_price_with_express_fee: 0,
+      discount:0,
+      shipment_number: null
   },
   goodInfo: {},
   Cates:[],
@@ -24,15 +27,30 @@ Page({
       url: app.globalData.baseUrl + '/order/listByOrderId?orderid='+options.order_id,
       success: function(res) {
         try {
-          var totalPrice = 0
+          var order_total_price_with_express_fee = res.data[0].order_total_price_with_express_fee;
+          var discount = res.data[0].order_total_discount;
+          var totalPrice = 0;
+
           for (const item of res.data[0].orderDetailList) {
             totalPrice += item.good_quantity * item.good_price
           }
           that.setData({
             orderInfo: res.data[0],
             orderDetailList: res.data[0].orderDetailList,
-            totalPrice: totalPrice
+            totalPrice: totalPrice,
+            order_total_price_with_express_fee: order_total_price_with_express_fee,
+            discount: discount
           })
+
+          request({
+            url: app.globalData.baseUrl + '/order/shipment/checkShipmentNumberByOrderNumber?order_number=' + res.data[0].order_number
+          })
+          .then(res=>{
+            that.setData({
+              shipment_number: res.data.shipment_number
+            })
+          })
+          
         } catch {
           that.setData({
             list: []
@@ -67,6 +85,13 @@ Page({
         goods_list: goods
       })
     })
+  },
+
+  
+
+  // 分享
+  onShareAppMessage: function () {
+    // return custom share data when user share.
   },
 
   // 主页面add button

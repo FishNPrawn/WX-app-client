@@ -62,51 +62,51 @@ page {
 }
 .box3 .shunfeng {
   display: flex;
-  font-size: 10px;
+  font-size: 11px;
   margin-left: 10px;
 }
 .box3 .shunfeng image {
-  width: 10px;
-  height: 10px;
+  width: 11px;
+  height: 11px;
   margin-top: 2px;
 }
 .box3 .shunfeng text {
-  color: rgba(136, 136, 136, 0.8);
+  color: rgba(59, 59, 59, 0.8);
   margin-left: 3px;
 }
 .box3 .order_today {
   display: flex;
-  font-size: 10px;
+  font-size: 11px;
   position: absolute;
   right: 45%;
 }
 .box3 .order_today image {
-  width: 10px;
-  height: 10px;
+  width: 11px;
+  height: 11px;
   margin-top: 2px;
 }
 .box3 .order_today text {
-  color: rgba(136, 136, 136, 0.8);
+  color: rgba(59, 59, 59, 0.8);
   margin-left: 3px;
 }
 .box3 .arrive_tmr {
   display: flex;
-  font-size: 10px;
+  font-size: 11px;
   position: absolute;
   right: 20px;
 }
 .box3 .arrive_tmr image {
-  width: 10px;
-  height: 10px;
+  width: 13px;
+  height: 13px;
   margin-top: 2px;
 }
 .box3 .arrive_tmr text {
-  color: rgba(136, 136, 136, 0.8);
+  color: rgba(59, 59, 59, 0.8);
   margin-left: 3px;
 }
 .main_category {
   background-color: white;
-  margin-top: 10px;
+  margin-top: 5px;
   padding-right: 20px;
   padding-left: 20px;
   height: 200px;
@@ -299,6 +299,7 @@ page {
   color: #4d4d4d;
   font-weight: 300;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  margin-left: 1%;
 }
 .preference_display .preference_row .preference_col .navigator_box .good_navigator .goods_msg .goods_sale .goods_sale_number {
   font-family: cursive;

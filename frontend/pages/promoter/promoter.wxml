@@ -1,0 +1,53 @@
+<view class="promoter_info">
+  <view class="prmoter_info_title">你的钱包</view>
+  <view class="prmoter_info_avatar_wrapper">
+    <image src="{{userInfo.avatarUrl}}" class="prmoter_info_avatar"></image>
+  </view>
+</view>
+
+<view class="commission_rate_title_wrapper">
+  <view class="commission_rate_title">佣金</view>
+</view>
+
+<view class="commission_earn_wrapper">
+  <view class="commission_earn_signal">￥</view>
+  <view class="commission_earn_number">{{total_commission}}</view>
+  <view class="commission_earn_rmb">RMB</view>
+</view>
+
+<view class="exchange_and_promo_code_wrapper">
+  <view class="exchange_and_promo_code">
+    <image src="https://fnpphoto.cn/icon/withdrawal.png" class="exchange_and_promo_code_image"></image>
+    <view class="exchange_and_promo_code_title">提现</view>
+  </view>
+  <view></view>
+  <view class="exchange_and_promo_code">
+    <image src="https://fnpphoto.cn/icon/promocode.png" class="exchange_and_promo_code_image"></image>
+    <text class="exchange_and_promo_code_title" user-select='true'>{{promo_code}}</text>
+  </view>
+</view>
+
+
+<view class="commission_order_wrapper">
+  <view class="commission_order_title">所有订单</view>
+  <view class="commission_order_detail_wrapper"
+        wx:for = "{{orderlistByPromoter}}"
+        wx:for-index="index1"
+        wx:for-item="item1"
+  >
+    <view class="commission_order">
+      <image src="https://fnpphoto.cn/icon/avatar2.jpg" class="commission_order_image"></image>
+      <view class="commission_order_info">
+        <view class="commission_order_info_1">
+          <view class="commission_order_info_1_username">{{item1.user_name}}</view>
+          <view class="commission_order_info_1_commission_earn">￥{{item1.earn}}</view>
+        </view>
+        <view class="commission_order_info_2">
+          <view class="commission_order_info_2_totalprice">总金额: {{item1.total_price_without_express_fee}}</view>
+          <view class="commission_order_info_2_line"></view>
+          <view class="commission_order_info_2_commission_rate">佣金率: {{commission_rate}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

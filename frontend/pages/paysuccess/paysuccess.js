@@ -1,3 +1,5 @@
+const util = require('../../utils/util.js');
+let app = getApp();
 // pages/paysuccess/paysuccess.js
 Page({
 
@@ -14,6 +16,36 @@ Page({
    */
   onLoad: function (options) {
 
+    var userInfo = wx.getStorageSync('userInfo');
+    var address = wx.getStorageSync('address');
+    // 当地时间
+    var time = util.formatTime(new Date());
+    // var openid = wx.getStorageSync("openid");
+    var openid = app.globalData.openid;
+    // 添加新用户到后台
+    wx.request({
+      url: app.globalData.baseUrl + '/userinfo/create',
+      method: "POST",
+      header:{
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      data:{
+        openid: openid,
+        session_key: "session_key",
+        username: userInfo.nickName,
+        city: userInfo.city,
+        phone: address.telNumber,
+        user_create_time: time,
+      },
+      success: function(res){
+        console.log("新用户添加成功", res.data);
+      }
+    })
+  },
+
+  // 分享
+  onShareAppMessage: function () {
+    // return custom share data when user share.
   },
 
   /**

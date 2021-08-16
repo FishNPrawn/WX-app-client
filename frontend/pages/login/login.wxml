@@ -4,6 +4,6 @@
 <image class="favicon" src="https://fnpphoto.cn/logo/favicon.png"></image>
 
 <view class="loginWrapper">
-  <button class="loginBtn" open-type="getUserInfo" bindgetuserinfo="handleGetUserInfo" plain>微信用户一键登录</button>
+  <button bindtap="getUserProfile" class="loginBtn">微信用户一键登录</button>
+  <!-- <button class="loginBtn" open-type="getUserInfo" bindgetuserinfo="handleGetUserInfo" plain>微信用户一键登录</button> -->
 </view>
-

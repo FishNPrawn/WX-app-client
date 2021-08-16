@@ -4,9 +4,12 @@
   <view wx:if="{{userInfo.avatarUrl}}" class="box1_row1">
     <image src="{{userInfo.avatarUrl}}" class="profile_img"></image>
     <view class="profile_name">{{userInfo.nickName}}</view>
+    <view wx:if="{{isPromoter == true}}" class="promoCodeBtnWrapper">
+      <view class="promoCodeBtn" bindtap="goToPromoter">团长</view>
+    </view>
   </view>
   <view wx:else class="box1_row1">
-    <image src="https://fnpphoto.cn/icon/avatar1.png" class="profile_img"></image>
+    <image src="https://fnpphoto.cn/icon/avatar2.jpg" class="profile_img"></image>
     <button class="profile_login" bindtap="goToLogin">请点击登录</button>
     <!-- <navigator url="/pages/auth/auth">请点击登录</navigator> -->
   </view>
@@ -18,11 +21,11 @@
       <view class="box1_row2_text">收藏</view>
     </view>
     <view class="box1_row2_img_name">
-      <image src="https://fnpphoto.cn/icon/wechat.png" class="box1_row2_icon"></image>
+      <image src="https://fnpphoto.cn/icon/wechat.png" class="box1_row2_icon" bindtap="goToOfficialAccount"></image>
       <view class="box1_row2_text">公众号</view>
     </view>
-    <view class="box1_row2_img_name">
-      <image bindtap="showCustomerServicePhone" src="https://fnpphoto.cn/icon/headphones.png" class="box1_row2_icon"></image>
+    <view class="box1_row2_img_name" bindtap="showCustomerServicePhone">
+      <image src="https://fnpphoto.cn/icon/headphones.png" class="box1_row2_icon"></image>
       <view class="box1_row2_text">客服</view>
     </view>
     <view class="box1_row2_img_name">

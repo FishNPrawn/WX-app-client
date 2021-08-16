@@ -34,11 +34,11 @@
     <view class="good_price_wrap">
       <view class="good_discount">
         已优惠
-        <view class="”good_discount_nums">￥12.3</view>
+        <view class="”good_discount_nums">￥{{discount}}</view>
       </view>
       <view class="good_price">
         <view class="rmb">合计</view>
-        <view class="good_price_value">￥{{totalPrice}}</view>
+        <view class="good_price_value">￥{{order_total_price_with_express_fee}}</view>
       </view>
     </view>
   </view>
@@ -57,7 +57,13 @@
     </view>
     <view class="deliver_msg_line2">
       <view class="deliver_way_title">配送服务</view>
-      <view class="deliver_way_msg">顺丰冷链</view>
+      <view class="deliver_way_msg">京东冷链</view>
+    </view>
+    <view class="deliver_msg_line2">
+      <view class="deliver_way_title">快递单号</view>
+      <view wx:if="{{orderInfo.orderStatus==1}}" class="deliver_way_msg">未发货</view>
+      <view wx:elif="{{orderInfo.orderStatus==4}}" class="deliver_way_msg">订单已取消</view>
+      <view wx:else class="deliver_way_msg">{{shipment_number}}</view>
     </view>
   </view>
 </view>

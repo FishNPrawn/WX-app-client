@@ -1,6 +1,7 @@
 import { getSetting, openSetting, showModal ,showToast} from "../../utils/asyncWx.js";
 const util = require('../../utils/util.js');
-
+//page object 
+let app = getApp();
 Page({
   data: {
     cart: [],
@@ -18,7 +19,10 @@ Page({
     // 底部导航栏购物车数量
     util.setTabBarBadgeNumber(cart);
   },
-  
+  // 分享
+  onShareAppMessage: function () {
+    // return custom share data when user share.
+  },
   // 商品的选中
   handeItemChange(e) {
     const good_id = e.currentTarget.dataset.id;
@@ -33,6 +37,26 @@ Page({
     wx.setStorageSync('userInfo', e.detail.userInfo);
     if (wx.getStorageSync('userInfo')) {
       this.handlePay();
+    }
+  },
+
+  getUserProfile(e) {
+    if (wx.getStorageSync('userInfo')) {
+      this.handlePay();
+    }else{
+      // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认
+      // 开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
+      wx.getUserProfile({
+        desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+        success: (res) => {
+          wx.setStorageSync('userInfo', res.userInfo)
+          this.setData({
+            userInfo: res.userInfo,
+            hasUserInfo: true
+          })
+          this.handlePay();
+        }
+      })
     }
   },
 

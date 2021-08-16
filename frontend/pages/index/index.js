@@ -50,6 +50,14 @@ Page({
     util.setTabBarBadgeNumber(cart);
   },
 
+  onPullDownRefresh: function () {
+    this.onLoad(); //重新加载onLoad()
+  },
+
+  onShareAppMessage: function () {
+    // return custom share data when user share.
+  },
+
   //获取轮播图数据
   getSwiperList(){
     request({url: app.globalData.baseUrl + '/allswiper/getAllSwiper'}) 

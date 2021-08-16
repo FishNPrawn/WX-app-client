@@ -7,6 +7,12 @@ Page({
     // 定义inputValue，输入框的input值，初始化为空
     inputValue: ""
   },
+
+  // 分享
+  onShareAppMessage: function () {
+    // return custom share data when user share.
+  },
+
   handleInput: function (e) {
     // 获取输入框的值
     const { value } = e.detail

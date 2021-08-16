@@ -1,4 +1,6 @@
 // pages/entry/entry.js
+//page object 
+let app = getApp();
 Page({
 
   /**
@@ -22,6 +24,11 @@ Page({
     wx.switchTab({
       url: '/pages/index/index',
     })
+  },
+
+  // 分享
+  onShareAppMessage: function () {
+    // return custom share data when user share.
   },
 
   /**

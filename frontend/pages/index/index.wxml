@@ -19,7 +19,7 @@
 <view class = "pyq_index">
   <!-- 轮播图开始-->
   <view class = "index_swiper">
-    <swiper autoplay="TRUE" indicator-dots="TRUE" circular="TRUE">
+    <swiper autoplay="TRUE" indicator-dots="TRUE" circular="TRUE" style="height:45vw">
       <swiper-item
         wx:for="{{swiperList}}"
         wx:key="good_id"
@@ -33,15 +33,15 @@
 
 <view class="box3">
   <view class="shunfeng">
-    <image src="https://fnpphoto.cn/icon/shunfeng.png"></image>
+    <image src="https://fnpphoto.cn/icon/JDExpress.png"></image>
     <text>京东冷链</text>
   </view>
   <view class="order_today">
-    <image src="https://fnpphoto.cn/icon/check_icon.png"></image>
+    <image src="https://fnpphoto.cn/icon/check_yes.png"></image>
     <text>次日达</text>
   </view>
   <view class="arrive_tmr">
-    <image src="https://fnpphoto.cn/icon/truck.png"></image>
+    <image src="https://fnpphoto.cn/icon/truck2.png"></image>
     <text>产地直销</text>
   </view>
 </view>

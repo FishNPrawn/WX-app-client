@@ -111,6 +111,7 @@ page{
                 font-size: 20rpx;
                 color: rgb(77, 77, 77);
                 font-weight: 300;
+                margin-left: 1%;
                 font-family:  'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
                 .goods_sale_number{
                   font-family: cursive;
@@ -229,7 +230,10 @@ page{
         }
         .comment_btn_wrapper{
           padding-bottom: 10px;
-          margin-left: 77%;
+          // margin-left: 77%;
+          display: flex;
+          justify-content: flex-end;
+          margin-right: 3%;
           .comment_btn{
             border: 1px solid #FFA760;
             height: 30px;
@@ -241,6 +245,40 @@ page{
             text-align: center;
             font-size: 14px;
             border-radius: 20px;
+            // margin-left: 74%;
+          }
+          .comment_btn_cancel{
+            border: 1px solid red;
+            color: red;
+          }
+          .comment_btn_check{
+            display: flex;
+            // margin-left: 49%;
+            .check_express{
+              border: 1px solid #b9b9b9;
+              height: 30px;
+              width: 80px;
+              color: #000000;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              text-align: center;
+              font-size: 14px;
+              border-radius: 20px;
+              margin-right: 5px;
+            }
+            .confirm_order{
+              border: 1px solid #FFA760;
+              height: 30px;
+              width: 80px;
+              color: #FFA760;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              text-align: center;
+              font-size: 14px;
+              border-radius: 20px;
+            }
           }
         }
       }
@@ -265,7 +303,7 @@ page{
       .cart_item {
         .cart_info_comment_wrapper{
           .comment_btn_wrapper{
-            margin-left: 74%;
+            // margin-left: 74%;
           }
         }
       }
