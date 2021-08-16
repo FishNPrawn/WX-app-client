@@ -19,7 +19,6 @@ Page({
       url: app.globalData.baseUrl + '/promo_code/checkPromoCodeByOpenId?openId=' + openId
     }) 
     .then(result=>{
-      console.log(result.data.success)
       if(result.data.success == true){
         this.setData({
           isPromoter:true
@@ -43,7 +42,6 @@ Page({
       url: app.globalData.baseUrl + '/promo_code/checkPromoCodeByOpenId?openId=' + openId
     }) 
     .then(result=>{
-      console.log(result.data.success)
       if(result.data.success == true){
         this.setData({
           isPromoter:true
@@ -108,6 +106,12 @@ Page({
     wx.navigateTo({
       title: "关于我们",
       url: "/pages/aboutus/aboutus"
+    })
+  },
+
+  goToOfficialAccount: function(){
+    wx.navigateTo({
+      url: "/pages/official-account/official-account"
     })
   },
 

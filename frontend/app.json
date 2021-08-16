@@ -20,7 +20,8 @@
     "pages/searchResult/searchResult",
     "pages/auth/auth",
     "pages/logs/logs",
-    "pages/aboutus/aboutus"
+    "pages/aboutus/aboutus",
+    "pages/official-account/official-account"
   ],
   "window":{
     "backgroundTextStyle":"dark",

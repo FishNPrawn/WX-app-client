@@ -59,6 +59,11 @@
       <view class="deliver_way_title">配送服务</view>
       <view class="deliver_way_msg">京东冷链</view>
     </view>
+    <view class="deliver_msg_line2">
+      <view class="deliver_way_title">快递单号</view>
+      <view wx:if="{{orderInfo.orderStatus==1}}" class="deliver_way_msg">未发货</view>
+      <view wx:if="{{orderInfo.orderStatus!=1}}" class="deliver_way_msg">{{shipment_number}}</view>
+    </view>
   </view>
 </view>
 

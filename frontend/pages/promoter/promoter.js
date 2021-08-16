@@ -59,6 +59,7 @@ Page({
         result.data.data[i].earn = (result.data.data[i].total_price_without_express_fee *this.data.commission_rate).toFixed(2);
         // total_commission = (total_commission + result.data.data[i].total_price_without_express_fee*this.data.commission_rate).toFixed(2);
         total_commission = parseFloat(total_commission) + parseFloat(result.data.data[i].earn)
+        total_commission = total_commission.toFixed(2)
         order.push(result.data.data[i])
       }
       this.setData({

@@ -17,12 +17,12 @@
 
 <view class="exchange_and_promo_code_wrapper">
   <view class="exchange_and_promo_code">
-    <image src="../../icon/withdrawal.png" class="exchange_and_promo_code_image"></image>
+    <image src="https://fnpphoto.cn/icon/withdrawal.png" class="exchange_and_promo_code_image"></image>
     <view class="exchange_and_promo_code_title">提现</view>
   </view>
   <view></view>
   <view class="exchange_and_promo_code">
-    <image src="../../icon/promocode.png" class="exchange_and_promo_code_image"></image>
+    <image src="https://fnpphoto.cn/icon/promocode.png" class="exchange_and_promo_code_image"></image>
     <text class="exchange_and_promo_code_title" user-select='true'>{{promo_code}}</text>
   </view>
 </view>

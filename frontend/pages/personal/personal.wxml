@@ -21,7 +21,7 @@
       <view class="box1_row2_text">收藏</view>
     </view>
     <view class="box1_row2_img_name">
-      <image src="https://fnpphoto.cn/icon/wechat.png" class="box1_row2_icon"></image>
+      <image src="https://fnpphoto.cn/icon/wechat.png" class="box1_row2_icon" bindtap="goToOfficialAccount"></image>
       <view class="box1_row2_text">公众号</view>
     </view>
     <view class="box1_row2_img_name" bindtap="showCustomerServicePhone">

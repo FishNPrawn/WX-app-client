@@ -9,7 +9,8 @@ Page({
       list: [],
       goods_list:[],
       order_total_price_with_express_fee: 0,
-      discount:0
+      discount:0,
+      shipment_number: null
   },
   goodInfo: {},
   Cates:[],
@@ -28,7 +29,6 @@ Page({
         try {
           var order_total_price_with_express_fee = res.data[0].order_total_price_with_express_fee;
           var discount = res.data[0].order_total_discount;
-          console.log("order_total_price_with_express_fee:" + order_total_price_with_express_fee);
           var totalPrice = 0;
 
           for (const item of res.data[0].orderDetailList) {
@@ -41,6 +41,16 @@ Page({
             order_total_price_with_express_fee: order_total_price_with_express_fee,
             discount: discount
           })
+
+          request({
+            url: app.globalData.baseUrl + '/order/shipment/checkShipmentNumberByOrderNumber?order_number=' + res.data[0].order_number
+          })
+          .then(res=>{
+            that.setData({
+              shipment_number: res.data.shipment_number
+            })
+          })
+          
         } catch {
           that.setData({
             list: []
@@ -76,6 +86,8 @@ Page({
       })
     })
   },
+
+  
 
   // 分享
   onShareAppMessage: function () {
