@@ -62,7 +62,8 @@
     <view class="deliver_msg_line2">
       <view class="deliver_way_title">快递单号</view>
       <view wx:if="{{orderInfo.orderStatus==1}}" class="deliver_way_msg">未发货</view>
-      <view wx:if="{{orderInfo.orderStatus!=1}}" class="deliver_way_msg">{{shipment_number}}</view>
+      <view wx:elif="{{orderInfo.orderStatus==4}}" class="deliver_way_msg">订单已取消</view>
+      <view wx:else class="deliver_way_msg">{{shipment_number}}</view>
     </view>
   </view>
 </view>
