@@ -65,11 +65,11 @@
       <image src="https://fnpphoto.cn/icon/address.png" class="box2_row_icon"></image>
       <view class="box2_row_text">地址管理</view>
     </view>
-    <view class="box2_row_img_name">
-      <image src="https://fnpphoto.cn/icon/waiting.png" class="box2_row_icon"></image>
-      <view class="box2_row_text">待定</view>
+    <view class="box2_row_img_name" bindtap="enterBePromoter">
+      <image src="https://fnpphoto.cn/icon/coupon.png" class="box2_row_icon"></image>
+      <view class="box2_row_text">团长</view>
     </view>
-    <view class="box2_row_img_name">
+    <view class="box2_row_img_name" bindtap="enterPlatformRule">
       <image src="https://fnpphoto.cn/icon/rule.png" class="box2_row_icon"></image>
       <view class="box2_row_text">平台规则</view>
     </view>
@@ -82,6 +82,18 @@
     <view class="box2_row_img_name">
       <image src="https://fnpphoto.cn/icon/joinus.png" class="box2_row_icon"></image>
       <view class="box2_row_text">加入我们</view>
+    </view>
+    <view class="box2_row_img_name">
+      <image src="https://fnpphoto.cn/icon/waiting.png" class="box2_row_icon"></image>
+      <view class="box2_row_text">待定</view>
+    </view>
+    <view class="box2_row_img_name">
+      <image src="https://fnpphoto.cn/icon/waiting.png" class="box2_row_icon"></image>
+      <view class="box2_row_text">待定</view>
+    </view>
+    <view class="box2_row_img_name">
+      <image src="https://fnpphoto.cn/icon/waiting.png" class="box2_row_icon"></image>
+      <view class="box2_row_text">待定</view>
     </view>
   </view>
 </view>

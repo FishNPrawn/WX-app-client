@@ -99,6 +99,16 @@ Page({
       url: '../promoter/promoter'
     })
   },
+
+  enterBePromoter: function(){
+    if(this.data.isPromoter == true){
+      showToast({title:"你已经是团长!"});
+    }else{
+      wx.navigateTo({
+        url: '/pages/promocodeIntro/promocodeIntro'
+      })
+    }
+  },
   
 
   // 跳转到’关于我们‘公众号
@@ -106,6 +116,13 @@ Page({
     wx.navigateTo({
       title: "关于我们",
       url: "/pages/aboutus/aboutus"
+    })
+  },
+
+  enterPlatformRule: function(){
+    wx.navigateTo({
+      title: "平台规则",
+      url: "/pages/platformRule/platformRule"
     })
   },
 

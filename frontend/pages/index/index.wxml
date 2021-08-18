@@ -74,9 +74,9 @@
   </index>
 </view>
 
-<view class="ads">
+<view class="ads" bindtap="goToAds">
   <view class="ads_left">
-    <view class="ads_text1">鲜活鲍鱼19.9元/5只</view>
+    <view class="ads_text1">每日新鲜</view>
     <view class="ads_text2">鲜美味道挡不住</view>
     <view class="ads_btn">
       <view>立即抢购</view>
@@ -85,7 +85,8 @@
   </view>
   <view class="ads_right1"></view>
   <view class="ads_right2"></view>
-  <image class="ads_img" src="https://fnpphoto.cn/icon/ads_img.png"></image>
+  <!-- <image class="ads_img" src="https://fnpphoto.cn/icon/ads_img.png"></image> -->
+  <image class="ads_img" src="https://fnpphoto.cn/ads/ads1.jpg"></image>
 </view>
 
 <!--Preference goods display-->

@@ -8,6 +8,8 @@
     "pages/pay/pay",
     "pages/logistics/logistics",
     "pages/login/login",
+    "pages/bePromoter/bePromoter",
+    "pages/promocodeIntro/promocodeIntro",
     "pages/comment_success/comment_success",
     "pages/comment/comment",
     "pages/paysuccess/paysuccess",
@@ -21,7 +23,8 @@
     "pages/auth/auth",
     "pages/logs/logs",
     "pages/aboutus/aboutus",
-    "pages/official-account/official-account"
+    "pages/official-account/official-account",
+    "pages/platformRule/platformRule"
   ],
   "window":{
     "backgroundTextStyle":"dark",

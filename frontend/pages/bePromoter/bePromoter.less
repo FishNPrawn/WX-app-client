@@ -1,0 +1,205 @@
+page{
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background: url(https://fnpphoto.cn/background/bePromoterBackground3.jpg);
+  background-position: 40%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.userInfoWrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 25%;
+  .profile_img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 6px 6px;
+  }
+  .profile_name{
+    font-size: 22px;
+    margin-top: 2%;
+    font-weight: 500;
+  }
+}
+
+.form_box{
+  display: block;
+  width: 100%;
+  background-color: #cbddf0;
+  border-radius: 40px 40px 0 0;
+  padding: 30px 0 20px 0;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+  position: absolute;
+  bottom: 0%;
+  .form_wrapper{
+    padding: 0px 15px 20px 20px;
+    .register_title{
+      font-size: 35px;
+      letter-spacing: 4px;
+      font-weight: 500;
+      padding-bottom: 10px;
+    }
+    .form_line1{
+      display: grid;
+      grid-template-columns: 0.6fr 0.1fr 0.6fr;
+      .form_line1_wrapper{
+        .name_title, .phone_title{
+          padding-bottom: 5px;
+        }
+        .name_input_wrapper, .name_input_wrapper{
+          display: flex;
+          align-items: center;
+          // background-color: white;
+          padding: 8px 0 8px 12px;
+          border-radius: 5px;
+          transition: 1s;
+          // box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 8px;
+          border: 2px solid whitesmoke;
+          image{
+            width: 20px;
+            height: 20px;
+            padding-right: 4px;
+          }
+          .name_input, .phone_input{
+            width: 75%;
+            color: white;
+          }
+        }
+        .name_input_wrapper:hover, .name_input_wrapper:hover{
+          border: 2px solid #b0bef8;
+        }
+      }
+    }
+    .city_title, .address_title{
+      margin-top: 20px;
+      padding-bottom: 5px;
+    }
+    .create{
+      width: 60px;
+      height: 60px;
+      background-color: #7993fc;
+      border-radius: 20px;
+      box-shadow: rgba(125, 161, 216, 0.7) 0px 4px 12px;
+      margin-top: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      image{
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+
+    .address_wrapper, .city_wrapper{
+      .address_title, .city_title{
+        padding-bottom: 5px;
+      }
+      .address_input_wrapper, .city_input_wrapper{
+        display: flex;
+        align-items: center;
+        padding: 8px 0 8px 12px;
+        border-radius: 5px;
+        transition: 1s;
+        border: 2px solid whitesmoke;
+        // box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 8px;
+        image{
+          width: 20px;
+          height: 20px;
+          padding-right: 4px;
+        }
+        .arrow_down{
+          position: absolute;
+          right: 7%;
+        }
+        .address_input{
+          width: 90%;
+          color: white;
+        }
+        text{
+          color: white;
+        }
+      }
+      .address_input_wrapper:hover, .city_input_wrapper:hover{
+        border: 2px solid #b0bef8;
+      }
+    }
+    
+    .select_box{
+      background-color: #b0bef8;
+      padding: 0 20rpx;
+      width: 85%;
+      height:90px;
+      position: absolute;
+      z-index: 100;
+      overflow: hidden;
+      animation: myfirst 0.5s;
+      border-radius: 5px;
+      color: white;
+      .select_one {
+        height: 60rpx;
+        line-height: 60rpx;
+        // border-bottom: 1px solid #ccc;
+      }
+    }
+  }
+}
+
+@media screen and (max-width:320px){
+  .form_box{
+    padding: 10px 0 10px 0; 
+    .form_wrapper{
+      padding: 0px 15px 20px 20px;
+      .register_title{
+        font-size: 30px;
+        letter-spacing: 4px;
+        font-weight: 500;
+        padding-bottom: 5px;
+      }
+      .form_line1{
+        display: grid;
+        grid-template-columns: 0.6fr 0.1fr 0.6fr;
+      }
+      .Input{
+        border-radius: 5px;
+        margin-top: 5px;
+        padding: 5px;
+        background-color: white;
+        box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 8px;
+        padding: 6px 0 6px 10px;
+      }
+      .city_title, .address_title{
+        margin-top: 5px;
+      }
+      .create{
+        width: 55px;
+        height: 55px;
+        background-color: #7993fc;
+        border-radius: 20px;
+        box-shadow: rgba(125, 161, 216, 0.7) 0px 4px 12px;
+        margin-top: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        image{
+          width: 30px;
+          height: 30px;
+        }
+      }
+  
+    }
+    
+  }
+}
+
+
+@keyframes myfirst {
+  from{
+    height: 0rpx;
+  }
+  to {
+    height: 210rpx;
+  }
+}

@@ -57,24 +57,26 @@ App({
         }
       })
     }
-    // 测试------------------------------------------------
-    wx.login({
-      success (res) {
-        if (res.code) {
-          //发起网络请求
-          wx.request({
-            url: 'https://joynfish.com/wechat/getOpenId',
-            data: {
-              code: res.code
-            },
-            success:function(res) {
-              // wx.setStorageSync("openid", res.data.openid);//将用户id保存到缓存中
-            }
-          })
-        } else {
-          console.log('登录失败！' + res.errMsg)
+
+    // 版本更新，会弹出框框询问是否更新
+    const updateManager = wx.getUpdateManager()
+    updateManager.onCheckForUpdate(function (res) {
+      // console.log(res.hasUpdate)
+    })
+    updateManager.onUpdateReady(function () {
+      wx.showModal({
+        title: '更新提示',
+        content: '新版本已经准备好，是否重启应用？',
+        success(res) {
+          if (res.confirm) {
+            // 新的版本已经下载好，调用 applyUpdate 应用新版本并重启
+            updateManager.applyUpdate()
+          }
         }
-      }
+      })
+    })
+    updateManager.onUpdateFailed(function () {
+      // 新版本下载失败
     })
   },
 
@@ -102,8 +104,8 @@ App({
   globalData: {
     userInfo: {},
     openid: null,
-    // baseUrl: 'https://joynfish.com'
-    baseUrl: 'https://fishnprawn.cn:8443'
+    baseUrl: 'https://joynfish.com'
+    // baseUrl: 'https://fishnprawn.cn:8443'
     // baseUrl: 'http://localhost:8080'
   }
 })
