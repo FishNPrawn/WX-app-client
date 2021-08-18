@@ -41,7 +41,7 @@ Page({
       input_border_color: '#edeeee'  
     });
   },
-  onShow() {
+  onLoad() {
     const address = wx.getStorageSync("address");
     let cart = wx.getStorageSync("cart") || [];
     cart = cart.filter(v=>v.checked);
@@ -66,7 +66,6 @@ Page({
       this.setData({
         express_fee: parseFloat(res.data)
       })
-      console.log("express:",res.data)
 
       ////////////////////////////////////////
       // 运费根据重量
@@ -87,7 +86,8 @@ Page({
         totalNum,
         total_good_weight_value,
         address,
-        originTotalPrice: totalPrice
+        originTotalPrice: totalPrice,
+        promoCodeInputApplyOrNot: false
       })
     })
 
@@ -127,7 +127,7 @@ Page({
           totalPriceValue = totalPriceValue.toFixed(2)
           totalPriceWithExpressFeeValue = totalPriceWithExpressFeeValue.toFixed(2)
           discountValue = discountValue.toFixed(2)
-          console.log("promoCodeHeaderIdValue: " + promoCodeHeaderIdValue)
+          
           this.setData({  
             promoCodeInputApplyOrNot: true,
             discount: discountValue,
@@ -135,7 +135,7 @@ Page({
             totalPriceWithExpressFee: totalPriceWithExpressFeeValue,
             promoCodeHeaderId: promoCodeHeaderIdValue
           }); 
-          console.log(this.data.discount)
+          
         }else if(res.data.success == false){
           showToast({title:"请输入正确的团长码"});
         }else if(res.data.success == true && this.data.promoCodeInputApplyOrNot == true){

@@ -57,32 +57,12 @@ App({
         }
       })
     }
-    // 测试------------------------------------------------
-    wx.login({
-      success (res) {
-        if (res.code) {
-          //发起网络请求
-          wx.request({
-            url: 'https://joynfish.com/wechat/getOpenId',
-            data: {
-              code: res.code
-            },
-            success:function(res) {
-              // wx.setStorageSync("openid", res.data.openid);//将用户id保存到缓存中
-            }
-          })
-        } else {
-          console.log('登录失败！' + res.errMsg)
-        }
-      }
-    })
 
     // 版本更新，会弹出框框询问是否更新
     const updateManager = wx.getUpdateManager()
     updateManager.onCheckForUpdate(function (res) {
-      console.log(res.hasUpdate)
+      // console.log(res.hasUpdate)
     })
-
     updateManager.onUpdateReady(function () {
       wx.showModal({
         title: '更新提示',

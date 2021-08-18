@@ -110,9 +110,9 @@ page {
   box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
 }
 .box2 .box2_row_warper {
-  display: flex;
-  padding: 10px 25px 10px 25px;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 0.25fr 0.25fr 0.25fr 0.25fr;
+  padding: 15px 10px 15px 10px;
 }
 .box2 .box2_row_warper .box2_row_img_name {
   text-align: center;

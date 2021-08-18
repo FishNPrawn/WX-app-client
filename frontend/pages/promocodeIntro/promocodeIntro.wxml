@@ -1,0 +1,7 @@
+<view class="box">
+  <view class="promocodeTitle">欢迎!未来团长</view>
+  <view class="promocodeText">现在加入我们，成为欢喜食货团长，赚取佣金🚀</view>
+  <view class="registerBtn" bindtap="goToReigstePromoCode">
+    成为团长
+  </view>
+</view>

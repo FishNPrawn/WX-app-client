@@ -1,0 +1,61 @@
+<view class="userInfoWrapper">
+  <image src="{{userInfo.avatarUrl}}" class="profile_img"></image>
+  <view class="profile_name">{{userInfo.nickName}}</view>
+</view>
+
+
+<view class="form_box">
+  <view class="form_wrapper">
+    <view class="register_title">注册</view>
+    <view class="form_line1">
+      <view class="form_line1_wrapper">
+        <view class="name_title">姓名</view>
+        <view class="name_input_wrapper">
+          <image src="https://fnpphoto.cn/icon/avatar_white.png"></image>
+          <input class="name_input" placeholder="" bindinput="nameInput" />
+        </view>
+      </view>
+      <view></view>
+      <view class="form_line1_wrapper">
+        <view class="phone_title">电话</view>
+        <view class="name_input_wrapper">
+          <image src="https://fnpphoto.cn/icon/phone_white.png"></image>
+          <input type="number" class="phone_input" placeholder="" bindinput="phoneInput" />
+        </view>
+      </view>
+    </view>
+
+    <view class="city_wrapper">
+      <view class="city_title">城市</view>
+      <view class="city_input_wrapper" bindtap='bindShowMsg'>
+        <image src="https://fnpphoto.cn/icon/city_white.png"></image>
+        <text>{{defaultCity}}</text>
+        <image class="arrow_down" src='https://fnpphoto.cn/icon/down_arrow_white.png'></image>
+      </view>
+    </view>
+
+    <view class="select_box" wx:if="{{select}}">
+      <scroll-view scroll-y="true" style="height: 90%">
+        <view wx:for="{{cityContent}}"
+          data-index="{{index}}"
+          wx:for-item="item">
+          <view class="select_one" bindtap="mySelect" data-name="{{item}}">{{item}}</view>
+          </view>
+      </scroll-view>
+    </view>
+
+    <view class="address_wrapper">
+      <view class="address_title">地址</view>
+      <view class="address_input_wrapper">
+        <image src="https://fnpphoto.cn/icon/address_white.png"></image>
+        <input type="text" class="address_input" placeholder="" bindinput="addressInput" value="{{address.all}}" />
+      </view>
+    </view>
+
+    <view class="create" bindtap="createPromoCode">
+      <image src='https://fnpphoto.cn/icon/right-arrow-white.png'></image>
+    </view>
+    
+  </view>
+  
+</view>
