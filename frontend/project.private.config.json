@@ -21,7 +21,14 @@
         {
           "name": "授权页面",
           "pathName": "pages/auth/auth",
+          "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/official-account/official-account",
+          "pathName": "pages/official-account/official-account",
+          "query": "",
+          "scene": 1011
         }
       ]
     }

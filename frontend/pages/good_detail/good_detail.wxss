@@ -158,7 +158,7 @@ page {
 .goods_name_row .info_box2 .info_table {
   display: block;
   width: 93%;
-  height: 36vw;
+  height: 25vw;
   margin: auto;
   font-size: 13px;
 }
@@ -230,6 +230,7 @@ page {
   justify-content: center;
   align-items: center;
   font-weight: 440;
+  border-radius: 0 0 0 10px;
 }
 .goods_name_row .info_box2 .info_table .row .good_publish_date .good_publish_value {
   height: 100%;
@@ -243,6 +244,7 @@ page {
   display: flex;
   align-items: center;
   width: 50%;
+  border-radius: 0 0 10px 0;
 }
 .goods_name_row .info_box2 .info_table .row .good_branch .good_branch_title {
   background-color: #edf1f4;
@@ -261,6 +263,7 @@ page {
   justify-content: center;
   align-items: center;
   margin-left: 10px;
+  border-radius: 0 0 10px 0;
 }
 .goods_name_row .info_box2 .info_table .row .good_size {
   display: flex;
@@ -312,7 +315,7 @@ page {
 .goods_name_row .info_box2 .info_table .row1 {
   border-radius: 10px 10px 0px 0px;
 }
-.goods_name_row .info_box2 .info_table .row4 {
+.goods_name_row .info_box2 .info_table .row2 {
   border-radius: 0px 0px 10px 10px;
 }
 .goods_name_row .comment_box {
@@ -382,6 +385,27 @@ page {
 .goods_name_row .comment_box .comment_list_wrapper .comment_list .user_comment {
   padding: 10px 0 10px 0;
   font-size: 15px;
+}
+.goods_name_row .attention_box {
+  display: block;
+  background-color: #fff;
+  height: 100%;
+  width: 94%;
+  border-radius: 10px;
+  margin: auto;
+  margin-top: 10px;
+}
+.goods_name_row .attention_box .attention_box_wrapper {
+  padding: 15px 5px 15px 15px;
+}
+.goods_name_row .attention_box .attention_box_wrapper .attention_title {
+  padding-bottom: 15px;
+  font-weight: 400;
+  font-size: 16px;
+}
+.goods_name_row .attention_box .attention_box_wrapper .attention_article {
+  color: red;
+  font-size: 14px;
 }
 .goods_name_row .info_box3 {
   background-color: #fff;
@@ -660,6 +684,13 @@ page {
     width: 56%;
     height: 70%;
   }
+  .attention_box .attention_box_wrapper .attention_title {
+    font-size: 14px;
+  }
+  .attention_box .attention_box_wrapper .attention_article {
+    color: red;
+    font-size: 12px;
+  }
 }
 @media screen and (max-width: 375px) {
   .goods_name_row .info_box1 .goods_price .goods_price1 {
@@ -692,5 +723,12 @@ page {
   }
   .goods_name_row .info_box2 .info_table .row {
     height: 11vw;
+  }
+  .goods_name_row .attention_box .attention_box_wrapper .attention_title {
+    font-size: 16px;
+  }
+  .goods_name_row .attention_box .attention_box_wrapper .attention_article {
+    color: red;
+    font-size: 14px;
   }
 }

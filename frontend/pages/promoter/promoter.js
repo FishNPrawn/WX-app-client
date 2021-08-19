@@ -11,7 +11,8 @@ Page({
     orderlistByPromoter: [],
     total_commission: 0,
     promo_code: null,
-    commission_rate: null
+    commission_rate: null,
+    commission_rate_percent: null
   },
 
   /**
@@ -27,10 +28,12 @@ Page({
       url: app.globalData.baseUrl + '/promo_code/checkPromoCodeByOpenId?openId=' + openId
     }) 
     .then(result=>{
+      var commission_rate_percent = result.data.commission_rate*100;
       if(result.data.success == true){
         this.setData({
           promo_code: result.data.promo_code,
-          commission_rate: result.data.commission_rate
+          commission_rate: result.data.commission_rate,
+          commission_rate_percent: commission_rate_percent
         })
       }
     })

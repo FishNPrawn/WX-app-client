@@ -8,7 +8,8 @@ Page({
   userInfo:{},
   address: {},
   url: '#',
-  isPromoter: false
+  isPromoter: false,
+  promo_code_verify: 3
  },
   goodInfo: {},
   Cates:[],
@@ -19,11 +20,23 @@ Page({
       url: app.globalData.baseUrl + '/promo_code/checkPromoCodeByOpenId?openId=' + openId
     }) 
     .then(result=>{
-      if(result.data.success == true){
+      if(result.data.success == true && result.data.promo_code_verify == 1){
         this.setData({
-          isPromoter:true
+          isPromoter:true,
+          promo_code_verify: 1
         })
         wx.setStorageSync('promoCodeHeaderId', result.data.promoCodeHeaderId)
+      }else if(result.data.success == true && result.data.promo_code_verify == 0){
+        this.setData({
+          isPromoter:true,
+          promo_code_verify: 0
+        })
+      }
+      else if(result.data.success == true && result.data.promo_code_verify == 2){
+        this.setData({
+          isPromoter:true,
+          promo_code_verify: 2
+        })
       }
     })
   },
@@ -42,9 +55,10 @@ Page({
       url: app.globalData.baseUrl + '/promo_code/checkPromoCodeByOpenId?openId=' + openId
     }) 
     .then(result=>{
-      if(result.data.success == true){
+      if(result.data.success == true && result.data.promo_code_verify == 1){
         this.setData({
-          isPromoter:true
+          isPromoter:true,
+          promo_code_verify: 1
         })
         wx.setStorageSync('promoCodeHeaderId', result.data.promoCodeHeaderId)
       }
@@ -101,12 +115,27 @@ Page({
   },
 
   enterBePromoter: function(){
-    if(this.data.isPromoter == true){
-      showToast({title:"你已经是团长!"});
+
+    var userInfo = wx.getStorageSync('userInfo');
+    var address = wx.getStorageSync('address');
+
+    if(!userInfo){
+      showToast({title:"请先登录"});
     }else{
-      wx.navigateTo({
-        url: '/pages/promocodeIntro/promocodeIntro'
-      })
+      if(!address){
+        showToast({title:"请选择地址"});
+      }else{
+        // if(this.data.isPromoter == true){
+        //   showToast({title:"你已经是团长!"});
+        // }else{
+        //   wx.navigateTo({
+        //     url: '/pages/promocodeIntro/promocodeIntro'
+        //   })
+        // }
+        wx.navigateTo({
+          url: '/pages/promocodeIntro/promocodeIntro'
+        })
+      }
     }
   },
   
@@ -116,6 +145,13 @@ Page({
     wx.navigateTo({
       title: "关于我们",
       url: "/pages/aboutus/aboutus"
+    })
+  },
+
+  enterLeaveMessage: function(){
+    wx.navigateTo({
+      title: "建议留言",
+      url: "/pages/leaveMessage/leaveMessage"
     })
   },
 

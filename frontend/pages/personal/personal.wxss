@@ -42,6 +42,40 @@ page {
   justify-content: center;
   border-radius: 20px;
 }
+.box1 .box1_row1 .promoCodeBtnWrapper0 {
+  color: #fff;
+  font-size: 18px;
+  margin-left: 5%;
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.box1 .box1_row1 .promoCodeBtnWrapper0 .promoCodeBtn {
+  border: 1px solid white;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+}
+.box1 .box1_row1 .promoCodeBtnWrapper2 {
+  color: #fff;
+  font-size: 18px;
+  margin-left: 5%;
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.box1 .box1_row1 .promoCodeBtnWrapper2 .promoCodeBtn {
+  border: 1px solid white;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+}
 .box1 .box1_row1 .profile_login {
   padding: 0;
   border: none;

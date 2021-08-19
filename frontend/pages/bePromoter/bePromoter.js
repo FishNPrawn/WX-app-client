@@ -81,7 +81,8 @@ Page({
           address: address,
           city: city,
           remark: remark,
-          openId: openid
+          openId: openid,
+          promo_code_verify: 0
         }
       })
       .then(res=>{

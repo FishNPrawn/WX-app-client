@@ -4,8 +4,14 @@
   <view wx:if="{{userInfo.avatarUrl}}" class="box1_row1">
     <image src="{{userInfo.avatarUrl}}" class="profile_img"></image>
     <view class="profile_name">{{userInfo.nickName}}</view>
-    <view wx:if="{{isPromoter == true}}" class="promoCodeBtnWrapper">
-      <view class="promoCodeBtn" bindtap="goToPromoter">团长</view>
+    <view wx:if="{{isPromoter == true && promo_code_verify == 1}}" class="promoCodeBtnWrapper" bindtap="goToPromoter">
+      <view class="promoCodeBtn">团长</view>
+    </view>
+    <view wx:elif="{{isPromoter == true && promo_code_verify == 0}}" class="promoCodeBtnWrapper0">
+      <view class="promoCodeBtn">团长审核中</view>
+    </view>
+    <view wx:elif="{{isPromoter == true && promo_code_verify == 2}}" class="promoCodeBtnWrapper2">
+      <view class="promoCodeBtn">团长不通过</view>
     </view>
   </view>
   <view wx:else class="box1_row1">
@@ -20,8 +26,8 @@
       <image src="https://fnpphoto.cn/icon/star.png" class="box1_row2_icon"></image>
       <view class="box1_row2_text">收藏</view>
     </view>
-    <view class="box1_row2_img_name">
-      <image src="https://fnpphoto.cn/icon/wechat.png" class="box1_row2_icon" bindtap="goToOfficialAccount"></image>
+    <view class="box1_row2_img_name" bindtap="goToOfficialAccount">
+      <image src="https://fnpphoto.cn/icon/wechat.png" class="box1_row2_icon"></image>
       <view class="box1_row2_text">公众号</view>
     </view>
     <view class="box1_row2_img_name" bindtap="showCustomerServicePhone">
@@ -67,7 +73,7 @@
     </view>
     <view class="box2_row_img_name" bindtap="enterBePromoter">
       <image src="https://fnpphoto.cn/icon/coupon.png" class="box2_row_icon"></image>
-      <view class="box2_row_text">团长</view>
+      <view class="box2_row_text">申请团长</view>
     </view>
     <view class="box2_row_img_name" bindtap="enterPlatformRule">
       <image src="https://fnpphoto.cn/icon/rule.png" class="box2_row_icon"></image>
@@ -79,9 +85,9 @@
     </view>
   </view>
   <view class="box2_row_warper">
-    <view class="box2_row_img_name">
+    <view class="box2_row_img_name" bindtap="enterLeaveMessage">
       <image src="https://fnpphoto.cn/icon/joinus.png" class="box2_row_icon"></image>
-      <view class="box2_row_text">加入我们</view>
+      <view class="box2_row_text">建议留言</view>
     </view>
     <view class="box2_row_img_name">
       <image src="https://fnpphoto.cn/icon/waiting.png" class="box2_row_icon"></image>

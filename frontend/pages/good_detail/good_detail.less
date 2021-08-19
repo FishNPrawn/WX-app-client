@@ -171,7 +171,7 @@ page{
     .info_table{
       display: block;
       width: 93%;
-      height: 36vw;
+      height: 25vw;
       margin: auto;
       font-size: 13px;
       .row{
@@ -247,6 +247,7 @@ page{
             justify-content: center;
             align-items: center;
             font-weight: 440;
+            border-radius: 0 0 0 10px;
           }
           .good_publish_value{
             height: 100%;
@@ -264,6 +265,7 @@ page{
           display: flex;
           align-items: center;
           width: 50%;
+          border-radius: 0 0 10px 0;
           .good_branch_title{  
             background-color: #edf1f4;
             width: 21vw;     
@@ -281,6 +283,7 @@ page{
             justify-content: center;
             align-items: center;
             margin-left: 10px;
+            border-radius: 0 0 10px 0;
           }
         }
         // ---------------产地end----------------//
@@ -341,7 +344,7 @@ page{
       .row1{
         border-radius: 10px 10px 0px 0px;
       }
-      .row4{
+      .row2{
         border-radius: 0px 0px 10px 10px;
       }
     }
@@ -416,6 +419,28 @@ page{
       }
     }
     
+  }
+
+  .attention_box{
+    display: block;
+    background-color: #fff;
+    height: 100%;
+    width: 94%;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 10px;
+    .attention_box_wrapper{
+      padding: 15px 5px 15px 15px;
+      .attention_title{
+        padding-bottom: 15px;
+        font-weight: 400;
+        font-size: 16px;
+      }
+      .attention_article{
+        color: red;
+        font-size: 14px;
+      }
+    }
   }
 
   .info_box3{
@@ -752,6 +777,18 @@ page{
       height:70%;
     }
   }
+
+  .attention_box{
+    .attention_box_wrapper{
+      .attention_title{
+        font-size: 14px;
+      }
+      .attention_article{
+        color: red;
+        font-size: 12px;
+      }
+    }
+  }
 }
 
 // Cellphone with Iphone6/7/8(375x667)
@@ -793,6 +830,18 @@ page{
         font-size: 12px;
         .row{
           height: 11vw;
+        }
+      }
+    }
+
+    .attention_box{
+      .attention_box_wrapper{
+        .attention_title{
+          font-size: 16px;
+        }
+        .attention_article{
+          color: red;
+          font-size: 14px;
         }
       }
     }

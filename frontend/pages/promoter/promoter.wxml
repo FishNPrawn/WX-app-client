@@ -16,9 +16,13 @@
 </view>
 
 <view class="exchange_and_promo_code_wrapper">
-  <view class="exchange_and_promo_code">
+  <!-- <view class="exchange_and_promo_code">
     <image src="https://fnpphoto.cn/icon/withdrawal.png" class="exchange_and_promo_code_image"></image>
     <view class="exchange_and_promo_code_title">提现</view>
+  </view> -->
+  <view class="exchange_and_promo_code">
+    <image src="https://fnpphoto.cn/icon/commission.png" class="exchange_and_promo_code_image"></image>
+    <view class="exchange_and_promo_code_title">{{commission_rate_percent}}%</view>
   </view>
   <view></view>
   <view class="exchange_and_promo_code">

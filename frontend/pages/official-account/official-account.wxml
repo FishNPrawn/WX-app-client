@@ -1,1 +1,5 @@
-<official-account></official-account>
+<!-- <view style="width:100%;position:relative;height:400rpx;">
+ <official-account style=""></official-account>
+</view> -->
+
+<web-view src="https://mp.weixin.qq.com/s/jPFQ8eQwlZLiO-ZDF2HjOA"></web-view>
