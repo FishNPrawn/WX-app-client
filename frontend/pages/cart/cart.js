@@ -16,8 +16,7 @@ Page({
     marqueeDistance: 0,//初始滚动距离
     marquee_margin: 30,
     size:14,
-    interval: 20,
-    windowWidth: null
+    interval: 20
   },
   onShow() {
     let cart = wx.getStorageSync("cart") || [];
@@ -25,7 +24,10 @@ Page({
     util.setTabBarBadgeNumber(cart);
     // 底部导航栏购物车数量
     util.setTabBarBadgeNumber(cart);
+    
+  },
 
+  onLoad(){
     var that = this;
     var length = that.data.text.length * that.data.size;//文字长度
     var windowWidth = wx.getSystemInfoSync().windowWidth;// 屏幕宽度
@@ -360,7 +362,7 @@ Page({
         totalPrice, totalNum, allChecked
       });
     }
-  }
+  },
 
   //---------------------------购物车商品右滑删除 end ---------------------------------------------------
 })

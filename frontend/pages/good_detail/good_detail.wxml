@@ -111,7 +111,7 @@
   <view class="attention_box">
     <view class="attention_box_wrapper">
       <view class="attention_title">下单注意事项</view>
-      <view class="attention_article">尊敬客户下单时注意：下单后，留意快递送达时间，快递到达当天要尽快领取或者自提，避免不必要损失，快递当天24点前签收，客户自行负责</view>
+      <view class="attention_article">尊敬客户下单时注意：下单后，留意快递送达时间，快递到达当天要尽快领取或者自提，快递派送当天24点前进行售后，有问题请及时联系客服，避免不必要损失，逾期客户自行负责。</view>
     </view>
   </view>
 
@@ -134,7 +134,7 @@
       >
         <view class="comment_list_line1">
           <image src="{{item.image}}" class="user_img"></image>
-          <view class="user_name">{{item.name}}</view>
+          <view class="user_name">{{item.username}}**</view>
           <view class="comment_create_time">{{item.comment_create_time}}</view>
         </view>
         <view class="user_comment">{{item.content}}</view>

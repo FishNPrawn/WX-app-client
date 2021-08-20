@@ -32,8 +32,7 @@ Page({
     marqueeDistance: 0,//初始滚动距离
     marquee_margin: 30,
     size:14,
-    interval: 20,
-    windowWidth: null
+    interval: 20
   },
   // 点击优惠码框框变色
   input_border: function (e) {  
@@ -64,6 +63,15 @@ Page({
         total_good_weight_value += v.good_weight*v.num;
     })
     totalPrice = parseFloat(totalPrice.toFixed(2));
+
+    var that = this;
+    var length = that.data.text.length * that.data.size;//文字长度
+    var windowWidth = wx.getSystemInfoSync().windowWidth;// 屏幕宽度
+    that.setData({
+      length: length,
+      windowWidth: windowWidth
+    });
+    that.scrolltxt();// 第一个字消失后立即从右边出现
     
     // 运费根据重量和总价格-满减之后的运费
     request({
@@ -106,14 +114,6 @@ Page({
       address
     })
 
-    var that = this;
-    var length = that.data.text.length * that.data.size;//文字长度
-    var windowWidth = wx.getSystemInfoSync().windowWidth;// 屏幕宽度
-    that.setData({
-      length: length,
-      windowWidth: windowWidth
-    });
-    that.scrolltxt();// 第一个字消失后立即从右边出现
   },
   
   scrolltxt: function () {
@@ -139,7 +139,7 @@ Page({
      }, that.data.interval);
     }
     else{
-      that.setData({ marquee_margin:"1500"});//只显示一条不滚动右边间距加大，防止重复显示
+      that.setData({ marquee_margin:"1000"});//只显示一条不滚动右边间距加大，防止重复显示
     } 
   },
   
@@ -254,6 +254,7 @@ Page({
 
    //提交订单
    submitOrder: function(e){
+    wx.showLoading({title: '加载中', icon: 'loading', mask: true, duration:2000})
      var addressStorage = wx.getStorageSync('address')
      if(!addressStorage){
       showToast({title:"请选择收货地址"});
