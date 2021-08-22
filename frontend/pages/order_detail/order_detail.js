@@ -34,6 +34,7 @@ Page({
           for (const item of res.data[0].orderDetailList) {
             totalPrice += item.good_quantity * item.good_price
           }
+          
           that.setData({
             orderInfo: res.data[0],
             orderDetailList: res.data[0].orderDetailList,
@@ -41,7 +42,7 @@ Page({
             order_total_price_with_express_fee: order_total_price_with_express_fee,
             discount: discount
           })
-
+          console.log(res.data[0].order_number)
           request({
             url: app.globalData.baseUrl + '/order/shipment/checkShipmentNumberByOrderNumber?order_number=' + res.data[0].order_number
           })

@@ -69,6 +69,8 @@ App({
         content: '新版本已经准备好，是否重启应用？',
         success(res) {
           if (res.confirm) {
+            let cart = [];
+            wx.setStorageSync('cart', cart)
             // 新的版本已经下载好，调用 applyUpdate 应用新版本并重启
             updateManager.applyUpdate()
           }

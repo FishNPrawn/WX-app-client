@@ -49,7 +49,7 @@
                 <view class="good_price">
                   <view class="good_price_info">
                     <view class="rmb">￥</view>
-                    <view class="good_price_value">{{item.order_total_price}}</view>
+                    <view class="good_price_value">{{item.order_total_price_with_express_fee}}</view>
                   </view>
                   <view class="good_list_nums">共{{item.total_quantity}}件</view>
                 </view>
@@ -69,7 +69,7 @@
                 <view class="good_price">
                   <view class="good_price_info">
                     <view class="rmb">￥</view>
-                    <view class="good_price_value">{{item.order_total_price}}</view>
+                    <view class="good_price_value">{{item.order_total_price_with_express_fee}}</view>
                   </view>
                   <view class="good_list_nums">共{{item.total_quantity}}件</view>
                 </view>

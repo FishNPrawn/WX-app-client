@@ -82,16 +82,21 @@ Page({
     })
     
   },
+
+  onPullDownRefresh: function () {
+    wx.showNavigationBarLoading() //启用标题栏显示加载状态
+    this.onShow() //调用相关方法
+    setTimeout(() => {
+      wx.hideNavigationBarLoading() //隐藏标题栏显示加载状态
+      wx.stopPullDownRefresh() //结束刷新
+    }, 2000); //设置执行时间
+  },
+
   
   goToLogin(){
     wx.navigateTo({
       url: '/pages/login/login',
     })
-  },
-
-  // 分享
-  onShareAppMessage: function () {
-    // return custom share data when user share.
   },
 
 

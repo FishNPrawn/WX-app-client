@@ -61,7 +61,7 @@ const order_number = () => {
   var date = year + '' + month + '' + day;
   var time = hour + '' + minute + ''+ second;
   var randomNumber = Math.floor(1000 + Math.random() * 9000);
-  var orderNumber = date + '' + time + '' + randomNumber;
+  var orderNumber = date + '' + time + '99' + randomNumber;
   return orderNumber;
 }
 

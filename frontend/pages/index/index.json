@@ -4,7 +4,9 @@
     "van-row": "@vant/weapp/row/index",
     "van-col": "@vant/weapp/col/index"
   },
-  "navigationBarTitleText":"欢喜食货"
+  "navigationBarTitleText":"欢喜食货",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
   
 
 }

@@ -55,6 +55,9 @@ page {
   align-items: center;
   margin: auto;
 }
+.order_content .order_main .express_fee {
+  margin-left: 20px;
+}
 .order_content .order_main .good_price_wrap {
   margin-top: 10px;
   display: flex;
@@ -68,8 +71,16 @@ page {
 .order_content .order_main .good_price_wrap .good_discount {
   display: flex;
   font-size: 17px;
+  padding-right: 5px;
 }
 .order_content .order_main .good_price_wrap .good_discount .good_discount_nums {
+  color: tomato;
+}
+.order_content .order_main .good_price_wrap .good_express_fee {
+  display: flex;
+  font-size: 17px;
+}
+.order_content .order_main .good_price_wrap .good_express_fee .good_discount_nums {
   color: tomato;
 }
 .order_content .order_main .good_price_wrap .good_price {

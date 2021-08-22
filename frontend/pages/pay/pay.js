@@ -51,7 +51,10 @@ Page({
     const address = wx.getStorageSync("address");
     let cart = wx.getStorageSync("cart") || [];
     cart = cart.filter(v=>v.checked);
-    this.setData({ address });
+
+    this.setData({ 
+      address
+    });
 
       //  计算 全选 总价格 购买的数量
     let totalPrice = 0;
@@ -153,7 +156,6 @@ Page({
   },
 
   submitPromoCode:function(e){
-
     var addressStorage = wx.getStorageSync('address')
     if(!addressStorage){
     showToast({title:"请选择收货地址"});
@@ -167,12 +169,12 @@ Page({
           wx.showToast({
             title: '获得'+res.data.discount_rate+'折扣',
             icon: 'success',
-            duration: 2000,
+            duration: 500,
             mask: true
           });
           var promoCodeHeaderIdValue = res.data.promoCodeHeaderId;
-          var discountValue = parseFloat(this.data.discount) + parseFloat(this.data.totalPrice.toFixed(2)) - parseFloat(this.data.totalPrice.toFixed(2)) * parseFloat(res.data.discount_rate.toFixed(2));
-          var totalPriceValue = parseFloat(this.data.totalPrice.toFixed(2)) * parseFloat(res.data.discount_rate.toFixed(2));
+          var discountValue = parseFloat(this.data.discount) + parseFloat(this.data.totalPrice) - parseFloat(this.data.totalPrice) * parseFloat(res.data.discount_rate);
+          var totalPriceValue = parseFloat(this.data.totalPrice) * parseFloat(res.data.discount_rate);
           var totalPriceWithExpressFeeValue = totalPriceValue + this.data.express_fee;
           totalPriceValue = totalPriceValue.toFixed(2)
           totalPriceWithExpressFeeValue = totalPriceWithExpressFeeValue.toFixed(2)
@@ -259,11 +261,10 @@ Page({
      if(!addressStorage){
       showToast({title:"请选择收货地址"});
      }else{
-      // 去到user的东西
-      var userInfo = wx.getStorageSync("userInfo");
       var userAddress = wx.getStorageSync('address')
-      // const openid = wx.getStorageSync("openid");
+      
       var openid = app.globalData.openid;
+
       let cart = wx.getStorageSync("cart") || [];
       cart = cart.filter(v=>v.checked);
 
@@ -273,22 +274,19 @@ Page({
 
       const {commentInput}=this.data;
 
-      //  计算总价格
-      let totalPrice = 0;
-      let total_good_weight_value = 0
-      cart.forEach(v => {
-          totalPrice += v.num * v.good_price;
-          total_good_weight_value = total_good_weight_value + v.good_weight;
-      })
-      totalPrice = totalPrice.toFixed(2);
+      // 计算总价格
+      var totalPrice = this.data.totalPrice;
+      console.log("totalPrice:",totalPrice)
+
+      // 订单重量
+      var total_good_weight_value = this.data.total_good_weight_value;
 
       // 订单编号
       var orderNumber = util.order_number();
-
-      // 储存购物车信息
+      console.log(orderNumber)
+      
       let goods_arr = [];
       cart.forEach(order => {
-        // console.log(order);
         var goods = new Object();
         goods.order_number = orderNumber;
         goods.good_id = order.good_id;
@@ -298,19 +296,23 @@ Page({
         goods.good_image = order.good_image;
         goods_arr.push(goods)
       })
-      let goods_json = JSON.stringify(goods_arr);
+
+      // 把商品列表形成json
+      var goods_json = JSON.stringify(goods_arr);
 
       var order_basic_info_value = new Object();
       order_basic_info_value.totalPrice = this.data.totalPriceWithExpressFee;
       order_basic_info_value.discount = this.data.discount;
       order_basic_info_value.shipmentFee = this.data.express_fee;
-      let order_basic_info = [];
+      var order_basic_info = [];
       order_basic_info.push(order_basic_info_value);
 
       var express_fee_value = this.data.express_fee;
       var totalPriceWithExpressFee_value = this.data.totalPriceWithExpressFee;
       var promoCodeHeaderIdValue = this.data.promoCodeHeaderId;
       var orderdiscountValue = this.data.discount;
+
+
       wx.cloud.callFunction({
         name: 'cloudpay',
         data:{
@@ -318,8 +320,7 @@ Page({
           totalPrice: totalPriceWithExpressFee_value
         },
         success: res => {
-          const payment = res.result.payment
-          
+          const payment = res.result.payment 
           wx.requestPayment({
             ...payment,
             success (res) {
@@ -333,7 +334,7 @@ Page({
                 data:{
                   openId: openid,
                   order_number: orderNumber,
-                  access_token: "1654168416563354",
+                  access_token: "无",
                   user_name: userAddress.userName,
                   user_address: userAddress.all,
                   user_phone: userAddress.telNumber,

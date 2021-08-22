@@ -36,6 +36,10 @@
         已优惠
         <view class="”good_discount_nums">￥{{discount}}</view>
       </view>
+      <view class="good_express_fee">
+        运费
+        <view class="”good_discount_nums">￥{{orderInfo.order_express_fee}}</view>
+      </view>
       <view class="good_price">
         <view class="rmb">合计</view>
         <view class="good_price_value">￥{{order_total_price_with_express_fee}}</view>
