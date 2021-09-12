@@ -51,7 +51,12 @@ Page({
   },
 
   onPullDownRefresh: function () {
-    this.onLoad(); //重新加载onLoad()
+    wx.showNavigationBarLoading() //启用标题栏显示加载状态
+    this.onLoad() //调用相关方法
+    setTimeout(() => {
+      wx.hideNavigationBarLoading() //隐藏标题栏显示加载状态
+      wx.stopPullDownRefresh() //结束刷新
+    }, 2000); //设置执行时间
   },
 
   onShareAppMessage: function () {

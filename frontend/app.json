@@ -23,8 +23,10 @@
     "pages/auth/auth",
     "pages/logs/logs",
     "pages/aboutus/aboutus",
+    "pages/leaveMessage/leaveMessage",
     "pages/official-account/official-account",
-    "pages/platformRule/platformRule"
+    "pages/platformRule/platformRule",
+    "pages/contactUs/contactUs"
   ],
   "window":{
     "backgroundTextStyle":"dark",

@@ -1,4 +1,18 @@
-<!--pages/pay/pay.wxml-->
+
+<scroll-view class="container">
+  <view class="scrolltxt">
+    <view class="marquee_box">
+      <image src="https://fnpphoto.cn/icon/horn.png" class="hornImage"></image>
+      <view class="marquee_text" style="transform: translateX(-{{marqueeDistance}}px)">
+        <text class="text">{{text}}</text>
+        <text style="margin-right:{{marquee_margin}}px;"></text>
+        <text style="margin-right:{{marquee_margin}}px;">{{text}}</text>  
+      </view>
+    </view>
+  </view>
+</scroll-view>
+
+
 <view bindtap='input_border_unclick_color'>
 <view class="address">
   <!-- 当收货地址 不存在 按钮显示  对象 空对象 bool类型也是true  -->
@@ -21,6 +35,9 @@
         <view class="user_phone">{{address.telNumber}}</view>
       </view>
     </view>
+  </view>
+  <view wx:if="{{deliver_or_not == false}}" class="not_diliver" bindtap="goToCustomerService">
+    <view class="not_diliver_title">目前小程序仅开通广东地区，其余地区请联系客服微信，确认是否可以配送到达，点击此处跳转。</view>
   </view>
 </view>
 

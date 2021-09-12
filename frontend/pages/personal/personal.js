@@ -8,7 +8,8 @@ Page({
   userInfo:{},
   address: {},
   url: '#',
-  isPromoter: false
+  isPromoter: false,
+  promo_code_verify: 3
  },
   goodInfo: {},
   Cates:[],
@@ -19,9 +20,23 @@ Page({
       url: app.globalData.baseUrl + '/promo_code/checkPromoCodeByOpenId?openId=' + openId
     }) 
     .then(result=>{
-      if(result.data.success == true){
+      if(result.data.success == true && result.data.promo_code_verify == 1){
         this.setData({
-          isPromoter:true
+          isPromoter:true,
+          promo_code_verify: 1
+        })
+        wx.setStorageSync('promoCodeHeaderId', result.data.promoCodeHeaderId)
+      }else if(result.data.success == true && result.data.promo_code_verify == 0){
+        this.setData({
+          isPromoter:true,
+          promo_code_verify: 0
+        })
+        wx.setStorageSync('promoCodeHeaderId', result.data.promoCodeHeaderId)
+      }
+      else if(result.data.success == true && result.data.promo_code_verify == 2){
+        this.setData({
+          isPromoter:true,
+          promo_code_verify: 2
         })
         wx.setStorageSync('promoCodeHeaderId', result.data.promoCodeHeaderId)
       }
@@ -30,9 +45,11 @@ Page({
   onShow(){
     const address = wx.getStorageSync("address");
     const userInfo = wx.getStorageSync("userInfo");
-    this.setData({userInfo: userInfo});
+    this.setData({
+      userInfo: userInfo,
+      address
+    });
 
-    this.setData({ address });
     // 底部导航栏购物车数量
     let cart = wx.getStorageSync('cart') || [];
     util.setTabBarBadgeNumber(cart);
@@ -42,24 +59,44 @@ Page({
       url: app.globalData.baseUrl + '/promo_code/checkPromoCodeByOpenId?openId=' + openId
     }) 
     .then(result=>{
-      if(result.data.success == true){
+      if(result.data.success == true && result.data.promo_code_verify == 1){
         this.setData({
-          isPromoter:true
+          isPromoter:true,
+          promo_code_verify: 1
+        })
+        wx.setStorageSync('promoCodeHeaderId', result.data.promoCodeHeaderId)
+      }else if(this.data.isPromoter == true && this.data.promo_code_verify == 0){
+        this.setData({
+          isPromoter:true,
+          promo_code_verify: 0
+        })
+        wx.setStorageSync('promoCodeHeaderId', result.data.promoCodeHeaderId)
+        console.log("审核中")
+      }else if(this.data.isPromoter == true && this.data.promo_code_verify == 2){
+        this.setData({
+          isPromoter:true,
+          promo_code_verify: 2
         })
         wx.setStorageSync('promoCodeHeaderId', result.data.promoCodeHeaderId)
       }
     })
+    
   },
+
+  onPullDownRefresh: function () {
+    wx.showNavigationBarLoading() //启用标题栏显示加载状态
+    this.onShow() //调用相关方法
+    setTimeout(() => {
+      wx.hideNavigationBarLoading() //隐藏标题栏显示加载状态
+      wx.stopPullDownRefresh() //结束刷新
+    }, 2000); //设置执行时间
+  },
+
   
   goToLogin(){
     wx.navigateTo({
       url: '/pages/login/login',
     })
-  },
-
-  // 分享
-  onShareAppMessage: function () {
-    // return custom share data when user share.
   },
 
 
@@ -88,9 +125,16 @@ Page({
 
   // 跳转到我的订单
   goToMyOrder: function(event) {
-    wx.navigateTo({
-      url: '../order/order?status='+event.currentTarget.dataset.status,
-    })
+    var userInfo = wx.getStorageSync('userInfo')
+    if(!userInfo){
+      wx.navigateTo({
+        url: '/pages/login/login',
+      })
+    }else{
+      wx.navigateTo({
+        url: '../order/order?status='+event.currentTarget.dataset.status,
+      })
+    }
   },
 
   // 跳转到团长页面
@@ -101,12 +145,28 @@ Page({
   },
 
   enterBePromoter: function(){
-    if(this.data.isPromoter == true){
-      showToast({title:"你已经是团长!"});
+
+    var userInfo = wx.getStorageSync('userInfo');
+    var address = wx.getStorageSync('address');
+
+    if(!userInfo){
+      showToast({title:"请先登录"});
     }else{
-      wx.navigateTo({
-        url: '/pages/promocodeIntro/promocodeIntro'
-      })
+      if(!address){
+        showToast({title:"请选择地址"});
+      }else{
+        if(this.data.isPromoter == true && this.data.promo_code_verify == 1){
+          showToast({title:"你已经是团长!"});
+        }else if(this.data.isPromoter == true && this.data.promo_code_verify == 0){
+          showToast({title:"审核中"});
+        }else if(this.data.isPromoter == true && this.data.promo_code_verify == 2){
+          showToast({title:"审核不通过"});
+        } else{
+          wx.navigateTo({
+            url: '/pages/promocodeIntro/promocodeIntro'
+          })
+        }
+      }
     }
   },
   
@@ -116,6 +176,13 @@ Page({
     wx.navigateTo({
       title: "关于我们",
       url: "/pages/aboutus/aboutus"
+    })
+  },
+
+  enterLeaveMessage: function(){
+    wx.navigateTo({
+      title: "建议留言",
+      url: "/pages/leaveMessage/leaveMessage"
     })
   },
 
@@ -180,16 +247,19 @@ Page({
 
 
   showCustomerServicePhone: function () {
-    wx.makePhoneCall({
-      phoneNumber: '13922261090',
-      success: function () {
-        console.log("成功拨打电话")
-      },
-      fail: function () {        
-        console.log("拨打电话失败！")      
-      }
-
+    wx.navigateTo({
+      url: "/pages/contactUs/contactUs"
     })
+    // wx.makePhoneCall({
+    //   phoneNumber: '13922261090',
+    //   success: function () {
+    //     console.log("成功拨打电话")
+    //   },
+    //   fail: function () {        
+    //     console.log("拨打电话失败！")      
+    //   }
+
+    // })
     // wx.showModal({
     //   title: '客服',
     //   content: '客服电话 13922261090',

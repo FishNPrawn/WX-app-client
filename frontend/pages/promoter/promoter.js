@@ -11,7 +11,8 @@ Page({
     orderlistByPromoter: [],
     total_commission: 0,
     promo_code: null,
-    commission_rate: null
+    commission_rate: null,
+    commission_rate_percent: null
   },
 
   /**
@@ -27,10 +28,12 @@ Page({
       url: app.globalData.baseUrl + '/promo_code/checkPromoCodeByOpenId?openId=' + openId
     }) 
     .then(result=>{
+      var commission_rate_percent = result.data.commission_rate*100;
       if(result.data.success == true){
         this.setData({
           promo_code: result.data.promo_code,
-          commission_rate: result.data.commission_rate
+          commission_rate: result.data.commission_rate,
+          commission_rate_percent: commission_rate_percent
         })
       }
     })
@@ -59,9 +62,11 @@ Page({
         result.data.data[i].earn = (result.data.data[i].total_price_without_express_fee *this.data.commission_rate).toFixed(2);
         // total_commission = (total_commission + result.data.data[i].total_price_without_express_fee*this.data.commission_rate).toFixed(2);
         total_commission = parseFloat(total_commission) + parseFloat(result.data.data[i].earn)
-        total_commission = total_commission.toFixed(2)
+        result.data.data[i].user_name = result.data.data[i].user_name.substring(0,1)
+        
         order.push(result.data.data[i])
       }
+      total_commission = total_commission.toFixed(2)
       this.setData({
         orderlistByPromoter: order,
         total_commission: total_commission

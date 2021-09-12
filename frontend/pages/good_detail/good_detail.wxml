@@ -71,8 +71,9 @@
     <view class="info_table">
       <view class="row row1">
         <view class="good_supplier">
-          <view class="good_supplier_title">供应商</view>
-          <view class="good_supplier_value">{{goodObj.good_supplier}}</view>
+          <view class="good_supplier_title">保存</view>
+          <!-- <view class="good_supplier_value">{{goodObj.good_supplier}}</view> -->
+          <view class="good_supplier_value">冷冻保存</view>
         </view>
         <view class="good_production">
           <view class="good_production_title">产地</view>
@@ -82,11 +83,12 @@
       <view class="row row2">
         <view class="good_publish_date">
           <view class="good_publish_title">规格</view>
-          <view class="good_publish_value">{{goodObj.good_size}}</view>
+          <!-- <view class="good_publish_value">{{goodObj.good_size}}</view> -->
+          <view class="good_publish_value">捕捞情况而定</view>
         </view>
         <view class="good_branch">
-          <view class="good_branch_title">品牌</view>
-          <view class="good_branch_value">本港</view>
+          <view class="good_branch_title">品味最佳期</view>
+          <view class="good_branch_value">{{goodObj.good_optimal_period}}</view>
         </view>
       </view>
       <!-- <view class="row row3">
@@ -97,12 +99,19 @@
           </view>
         </view>
       </view> -->
-      <view class="row row4">
+      <!-- <view class="row row4">
         <view class="good_optimal_period">
-          <view class="good_optimal_period_title">品味最佳期</view>  
-          <view class="good_optimal_period_value">{{goodObj.good_optimal_period}}</view>  
+          <view class="good_optimal_period_title">名称</view>  
+          <view class="good_optimal_period_value">{{goodObj.good_name}}</view>  
         </view>
-      </view>
+      </view> -->
+    </view>
+  </view>
+
+  <view class="attention_box">
+    <view class="attention_box_wrapper">
+      <view class="attention_title">下单注意事项</view>
+      <view class="attention_article">尊敬客户下单时注意：下单后，留意快递送达时间，快递到达当天要尽快领取或者自提，快递派送当天24点前进行售后，有问题请及时联系客服，避免不必要损失，逾期客户自行负责。</view>
     </view>
   </view>
 
@@ -125,14 +134,15 @@
       >
         <view class="comment_list_line1">
           <image src="{{item.image}}" class="user_img"></image>
-          <view class="user_name">{{item.name}}</view>
+          <view class="user_name">{{item.username}}**</view>
           <view class="comment_create_time">{{item.comment_create_time}}</view>
         </view>
         <view class="user_comment">{{item.content}}</view>
       </view>
     </view>
-    
   </view>
+
+  
 
   <!-- box3 -->
   <view class="info_box3">

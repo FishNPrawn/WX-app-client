@@ -290,6 +290,7 @@ page {
 }
 .preference_display .preference_row .preference_col .navigator_box .good_navigator .goods_msg .goods_name {
   font-size: 28rpx;
+  padding-right: 3px;
 }
 .preference_display .preference_row .preference_col .navigator_box .good_navigator .goods_msg .goods_sale {
   display: flex;

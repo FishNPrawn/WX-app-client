@@ -1,3 +1,16 @@
+<scroll-view class="container">
+  <view class="scrolltxt">
+    <view class="marquee_box">
+      <image src="https://fnpphoto.cn/icon/horn.png" class="hornImage"></image>
+      <view class="marquee_text" style="transform: translateX(-{{marqueeDistance}}px)">
+        <text class="text">{{text}}</text>
+        <text style="margin-right:{{marquee_margin}}px;"></text>
+        <text style="margin-right:{{marquee_margin}}px;">{{text}}</text>  
+      </view>
+    </view>
+  </view>
+</scroll-view>
+
 <!--导航条-->
 <view class="navbar">
   <label wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">
@@ -36,7 +49,7 @@
                 <view class="good_price">
                   <view class="good_price_info">
                     <view class="rmb">￥</view>
-                    <view class="good_price_value">{{item.order_total_price}}</view>
+                    <view class="good_price_value">{{item.order_total_price_with_express_fee}}</view>
                   </view>
                   <view class="good_list_nums">共{{item.total_quantity}}件</view>
                 </view>
@@ -56,7 +69,7 @@
                 <view class="good_price">
                   <view class="good_price_info">
                     <view class="rmb">￥</view>
-                    <view class="good_price_value">{{item.order_total_price}}</view>
+                    <view class="good_price_value">{{item.order_total_price_with_express_fee}}</view>
                   </view>
                   <view class="good_list_nums">共{{item.total_quantity}}件</view>
                 </view>
@@ -68,7 +81,7 @@
           <view wx:if="{{item.orderStatus!=0}}" class='comment_btn_wrapper'>
             <label wx:if="{{item.orderStatus==1}}" class='comment_btn comment_btn_cancel' bindtap="cancelOrder" data-order="{{item.orderId}}">取消订单</label>
             <view wx:if="{{item.orderStatus==2}}" class='comment_btn_check'>
-              <view class="check_express">查看物流</view>
+              <!-- <view class="check_express">查看物流</view> -->
               <view class="confirm_order" bindtap="confirmOrder" data-order="{{item.orderId}}">确认收货</view>
             </view>
             <label wx:if="{{item.orderStatus==3}}" class='comment_btn' bindtap="enterComment" data-order="{{item.orderId}}">评论一下</label>

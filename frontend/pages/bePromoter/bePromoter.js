@@ -15,7 +15,7 @@ Page({
     addressInput: null,
     select: false,
     defaultCity: '广州',
-    cityContent: ['广州', '清远', '深圳', '惠州', '珠海', '东莞', '佛山', '潮汕']
+    cityContent: ['广州', '深圳', '佛山', '潮汕', '其他']
   },
 
   /**
@@ -81,7 +81,8 @@ Page({
           address: address,
           city: city,
           remark: remark,
-          openId: openid
+          openId: openid,
+          promo_code_verify: 0
         }
       })
       .then(res=>{

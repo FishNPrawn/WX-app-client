@@ -36,6 +36,10 @@
         已优惠
         <view class="”good_discount_nums">￥{{discount}}</view>
       </view>
+      <view class="good_express_fee">
+        运费
+        <view class="”good_discount_nums">￥{{orderInfo.order_express_fee}}</view>
+      </view>
       <view class="good_price">
         <view class="rmb">合计</view>
         <view class="good_price_value">￥{{order_total_price_with_express_fee}}</view>
@@ -63,7 +67,7 @@
       <view class="deliver_way_title">快递单号</view>
       <view wx:if="{{orderInfo.orderStatus==1}}" class="deliver_way_msg">未发货</view>
       <view wx:elif="{{orderInfo.orderStatus==4}}" class="deliver_way_msg">订单已取消</view>
-      <view wx:else class="deliver_way_msg">{{shipment_number}}</view>
+      <view wx:else class="deliver_way_msg" data-text="{{shipment_number}}" bindtap='copyShipmentNumber'>{{shipment_number}}</view>
     </view>
   </view>
 </view>
@@ -75,7 +79,7 @@
   <view class="order_detail_wrapper">
     <view class="order_detail_line">
       <view class="order_detail_title_title">订单号码</view>
-      <view class="order_detail_msg">{{orderInfo.order_number}}</view>
+      <view class="order_detail_msg" data-text="{{orderInfo.order_number}}" bindtap='copyOrderNumber'>{{orderInfo.order_number}}</view>
     </view>
     <view class="order_detail_line">
       <view class="order_detail_title_title">下单时间</view>

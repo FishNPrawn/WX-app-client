@@ -4,6 +4,39 @@ page{
   background-color: #f2f2f2;
 }
 
+.container {
+  display: flex;
+  padding:0;
+  background-color: rgb(233, 84, 84);
+  .scrolltxt{
+    padding:0 20rpx 0 10rpx;
+    background-color: rgb(233, 84, 84);
+    .marquee_box {
+      position:relative;
+      color:white;
+      height:50rpx;
+      display:flex;
+      overflow:hidden;
+      .hornImage{
+        padding-right: 8px;
+        width: 20px;
+        height: 20px;
+        z-index: 100;
+        background-color:rgb(233, 84, 84);
+      }
+      .marquee_text {
+        white-space: nowrap;
+        position:absolute;
+        top:0;
+        font-size:14px;
+        .text{
+          padding-left: 20px;
+        }
+      }
+    } 
+  }
+}
+
 .navbar {
   display: flex;
    /* 默认选中菜单 */

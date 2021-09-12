@@ -1,5 +1,33 @@
+<scroll-view class="container">
+  <view class="scrolltxt">
+    <view class="marquee_box">
+      <image src="https://fnpphoto.cn/icon/horn.png" class="hornImage"></image>
+      <view class="marquee_text" style="transform: translateX(-{{marqueeDistance}}px)">
+        <text class="text">{{text}}</text>
+        <text style="margin-right:{{marquee_margin}}px;"></text>
+        <text style="margin-right:{{marquee_margin}}px;">{{text}}</text>  
+      </view>
+    </view>
+  </view>
+</scroll-view>
 
-<view class="cart_title">购物车</view>
+<view class="not_diliver">
+  <view class="warning_img_wrapper">
+    <image class="warning_img" src="https://fnpphoto.cn/icon/warning.png"></image>
+  </view>
+  <view class="not_diliver_title">目前小程序仅开通广东地区，其余地区请联系客服微信，确认是否可以配送到达。</view>
+</view>
+
+<view class="cart_title_delete">
+  <view class="cart_title">购物车</view>
+  <block wx:if="{{cart.length!==0}}">
+    <view class="deleteAllWrapper" bindtap="clearCart">
+      <image class="deleteAll" src="https://fnpphoto.cn/icon/deleteAll.png"></image>
+    </view>
+  </block>
+</view>
+
+
 <!-- 购物车内容 -->
 <view class="cart_content">
   <!-- <view class="cart_main"> -->

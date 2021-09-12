@@ -3,6 +3,53 @@ page {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   background-color: #f6f6f6;
 }
+.container {
+  display: flex;
+  padding: 0;
+  background-color: #e95454;
+}
+.container .scrolltxt {
+  padding: 0 20rpx 0 10rpx;
+  background-color: #e95454;
+}
+.container .scrolltxt .marquee_box {
+  position: relative;
+  color: white;
+  height: 22px;
+  display: flex;
+  overflow: hidden;
+}
+.container .scrolltxt .marquee_box .hornImage {
+  padding-right: 8px;
+  width: 20px;
+  height: 20px;
+  z-index: 100;
+  background-color: #e95454;
+}
+.container .scrolltxt .marquee_box .marquee_text {
+  white-space: nowrap;
+  position: absolute;
+  top: 0;
+  font-size: 14px;
+}
+.container .scrolltxt .marquee_box .marquee_text .text {
+  padding-left: 20px;
+}
+.not_diliver {
+  display: flex;
+  height: 100%;
+  margin: auto;
+  margin-top: 5px;
+}
+.not_diliver .warning_img {
+  width: 20px;
+  height: 20px;
+}
+.not_diliver .not_diliver_title {
+  color: #F29C1F;
+  font-size: 15px;
+  padding: 0 5px 0 5px;
+}
 .revice_address_row .address_btn {
   padding: 25rpx;
 }
@@ -20,10 +67,29 @@ page {
   flex: 3;
   text-align: right;
 }
-.cart_title {
+.cart_title_delete {
+  display: flex;
+  align-items: center;
   padding: 20rpx;
+}
+.cart_title_delete .cart_title {
   font-size: 40rpx;
   color: var(--themeColor);
+}
+.cart_title_delete .deleteAllWrapper {
+  position: absolute;
+  right: 4%;
+  border-radius: 10px;
+  border: 1px solid #b8b8b8;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cart_title_delete .deleteAllWrapper .deleteAll {
+  width: 20px;
+  height: 20px;
 }
 .cart_content {
   padding-bottom: 15px;

@@ -197,8 +197,13 @@ Page({
       url: app.globalData.baseUrl + '/comment/comment_filter?filter='+good_id
     })
     .then(res=>{
+      var comments = []
+      for(var i = 0; i < res.data.data.length; i++){
+        res.data.data[i].username = res.data.data[i].username.substring(0,1)
+        comments.push(res.data.data[i])
+      }
       this.setData({
-        comments: res.data.data
+        comments: comments
       })
     })
   },
