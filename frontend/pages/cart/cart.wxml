@@ -11,6 +11,13 @@
   </view>
 </scroll-view>
 
+<view class="not_diliver">
+  <view class="warning_img_wrapper">
+    <image class="warning_img" src="https://fnpphoto.cn/icon/warning.png"></image>
+  </view>
+  <view class="not_diliver_title">目前小程序仅开通广东地区，其余地区请联系客服微信，确认是否可以配送到达。</view>
+</view>
+
 <view class="cart_title_delete">
   <view class="cart_title">购物车</view>
   <block wx:if="{{cart.length!==0}}">

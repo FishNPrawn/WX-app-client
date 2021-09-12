@@ -26,6 +26,7 @@ Page({
     express_fee: 0,
     origin_express_fee: 0,
     discount: 0,
+    deliver_or_not: true,
     input_border_color: '#edeeee',
     text: "下单后，请留意快递送达时间。如有售后问题，请于快递包裹签收当天24点前联系客服处理。",
     marqueePace: 1,//滚动速度
@@ -112,11 +113,31 @@ Page({
   },
 
   onShow(){
+    var that = this;
     const address = wx.getStorageSync("address");
     this.setData({
       address
     })
+    that.check_deliver_or_not(address.all)
+  },
 
+  check_deliver_or_not(address){
+    var province = address.substring(0,3);
+    console.log("province:", province);
+    request({
+      url: app.globalData.baseUrl + '/calculate/check_deliver_or_not?province=' + province,
+    })
+    .then(res=>{
+      if(res.data == false){
+        this.setData({
+          deliver_or_not: false
+        })
+      }else{
+        this.setData({
+          deliver_or_not: true
+        })
+      }
+    })
   },
   
   scrolltxt: function () {
@@ -153,6 +174,12 @@ Page({
 
   promoCodeInput:function(e){
     this.data.promoCodeInput = e.detail.value;
+  },
+
+  goToCustomerService(){
+    wx.navigateTo({
+      url: "/pages/contactUs/contactUs"
+    })
   },
 
   submitPromoCode:function(e){
@@ -258,9 +285,12 @@ Page({
    submitOrder: function(e){
     wx.showLoading({title: '加载中', icon: 'loading', mask: true, duration:2000})
      var addressStorage = wx.getStorageSync('address')
+     var deliver_or_not = this.data.deliver_or_not;
      if(!addressStorage){
       showToast({title:"请选择收货地址"});
-     }else{
+     }else if(deliver_or_not == false){
+      showToast({title:"目前小程序仅开通广东地区,其余地区请联系客服微信,确认是否可以配送到达."});
+     } else{
       var userAddress = wx.getStorageSync('address')
       
       var openid = app.globalData.openid;

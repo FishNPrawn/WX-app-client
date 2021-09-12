@@ -35,6 +35,21 @@ page {
 .container .scrolltxt .marquee_box .marquee_text .text {
   padding-left: 20px;
 }
+.not_diliver {
+  display: flex;
+  height: 100%;
+  margin: auto;
+  margin-top: 5px;
+}
+.not_diliver .warning_img {
+  width: 20px;
+  height: 20px;
+}
+.not_diliver .not_diliver_title {
+  color: #F29C1F;
+  font-size: 15px;
+  padding: 0 5px 0 5px;
+}
 .revice_address_row .address_btn {
   padding: 25rpx;
 }

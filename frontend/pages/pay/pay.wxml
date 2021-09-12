@@ -36,6 +36,9 @@
       </view>
     </view>
   </view>
+  <view wx:if="{{deliver_or_not == false}}" class="not_diliver" bindtap="goToCustomerService">
+    <view class="not_diliver_title">目前小程序仅开通广东地区，其余地区请联系客服微信，确认是否可以配送到达，点击此处跳转。</view>
+  </view>
 </view>
 
 <view class="box2" bindtap="popup" data-position="bottom">
