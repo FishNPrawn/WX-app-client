@@ -116,11 +116,15 @@ Page({
   },
 
   goToAds(){
-    this.catName = '优惠推介'
-    getApp().globalData.showDialog = this;
-    wx.switchTab({
-      url: '/pages/category/category'
-    });
+    // this.catName = '优惠推介'
+    // getApp().globalData.showDialog = this;
+    // wx.switchTab({
+    //   url: '/pages/category/category'
+    // });
+
+    wx.navigateTo({
+      url: '/pages/dailyFresh/dailyFresh',
+    })
   },
   
   // navigato to good_Detail

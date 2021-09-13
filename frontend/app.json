@@ -6,6 +6,7 @@
     "pages/cart/cart",
     "pages/personal/personal",
     "pages/pay/pay",
+    "pages/dailyFresh/dailyFresh",
     "pages/logistics/logistics",
     "pages/login/login",
     "pages/bePromoter/bePromoter",
