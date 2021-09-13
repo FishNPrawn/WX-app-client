@@ -1,0 +1,15 @@
+<view
+  class="navigation-bar"
+  style="--status-bar-height: {{statusBarHeight}}px; --title-bar-height: {{titleBarHeight}}px"
+>
+  <view
+    class="title-bar {{os}}"
+  >
+    <view
+      wx:if="{{canGoBack}}"
+      class="iconfont icon-back"
+      catch:tap="handleBack"
+    ></view>
+    <view><slot></slot></view>
+  </view>
+</view>

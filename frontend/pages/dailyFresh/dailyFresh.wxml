@@ -1,0 +1,21 @@
+<view class="daily_fresh_box">
+  <view class="daily_fresh_list"
+        wx:for = "{{goods_list}}"
+        wx:for-index="index1"
+        wx:for-item="item1">
+    <view id="{{item1.good_id}}" bindtap="goGoodDetail" class="goGoodDetail">
+      <image class="good_img" src="{{item1.good_cat_image}}"></image>
+      <view class="good_detail_box">
+        <view class="good_name">{{item1.good_name}}</view>
+        <view class="good_detail_box_1">
+          <view class="good_price1">
+            <view class="good_size_sign">￥</view>
+            <view class="good_price_number">{{item1.good_price}}</view>
+          </view>
+          <view class="good_price2">￥{{item1.good_origin_price}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="addBtn" data-variable="{{item1}}" bindtap="handleCartAdd">抢购</view>
+  </view>
+</view>
