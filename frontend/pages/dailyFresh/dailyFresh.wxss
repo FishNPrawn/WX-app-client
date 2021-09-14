@@ -4,6 +4,49 @@ page {
   background-image: linear-gradient(#FFA760, #ffffff);
   background-repeat: no-repeat;
 }
+.daily_fresh_count_down {
+  display: block;
+  width: 94%;
+  background-color: white;
+  border-radius: 10px;
+  margin: auto;
+  padding: 13px 0 13px 0;
+  font-size: 15px;
+  margin-top: 10px;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.daily_fresh_count_down .daily_fresh_count_down_box1 .daily_fresh_count_down_box1_wrapper {
+  display: flex;
+  justify-content: center;
+  font-size: 13px;
+}
+.daily_fresh_count_down .daily_fresh_count_down_box1 .daily_fresh_count_down_box1_wrapper .daily_fresh_count_down_box1_title {
+  font-weight: 500;
+}
+.daily_fresh_count_down .daily_fresh_count_down_box1 .daily_fresh_count_down_box1_wrapper .daily_fresh_count_down_box1_time {
+  display: flex;
+  padding: 0 5px 0 5px;
+  font-size: 13px;
+}
+.daily_fresh_count_down .daily_fresh_count_down_box1 .daily_fresh_count_down_box1_wrapper .daily_fresh_count_down_box1_time .count_down {
+  background-color: red;
+  color: white;
+  padding: 2px;
+  border-radius: 5px;
+}
+.daily_fresh_count_down .daily_fresh_count_down_box1 .daily_fresh_count_down_box1_wrapper .daily_fresh_count_down_box1_time .count_down_semi {
+  color: red;
+  padding: 0 2px 0 2px;
+  font-weight: 500;
+}
+.daily_fresh_count_down .daily_fresh_count_down_box2 {
+  display: flex;
+  justify-content: center;
+  color: red;
+  font-size: 13px;
+}
 .daily_fresh_box .daily_fresh_list {
   display: flex;
   width: 94%;
