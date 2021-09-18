@@ -4,6 +4,35 @@ page{
   background-image: linear-gradient(#FFA760, rgb(255, 255, 255));
   background-repeat: no-repeat;
 }
+.cartImgWrapper{
+  display: flex;
+  width: 94%;
+  margin: auto;
+  margin-left: auto; 
+  margin-right: auto;
+  .cartImg{
+    width: 30px;
+    height: 30px;
+    display: block;
+    margin-left: auto;
+    margin-top: 5px;
+  }
+  .tabBarBadge{
+    position: absolute;
+    color: white;
+    border-radius: 50%;
+    height: 18px;
+    width: 18px;
+    font-size: 12px;
+    right: 1%;
+    background-color: red;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
 
 .daily_fresh_count_down{
   display: block;
@@ -34,11 +63,6 @@ page{
           color: white;
           padding: 2px;
           border-radius: 5px;
-        }
-        .count_down_semi{
-          color: red;
-          padding: 0 2px 0 2px;
-          font-weight: 500;
         }
       }
     }

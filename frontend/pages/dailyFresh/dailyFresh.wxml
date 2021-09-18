@@ -1,18 +1,21 @@
-<view class="daily_fresh_count_down">
+<view class="cartImgWrapper">
+  <image class="cartImg" src="../../icon/shoppingbag1.png" bindtap="goToCart"></image>
+  <view wx:if="{{totalNum>0}}" class="tabBarBadge" bindtap="goToCart">{{totalNum}}</view>
+</view>
+
+
+<!-- <view class="daily_fresh_count_down">
   <view class="daily_fresh_count_down_box1">
     <view class="daily_fresh_count_down_box1_wrapper">
-      <view class="daily_fresh_count_down_box1_title">距离本场解释</view>
+      <view class="daily_fresh_count_down_box1_title">距离本场结束还有</view>
       <view class="daily_fresh_count_down_box1_time">
         <view class="count_down count_down_hour">12</view>
-        <view class="count_down_semi">:</view>
-        <view class="count_down count_down_minute">13</view>
-        <view class="count_down_semi">:</view>
-        <view class="count_down count_down_second">45</view>
       </view>
+      <view class="daily_fresh_count_down_box1_title">天</view>
     </view>
   </view>
   <view class="daily_fresh_count_down_box2">抢购结果以支付时间为准,抢完为止,结束后回复原售价</view>
-</view>
+</view> -->
 
 
 <view class="daily_fresh_box">

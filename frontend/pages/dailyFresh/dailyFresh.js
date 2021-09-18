@@ -11,7 +11,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    goods_list: []
+    goods_list: [],
+    totalNum: 0
   },
   Cates: [],
 
@@ -33,6 +34,15 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    let cart = wx.getStorageSync("cart") || [];
+    let totalNum = 0;
+    cart.forEach(v => {
+        totalNum += v.num;
+    })
+    this.setData({
+      totalNum: totalNum
+    })
+
     this.getCates();
   },
 
@@ -93,6 +103,12 @@ Page({
     });
   },
 
+  goToCart(){
+    wx.switchTab({
+      url: '/pages/cart/cart',
+    })
+  },
+
   handleCartAdd(event){
     let cart = wx.getStorageSync("cart") || [];
     let goodInfo=event.currentTarget.dataset.variable;
@@ -114,6 +130,15 @@ Page({
       }
       cart[index] = savedInfo;
     }
+
+    let totalNum = 0;
+    cart.forEach(v => {
+        totalNum += v.num;
+    })
+    this.setData({
+      totalNum: totalNum
+    })
+
     wx.setStorageSync("cart", cart);
     wx.showToast({
       title: '加入成功',
