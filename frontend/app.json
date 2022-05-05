@@ -26,6 +26,7 @@
     "pages/aboutus/aboutus",
     "pages/leaveMessage/leaveMessage",
     "pages/official-account/official-account",
+    "pages/teaching/teaching",
     "pages/platformRule/platformRule",
     "pages/contactUs/contactUs"
   ],

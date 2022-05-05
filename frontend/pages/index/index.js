@@ -163,7 +163,7 @@ Page({
       let features =res.data.data
       this.setData({
         featured_cards_1: features.slice(0,4),
-        featured_cards_2: features.slice(4)
+        featured_cards_2: features.slice(4,8)
       })
     })
   },
