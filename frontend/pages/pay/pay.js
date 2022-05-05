@@ -353,6 +353,11 @@ Page({
           const payment = res.result.payment 
           wx.requestPayment({
             ...payment,
+            timeStamp: '',
+            nonceStr: '',
+            package: '',
+            signType: 'MD5',
+            paySign: '',
             success (res) {
               // 支付成功 & 创建订单request
               wx.request({

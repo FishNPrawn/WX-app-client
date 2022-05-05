@@ -89,9 +89,9 @@
       <image src="https://fnpphoto.cn/icon/joinus.png" class="box2_row_icon"></image>
       <view class="box2_row_text">建议留言</view>
     </view>
-    <view class="box2_row_img_name">
-      <image src="https://fnpphoto.cn/icon/waiting.png" class="box2_row_icon"></image>
-      <view class="box2_row_text">待定</view>
+    <view class="box2_row_img_name" bindtap="enterTeaching">
+      <image src="https://fnpphoto.cn/icon/teaching.png" class="box2_row_icon"></image>
+      <view class="box2_row_text">下单教程</view>
     </view>
     <view class="box2_row_img_name">
       <image src="https://fnpphoto.cn/icon/waiting.png" class="box2_row_icon"></image>

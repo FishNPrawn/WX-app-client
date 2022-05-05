@@ -199,6 +199,12 @@ Page({
     })
   },
 
+  enterTeaching: function(){
+    wx.navigateTo({
+      url: "/pages/teaching/teaching"
+    })
+  },
+
   // 调用客服
   // goToCustomerService:function(){
 
