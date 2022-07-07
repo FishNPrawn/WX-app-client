@@ -25,21 +25,6 @@ Page({
     this.getCates();
     this.getFeaturedCard();
 
-    // 获取当前的地理位置、速度。
-    wx.getLocation({
-      type: 'wgs84',
-      success(res) {
-        const latitude = res.latitude //纬度
-        const longitude = res.longitude //经度
-        const speed = res.speed
-        const accuracy = res.accuracy
-        // console.log(latitude)
-        // console.log(longitude)
-        // console.log(speed)
-        // console.log(accuracy)
-      }
-    });
-
     // 底部导航栏购物车数量
     let cart = wx.getStorageSync('cart') || [];
     util.setTabBarBadgeNumber(cart);

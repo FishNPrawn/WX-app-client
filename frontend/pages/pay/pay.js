@@ -109,7 +109,6 @@ Page({
         promoCodeInputApplyOrNot: false
       })
     })
-
   },
 
   onShow(){
@@ -221,9 +220,7 @@ Page({
           showToast({title:"您已输入提交团长码折扣"});
         }  
       })
-    }
-
-    
+    } 
   },
 
   // 分享
@@ -282,7 +279,7 @@ Page({
    },
 
    //提交订单
-   submitOrder: function(e){
+   submitOrder: function(){
     wx.showLoading({title: '加载中', icon: 'loading', mask: true, duration:2000})
      var addressStorage = wx.getStorageSync('address')
      var deliver_or_not = this.data.deliver_or_not;
@@ -353,11 +350,6 @@ Page({
           const payment = res.result.payment 
           wx.requestPayment({
             ...payment,
-            timeStamp: '',
-            nonceStr: '',
-            package: '',
-            signType: 'MD5',
-            paySign: '',
             success (res) {
               // 支付成功 & 创建订单request
               wx.request({
