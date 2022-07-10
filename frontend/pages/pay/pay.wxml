@@ -165,7 +165,7 @@
   </view>
 </view>
 
-<view class="box7">
+<!-- <view class="box7">
   <view class="box7_box1">
     <text>优惠码</text>
   </view>
@@ -176,7 +176,7 @@
     <view>提交</view>
   </view>
   
-</view>
+</view> -->
 
 
 <view class="footer_tool">
